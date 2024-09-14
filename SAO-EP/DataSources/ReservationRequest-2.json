@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "8b759f50-3d99-49fd-9406-d855d14fa6f3",
+    "Name": "ReservationRequest-2",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "28acdcc7-a4d4-ee11-904d-002248ebb576"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "ab328be9-1d4d-473c-90cc-3b5ac61038de",
+    "Name": "SendOTP",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "2adf228e-52bb-ee11-9078-002248ec0826"
+  }
+]

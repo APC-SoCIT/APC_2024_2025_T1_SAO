@@ -1,0 +1,9 @@
+"'Refresher Tester' As screen":
+
+    Button2 As button:
+        OnSelect: =Navigate(Refresher);
+        Text: ="Button"
+        X: =680
+        Y: =450
+        ZIndex: =1
+

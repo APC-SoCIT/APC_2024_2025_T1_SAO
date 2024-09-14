@@ -1,0 +1,27 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "Loading Screen_1",
+    "TemplateGuid": "21010b25d70f49e68ff979b2d0bee65f"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638618885615203182",
+  "Name": "21010b25d70f49e68ff979b2d0bee65f",
+  "OverridableProperties": {},
+  "TemplateOriginalName": "3a1b6f29a8704cf2afb1757787e91aae",
+  "Version": "1.0"
+}

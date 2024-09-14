@@ -1,0 +1,65 @@
+Change As CanvasComponent:
+    BackgroundColor: =RGBA(12, 31, 52, 0.2)
+    Fill: =
+    ForegroundColor: |
+        =Color.Navy
+    Height: =45
+    SelectedItemBackgroundColor: =RGBA(25, 31, 52, 0.3)
+    SelectedItemForegroundColor: =Color.White
+    Width: |+
+        =1366/2.9
+        
+        
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Gallery5_1 As gallery.galleryHorizontal:
+        '#CopilotOverlayLabel': ="Filtered"
+        BorderColor: =RGBA(0, 0, 0, 1)
+        DelayItemLoading: =true
+        Height: =45
+        Items: |-
+            =Table(
+                {
+                    MenuText: "Home Screen",
+                    MenuIcon: Icon.Home,
+                    ScreenToGoTo: App.ActiveScreen
+                },
+                {
+                    MenuText: "Manage Account ",
+                    MenuIcon: Icon.Person
+                    ,
+                    ScreenToGoTo: App.ActiveScreen
+                }
+            )
+        LoadingSpinner: =LoadingSpinner.Data
+        OnSelect: |
+            =false
+        TemplateFill: =If(ThisItem.IsSelected, Change.SelectedItemBackgroundColor, Change.BackgroundColor)
+        TemplatePadding: =0
+        TemplateSize: |
+            =Self.Width /2
+        Width: |+
+            =1366/2.9
+            
+            
+            
+        ZIndex: =1
+
+        Label5_1 As label:
+            Align: =Align.Center
+            Color: =Change.ForegroundColor
+            Height: =29
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: =ThisItem.MenuText
+            Width: =127
+            X: =60
+            Y: =8
+            ZIndex: =2
+

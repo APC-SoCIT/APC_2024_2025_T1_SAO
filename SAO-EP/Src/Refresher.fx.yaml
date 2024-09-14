@@ -1,0 +1,23 @@
+Refresher As screen:
+    OnVisible: =Set(StartTime, true);
+
+    Timer2 As timer:
+        AutoPause: =false
+        AutoStart: =true
+        DisplayMode: =DisplayMode.View
+        Duration: =500
+        Height: =89
+        OnSelect: =
+        OnTimerEnd: =Back()
+        OnTimerStart: |-
+            =StartTime;
+            Set(Repeater, true);
+        Start: =true
+        Text: |-
+            =Text(Time(0, 0, Self.Value/1000), "hh:mm:s1")
+        Visible: =false
+        Width: =314
+        X: =508
+        Y: =284
+        ZIndex: =1
+

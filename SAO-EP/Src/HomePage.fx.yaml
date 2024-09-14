@@ -1,0 +1,200 @@
+HomePage As screen:
+    OnHidden: =
+    OnVisible: |-
+        =Set(CurrentUserOrg, LookUp(Organizations, ID = CurrentUser.userOrg.Id));
+        Set(VarPopUp, true);
+        
+        Set(CalDeets, ShowColumns('APF Uploads','Activity Title','Time of Activity','Target Date','Venue/Platform'));
+        
+        
+        If(
+            CurrentUser.userRoles.Value = "1",
+            Set(
+                gblNavItems,
+                Table(
+                    {
+                        MenuText: "Home Screen",
+                        MenuIcon: Icon.Home,
+                        ScreenToGoTo: HomePage
+                    },
+                    {
+                        MenuText: "Manage Account",
+                        MenuIcon: Icon.Person,
+                        ScreenToGoTo: 'S-ManageOrganizations'
+                    },
+                    {
+                        MenuText: "Manage APF",
+                        MenuIcon: Icon.Document,
+                        ScreenToGoTo: 'S-ManageAPF' 
+                    },
+                    {
+                        MenuText: "Manage Finance",
+                        MenuIcon: Icon.Money,
+                        ScreenToGoTo: 'View LR'
+                    },
+                    {
+                        MenuText: "Logout",
+                        MenuIcon: Icon.Leave,
+                        ScreenToGoTo: LoginPage
+                    }
+                )
+            ),
+        
+            CurrentUser.userRoles.Value = "4",
+              Set(
+                gblNavItems,
+                Table(
+                    {
+                        MenuText: "Home Screen",
+                        MenuIcon: Icon.Home,
+                        ScreenToGoTo: HomePage
+                    },
+                    {
+                        MenuText: "Manage Account",
+                        MenuIcon: Icon.Person,
+                        ScreenToGoTo: ManageAccount
+                    },
+                    {
+                        MenuText: "Logout",
+                        MenuIcon: Icon.Leave,
+                        ScreenToGoTo: LoginPage
+                    }
+                )
+            ),
+        
+            Set(
+                gblNavItems,
+                Table(
+                    {
+                        MenuText: "Home Screen",
+                        MenuIcon: Icon.Home,
+                        ScreenToGoTo: HomePage
+                    },
+                    {
+                        MenuText: "Manage Account",
+                        MenuIcon: Icon.Person,
+                        ScreenToGoTo: ManageAccount
+                    },
+                    {
+                        MenuText: "Manage APF",
+                        MenuIcon: Icon.Document,
+                        ScreenToGoTo: 'View APF' 
+                    },
+                    {
+                        MenuText: "Manage Finance",
+                        MenuIcon: Icon.Money,
+                        ScreenToGoTo: 'View LR'
+                    },
+                    {
+                        MenuText: "Logout",
+                        MenuIcon: Icon.Leave,
+                        ScreenToGoTo: LoginPage
+                    }
+                )
+            )
+        );
+        //test
+        UpdateContext({ShowToggle: false});
+
+    HP_Screen As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Regular
+        Height: =654
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =1326
+        X: =22
+        Y: =88
+        ZIndex: =3
+
+        CalendarComponent_3 As CalendarComponent_1:
+            CalendarItems: =CalDeets
+            SelectedDateFill: =RGBA(39, 113, 194, 1)
+            Y: =5
+
+        BtnViewLoE As button:
+            Fill: =RGBA(24, 32, 82, 1)
+            Height: =62
+            OnSelect: =Navigate('View Events')
+            Text: ="View List of Events"
+            Width: =398
+            X: =96
+            Y: =214
+            ZIndex: =2
+
+        Group3 As group:
+            Height: =5
+            Width: =5
+            X: =-224
+            Y: =-101
+            ZIndex: =5
+
+            SAO As label:
+                Align: =Align.Right
+                FontWeight: =FontWeight.Bold
+                Height: =43
+                Size: =25
+                Text: ="SAO"
+                Width: =80
+                X: =115
+                Y: =52
+                ZIndex: =3
+
+            EDMS As label:
+                Color: =RGBA(39, 113, 194, 1)
+                FontWeight: =FontWeight.Bold
+                Height: =43
+                Size: =25
+                Text: ="EVENTS PORTAL"
+                Width: =279
+                X: =195
+                Y: =52
+                ZIndex: =4
+
+    HP_HeaderContainer As groupContainer.horizontalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =59
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =1366
+        ZIndex: =6
+
+        HP_TSKBR As TSKBR:
+            LayoutMinHeight: =640
+            LayoutMinWidth: =640
+            NavigationItems: =gblNavItems
+
+    Toggle1_1 As toggleSwitch:
+        FalseText: ="All Orgs"
+        Height: =24
+        OnCheck: |-
+            =Set(
+                CalDeets,
+                Filter(
+                    ShowColumns(
+                        'APF Uploads',
+                        'Name of Lead Org',
+                        'Activity Title',
+                        'Time of Activity',
+                        'Target Date',
+                        'Venue/Platform'
+                    ),
+                    NameofLeadOrg = CurrentUserOrg.orgAcronym
+                )
+            );
+        OnUncheck: |
+            =Set(CalDeets, ShowColumns('APF Uploads','Activity Title','Time of Activity','Target Date','Venue/Platform'));
+        TrueFill: =RGBA(39, 113, 194, 1)
+        TrueText: ="Own Org"
+        Visible: |
+            =If(Or(CurrentUser.userRoles.Id = 1, CurrentUser.userRoles.Id = 4), false, true) 
+        Width: =132
+        X: =924
+        Y: =117
+        ZIndex: =8
+

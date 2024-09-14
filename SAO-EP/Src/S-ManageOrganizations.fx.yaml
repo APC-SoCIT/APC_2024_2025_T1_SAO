@@ -1,0 +1,1663 @@
+"'S-ManageOrganizations' As screen":
+    OnVisible: =Set(UserInfoFormVisibility, false);
+
+    HeaderContainer1_10 As groupContainer.horizontalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =59
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =1366
+        ZIndex: =1
+
+        TSKBR_16 As TSKBR_3:
+            LayoutMinHeight: =640
+            LayoutMinWidth: =640
+            NavigationItems: =gblNavItems
+
+    MAc_UserInfo_2 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Regular
+        Height: =670
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =450
+        X: =24
+        Y: =81
+        ZIndex: =2
+
+        MAc_AccountInfo_6 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Size: =18
+            Text: ="Account Information"
+            Width: =372
+            X: =38
+            Y: =67
+            ZIndex: =1
+
+        MAc_FullName_2 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            Height: |
+                =38
+            Size: =15
+            Text: =Concatenate(CurrentUser.userFirstName, " ", CurrentUser.userLastName)
+            Width: =430
+            X: =10
+            Y: =354
+            ZIndex: =2
+
+        MAc_Email_2 As label:
+            Align: =Align.Center
+            Height: =38
+            Italic: =true
+            Size: =15
+            Text: =CurrentUser.userEmail
+            Width: =430
+            X: =10
+            Y: =392
+            ZIndex: =3
+
+        Divider_5 As rectangle:
+            Fill: =RGBA(217, 215, 215, 1)
+            Height: =2
+            Width: =450
+            Y: =262
+            ZIndex: =5
+
+        Image2_2 As image:
+            Height: =194
+            Image: =Office365Users.UserPhotoV2(CurrentUser.userEmail)
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: =50
+            RadiusTopRight: =50
+            Width: =203
+            X: =123
+            Y: =150
+            ZIndex: =6
+
+        MAc_OrgAlias_2 As label:
+            Align: =Align.Center
+            Height: |
+                =38
+            Size: =15
+            Text: ="SAO"
+            Width: =430
+            X: =10
+            Y: =430
+            ZIndex: =7
+
+        MAc_ChangePassBtn_1 As button:
+            Fill: =RGBA(24, 32, 82, 1)
+            Height: =58
+            HoverFill: =RGBA(39, 113, 194, 1)
+            OnSelect: =Set(showFP, true)
+            Text: ="Change Password"
+            Width: =246
+            X: =101
+            Y: =520
+            ZIndex: =8
+
+        OTPExpiry_2 As timer:
+            AutoStart: =StartOTPTime
+            Duration: =900000
+            OnTimerEnd: |-
+                =Set(OTPvar, Blank());
+                Notify("OTP has been reset",NotificationType.Error)
+                //add reset timer
+            Visible: =false
+            Y: =630
+            ZIndex: =16
+
+        Group7_1 As group:
+            Height: =5
+            Width: =5
+            X: =60
+            Y: =60
+            ZIndex: =17
+
+            FP_BG_2 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderThickness: =2
+                Fill: =RGBA(24, 32, 82, 1)
+                Height: =658
+                Visible: =showFP
+                Width: =450
+                ZIndex: =9
+
+            FP_Exit_2 As icon.CancelBadge:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =49
+                Icon: =Icon.CancelBadge
+                OnSelect: =Set(showFP,false)
+                Visible: =showFP
+                Width: =48
+                X: =383
+                Y: =27
+                ZIndex: =10
+
+            Lbl_ForgotPass_2 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Bold
+                Height: =105
+                Size: =32
+                Text: ="Change Password"
+                Visible: =showFP
+                Width: =335
+                X: =57
+                Y: =111
+                ZIndex: =11
+
+            TI_FPOTP_2 As text:
+                Color: =RGBA(0, 0, 0, 0.66)
+                Default: =
+                Height: =45
+                HintText: ="Enter OTP Here"
+                RadiusBottomLeft: =10
+                RadiusBottomRight: =10
+                RadiusTopLeft: =10
+                RadiusTopRight: =10
+                Visible: =showFP
+                Width: =335
+                X: =56
+                Y: =457
+                ZIndex: =12
+
+            Btn_SendOTP_2 As button:
+                Height: =45
+                OnSelect: |-
+                    =If(passVal_1.Text = passVerify_1.Text,
+                        If(
+                            TI_FPOTP_2.Text = Text(OTPvar),
+                            SubmitForm(ChangePass);
+                            HashPassword.Run(CurrentUser.ID, passVal_1.Text,"changePass");
+                            Notify("Password has been changed"),
+                            Notify("That is the wrong OTP")
+                        ),
+                        Notify("Your Passwords does not match");
+                    )
+                Text: ="Submit"
+                Visible: =showFP
+                Width: =101
+                X: =291
+                Y: =457
+                ZIndex: =13
+
+            Btn_SendFPEmail_2 As button:
+                Height: =43
+                OnSelect: |-
+                    =Set(OTPvar,RandBetween(0,999999));
+                    SendOTP.Run(CurrentUser.userEmail,OTPvar); 
+                    Notify("An Email has been sent to you");
+                    Set(StartOTPTime, true)
+                Text: ="Verify User"
+                Visible: =showFP
+                Width: =335
+                X: =57
+                Y: =401
+                ZIndex: =14
+
+            ChangePass_1 As form:
+                DataSource: =Users
+                Height: =140
+                Item: =CurrentUser
+                Visible: =showFP
+                Width: =412
+                X: =19
+                Y: =243
+                ZIndex: =15
+
+                userPassword_DataCard1_2 As typedDataCard.textualEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="field_4"
+                    Default: =ThisItem.userPassword
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,userPassword)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =127
+                    MaxLength: =DataSourceInfo([@Users], DataSourceInfo.MaxLength, userPassword)
+                    Required: =false
+                    Update: =passVal_1.Text
+                    Width: =411
+                    X: =0
+                    Y: =0
+                    ZIndex: =4
+
+                    DataCardKey5_7 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(255, 255, 255, 1)
+                        Height: =34
+                        Text: |-
+                            ="Enter New Pass:"
+                        Width: =(Parent.Width - 60) * 0.4
+                        Wrap: =false
+                        Y: =13
+                        ZIndex: =1
+
+                    passVal_1 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        MaxLength: =Parent.MaxLength
+                        Mode: =TextMode.Password
+                        Tooltip: =Parent.DisplayName
+                        Width: =260
+                        X: =150
+                        Y: =9
+                        ZIndex: =2
+
+                    ErrorMessage5_6 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =passVal_1.Y + passVal_1.Height
+                        ZIndex: =3
+
+                    StarVisible5_6 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey5_7.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey5_7.Y
+                        ZIndex: =4
+
+                    passVerify_1 As text:
+                        Default: =
+                        Mode: =TextMode.Password
+                        Width: =261
+                        X: =150
+                        Y: =59
+                        ZIndex: =5
+
+                    DataCardKey5_8 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(255, 255, 255, 1)
+                        Height: =34
+                        Text: |-
+                            ="Re-enter Pass:"
+                        Width: =(Parent.Width - 60) * 0.4
+                        Wrap: =false
+                        Y: =62
+                        ZIndex: =6
+
+    Container2_1 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Regular
+        Height: =670
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =851
+        X: =495
+        Y: =81
+        ZIndex: =3
+
+        AddUserIcon_1 As icon.AddUser:
+            Height: =37
+            HoverColor: |
+                =RGBA(39, 113, 194, 1)
+            Icon: =Icon.AddUser
+            OnSelect: |-
+                =Set(UserInfoFormVisibility, true);
+                Set(FormAction, "addItem");
+                //NewForm(UsersForm); UpdateContext({newMode:true});
+            Width: =44
+            X: =244
+            Y: =167
+            ZIndex: =9
+
+        "'View Organizations_1' As group":
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =9
+
+            OrgSelector_1 As dropdown:
+                Default: ="JISSA"
+                Height: =48
+                Items: =Organizations
+                Size: =16
+                Width: =308
+                X: =40
+                Y: =90
+                ZIndex: =1
+
+            MAc_AccountInfo_7 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Semibold
+                Height: =54
+                Size: =20
+                Text: |-
+                    ="Select an Organization:"
+                Width: =308
+                X: =40
+                Y: =36
+                ZIndex: =2
+
+            "OrgUsers_1 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver5.0'":
+                '#CopilotOverlayLabel': ="Filtered"
+                DelayItemLoading: =true
+                Height: =217
+                Items: |-
+                    =//Filter(Organizations, orgAcronym = Dropdown3.SelectedText.Value)
+                    Filter(Users, userOrg.Value = OrgIDGetter.Text)
+                LoadingSpinner: =LoadingSpinner.Data
+                OnSelect: =
+                TemplatePadding: =0
+                TemplateSize: =312
+                Width: =798
+                X: =40
+                Y: =213
+                ZIndex: =3
+
+                Image5_1 As image:
+                    Image: =Office365Users.UserPhotoV2(ThisItem.userEmail)
+                    ImagePosition: =ImagePosition.Fill
+                    OnSelect: =Select(Parent)
+                    RadiusBottomLeft: =8
+                    RadiusBottomRight: =8
+                    RadiusTopLeft: =8
+                    RadiusTopRight: =8
+                    X: =32
+                    Y: =40
+                    ZIndex: =1
+
+                Title2_1 As label:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    Color: =RGBA(71, 69, 64, 1)
+                    DisabledColor: =RGBA(186, 186, 186, 1)
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =Self.Size * 1.8
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =14
+                    Text: =ThisItem.userPerson.DisplayName
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.TemplateWidth - 64
+                    X: =32
+                    Y: =Image5_1.Y + Image5_1.Height + 16
+                    ZIndex: =2
+
+                Subtitle2_1 As label:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    Color: =RGBA(71, 69, 64, 1)
+                    DisabledColor: =RGBA(186, 186, 186, 1)
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =Self.Size * 1.8
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =12
+                    Text: =ThisItem.userEmail
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Title2_1.Width
+                    X: =Title2_1.X
+                    Y: =177
+                    ZIndex: =3
+
+                Rectangle5 As rectangle:
+                    BorderColor: =RGBA(202, 202, 202, 1)
+                    BorderThickness: =2
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =210
+                    OnSelect: =Select(Parent)
+                    Width: =309
+                    X: =1
+                    Y: =7
+                    ZIndex: =5
+
+                Icon2 As icon.Erase:
+                    Height: =43
+                    HoverColor: =RGBA(39, 113, 194, 1)
+                    Icon: =Icon.Erase
+                    OnSelect: =Remove(Users,OrgUsers_1.Selected)
+                    Width: =43
+                    X: =252
+                    Y: =47
+                    ZIndex: =8
+
+                EditUserIcon As group:
+                    Height: =5
+                    Width: =5
+                    X: =-196
+                    Y: =-176
+                    ZIndex: =8
+
+                    Icon4 As icon.Person:
+                        Height: =50
+                        HoverColor: =RGBA(39, 113, 194, 1)
+                        Icon: =Icon.Person
+                        OnSelect: |
+                            =Set(UserInfoFormVisibility, true);
+                            Set(FormAction, "editItem");
+                        Width: =50
+                        X: =191
+                        Y: =43
+                        ZIndex: =6
+
+                    Icon3 As icon.Edit:
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =20
+                        HoverColor: =RGBA(39, 113, 194, 1)
+                        Icon: =Icon.Edit
+                        OnSelect: |
+                            =Set(UserInfoFormVisibility, true);
+                            Set(FormAction, "editItem");
+                        Width: =20
+                        X: =221
+                        Y: =74
+                        ZIndex: =7
+
+            MAc_AccountInfo_8 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =54
+                Size: =18
+                Text: |-
+                    ="Manage Access:"
+                Width: =308
+                X: =40
+                Y: =159
+                ZIndex: =4
+
+            Divider_6 As rectangle:
+                Fill: =RGBA(217, 215, 215, 1)
+                Height: =2
+                Width: =491
+                X: =360
+                Y: =62
+                ZIndex: =6
+
+            Divider_8 As rectangle:
+                Fill: =RGBA(217, 215, 215, 1)
+                Height: =2
+                Width: =491
+                X: =360
+                Y: =482
+                ZIndex: =8
+
+        OrgIDGetter As label:
+            Text: =LookUp(Organizations, orgAcronym = OrgSelector_1.SelectedText.Value, ID)
+            Visible: =false
+            X: =404
+            Y: =94
+            ZIndex: =10
+
+        Divider_7 As rectangle:
+            Fill: =RGBA(217, 215, 215, 1)
+            Height: =2
+            Width: =491
+            X: =360
+            Y: =184
+            ZIndex: =11
+
+        Icon10 As icon.Add:
+            Height: =48
+            HoverColor: =RGBA(39, 113, 194, 1)
+            Icon: =Icon.Add
+            OnSelect: =Set(addNewOrg, true);
+            Width: =48
+            X: =360
+            Y: =89
+            ZIndex: =16
+
+        Group6 As group:
+            Height: =5
+            Width: =5
+            X: =60
+            Y: =60
+            ZIndex: =16
+
+            Form2 As form:
+                DataSource: =Organizations
+                Height: =132
+                Item: =OrgSelector_1.Selected
+                NumberOfColumns: =1
+                Width: =484
+                X: =70
+                Y: =528
+                ZIndex: =12
+
+                orgStatus_DataCard1 As typedDataCard.comboBoxEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="orgStatus"
+                    Default: =ThisItem.orgStatus
+                    DisplayMode: =If(EditOrgStatus, DisplayMode.Edit, DisplayMode.View)
+                    DisplayName: =DataSourceInfo([@Organizations],DataSourceInfo.DisplayName,orgStatus)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue19.Selected
+                    Width: =484
+                    X: =0
+                    Y: =0
+                    ZIndex: =10
+
+                    DataCardKey19 As label:
+                        AutoHeight: =true
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =(Parent.Width - 60) * 0.4
+                        Wrap: =false
+                        X: =30
+                        Y: =16
+                        ZIndex: =1
+
+                    DataCardValue19 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Items: =Choices([@Organizations].orgStatus)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices(Organizations.orgStatus,DataCardValue19.SearchText)
+                        SelectMultiple: =false
+                        Tooltip: =Parent.DisplayName
+                        Width: =264
+                        X: =180
+                        Y: =9
+                        ZIndex: =2
+
+                    ErrorMessage19 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue19.Y + DataCardValue19.Height
+                        ZIndex: =3
+
+                    StarVisible19 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey19.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey19.Y
+                        ZIndex: =4
+
+                orgType_DataCard1 As typedDataCard.comboBoxEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="orgType"
+                    Default: =ThisItem.orgType
+                    DisplayMode: =If(EditOrgStatus, DisplayMode.Edit, DisplayMode.View)
+                    DisplayName: =DataSourceInfo([@Organizations],DataSourceInfo.DisplayName,orgType)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =54
+                    Required: =false
+                    Update: =DataCardValue20.Selected
+                    Width: =484
+                    X: =0
+                    Y: =1
+                    ZIndex: =10
+
+                    DataCardKey20 As label:
+                        AutoHeight: =true
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =(Parent.Width - 60) * 0.4
+                        Wrap: =false
+                        X: =30
+                        Y: =10 + (DataCardValue20.Height / 2) - (Self.Height / 2)
+                        ZIndex: =1
+
+                    DataCardValue20 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Items: =Choices([@Organizations].orgType)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices(Organizations.orgType,DataCardValue20.SearchText)
+                        SelectMultiple: =false
+                        Tooltip: =Parent.DisplayName
+                        Width: =264
+                        X: =180
+                        Y: =13
+                        ZIndex: =2
+
+                    ErrorMessage20 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue20.Y + DataCardValue20.Height
+                        ZIndex: =3
+
+                    StarVisible20 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey20.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey20.Y
+                        ZIndex: =4
+
+            Icon5 As icon.Edit:
+                Height: =30
+                HoverColor: =RGBA(39, 113, 194, 1)
+                Icon: =Icon.Edit
+                OnSelect: =Set(EditOrgStatus, true)
+                Width: =30
+                X: =261
+                Y: =480
+                ZIndex: =13
+
+            Icon1 As icon.Save:
+                Height: =30
+                HoverColor: =RGBA(39, 113, 194, 1)
+                Icon: =Icon.Save
+                OnSelect: |-
+                    =SubmitForm(Form2);
+                    Set(EditOrgStatus,false);
+                Visible: =EditOrgStatus
+                Width: =30
+                X: =297
+                Y: =480
+                ZIndex: =14
+
+            MAc_AccountInfo_9 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =54
+                Size: =18
+                Text: |-
+                    ="Manage Status:"
+                Width: =195
+                X: =50
+                Y: =468
+                ZIndex: =15
+
+        "'Add Organization' As group":
+            Height: =5
+            Width: =5
+            X: =60
+            Y: =60
+            ZIndex: =21
+
+            Rectangle8 As rectangle:
+                Height: =511
+                Visible: =addNewOrg
+                Width: =811
+                X: =
+                Y: =159
+                ZIndex: =17
+
+            addOrgForm As form:
+                DataSource: =Organizations
+                DefaultMode: =FormMode.New
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =510
+                NumberOfColumns: =2
+                Visible: =addNewOrg
+                Width: =752
+                Y: =160
+                ZIndex: =18
+
+                orgName_DataCard1 As typedDataCard.textualEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="orgName0"
+                    Default: =ThisItem.orgAcronym
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Organizations],DataSourceInfo.DisplayName,'orgName (orgName0)')
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@Organizations], DataSourceInfo.MaxLength, 'orgName (orgName0)')
+                    Required: =false
+                    Update: =orgNameValue.Text
+                    Width: =376
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey2 As label:
+                        AutoHeight: =true
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =42
+                        Y: =10
+                        ZIndex: =1
+
+                    orgNameValue As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =42
+                        Y: =49
+                        ZIndex: =2
+
+                    ErrorMessage2 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =42
+                        Y: =89
+                        ZIndex: =3
+
+                    StarVisible2 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey2.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        X: =12
+                        Y: =10
+                        ZIndex: =4
+
+                orgAcronym_DataCard1 As typedDataCard.textualEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="orgAcronym"
+                    Default: =ThisItem.orgAcronym
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Organizations],DataSourceInfo.DisplayName,orgAcronym)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@Organizations], DataSourceInfo.MaxLength, orgAcronym)
+                    Required: =false
+                    Update: =orgAcroValue.Text
+                    Width: =376
+                    X: =1
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey7 As label:
+                        AutoHeight: =true
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    orgAcroValue As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage7 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =orgAcroValue.Y + orgAcroValue.Height
+                        ZIndex: =3
+
+                    StarVisible7 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey7.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey7.Y
+                        ZIndex: =4
+
+                orgDesc_DataCard1 As typedDataCard.textualEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="orgDesc"
+                    Default: =ThisItem.orgDesc
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Organizations],DataSourceInfo.DisplayName,orgDesc)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@Organizations], DataSourceInfo.MaxLength, orgDesc)
+                    Required: =false
+                    Update: =orgDescVal.Text
+                    Width: =376
+                    X: =0
+                    Y: =1
+                    ZIndex: =10
+
+                    DataCardKey8 As label:
+                        AutoHeight: =true
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =42
+                        Y: =10
+                        ZIndex: =1
+
+                    orgDescVal As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =90
+                        MaxLength: =Parent.MaxLength
+                        Mode: =TextMode.MultiLine
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =42
+                        Y: =DataCardKey8.Y + DataCardKey8.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage8 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =42
+                        Y: =orgDescVal.Y + orgDescVal.Height
+                        ZIndex: =3
+
+                    StarVisible8 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey8.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        X: =12
+                        Y: =DataCardKey8.Y
+                        ZIndex: =4
+
+                orgType_DataCard2 As typedDataCard.comboBoxEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="orgType"
+                    Default: =ThisItem.orgType
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Organizations],DataSourceInfo.DisplayName,orgType)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =orgTypeValue.Selected
+                    Width: =376
+                    X: =1
+                    Y: =1
+                    ZIndex: =10
+
+                    DataCardKey11 As label:
+                        AutoHeight: =true
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    orgTypeValue As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Items: =Choices([@Organizations].orgType)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices(Organizations.orgType,orgTypeValue.SearchText)
+                        SelectMultiple: =false
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey11.Y + DataCardKey11.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage11 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =orgTypeValue.Y + orgTypeValue.Height
+                        ZIndex: =3
+
+                    StarVisible11 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey11.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey11.Y
+                        ZIndex: =4
+
+                orgBaseBudget_DataCard1 As typedDataCard.numberEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="orgBaseBudget"
+                    Default: =ThisItem.orgBaseBudget
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Organizations],DataSourceInfo.DisplayName,orgBaseBudget)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =Value(orgBaseBudgetVal.Text)
+                    Width: =376
+                    X: =0
+                    Y: =2
+                    ZIndex: =10
+
+                    DataCardKey13 As label:
+                        AutoHeight: =true
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =42
+                        Y: =10
+                        ZIndex: =1
+
+                    orgBaseBudgetVal As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Format: =TextFormat.Number
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =42
+                        Y: =DataCardKey13.Y + DataCardKey13.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage13 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =42
+                        Y: =orgBaseBudgetVal.Y + orgBaseBudgetVal.Height
+                        ZIndex: =3
+
+                    StarVisible13 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey13.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        X: =12
+                        Y: =DataCardKey13.Y
+                        ZIndex: =4
+
+                orgStatus_DataCard2 As typedDataCard.comboBoxEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="orgStatus"
+                    Default: =ThisItem.orgStatus
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Organizations],DataSourceInfo.DisplayName,orgStatus)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =orgStatusValue.Selected
+                    Width: =376
+                    X: =1
+                    Y: =2
+                    ZIndex: =10
+
+                    DataCardKey10 As label:
+                        AutoHeight: =true
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    orgStatusValue As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Items: =Choices([@Organizations].orgStatus)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices(Organizations.orgStatus,orgStatusValue.SearchText)
+                        SelectMultiple: =false
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey10.Y + DataCardKey10.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage10 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =orgStatusValue.Y + orgStatusValue.Height
+                        ZIndex: =3
+
+                    StarVisible10 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey10.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey10.Y
+                        ZIndex: =4
+
+            Icon11 As icon.CancelBadge:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =47
+                Icon: =Icon.CancelBadge
+                OnSelect: =Set(addNewOrg, false);
+                Visible: =addNewOrg
+                Width: =47
+                X: =753
+                Y: =184
+                ZIndex: =19
+
+            Button1 As button:
+                OnSelect: |-
+                    =Collect(Organizations,{
+                      'orgName (orgName0)': orgNameValue.Text,
+                      orgAcronym: orgAcroValue.Text,
+                      orgDesc: orgDescVal.Text,
+                      orgStatus: orgStatusValue.Selected,
+                      orgType: orgTypeValue.Selected,
+                      orgBaseBudget: Value(orgBaseBudgetVal.Text)
+                    });
+                    Notify("Organization has been added");
+                    ResetForm(addOrgForm);
+                Text: ="Submit"
+                Visible: =addNewOrg
+                X: =554
+                Y: =544
+                ZIndex: =20
+
+    Group2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =9
+
+        Rectangle8_1 As rectangle:
+            BorderThickness: =3
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =540
+            Visible: =UserInfoFormVisibility
+            Width: =843
+            X: =523
+            Y: =165
+            ZIndex: =4
+
+        UsersForm_1 As form:
+            DataSource: =Users
+            DefaultMode: |-
+                =Switch(FormAction, 
+                    "addItem",FormMode.New,
+                    "editItem",FormMode.Edit
+                )
+            Fill: =Color.White
+            Height: =439
+            Item: =OrgUsers_1.Selected
+            NumberOfColumns: =1
+            Visible: =UserInfoFormVisibility
+            Width: =808
+            X: =538
+            Y: =250
+            ZIndex: =5
+
+            userPerson_DataCard2_1 As typedDataCard.comboBoxEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="userPerson"
+                Default: =OrgUsers_1.Selected.userPerson
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,userPerson)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =0
+                Required: =false
+                Update: =userPersonVal_1.Selected
+                Width: =808
+                WidthFit: =false
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey19_1 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =(Parent.Width - 60) * 0.4
+                    Wrap: =false
+                    X: =30
+                    Y: =10 + (userPersonVal_1.Height / 2) - (Self.Height / 2)
+                    ZIndex: =2
+
+                ErrorMessage19_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =userPersonVal_1.Y + userPersonVal_1.Height
+                    ZIndex: =3
+
+                StarVisible19_1 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey19_1.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey19_1.Y
+                    ZIndex: =4
+
+                userPersonVal_1 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    ChevronBackground: =RGBA(245, 245, 245, 1)
+                    ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
+                    ChevronDisabledFill: =RGBA(161, 159, 157, 1)
+                    ChevronFill: =RGBA(50, 49, 48, 1)
+                    ChevronHoverBackground: =RGBA(245, 245, 245, 1)
+                    ChevronHoverFill: =RGBA(50, 49, 48, 1)
+                    Color: =RGBA(50, 49, 48, 1)
+                    DefaultSelectedItems: =Parent.Default
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(161, 159, 157, 1)
+                    DisabledFill: =RGBA(242, 242, 241, 0)
+                    DisplayFields: =["DisplayName","Email","Picture"]
+                    DisplayMode: |-
+                        =Switch(FormAction,
+                            "addItem", DisplayMode.Edit,
+                            "editItem", DisplayMode.View
+                        )
+                    Fill: =RGBA(245, 245, 245, 1)
+                    Font: =Font.'Segoe UI'
+                    HoverBorderColor: =RGBA(16, 110, 190, 1)
+                    HoverColor: =RGBA(50, 49, 48, 1)
+                    HoverFill: =RGBA(245, 245, 245, 1)
+                    Items: =Choices([@Users].userPerson)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PressedBorderColor: =RGBA(16, 110, 190, 1)
+                    PressedFill: =RGBA(0, 120, 212, 1)
+                    SearchFields: =["DisplayName"]
+                    SearchItems: =Choices(Users.userPerson,userPersonVal_1.SearchText)
+                    SelectionFill: =RGBA(0, 120, 212, 1)
+                    SelectMultiple: =false
+                    Template: =ListItemTemplate.Person
+                    Tooltip: =Parent.DisplayName
+                    Width: =454
+                    X: =324
+                    Y: =7
+                    ZIndex: =5
+
+            userFirstName_DataCard2_1 As typedDataCard.textualViewCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="field_1"
+                Default: =ThisItem.userFirstName
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,userFirstName)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =808
+                X: =0
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey26_1 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =(Parent.Width - 60) * 0.4
+                    Wrap: =false
+                    X: =30
+                    Y: =10 + (userFNameValue_1.Height / 2) - (Self.Height / 2)
+                    ZIndex: =2
+
+                userFNameValue_1 As label:
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =21
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: |-
+                        =Switch(FormAction, 
+                            "addItem", First(Split(userPersonVal_1.Selected.DisplayName, " ").Value).Value,
+                            "editItem", ThisItem.userFirstName
+                        )
+                    Width: =(Parent.Width - 60) * 0.6
+                    X: =DataCardKey26_1.X + DataCardKey26_1.Width
+                    Y: =10
+                    ZIndex: =3
+
+            userLastName_DataCard2_1 As typedDataCard.textualViewCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="field_2"
+                Default: =ThisItem.userLastName
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,userLastName)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =808
+                X: =0
+                Y: =2
+                ZIndex: =1
+
+                DataCardKey27_1 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =(Parent.Width - 60) * 0.4
+                    Wrap: =false
+                    X: =30
+                    Y: =10 + (userLNameValue_1.Height / 2) - (Self.Height / 2)
+                    ZIndex: =2
+
+                userLNameValue_1 As label:
+                    AutoHeight: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: |-
+                        =Switch(FormAction, 
+                            "addItem", Last(Split(userPersonVal_1.Selected.DisplayName, " ").Value).Value,
+                            "editItem", ThisItem.userLastName
+                        )
+                    Width: =(Parent.Width - 60) * 0.6
+                    X: =DataCardKey27_1.X + DataCardKey27_1.Width
+                    Y: =10
+                    ZIndex: =3
+
+            userOrg_DataCard1_1 As typedDataCard.comboBoxEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="userOrganization"
+                Default: =ThisItem.userOrg
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,userOrg)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =userOrgVal_1.Selected
+                Width: =808
+                X: =0
+                Y: =4
+                ZIndex: =1
+
+                DataCardKey33_1 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =(Parent.Width - 60) * 0.4
+                    Wrap: =false
+                    X: =30
+                    Y: =10 + (userOrgVal_1.Height / 2) - (Self.Height / 2)
+                    ZIndex: =2
+
+                userOrgVal_1 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DefaultSelectedItems: =Parent.Default
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    InputTextPlaceholder: ="Find ID"
+                    Items: =Choices([@Users].userOrg)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =Choices(Users.userOrg,userOrgVal_1.SearchText)
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =(Parent.Width - 60) * 0.15
+                    X: =422
+                    Y: =6
+                    ZIndex: =3
+
+                ErrorMessage31_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =userOrgVal_1.Y + userOrgVal_1.Height
+                    ZIndex: =4
+
+                StarVisible31_1 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey33_1.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey33_1.Y
+                    ZIndex: =5
+
+                OrgName_1 As label:
+                    Text: =LookUp(Organizations,ID = userOrgVal_1.Selected.Id, orgAcronym)
+                    Width: =79
+                    X: =329
+                    Y: =6
+                    ZIndex: =6
+
+            userRoles_DataCard1_1 As typedDataCard.comboBoxEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Roles"
+                Default: =ThisItem.userRoles
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,userRoles)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =userRoleVal_1.Selected
+                Width: =808
+                X: =0
+                Y: =3
+                ZIndex: =11
+
+                DataCardKey22_1 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =(Parent.Width - 60) * 0.4
+                    Wrap: =false
+                    X: =30
+                    Y: =10 + (userRoleVal_1.Height / 2) - (Self.Height / 2)
+                    ZIndex: =2
+
+                userRoleVal_1 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DefaultSelectedItems: =Parent.Default
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =34
+                    IsSearchable: =false
+                    Items: =Choices([@Users].userRoles)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Tooltip: =Parent.DisplayName
+                    Width: =(Parent.Width - 60) * 0.15
+                    X: =422
+                    Y: =14
+                    ZIndex: =3
+
+                ErrorMessage22_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =userRoleVal_1.Y + userRoleVal_1.Height
+                    ZIndex: =4
+
+                StarVisible22_1 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey22_1.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey22_1.Y
+                    ZIndex: =5
+
+                OrgName_2 As label:
+                    Text: =LookUp(Roles,roleID = userRoleVal_1.Selected.Value,roleName)
+                    Width: =153
+                    X: =329
+                    Y: =14
+                    ZIndex: =6
+
+            userPassword_DataCard1_1 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="field_4"
+                Default: =ThisItem.userPassword
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,userPassword)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Users], DataSourceInfo.MaxLength, userPassword)
+                Required: =false
+                Update: =userPassVal_1.Text
+                Visible: |-
+                    =Switch(FormAction,
+                        "addItem", true,
+                        "editItem", false
+                    )
+                Width: =808
+                X: =0
+                Y: =5
+                ZIndex: =11
+
+                DataCardKey20_1 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =(Parent.Width - 60) * 0.4
+                    Wrap: =false
+                    X: =30
+                    Y: =10 + (userPassVal_1.Height / 2) - (Self.Height / 2)
+                    ZIndex: =2
+
+                userPassVal_1 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    Mode: =TextMode.Password
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =(Parent.Width - 60) * 0.6
+                    X: =DataCardKey20_1.X + DataCardKey20_1.Width
+                    Y: =10
+                    ZIndex: =3
+
+                ErrorMessage20_1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =userPassVal_1.Y + userPassVal_1.Height
+                    ZIndex: =4
+
+                StarVisible20_1 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey20_1.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey20_1.Y
+                    ZIndex: =5
+
+        Label5_2 As label:
+            BorderThickness: =
+            Color: =RGBA(24, 32, 82, 1)
+            Fill: =Color.White
+            FontWeight: =FontWeight.Bold
+            Height: =56
+            Size: =32
+            Text: |-
+                =Switch(FormAction, 
+                    "addItem","Add User",
+                    "editItem","Edit User"
+                )
+            Visible: =UserInfoFormVisibility
+            Width: =252
+            X: =570
+            Y: =180
+            ZIndex: =6
+
+        CloseIcon_1 As icon.CancelBadge:
+            BorderThickness: =
+            Fill: =Color.White
+            Height: =56
+            Icon: =Icon.CancelBadge
+            OnSelect: |-
+                =Set(UserInfoFormVisibility,false);
+                Set(FormAction, Blank());
+            Visible: =UserInfoFormVisibility
+            Width: =34
+            X: =1312
+            Y: =180
+            ZIndex: =7
+
+        SubmitBtn_1 As button:
+            BorderThickness: =1
+            Color: =RGBA(0, 18, 107, 1)
+            Fill: =Color.White
+            Height: =43
+            OnSelect: |
+                =Switch(FormAction,
+                    "addItem", 
+                   // Set(GetHash, HashPassword.Run(0,userPassVal_1.Text,"newPass"));
+                    Collect(Users,{
+                        userPerson:userPersonVal_1.Selected,
+                        userFirstName: userFNameValue_1.Text,
+                        userLastName: userLNameValue_1.Text,
+                        userEmail: userPersonVal_1.Selected.Email, 
+                        userRoles: userRoleVal_1.Selected,
+                        userOrg: userOrgVal_1.Selected,
+                  //    userPassword: GetHash.hashpass,
+                        hidpass: userPassVal_1.Text
+                        }),
+                    "editItem", SubmitForm(UsersForm_1)
+                );
+                
+                ResetForm(UsersForm_1);
+                Set(FormAction, Blank());
+            PressedFill: =RGBA(0, 18, 107, 1)
+            Text: ="Submit"
+            Visible: =UserInfoFormVisibility
+            X: =1152
+            Y: =630
+            ZIndex: =8
+

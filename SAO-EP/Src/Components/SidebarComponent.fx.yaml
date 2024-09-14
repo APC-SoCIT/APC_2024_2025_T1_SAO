@@ -1,0 +1,24 @@
+SidebarComponent As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =Max(App.Height, App.MinScreenHeight)
+    Width: =60
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Container3 As groupContainer.verticalAutoLayoutContainer:
+        Height: =768
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =60
+        ZIndex: =1
+
+        Image6 As image:
+            AlignInContainer: =AlignInContainer.Center
+            BorderColor: =App.Theme.Colors.Darker40
+            FillPortions: =2
+            Width: =30
+            ZIndex: =1
+

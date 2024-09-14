@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "cf5454cd-c842-4536-945f-694cc5ad4ddc",
+    "Name": "SAOEMS_LR_Flow",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "54e8a962-50cb-ee11-9079-002248ec0826"
+  }
+]

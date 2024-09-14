@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "86cf8bc0-dfdc-4afa-a719-589f40a7161e",
+    "Name": "SendReservationEmail",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "a56d0514-cbd3-ee11-904d-002248ebb576"
+  }
+]

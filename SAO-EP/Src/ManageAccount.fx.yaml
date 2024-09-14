@@ -1,0 +1,491 @@
+ManageAccount As screen:
+
+    HeaderContainer1_4 As groupContainer.horizontalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =60
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =1366
+        ZIndex: =1
+
+        TSKBR_11 As TSKBR:
+            LayoutMinHeight: =640
+            LayoutMinWidth: =640
+            NavigationItems: =gblNavItems
+
+    BodyContainer As groupContainer.manualLayoutContainer:
+        Height: =696
+        Width: =1366
+        Y: =72
+        ZIndex: =2
+
+        MAc_UserInfo As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Regular
+            Height: =670
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =540
+            X: =15
+            Y: =12
+            ZIndex: =1
+
+            MAc_AccountInfo As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                Size: =18
+                Text: ="Account Information"
+                Width: =372
+                X: =77
+                Y: =63
+                ZIndex: =1
+
+            MAc_FullName As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Semibold
+                Height: |
+                    =38
+                Size: =15
+                Text: =Concatenate(CurrentUser.userFirstName, " ", CurrentUser.userLastName)
+                Width: =430
+                X: =48
+                Y: =336
+                ZIndex: =2
+
+            MAc_Email As label:
+                Align: =Align.Center
+                Height: =38
+                Italic: =true
+                Size: =15
+                Text: =CurrentUser.userEmail
+                Width: =430
+                X: =55
+                Y: =374
+                ZIndex: =3
+
+            MAc_ChangePassBtn As button:
+                Height: =58
+                OnSelect: =Set(showFP, true)
+                Text: ="Change Password"
+                Width: =246
+                X: =140
+                Y: =502
+                ZIndex: =4
+
+            Divider As rectangle:
+                Fill: =RGBA(217, 215, 215, 1)
+                Height: =2
+                Width: =540
+                Y: =262
+                ZIndex: =5
+
+            Image2 As image:
+                Height: =194
+                Image: =Office365Users.UserPhotoV2(CurrentUser.userEmail)
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                Width: =203
+                X: =161
+                Y: =122
+                ZIndex: =6
+
+            MAc_OrgAlias As label:
+                Align: =Align.Center
+                Height: |
+                    =38
+                Size: =15
+                Text: =CurrentUserOrg.orgAcronym
+                Width: =430
+                X: =47
+                Y: =412
+                ZIndex: =7
+
+            OTPExpiry_1 As timer:
+                AutoStart: =StartOTPTime
+                Duration: =900000
+                OnTimerEnd: |-
+                    =Set(OTPvar, Blank());
+                    Notify("OTP has been reset",NotificationType.Error)
+                    //add reset timer
+                Visible: =false
+                Y: =630
+                ZIndex: =18
+
+            Group7 As group:
+                Height: =5
+                Width: =5
+                X: =60
+                Y: =60
+                ZIndex: =18
+
+                FP_BG_1 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    BorderThickness: =2
+                    Fill: =RGBA(24, 32, 82, 1)
+                    Height: =642
+                    Visible: =showFP
+                    Width: =540
+                    Y: =16
+                    ZIndex: =8
+
+                FP_Exit_1 As icon.CancelBadge:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =48
+                    Icon: =Icon.CancelBadge
+                    OnSelect: =Set(showFP,false)
+                    Visible: =showFP
+                    Width: =48
+                    X: =465
+                    Y: =45
+                    ZIndex: =9
+
+                Lbl_ForgotPass_1 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    FontWeight: =FontWeight.Bold
+                    Height: =102
+                    Size: =32
+                    Text: ="Change Password"
+                    Visible: =showFP
+                    Width: =335
+                    X: =98
+                    Y: =122
+                    ZIndex: =10
+
+                TI_FPOTP_1 As text:
+                    Color: =RGBA(0, 0, 0, 0.66)
+                    Default: =
+                    Height: =44
+                    HintText: ="Enter OTP Here"
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Visible: =showFP
+                    Width: =335
+                    X: =105
+                    Y: =459
+                    ZIndex: =12
+
+                Btn_SendOTP_1 As button:
+                    Height: =44
+                    OnSelect: |-
+                        =If(passVal.Text = passVerify.Text,
+                            If(
+                                TI_FPOTP_1.Text = Text(OTPvar),
+                                SubmitForm(ChangePass);
+                                HashPassword.Run(CurrentUser.ID,passVal.Text,"changePass");
+                                Notify("Password has been changed"),
+                                Notify("That is the wrong OTP")
+                            ),
+                            Notify("Your Passwords does not match");
+                        )
+                    Text: ="Submit"
+                    Visible: =showFP
+                    Width: =101
+                    X: =339
+                    Y: =459
+                    ZIndex: =13
+
+                Btn_SendFPEmail_1 As button:
+                    Height: =42
+                    OnSelect: |-
+                        =Set(OTPvar,RandBetween(0,999999));
+                        SendOTP.Run(CurrentUser.userEmail,OTPvar); 
+                        Notify("An Email has been sent to you");
+                        Set(StartOTPTime, true)
+                    Text: ="Verify User"
+                    Visible: =showFP
+                    Width: =335
+                    X: =105
+                    Y: =401
+                    ZIndex: =16
+
+                ChangePass As form:
+                    DataSource: =Users
+                    Height: =137
+                    Item: =CurrentUser
+                    Visible: =showFP
+                    Width: =412
+                    X: =66
+                    Y: =258
+                    ZIndex: =17
+
+                    userPassword_DataCard1 As typedDataCard.textualEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="field_4"
+                        Default: =ThisItem.userPassword
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,userPassword)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =127
+                        MaxLength: =DataSourceInfo([@Users], DataSourceInfo.MaxLength, userPassword)
+                        Required: =false
+                        Update: =passVal.Text
+                        Width: =411
+                        X: =0
+                        Y: =0
+                        ZIndex: =4
+
+                        DataCardKey5 As label:
+                            AutoHeight: =true
+                            Color: =RGBA(255, 255, 255, 1)
+                            Height: =34
+                            Text: |-
+                                ="Enter New Pass:"
+                            Width: =(Parent.Width - 60) * 0.4
+                            Wrap: =false
+                            Y: =13
+                            ZIndex: =1
+
+                        passVal As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            Default: =
+                            DelayOutput: =true
+                            DisplayMode: =Parent.DisplayMode
+                            MaxLength: =Parent.MaxLength
+                            Mode: =TextMode.Password
+                            Tooltip: =Parent.DisplayName
+                            Width: =260
+                            X: =150
+                            Y: =9
+                            ZIndex: =2
+
+                        ErrorMessage5 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =passVal.Y + passVal.Height
+                            ZIndex: =3
+
+                        StarVisible5 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey5.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey5.Y
+                            ZIndex: =4
+
+                        passVerify As text:
+                            Default: =
+                            Mode: =TextMode.Password
+                            Width: =261
+                            X: =150
+                            Y: =59
+                            ZIndex: =5
+
+                        DataCardKey5_6 As label:
+                            AutoHeight: =true
+                            Color: =RGBA(255, 255, 255, 1)
+                            Height: =34
+                            Text: |-
+                                ="Re-enter Pass:"
+                            Width: =(Parent.Width - 60) * 0.4
+                            Wrap: =false
+                            Y: =62
+                            ZIndex: =6
+
+        Container1 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Regular
+            Height: =670
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =772
+            X: =575
+            Y: =12
+            ZIndex: =2
+
+            MAc_AccountInfo_2 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                Height: =124
+                Size: =24
+                Text: =CurrentUserOrg.'orgName (orgName0)'
+                Width: =768
+                X: =4
+                Y: =149
+                ZIndex: =2
+
+            Image3 As image:
+                Height: =136
+                Image: |-
+                    =If(
+                        CurrentUserOrg.orgAcronym = "JISSA", 'jisaa-logo-black',
+                        CurrentUserOrg.orgAcronym = "GG", 'Gaming Genesis Logo Colored ',
+                        CurrentUserOrg.orgAcronym = "JPCS", 'JPCS-APC',
+                        CurrentUserOrg.orgAcronym = "MSC", 'MSC Logo'
+                    )
+                Width: =133
+                X: =321
+                Y: =25
+                ZIndex: =3
+
+            MAc_OrgDesc As label:
+                Align: =Align.Justify
+                AutoHeight: =true
+                Height: =360
+                Overflow: =Overflow.Scroll
+                Text: =CurrentUserOrg.orgDesc
+                Width: =361
+                X: =40
+                Y: =286
+                ZIndex: =4
+
+            Rectangle3 As rectangle:
+                Fill: =RGBA(217, 215, 215, 1)
+                Height: =MAc_OrgDesc.Height
+                Width: =2
+                X: =416
+                Y: =286
+                ZIndex: =6
+
+            "MAc_OrgUsers As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                '#CopilotOverlayLabel': ="Filtered"
+                DelayItemLoading: =true
+                Height: =210
+                Items: =Filter(Users, userOrg.Value = Text(CurrentUserOrg.ID))
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                Selectable: =false
+                TemplatePadding: =0
+                TemplateSize: =82
+                Width: =332
+                X: =428
+                Y: =380
+                ZIndex: =8
+
+                Image4 As image:
+                    Height: =72
+                    Image: =Office365Users.UserPhotoV2(ThisItem.userEmail)
+                    OnSelect: =Select(Parent)
+                    RadiusBottomLeft: =8
+                    RadiusBottomRight: =8
+                    RadiusTopLeft: =8
+                    RadiusTopRight: =8
+                    Width: =72
+                    X: =16
+                    Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                    ZIndex: =1
+
+                Title1 As label:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    Color: =RGBA(71, 69, 64, 1)
+                    DisabledColor: =RGBA(186, 186, 186, 1)
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =25
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =14
+                    Text: =ThisItem.userPerson.DisplayName
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =229
+                    X: =103
+                    Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + Subtitle1.Size * 1.8)) / 2
+                    ZIndex: =2
+
+                Subtitle1 As label:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    Color: =RGBA(71, 69, 64, 1)
+                    DisabledColor: =RGBA(186, 186, 186, 1)
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =31
+                    Italic: =true
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =11
+                    Text: =ThisItem.userPerson.Email
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =229
+                    X: =Title1.X
+                    Y: =Title1.Y + Title1.Height
+                    ZIndex: =3
+
+                Separator1 As rectangle:
+                    BorderColor: =RGBA(0, 0, 255, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =7
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    Y: =79
+                    ZIndex: =5
+
+                Rectangle4 As rectangle:
+                    Height: =Parent.TemplateHeight - Separator1.Height
+                    OnSelect: =Select(Parent)
+                    Visible: =ThisItem.IsSelected
+                    Width: =4
+                    ZIndex: =6
+
+            Group4 As group:
+                Height: =5
+                Width: =5
+                X: =60
+                Y: =60
+                ZIndex: =8
+
+                Label3 As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Semibold
+                    Height: =30
+                    Size: =14
+                    Text: |-
+                        ="Org Status:"
+                    Width: =116
+                    X: =428
+                    Y: =286
+                    ZIndex: =5
+
+                Label3_1 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(24, 32, 82, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =30
+                    PaddingBottom: =7
+                    PaddingLeft: =7
+                    PaddingRight: =7
+                    PaddingTop: =7
+                    Size: =14
+                    Text: =CurrentUserOrg.orgStatus.Value
+                    Tooltip: =
+                    Width: =144
+                    X: =556
+                    Y: =286
+                    ZIndex: =7
+
+            Label4 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =44
+                Text: |-
+                    ="Permitted Users in SAOEMS:"
+                Width: =316
+                X: =428
+                Y: =336
+                ZIndex: =9
+

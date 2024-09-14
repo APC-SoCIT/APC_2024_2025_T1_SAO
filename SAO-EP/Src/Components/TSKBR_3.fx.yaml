@@ -1,0 +1,88 @@
+TSKBR_3 As CanvasComponent:
+    BackgroundColor: =RGBA(24, 32, 82, 1)
+    Fill: =
+    ForegroundColor: |
+        =Color.White
+    Height: =60
+    NavigationItems: |-
+        =
+        Table(
+            {
+                MenuText: "Home Screen",
+                MenuIcon: Icon.Home,
+                ScreenToGoTo:App.ActiveScreen
+            },
+            {
+                MenuText: "Manage Account ",
+                MenuIcon: Icon.Person,
+                ScreenToGoTo:App.ActiveScreen
+            },
+            {
+                MenuText: "Manage Calendar",
+                MenuIcon: Icon.AddToCalendar,
+                ScreenToGoTo: App.ActiveScreen
+            },
+            {
+                MenuText: "Manage Finance",
+                MenuIcon: Icon.Money,
+                ScreenToGoTo:App.ActiveScreen
+            },
+            {
+                MenuText: "Logout",
+                MenuIcon: Icon.Leave,
+                ScreenToGoTo:App.ActiveScreen
+            }
+        )
+    SelectedIconColor: =RGBA(24, 32, 82, 1)
+    SelectedItemBackgroundColor: =RGBA (216, 222, 236,1)
+    SelectedItemForegroundColor: =RGBA(99, 197, 218, 1)
+    SelectedTextColor: =RGBA(24, 32, 82, 1)
+    Width: =App.DesignWidth
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Gallery5_4 As gallery.galleryHorizontal:
+        '#CopilotOverlayLabel': ="Filtered"
+        BorderColor: =RGBA(102, 113, 166, 1)
+        BorderThickness: =2
+        Default: =LookUp(TSKBR_3.NavigationItems, ScreenToGoTo.Name = App.ActiveScreen.Name)
+        DelayItemLoading: =true
+        Height: =60
+        Items: =TSKBR_3.NavigationItems
+        LoadingSpinner: =LoadingSpinner.Data
+        OnSelect: =Navigate(ThisItem.ScreenToGoTo)
+        TemplateFill: |
+            =If(ThisItem.IsSelected, TSKBR_3.SelectedItemBackgroundColor, TSKBR_3.BackgroundColor)
+        TemplatePadding: =0
+        TemplateSize: |
+            =Self.Width /5
+        Width: =1366
+        ZIndex: =1
+
+        Icon6_3 As icon.Add:
+            Color: |
+                =If(ThisItem.IsSelected, TSKBR_3.BackgroundColor, TSKBR_3.ForegroundColor)
+            Height: =28
+            Icon: |
+                =ThisItem.MenuIcon
+            OnSelect: |+
+                =TSKBR_3.ForegroundColor
+                
+            Width: =53
+            X: =101
+            Y: =4
+            ZIndex: =1
+
+        Label1_3 As label:
+            Align: =Align.Center
+            Color: |
+                =If(ThisItem.IsSelected, TSKBR_3.BackgroundColor, TSKBR_3.ForegroundColor)
+            Height: =28
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.MenuText
+            Width: =172
+            X: =41
+            Y: =32
+            ZIndex: =2
+

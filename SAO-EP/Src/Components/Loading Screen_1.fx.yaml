@@ -1,0 +1,31 @@
+"'Loading Screen_1' As CanvasComponent":
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =347
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Rectangle6_2 As rectangle:
+        Height: =351
+        Width: =640
+        ZIndex: =1
+
+    Label2_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Lato Black'
+        Height: =214
+        Size: =30
+        Text: ="Processing your document. Please wait."
+        Width: =624
+        X: =16
+        Y: =68
+        ZIndex: =2
+
+    Image7_2 As image:
+        Image: ='Spinner-1.5s-200px'
+        X: =270
+        Y: =217
+        ZIndex: =3
+
