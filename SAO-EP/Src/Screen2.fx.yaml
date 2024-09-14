@@ -7,8 +7,8 @@ Screen2 As screen:
         Fill: =RGBA(255, 255, 255, 0.62)
         Height: =237
         LayoutMode: =LayoutMode.Auto
-        Width: =1306
-        X: =40
+        Width: =1186
+        X: =160
         Y: =40
         ZIndex: =1
 
