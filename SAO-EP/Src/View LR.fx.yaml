@@ -441,7 +441,7 @@
                     LayoutMinWidth: =250
                     ZIndex: =1
 
-                    Label5 As label:
+                    AllExpenses As label:
                         Color: =RGBA(255, 255, 255, 1)
                         FontWeight: =FontWeight.Semibold
                         Text: =Sum(RecordsGallery1.AllItems, TotalExpenses) - Sum(RecordsGallery1.AllItems,Balance)
@@ -460,13 +460,13 @@
                         Y: =8
                         ZIndex: =2
 
-                    Label5_3 As label:
+                    RemBudget As label:
                         Color: =RGBA(255, 255, 255, 1)
                         FontWeight: =FontWeight.Semibold
                         Text: |-
                             =If(CurrentUser.userRoles.Id = 1,
-                                LookUp(Organizations,orgAcronym = Dropdown1.Selected.orgAcronym,orgBaseBudget) - Value(Label5.Text),
-                                LookUp(Organizations,orgAcronym = CurrentUserOrg.orgAcronym ,orgBaseBudget) - Value(Label5.Text)
+                                LookUp(Organizations,orgAcronym = Dropdown1.Selected.orgAcronym,orgBaseBudget) - Value(AllExpenses.Text),
+                                LookUp(Organizations,orgAcronym = CurrentUserOrg.orgAcronym ,orgBaseBudget) - Value(AllExpenses.Text)
                             )
                         Width: =246
                         X: =316

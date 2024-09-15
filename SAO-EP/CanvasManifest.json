@@ -54,7 +54,7 @@
       "exportimportcomponents2": true,
       "externalmessage": false,
       "fluentv9controls": false,
-      "fluentv9controlspreview": false,
+      "fluentv9controlspreview": true,
       "formuladataprefetch": true,
       "formularepair": false,
       "generatedebugpublishedapp": false,
@@ -141,6 +141,8 @@
     "Refresher",
     "Refresher Tester",
     "Screen1",
-    "Screen2"
+    "Screen2",
+    "Reports_Trial",
+    "Screen4"
   ]
 }
