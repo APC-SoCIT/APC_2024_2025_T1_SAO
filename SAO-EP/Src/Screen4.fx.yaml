@@ -2,7 +2,7 @@ Screen4 As screen:
     OnVisible: |-
         =Set(EventTypeReports, ShowColumns('APF Uploads','Seminar/Webinar/Symposium/Forum', 'Leadership Training', 'Religious/Spiritual'));
         ForAll(EventTypeReports,
-            If(ThisRecord.LeadershipTraining = true,1,0);
+            If(ThisRecord.LeadershipTraining = true, 1 ,0);
             If(ThisRecord.Seminar_x002f_Webinar_x002f_Symp = true,1,0);
             If(ThisRecord.Religious_x002f_Spiritual= true,1,0);
         )
@@ -24,7 +24,7 @@ Screen4 As screen:
             ZIndex: =2
 
         ColumnChart2 As barChart:
-            Items: ='APF Uploads'
+            Items: =EventTypeReports
             X: =355
             Y: =125
             ZIndex: =3

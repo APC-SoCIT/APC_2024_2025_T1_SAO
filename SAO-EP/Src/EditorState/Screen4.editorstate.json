@@ -45,7 +45,7 @@
       "Properties": [
         {
           "Category": "Data",
-          "NameMap": "{\"Labels\":\"ActivityTitle\",\"Series1\":\"Religious_x002f_Spiritual\",\"Series2\":\"Venue_x002f_Platform\",\"Series3\":\"Workshop_x002f_TechTraining\",\"Series4\":\"ProjectedSecondaryAudience\",\"Series5\":\"ProjectedSecondaryAudience\",\"Series6\":\"ProjectedSecondaryAudience\",\"Series7\":\"ProjectedSecondaryAudience\",\"Series8\":\"ProjectedSecondaryAudience\",\"Series9\":\"ProjectedSecondaryAudience\"}",
+          "NameMap": "{\"Series1\":\"LeadershipTraining\",\"Labels\":\"LeadershipTraining\",\"Series2\":\"Religious_x002f_Spiritual\",\"Series3\":\"Religious_x002f_Spiritual\",\"Series4\":\"Seminar_x002f_Webinar_x002f_Symp\",\"Series5\":\"Seminar_x002f_Webinar_x002f_Symp\",\"Series6\":\"Seminar_x002f_Webinar_x002f_Symp\",\"Series7\":\"Seminar_x002f_Webinar_x002f_Symp\",\"Series8\":\"Seminar_x002f_Webinar_x002f_Symp\",\"Series9\":\"Seminar_x002f_Webinar_x002f_Symp\"}",
           "PropertyName": "Items",
           "RuleProviderType": "Unknown"
         },
