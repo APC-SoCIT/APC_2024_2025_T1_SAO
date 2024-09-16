@@ -19,14 +19,14 @@ Screen4 As screen:
             Height: =25
             Text: ="Chart Title"
             Width: =400
-            X: =40
-            Y: =40
+            X: =70
+            Y: =104
             ZIndex: =2
 
         ColumnChart2 As barChart:
             Items: =EventTypeReports
-            X: =355
-            Y: =125
+            X: =80
+            Y: =129
             ZIndex: =3
 
         Legend3 As legend:
@@ -34,7 +34,7 @@ Screen4 As screen:
             ItemColorSet: =ColumnChart2.ItemColorSet
             Items: =ColumnChart2.SeriesLabels
             Width: =320
-            X: =80
-            Y: =480
+            X: =110
+            Y: =544
             ZIndex: =4
 
