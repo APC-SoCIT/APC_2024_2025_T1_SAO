@@ -1,4 +1,4 @@
-"Screen3 As screen.'welcomeLayout_ver1.0'":
+"Reports As screen.'welcomeLayout_ver1.0'":
 
     ScreenContainer4 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(245, 245, 245, 1)
@@ -55,7 +55,7 @@
                 LayoutGap: =5
                 LayoutJustifyContent: =LayoutJustifyContent.Center
                 LayoutMinHeight: =300
-                LayoutMinWidth: =If(Screen3.Size = ScreenSize.Small, Parent.Width, 400)
+                LayoutMinWidth: =If(Reports.Size = ScreenSize.Small, Parent.Width, 400)
                 LayoutMode: =LayoutMode.Auto
                 LayoutOverflowY: =LayoutOverflow.Scroll
                 PaddingBottom: =10
@@ -63,27 +63,6 @@
                 PaddingRight: =5
                 PaddingTop: =10
                 ZIndex: =11
-
-                ImageContainer21 As groupContainer.verticalAutoLayoutContainer:
-                    AlignInContainer: =AlignInContainer.Center
-                    FillPortions: =1.5
-                    LayoutAlignItems: =LayoutAlignItems.Center
-                    LayoutDirection: =LayoutDirection.Vertical
-                    LayoutGap: =5
-                    LayoutJustifyContent: =LayoutJustifyContent.End
-                    LayoutMinHeight: =100
-                    LayoutMinWidth: =Container22.Width
-                    LayoutMode: =LayoutMode.Auto
-                    Width: =Parent.Width
-                    ZIndex: =12
-
-                    Image21 As image:
-                        ImagePosition: =ImagePosition.Fill
-                        RadiusBottomLeft: =90
-                        RadiusBottomRight: =90
-                        RadiusTopLeft: =90
-                        RadiusTopRight: =90
-                        ZIndex: =13
 
                 TitleContainer21 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.Center
@@ -95,21 +74,6 @@
                     Width: =Parent.Width
                     ZIndex: =14
 
-                    FeatureItemButton21 As Button:
-                        AccessibleLabel: ="Featured item button"
-                        Appearance: ='ButtonCanvas.Appearance'.Transparent
-                        DisplayMode: =DisplayMode.Edit
-                        FontSize: =20
-                        FontWeight: =FontWeight.Bold
-                        Height: =32
-                        LayoutMinHeight: =32
-                        LayoutMinWidth: =Parent.Width
-                        Text: ="Featured item"
-                        Width: =Parent.Width
-                        X: =0
-                        Y: =0
-                        ZIndex: =15
-
                     DescriptionText21 As Text:
                         Align: ='TextCanvas.Align'.Center
                         DisplayMode: =DisplayMode.Edit
@@ -117,13 +81,54 @@
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =Parent.Width
-                        Size: =16
-                        Text: ="Short description or engaging message"
-                        VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+                        Size: =25
+                        Text: =Concatenate("In a total of ", Text(RecordsGallery1_2.AllItemsCount), " Events") 
+                        VerticalAlign: ='TextCanvas.VerticalAlign'.Bottom
+                        Weight: ='TextCanvas.Weight'.Semibold
                         Width: =Parent.Width
                         X: =0
                         Y: =0
                         ZIndex: =16
+
+                    DescriptionText21_1 As Text:
+                        Align: ='TextCanvas.Align'.Center
+                        AlignInContainer: =AlignInContainer.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =0.5
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =Parent.Width
+                        Size: =22
+                        Text: ="We have served a total of"
+                        VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                        Width: =Parent.Width
+                        X: =0
+                        Y: =0
+                        ZIndex: =17
+
+                    DescriptionText21_3 As Text:
+                        Align: ='TextCanvas.Align'.Center
+                        AlignInContainer: =AlignInContainer.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =Parent.Width
+                        Size: =25
+                        Text: |-
+                            =Concatenate(
+                                Sum(
+                                    RecordsGallery1_2.AllItems,
+                                    'Projected Primary Audience' + 'Projected Secondary Audience'
+                                ),
+                                " Audiences"
+                            )
+                        VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+                        Weight: ='TextCanvas.Weight'.Bold
+                        Width: =Parent.Width
+                        X: =0
+                        Y: =0
+                        ZIndex: =19
 
             Container32 As groupContainer.verticalAutoLayoutContainer:
                 Fill: =RGBA(255, 255, 255, 1)
@@ -132,7 +137,7 @@
                 LayoutGap: =5
                 LayoutJustifyContent: =LayoutJustifyContent.Center
                 LayoutMinHeight: =300
-                LayoutMinWidth: =If(Screen3.Size = ScreenSize.Small, Parent.Width, 400)
+                LayoutMinWidth: =If(Reports.Size = ScreenSize.Small, Parent.Width, 400)
                 LayoutMode: =LayoutMode.Auto
                 LayoutOverflowY: =LayoutOverflow.Scroll
                 PaddingBottom: =10
@@ -209,7 +214,7 @@
                 LayoutGap: =5
                 LayoutJustifyContent: =LayoutJustifyContent.Center
                 LayoutMinHeight: =300
-                LayoutMinWidth: =If(Screen3.Size = ScreenSize.Small, Parent.Width, 400)
+                LayoutMinWidth: =If(Reports.Size = ScreenSize.Small, Parent.Width, 400)
                 LayoutMode: =LayoutMode.Auto
                 LayoutOverflowY: =LayoutOverflow.Scroll
                 PaddingBottom: =10
@@ -287,47 +292,44 @@
                 LayoutGap: =5
                 LayoutJustifyContent: =LayoutJustifyContent.Center
                 LayoutMinHeight: =400
-                LayoutMinWidth: =If(Screen3.Size = ScreenSize.Small, Parent.Width, 400)
+                LayoutMinWidth: =If(Reports.Size = ScreenSize.Small, Parent.Width, 400)
                 LayoutMode: =LayoutMode.Auto
-                LayoutOverflowY: =LayoutOverflow.Scroll
                 PaddingBottom: =10
                 PaddingLeft: =5
                 PaddingRight: =5
                 PaddingTop: =10
                 ZIndex: =36
 
-                CompositePieChart2 As group:
-                    Height: =5
-                    LayoutMinHeight: =5
-                    LayoutMinWidth: =5
-                    Width: =5
+                Title3 As label:
+                    Align: =Align.Center
+                    AutoHeight: =true
+                    FillPortions: =0.25
+                    FontWeight: =FontWeight.Bold
+                    Height: =25
+                    Size: =20
+                    Text: |-
+                        =//"Expenditures"
+                        Concatenate( Round(Sum(RecordsGallery1.AllItems, TotalExpenses) / CurrentUserOrg.orgBaseBudget * 100, 2), "% Budget Used")
+                    Width: =400
                     X: =40
                     Y: =40
-                    ZIndex: =1
+                    ZIndex: =2
 
-                    Title3 As label:
-                        Align: =Align.Center
-                        Height: =25
-                        PaddingTop: =15
-                        Text: ="Chart Title"
-                        Width: =400
-                        X: =40
-                        Y: =40
-                        ZIndex: =2
+                PieChart3 As pieChart:
+                    FillPortions: =1
+                    Items: =LR_PDItems
+                    X: =40
+                    Y: =70
+                    ZIndex: =3
 
-                    PieChart3 As pieChart:
-                        Items: =LR_PDItems
-                        X: =40
-                        Y: =70
-                        ZIndex: =3
-
-                    Legend2 As legend:
-                        Height: =200
-                        ItemColorSet: =PieChart3.ItemColorSet
-                        Items: =PieChart3.SeriesLabels
-                        Size: =16
-                        Width: =400
-                        X: =40
-                        Y: =470
-                        ZIndex: =4
+                Legend2 As legend:
+                    FillPortions: =1
+                    Height: =200
+                    ItemColorSet: =PieChart3.ItemColorSet
+                    Items: =PieChart3.SeriesLabels
+                    Size: =16
+                    Width: =400
+                    X: =40
+                    Y: =470
+                    ZIndex: =4
 
