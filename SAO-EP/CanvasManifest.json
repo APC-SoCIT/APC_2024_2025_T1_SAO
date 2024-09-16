@@ -96,7 +96,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 0,
+    "BindingErrorCount": 1,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,
     "DocumentAppType": "DesktopOrTablet",
@@ -115,7 +115,7 @@
     "ManualOfflineProfileId": "",
     "Name": "SAOEMS Copy",
     "OriginatingVersion": "1.296",
-    "ParserErrorCount": 0,
+    "ParserErrorCount": 1,
     "ShowStatusBar": false
   },
   "PublishInfo": {
@@ -143,6 +143,7 @@
     "Screen1",
     "Screen2",
     "Reports_Trial",
-    "Screen4"
+    "Screen4",
+    "Screen3"
   ]
 }
