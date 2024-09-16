@@ -1,12 +1,13 @@
 Screen4 As screen:
     OnVisible: |-
-        =ClearCollect(EventTypeReports, ShowColumns('APF Uploads','Seminar/Webinar/Symposium/Forum'));
+        =ClearCollect(EventTypeReports, ShowColumns('APF Uploads','Seminar/Webinar/Symposium/Forum', 'Religious/Spiritual'));
         
         ForAll(EventTypeReports,
-            If(ThisRecord.Seminar_x002f_Webinar_x002f_Symp, 
-                {Seminar_x002f_Webinar_x002f_Symp: 1},
-                {Seminar_x002f_Webinar_x002f_Symp: 0}
-        );
+            If(ThisRecord.Seminar_x002f_Webinar_x002f_Symp = true, 
+                {'Seminar_x002f_Webinar_x002f_Symp':1},
+                {'Seminar_x002f_Webinar_x002f_Symp':0}
+            )
+        )
 
     CompositeColumnChart2 As group:
         Height: =5
