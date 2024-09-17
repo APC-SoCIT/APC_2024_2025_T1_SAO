@@ -1,0 +1,68 @@
+NavigationMenu As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =678
+    Width: =200
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    TextCanvas1 As Text:
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =RGBA(0, 78, 140, 1)
+        Height: =32
+        Text: ="SAO-EP"
+        Weight: ='TextCanvas.Weight'.Bold
+        Width: =96
+        X: =42
+        Y: =6
+        ZIndex: =1
+
+    Icon16 As Icon:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Icon: ="Home"
+        IconColor: =RGBA(0, 78, 140, 1)
+        Width: =20
+        X: =6
+        Y: =84
+        ZIndex: =2
+
+    Icon17 As Icon:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Icon: ="Document"
+        IconColor: =RGBA(0, 78, 140, 1)
+        Width: =20
+        X: =6
+        Y: =151
+        ZIndex: =3
+
+    Icon18 As Icon:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Icon: ="Money"
+        IconColor: =RGBA(0, 78, 140, 1)
+        Width: =20
+        X: =6
+        Y: =190
+        ZIndex: =4
+
+    Icon19 As Icon:
+        DisplayMode: =DisplayMode.Edit
+        Height: =25
+        Icon: ="Person"
+        IconColor: =RGBA(0, 78, 140, 1)
+        Width: =20
+        X: =6
+        Y: =121
+        ZIndex: =5
+
+    Image5 As image:
+        Height: =25
+        Image: |-
+            ="data:image/svg+xml,%20%3Csvg%20%20viewBox%3D'-600%20-600%203048%203048'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'M1920%201280h-384V384h384v896zM0%201024h384v640H0v-640zm1408%20512h-128v128h-256V0h384v1536zM512%20384h384v1280H512V384zm1536%201280v128h-256v256h-128v-256h-256v-128h256v-256h128v256h256z'%20fill%3D'%23004e8c'%3E%3C%2Fpath%3E%3C%2Fsvg%3E"
+        Width: =20
+        X: =6
+        Y: =222
+        ZIndex: =6
+
