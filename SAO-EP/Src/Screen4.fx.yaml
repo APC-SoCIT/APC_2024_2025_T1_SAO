@@ -1,6 +1,7 @@
 Screen4 As screen:
     OnVisible: |
-        =ClearCollect(
+        =/*
+        ClearCollect(
             EventTypeReports,
             ForAll(
                 'APF Uploads',
@@ -40,45 +41,82 @@ Screen4 As screen:
                         1, 
                         0
                     ),
-                    'Marketing' : If(
-                        'Marketing' = true, 
+                    Marketing : If(
+                        Marketing = true, 
                         1, 
                         0
                     )     
                 }
             )
         );
+        
+        */
+        
+        
+        ClearCollect(
+            EventInfo,
+            Filter(
+                ShowColumns(
+                    'APF Uploads',
+                    'Seminar/Webinar/Symposium/Forum',
+                    'Leadership Training',
+                    'Community Ext',
+                    'Marketing',
+                    'Religious/Spiritual',
+                    'Academic Competition',
+                    'Culture & Arts',
+                    'Games & Sports',
+                    'Social Events',
+                    'Name of Lead Org'
+                ),
+                NameofLeadOrg = CurrentUserOrg.orgAcronym
+            )
+        );
+        
+        
+        ClearCollect(EventTypeReports, 
+            {SeminarCount: CountIf(EventInfo,'Seminar_x002f_Webinar_x002f_Symp' = true),
+            LeadershipCount: CountIf(EventInfo, LeadershipTraining = true),
+            CommExtCount: CountIf(EventInfo,CommunityExt = true),
+            MarketingCount: CountIf(EventInfo,Marketing = true),
+            ReligiousCount: CountIf(EventInfo,Religious_x002f_Spiritual = true),
+            AcadCompeCount: CountIf(EventInfo,AcademicCompetition = true),
+            CultureCount: CountIf(EventInfo,CultureArts = true),
+            GameCount: CountIf(EventInfo,GamesSports = true),
+            SocialCount: CountIf(EventInfo,SocialEvents = true)
+            }
+        )
 
-    CompositeLineChart1 As group:
+    CompositeColumnChart1 As group:
         Height: =5
         Width: =5
         X: =40
         Y: =40
         ZIndex: =1
 
-        Title4 As label:
+        Title2 As label:
             Align: =Align.Center
             Height: =25
             Text: ="Chart Title"
             Width: =400
-            X: =40
-            Y: =40
+            X: =491
+            Y: =80
             ZIndex: =2
 
-        LineChart1 As lineChart:
-            Font: =Font.'Open Sans'
+        ColumnChart2 As barChart:
             Items: =EventTypeReports
-            Width: =337
-            X: =63
-            Y: =80
+            NumberOfSeries: =9
+            Width: =312
+            X: =491
+            Y: =132
             ZIndex: =3
 
-        Legend3 As legend:
+        Legend1 As legend:
             Height: =80
-            ItemColorSet: =LineChart1.ItemColorSet
-            Items: =LineChart1.SeriesLabels
+            ItemColorSet: =ColumnChart2.ItemColorSet
+            Items: =ColumnChart2.SeriesLabels
             Width: =320
-            X: =80
-            Y: =480
+            X: =531
+            Y: =520
             ZIndex: =4
 

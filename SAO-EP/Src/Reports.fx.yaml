@@ -1,4 +1,91 @@
 "Reports As screen.'welcomeLayout_ver1.0'":
+    OnVisible: |
+        =/*
+        ClearCollect(
+            EventTypeReports,
+            ForAll(
+                'APF Uploads',
+                {
+                    Seminar_x002f_Webinar_x002f_Symp: If(
+                        'Seminar/Webinar/Symposium/Forum' = true, 
+                        1, 
+                        0
+                    ),
+                    Religious_x002f_Spiritual: If(
+                        'Religious/Spiritual' = true, 
+                        1, 
+                        0
+                    ),
+                    'Leadership Training' : If(
+                        'Leadership Training' = true, 
+                        1, 
+                        0
+                    ),
+                    'Culture & Arts' : If(
+                        'Culture & Arts' = true, 
+                        1, 
+                        0
+                    ),
+                    'Games & Sports' : If(
+                        'Games & Sports' = true, 
+                        1, 
+                        0
+                    ),
+                    'Community Ext' : If(
+                        'Community Ext' = true, 
+                        1, 
+                        0
+                    ),
+                    'Social Events' : If(
+                        'Social Events' = true, 
+                        1, 
+                        0
+                    ),
+                    Marketing : If(
+                        Marketing = true, 
+                        1, 
+                        0
+                    )     
+                }
+            )
+        );
+        
+        */
+        
+        
+        ClearCollect(
+            EventInfo,
+            Filter(
+                ShowColumns(
+                    'APF Uploads',
+                    'Seminar/Webinar/Symposium/Forum',
+                    'Leadership Training',
+                    'Community Ext',
+                    'Marketing',
+                    'Religious/Spiritual',
+                    'Academic Competition',
+                    'Culture & Arts',
+                    'Games & Sports',
+                    'Social Events',
+                    'Name of Lead Org'
+                ),
+                NameofLeadOrg = CurrentUserOrg.orgAcronym
+            )
+        );
+        
+        
+        ClearCollect(EventTypeReports, 
+            {SeminarCount: CountIf(EventInfo,'Seminar_x002f_Webinar_x002f_Symp' = true),
+            LeadershipCount: CountIf(EventInfo, LeadershipTraining = true),
+            CommExtCount: CountIf(EventInfo,CommunityExt = true),
+            MarketingCount: CountIf(EventInfo,Marketing = true),
+            ReligiousCount: CountIf(EventInfo,Religious_x002f_Spiritual = true),
+            AcadCompeCount: CountIf(EventInfo,AcademicCompetition = true),
+            CultureCount: CountIf(EventInfo,CultureArts = true),
+            GameCount: CountIf(EventInfo,GamesSports = true),
+            SocialCount: CountIf(EventInfo,SocialEvents = true)
+            }
+        )
 
     ScreenContainer4 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(245, 245, 245, 1)
@@ -223,29 +310,9 @@
                 PaddingTop: =10
                 ZIndex: =23
 
-                ImageContainer41 As groupContainer.verticalAutoLayoutContainer:
-                    AlignInContainer: =AlignInContainer.Center
-                    FillPortions: =1.5
-                    LayoutAlignItems: =LayoutAlignItems.Center
-                    LayoutDirection: =LayoutDirection.Vertical
-                    LayoutGap: =5
-                    LayoutJustifyContent: =LayoutJustifyContent.End
-                    LayoutMinHeight: =100
-                    LayoutMinWidth: =Container42.Width
-                    LayoutMode: =LayoutMode.Auto
-                    Width: =Parent.Width
-                    ZIndex: =24
-
-                    Image41 As image:
-                        ImagePosition: =ImagePosition.Fill
-                        RadiusBottomLeft: =90
-                        RadiusBottomRight: =90
-                        RadiusTopLeft: =90
-                        RadiusTopRight: =90
-                        ZIndex: =25
-
                 TitleContainer41 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.Center
+                    FillPortions: =0.25
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMinHeight: =100
                     LayoutMinWidth: =Container42.Width
@@ -263,7 +330,7 @@
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =Parent.Width
-                        Text: ="Featured item"
+                        Text: ="Distribution of Events"
                         Width: =Parent.Width
                         X: =0
                         Y: =0
@@ -283,6 +350,44 @@
                         X: =0
                         Y: =0
                         ZIndex: =28
+
+                Container8 As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    ZIndex: =27
+
+                    CompositeColumnChart1_1 As group:
+                        Height: =5
+                        Width: =5
+                        X: =-17
+                        Y: =-52
+                        ZIndex: =1
+
+                        Title2_2 As label:
+                            Align: =Align.Center
+                            Height: =41
+                            Text: ="Chart Title"
+                            Width: =420
+                            X: =3
+                            Y: =25
+                            ZIndex: =2
+
+                        ColumnChart2_1 As barChart:
+                            Height: =395
+                            Items: =EventTypeReports
+                            NumberOfSeries: =9
+                            Width: =328
+                            X: =22
+                            ZIndex: =3
+
+                        Legend1_1 As legend:
+                            Height: =132
+                            ItemColorSet: =ColumnChart2_1.ItemColorSet
+                            Items: =ColumnChart2_1.SeriesLabels
+                            Width: =336
+                            X: =45
+                            Y: =343
+                            ZIndex: =4
 
             Container42_1 As groupContainer.verticalAutoLayoutContainer:
                 Fill: =RGBA(255, 255, 255, 1)
@@ -327,7 +432,7 @@
                     Height: =200
                     ItemColorSet: =PieChart3.ItemColorSet
                     Items: =PieChart3.SeriesLabels
-                    Size: =16
+                    Size: =12
                     Width: =400
                     X: =40
                     Y: =470
