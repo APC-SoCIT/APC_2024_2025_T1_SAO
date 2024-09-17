@@ -1034,7 +1034,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638621767134218849",
+    "LastModifiedTimestamp": "638620679048244771",
     "Name": "TSKBR_3",
     "Rules": [
       {
@@ -1200,7 +1200,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638621767134218849",
+  "LastModifiedTimestamp": "638620679048244771",
   "Name": "208d5104eab54111b6855317a0a3ac1f",
   "OverridableProperties": {},
   "TemplateOriginalName": "c7b484cbd2904edba210bb3f32e8fc48",

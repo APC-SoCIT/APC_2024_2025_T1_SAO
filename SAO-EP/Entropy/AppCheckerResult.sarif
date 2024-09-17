@@ -2194,36 +2194,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Reports.ScreenContainer4.MainContainer3.Container42.Container8.ColumnChart2_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Reports.ScreenContainer4.MainContainer3.Container42.Container8.ColumnChart2_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Reports",
-                "type": "Reports.ScreenContainer4.MainContainer3.Container42.Container8.ColumnChart2_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "Screen4"
                 }
               ],
@@ -2247,36 +2217,6 @@
           },
           "ruleId": "acc-ReadableScreenNameNeeded",
           "ruleIndex": 6
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "Screen4.ColumnChart2.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Screen4.ColumnChart2.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Screen4",
-                "type": "Screen4.ColumnChart2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
         },
         {
           "locations": [
@@ -8791,96 +8731,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Reports.ScreenContainer4.MainContainer3.Container22.TitleContainer21.DescriptionText21.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Reports.ScreenContainer4.MainContainer3.Container22.TitleContainer21.DescriptionText21.Text",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "Reports",
-                "type": "Reports.ScreenContainer4.MainContainer3.Container22.TitleContainer21.DescriptionText21"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "Reports.ScreenContainer4.MainContainer3.Container22.TitleContainer21.DescriptionText21_3.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Reports.ScreenContainer4.MainContainer3.Container22.TitleContainer21.DescriptionText21_3.Text",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "Reports",
-                "type": "Reports.ScreenContainer4.MainContainer3.Container22.TitleContainer21.DescriptionText21_3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "Reports.ScreenContainer4.MainContainer3.Container42_1.Title3.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Reports.ScreenContainer4.MainContainer3.Container42_1.Title3.Text",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "Reports",
-                "type": "Reports.ScreenContainer4.MainContainer3.Container42_1.Title3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "HomePage.ShowToggle"
                 }
               ],
@@ -8963,7 +8813,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 9
+          "ruleIndex": 8
         },
         {
           "locations": [
@@ -9083,7 +8933,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 8
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -9113,7 +8963,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 8
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -9143,7 +8993,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 8
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -9173,7 +9023,97 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 8
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Reports.ScreenContainer4.MainContainer3.Container22.TitleContainer21.DescriptionText21_3.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Reports.ScreenContainer4.MainContainer3.Container22.TitleContainer21.DescriptionText21_3.Text",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "Reports",
+                "type": "Reports.ScreenContainer4.MainContainer3.Container22.TitleContainer21.DescriptionText21_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Reports.ScreenContainer4.MainContainer3.Container22.TitleContainer21.DescriptionText21.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Reports.ScreenContainer4.MainContainer3.Container22.TitleContainer21.DescriptionText21.Text",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "Reports",
+                "type": "Reports.ScreenContainer4.MainContainer3.Container22.TitleContainer21.DescriptionText21"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Reports.ScreenContainer4.MainContainer3.Container42_1.Title3.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Reports.ScreenContainer4.MainContainer3.Container42_1.Title3.Text",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "Reports",
+                "type": "Reports.ScreenContainer4.MainContainer3.Container42_1.Title3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 9
         }
       ],
       "tool": {
@@ -9324,23 +9264,6 @@
               }
             },
             {
-              "id": "app-InefficientDelayLoading",
-              "messageStrings": {
-                "issue": {
-                  "text": "Inefficient delay loading"
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "howToFix": [
-                  "Use variables, collections, and navigation context to share state across screens instead."
-                ],
-                "level": "Medium",
-                "primaryCategory": "performance",
-                "whyFix": "Controls that reference controls on other screens can slow down app loading and navigation. Doing this may force the app to load the other screens immediately, rather than waiting until the user navigates to that screen."
-              }
-            },
-            {
               "id": "app-ScreenHasManyControls",
               "messageStrings": {
                 "issue": {
@@ -9359,6 +9282,23 @@
                 "level": "Medium",
                 "primaryCategory": "performance",
                 "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"View APF\" is 301, which exceeds the maximum threshold recommended (300)."
+              }
+            },
+            {
+              "id": "app-InefficientDelayLoading",
+              "messageStrings": {
+                "issue": {
+                  "text": "Inefficient delay loading"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Use variables, collections, and navigation context to share state across screens instead."
+                ],
+                "level": "Medium",
+                "primaryCategory": "performance",
+                "whyFix": "Controls that reference controls on other screens can slow down app loading and navigation. Doing this may force the app to load the other screens immediately, rather than waiting until the user navigates to that screen."
               }
             }
           ],
