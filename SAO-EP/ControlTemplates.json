@@ -210,6 +210,21 @@
     "OverridableProperties": {},
     "Version": "1.3.0"
   },
+  "Header": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/Header",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "Header",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Header",
+    "Version": "0.0.29"
+  },
   "Host": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
@@ -280,6 +295,20 @@
     "Name": "legend",
     "OverridableProperties": {},
     "Version": "2.1.0"
+  },
+  "lineChart": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/lineChart",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "lineChart",
+    "OverridableProperties": {},
+    "Version": "2.3.0"
   },
   "pieChart": {
     "CustomGroupControlTemplateName": "",
