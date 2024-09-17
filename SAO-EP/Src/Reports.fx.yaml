@@ -51,31 +51,43 @@
         );
         
         */
-        
-        
-        ClearCollect(
-            EventInfo,
-            Filter(
+        If( CurrentUser.userRoles.Id > 1, 
+            ClearCollect(
+                EventInfo,
+                Filter(
+                    ShowColumns(
+                        'APF Uploads',
+                        'Seminar/Webinar/Symposium/Forum',
+                        'Leadership Training',
+                        'Community Ext',
+                        Marketing,
+                        'Religious/Spiritual',
+                        'Academic Competition',
+                        'Culture & Arts',
+                        'Games & Sports',
+                        'Social Events',
+                        'Name of Lead Org'
+                    ),
+                    NameofLeadOrg = CurrentUserOrg.orgAcronym
+                )
+            ),
+            ClearCollect(
+                EventInfo,
                 ShowColumns(
-                    'APF Uploads',
-                    'Seminar/Webinar/Symposium/Forum',
-                    'Leadership Training',
-                    'Community Ext',
-                    'Marketing',
-                    'Religious/Spiritual',
-                    'Academic Competition',
-                    'Culture & Arts',
-                    'Games & Sports',
-                    'Social Events',
-                    'Name of Lead Org'
-                ),
-                NameofLeadOrg = CurrentUserOrg.orgAcronym
-            )
-        );
-        
+                        'APF Uploads',
+                        'Seminar/Webinar/Symposium/Forum',
+                        'Leadership Training',
+                        'Community Ext',
+                        Marketing,
+                        'Religious/Spiritual',
+                        'Academic Competition',
+                        'Culture & Arts',
+                        'Games & Sports'
+                )
+            );
         
         ClearCollect(EventTypeReports, 
-            {SeminarCount: CountIf(EventInfo,'Seminar_x002f_Webinar_x002f_Symp' = true),
+            {SeminarCount: CountIf(EventInfo,Seminar_x002f_Webinar_x002f_Symp = true),
             LeadershipCount: CountIf(EventInfo, LeadershipTraining = true),
             CommExtCount: CountIf(EventInfo,CommunityExt = true),
             MarketingCount: CountIf(EventInfo,Marketing = true),
@@ -85,7 +97,7 @@
             GameCount: CountIf(EventInfo,GamesSports = true),
             SocialCount: CountIf(EventInfo,SocialEvents = true)
             }
-        )
+        ))
 
     ScreenContainer4 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(245, 245, 245, 1)

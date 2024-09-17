@@ -61,7 +61,7 @@ Screen4 As screen:
                     'Seminar/Webinar/Symposium/Forum',
                     'Leadership Training',
                     'Community Ext',
-                    'Marketing',
+                    Marketing,
                     'Religious/Spiritual',
                     'Academic Competition',
                     'Culture & Arts',
@@ -75,7 +75,7 @@ Screen4 As screen:
         
         
         ClearCollect(EventTypeReports, 
-            {SeminarCount: CountIf(EventInfo,'Seminar_x002f_Webinar_x002f_Symp' = true),
+            {SeminarCount: CountIf(EventInfo,Seminar_x002f_Webinar_x002f_Symp = true),
             LeadershipCount: CountIf(EventInfo, LeadershipTraining = true),
             CommExtCount: CountIf(EventInfo,CommunityExt = true),
             MarketingCount: CountIf(EventInfo,Marketing = true),
