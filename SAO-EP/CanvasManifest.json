@@ -7,7 +7,7 @@
   },
   "Properties": {
     "AppCreationSource": "AppFromScratch",
-    "AppDescription": "Test",
+    "AppDescription": "Reports",
     "AppPreviewFlagsMap": {
       "aibuilderserviceenrollment": true,
       "allowmultiplescreensincanvaspages": false,
