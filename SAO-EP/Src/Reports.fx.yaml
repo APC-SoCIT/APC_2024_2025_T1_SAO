@@ -1,57 +1,6 @@
 "Reports As screen.'welcomeLayout_ver1.0'":
     OnVisible: |
-        =/*
-        ClearCollect(
-            EventTypeReports,
-            ForAll(
-                'APF Uploads',
-                {
-                    Seminar_x002f_Webinar_x002f_Symp: If(
-                        'Seminar/Webinar/Symposium/Forum' = true, 
-                        1, 
-                        0
-                    ),
-                    Religious_x002f_Spiritual: If(
-                        'Religious/Spiritual' = true, 
-                        1, 
-                        0
-                    ),
-                    'Leadership Training' : If(
-                        'Leadership Training' = true, 
-                        1, 
-                        0
-                    ),
-                    'Culture & Arts' : If(
-                        'Culture & Arts' = true, 
-                        1, 
-                        0
-                    ),
-                    'Games & Sports' : If(
-                        'Games & Sports' = true, 
-                        1, 
-                        0
-                    ),
-                    'Community Ext' : If(
-                        'Community Ext' = true, 
-                        1, 
-                        0
-                    ),
-                    'Social Events' : If(
-                        'Social Events' = true, 
-                        1, 
-                        0
-                    ),
-                    Marketing : If(
-                        Marketing = true, 
-                        1, 
-                        0
-                    )     
-                }
-            )
-        );
-        
-        */
-        If( CurrentUser.userRoles.Id > 1, 
+        =If( CurrentUser.userRoles.Id = 3, 
             ClearCollect(
                 EventInfo,
                 Filter(
@@ -60,13 +9,15 @@
                         'Seminar/Webinar/Symposium/Forum',
                         'Leadership Training',
                         'Community Ext',
-                        Marketing,
+                        'Marketing',
                         'Religious/Spiritual',
                         'Academic Competition',
                         'Culture & Arts',
                         'Games & Sports',
                         'Social Events',
-                        'Name of Lead Org'
+                        'Name of Lead Org',
+                        'Projected Primary Audience',
+                        'Projected Secondary Audience'
                     ),
                     NameofLeadOrg = CurrentUserOrg.orgAcronym
                 )
@@ -78,11 +29,13 @@
                         'Seminar/Webinar/Symposium/Forum',
                         'Leadership Training',
                         'Community Ext',
-                        Marketing,
+                        'Marketing',
                         'Religious/Spiritual',
                         'Academic Competition',
                         'Culture & Arts',
-                        'Games & Sports'
+                        'Games & Sports',
+                        'Projected Primary Audience',
+                        'Projected Secondary Audience'
                 )
             );
         
@@ -181,7 +134,8 @@
                         LayoutMinHeight: =32
                         LayoutMinWidth: =Parent.Width
                         Size: =25
-                        Text: =Concatenate("In a total of ", Text(RecordsGallery1_2.AllItemsCount), " Events") 
+                        Text: |
+                            =Concatenate("With a total of ", CountRows(EventInfo), " Events")
                         VerticalAlign: ='TextCanvas.VerticalAlign'.Bottom
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =Parent.Width
@@ -197,8 +151,12 @@
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =Parent.Width
-                        Size: =22
-                        Text: ="We have served a total of"
+                        Size: =20
+                        Text: |-
+                            =If(CurrentUser.userRoles.Id = 3, 
+                                "We have served a total of",
+                                "The Student Orgs of APC has served a total of"
+                            )
                         VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
                         Width: =Parent.Width
                         X: =0
@@ -216,10 +174,8 @@
                         Size: =25
                         Text: |-
                             =Concatenate(
-                                Sum(
-                                    RecordsGallery1_2.AllItems,
-                                    'Projected Primary Audience' + 'Projected Secondary Audience'
-                                ),
+                                Sum(EventInfo, ProjectedPrimaryAudience)+
+                                Sum(EventInfo, ProjectedSecondaryAudience),
                                 " Audiences"
                             )
                         VerticalAlign: ='TextCanvas.VerticalAlign'.Top
