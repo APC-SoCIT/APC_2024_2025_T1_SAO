@@ -123,6 +123,16 @@ HomePage As screen:
             Y: =214
             ZIndex: =2
 
+        BtnViewLoE_1 As button:
+            Fill: =RGBA(24, 32, 82, 1)
+            Height: =62
+            OnSelect: =Navigate('Reports')
+            Text: ="View Reports"
+            Width: =398
+            X: =95
+            Y: =294
+            ZIndex: =5
+
         Group3 As group:
             Height: =5
             Width: =5
