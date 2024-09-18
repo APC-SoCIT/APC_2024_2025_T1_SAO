@@ -1,0 +1,226 @@
+"ApprovalDraft As screen.'autoLayout_Approval_ver1.0'":
+
+    ScreenContainer3 As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(245, 245, 245, 1)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =16
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: =16
+        PaddingLeft: =16
+        PaddingRight: =16
+        PaddingTop: =16
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainer2 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =2
+
+            Header1 As Header:
+                DisplayMode: =DisplayMode.Edit
+                Height: =75
+                LayoutMinHeight: =75
+                LayoutMinWidth: =Parent.Width
+                OnSelectLogo: =false
+                Title: ="Header"
+                UserEmail: =User().Email
+                UserImage: =User().Image
+                UserName: =User().FullName
+                Width: =Parent.Width
+                X: =0
+                Y: =0
+                ZIndex: =3
+
+        MainContainer2 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(245, 245, 245, 1)
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutGap: =16
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutWrap: =true
+            PaddingBottom: =2
+            PaddingLeft: =2
+            PaddingRight: =2
+            PaddingTop: =2
+            ZIndex: =4
+
+            FormContainer1 As groupContainer.verticalAutoLayoutContainer:
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =7
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =16
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =15
+                PaddingLeft: =15
+                PaddingRight: =15
+                PaddingTop: =15
+                RadiusBottomLeft: =8
+                RadiusBottomRight: =8
+                RadiusTopLeft: =8
+                RadiusTopRight: =8
+                ZIndex: =5
+
+                FormTitleText1 As Text:
+                    Align: ='TextCanvas.Align'.End
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    Size: =20
+                    Text: ="Request approval"
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =180
+                    X: =0
+                    Y: =0
+                    ZIndex: =6
+
+                ApprovalForm1 As form.PowerApps_CoreControls_Form:
+                    DefaultMode: =FormMode.New
+                    LayoutMinHeight: =0
+                    LayoutMinWidth: =0
+                    NumberOfColumns: =1
+                    UseFluentV9Cards: =true
+                    ZIndex: =7
+
+                SubmitButton1 As Button:
+                    AccessibleLabel: ="Submit approval request button"
+                    AlignInContainer: =AlignInContainer.End
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    OnSelect: |
+                        =SubmitForm(ApprovalForm1);
+                        ResetForm(ApprovalForm1);
+                    Text: ="Submit request"
+                    Width: =140
+                    X: =0
+                    Y: =0
+                    ZIndex: =8
+
+            SidebarContainer3 As groupContainer.verticalAutoLayoutContainer:
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =2
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =16
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingTop: =15
+                RadiusBottomLeft: =8
+                RadiusBottomRight: =8
+                RadiusTopLeft: =8
+                RadiusTopRight: =8
+                Visible: =If(ApprovalDraft.Size = ScreenSize.Small, false, true)
+                ZIndex: =9
+
+                ReviewersText1 As Text:
+                    Align: ='TextCanvas.Align'.End
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    Size: =20
+                    Text: ="Reviewers"
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =115
+                    X: =0
+                    Y: =0
+                    ZIndex: =10
+
+                ReviewersGallery1 As gallery.galleryVertical:
+                    AccessibleLabel: ="Reviewers gallery"
+                    DelayItemLoading: =true
+                    Items: |-
+                        =[
+                            {
+                                Step: 1,
+                                Name: "Name",
+                                Title: "Title",
+                                Status: "Approved",
+                                Current: true
+                            },
+                            {
+                                Step: 2,
+                                Name: "Name",
+                                Title: "Title",
+                                Status: "Pending"
+                            },
+                            {
+                                Step: 3,
+                                Name: "Name",
+                                Title: "Title",
+                                Status: "Not Started"
+                            },
+                            {
+                                Step: 4,
+                                Name: "Name",
+                                Title: "Title",
+                                Status: "Not Started"
+                            }
+                        ]
+                    Layout: =Layout.Vertical
+                    LayoutMinHeight: =0
+                    LayoutMinWidth: =Parent.Width
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TabIndex: =0
+                    TemplatePadding: =0
+                    TemplateSize: =If(ApprovalDraft.Size = ScreenSize.Small, 80, 140)
+                    ZIndex: =11
+
+                    RectangleShape1 As rectangle:
+                        DisplayMode: =DisplayMode.Disabled
+                        Fill: =RGBA(214, 221, 224, 1)
+                        Height: =If(ThisItem.Step = 1, Parent.TemplateHeight - BadgeStatus1.Height - BadgeStatus1.Y, ThisItem.Step <> Parent.AllItemsCount, Parent.TemplateHeight, BadgeStatus1.Y)
+                        OnSelect: =Select(Parent)
+                        Width: =2
+                        X: =BadgeStatus1.X + (BadgeStatus1.Width / 2)
+                        Y: =If(ThisItem.Step = 1, BadgeStatus1.Height + BadgeStatus1.Y, 0)
+                        ZIndex: =12
+
+                    BadgeStatus1 As Badge:
+                        AccessibleLabel: ="Review status badge"
+                        BasePaletteColor: =Switch(ThisItem.Status, "Pending", Color.DarkGoldenRod, "Approved", Color.DarkGreen, "Rejected", Color.Red)
+                        Content: =Left(ThisItem.Status, 1)
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =47
+                        Width: =49
+                        X: =30
+                        Y: =((Parent.TemplateHeight - Self.Height) / 2) - 32
+                        ZIndex: =13
+
+                    ReviewerNameText1 As Text:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =26
+                        Text: =ThisItem.Name
+                        Weight: =If(ThisItem.Current, "Bold", "Regular")
+                        Width: =Parent.TemplateWidth-Self.X
+                        X: =BadgeStatus1.X + BadgeStatus1.Width + 10
+                        Y: =BadgeStatus1.Y
+                        ZIndex: =14
+
+                    ReviewTypeText1 As Text:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =Parent.TemplateHeight / 2 - 5
+                        Text: =ThisItem.Title
+                        VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+                        Weight: =If(ThisItem.Current, "Bold", "Regular")
+                        Width: =ReviewerNameText1.Width
+                        X: =ReviewerNameText1.X
+                        Y: =ReviewerNameText1.Y + ReviewerNameText1.Height
+                        ZIndex: =15
+

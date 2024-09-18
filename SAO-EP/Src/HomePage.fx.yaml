@@ -126,7 +126,7 @@ HomePage As screen:
         BtnViewLoE_1 As button:
             Fill: =RGBA(24, 32, 82, 1)
             Height: =62
-            OnSelect: =Navigate('Reports')
+            OnSelect: =Navigate(Reports)
             Text: ="View Reports"
             Width: =398
             X: =95
