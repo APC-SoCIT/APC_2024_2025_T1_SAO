@@ -56,7 +56,7 @@
       "MetaDataIDKey": "",
       "Name": "ColumnChart2_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1121,7 +1121,7 @@
       "MetaDataIDKey": "",
       "Name": "Container8",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1324,7 +1324,7 @@
       "MetaDataIDKey": "%DescriptionText2.ID%",
       "Name": "DescriptionText21",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1491,7 +1491,7 @@
       "MetaDataIDKey": "",
       "Name": "DescriptionText21_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4026,7 +4026,7 @@
       "MetaDataIDKey": "",
       "Name": "Title2_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4918,7 +4918,7 @@
       "MetaDataIDKey": "%TitleContainer4.ID%",
       "Name": "TitleContainer41",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
