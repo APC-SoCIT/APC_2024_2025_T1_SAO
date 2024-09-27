@@ -103,9 +103,9 @@
       "displayName": "Encodian",
       "executionRestrictions": {
         "apiId": "unknown",
-        "appVer": "3.24091.13",
-        "modifiedOn": "2024-09-18 04:43:06",
-        "policy": "{\"type\":\"unused\"}",
+        "appVer": "3.24092.16",
+        "modifiedOn": "2024-09-27 14:36:53",
+        "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1680/1.0.1680.3652/encodiandocumentmanager/icon.png",
@@ -532,9 +532,9 @@
       "displayName": "MySQL",
       "executionRestrictions": {
         "apiId": "unknown",
-        "appVer": "3.24091.13",
-        "modifiedOn": "2024-09-18 04:43:06",
-        "policy": "{\"type\":\"unused\"}",
+        "appVer": "3.24092.16",
+        "modifiedOn": "2024-09-27 14:36:53",
+        "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
       "gatewayObjectIdHint": "ed73e1d5-f450-4447-816a-28bc1b574852",
@@ -561,9 +561,9 @@
       "displayName": "Encodian",
       "executionRestrictions": {
         "apiId": "unknown",
-        "appVer": "3.24091.13",
-        "modifiedOn": "2024-09-18 04:43:06",
-        "policy": "{\"type\":\"unused\"}",
+        "appVer": "3.24092.16",
+        "modifiedOn": "2024-09-27 14:36:53",
+        "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1680/1.0.1680.3652/encodiandocumentmanager/icon.png",

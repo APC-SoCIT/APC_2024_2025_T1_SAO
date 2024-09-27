@@ -114,7 +114,20 @@
                 PaddingLeft: =5
                 PaddingRight: =5
                 PaddingTop: =10
-                ZIndex: =11
+                ZIndex: =2
+
+                Container6 As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    Visible: =If(CurrentUser.userRoles.Id = 1, true, false)
+                    ZIndex: =1
+
+                    Dropdown2 As dropdown:
+                        FontWeight: =FontWeight.Lighter
+                        Items: =Organizations
+                        X: =40
+                        Y: =40
+                        ZIndex: =1
 
                 TitleContainer21 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.Center
@@ -124,7 +137,7 @@
                     LayoutMode: =LayoutMode.Auto
                     PaddingTop: =20
                     Width: =Parent.Width
-                    ZIndex: =14
+                    ZIndex: =2
 
                     DescriptionText21 As Text:
                         Align: ='TextCanvas.Align'.Center
@@ -199,7 +212,7 @@
                 PaddingLeft: =5
                 PaddingRight: =5
                 PaddingTop: =10
-                ZIndex: =17
+                ZIndex: =3
 
                 ImageContainer32 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.Center
@@ -276,7 +289,7 @@
                 PaddingLeft: =5
                 PaddingRight: =5
                 PaddingTop: =10
-                ZIndex: =23
+                ZIndex: =4
 
                 TitleContainer41 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.Center
@@ -364,7 +377,7 @@
                 PaddingLeft: =5
                 PaddingRight: =5
                 PaddingTop: =10
-                ZIndex: =36
+                ZIndex: =5
 
                 Title3 As label:
                     Align: =Align.Center
