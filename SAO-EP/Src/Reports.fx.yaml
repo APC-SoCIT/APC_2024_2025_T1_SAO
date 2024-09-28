@@ -117,27 +117,59 @@
                 ZIndex: =2
 
                 Container6 As groupContainer.manualLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    FillPortions: =0.5
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
+                    RadiusBottomLeft: =5
+                    RadiusBottomRight: =5
+                    RadiusTopLeft: =5
+                    RadiusTopRight: =5
                     Visible: =If(CurrentUser.userRoles.Id = 1, true, false)
                     ZIndex: =1
 
                     Dropdown2 As dropdown:
+                        Default: ="Select an Organization"
                         FontWeight: =FontWeight.Lighter
-                        Height: =48
+                        Height: =46
                         Items: =Organizations
-                        Width: =348
-                        X: =36
-                        Y: =54
+                        OnSelect: |-
+                            =If(CurrentUserOrg.orgAcronym = Dropdown2.Selected.orgAcronym,
+                                ClearCollect(EventInfo, 
+                                    ShowColumn(APF_Uploads, Filter('APF Uploads', 
+                                    ))
+                                    ;
+                        Width: =261
+                        X: =115
+                        Y: =26
                         ZIndex: =1
+
+                    ButtonCanvas2 As Button:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =46
+                        Text: ="All"
+                        Width: =54
+                        X: =41
+                        Y: =26
+                        ZIndex: =2
+
+                    Icon21 As icon.VerticalLine:
+                        Height: =46
+                        Icon: =Icon.VerticalLine
+                        Width: =20
+                        X: =95
+                        Y: =26
+                        ZIndex: =3
 
                 TitleContainer21 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.Center
+                    DropShadow: =DropShadow.Light
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMinHeight: =100
                     LayoutMinWidth: =Container22.Width
                     LayoutMode: =LayoutMode.Auto
                     PaddingTop: =20
+                    RadiusTopLeft: =05
                     Width: =Parent.Width
                     ZIndex: =2
 
