@@ -124,9 +124,11 @@
 
                     Dropdown2 As dropdown:
                         FontWeight: =FontWeight.Lighter
+                        Height: =48
                         Items: =Organizations
-                        X: =40
-                        Y: =40
+                        Width: =348
+                        X: =36
+                        Y: =54
                         ZIndex: =1
 
                 TitleContainer21 As groupContainer.verticalAutoLayoutContainer:
@@ -393,11 +395,7 @@
                             Concatenate( Round(Sum(RecordsGallery1.AllItems, TotalExpenses) / CurrentUserOrg.orgBaseBudget * 100, 2), "% Budget Used"),
                             ""
                         )
-                    Visible: |-
-                        =If(CurrentUser.userRoles.Id <> 1,
-                            true,
-                            false
-                        )
+                    Visible: =false
                     Width: =400
                     X: =40
                     Y: =40
@@ -406,6 +404,7 @@
                 PieChart3 As pieChart:
                     FillPortions: =1
                     Items: =LR_PDItems
+                    Visible: =false
                     X: =40
                     Y: =70
                     ZIndex: =3
@@ -416,8 +415,34 @@
                     ItemColorSet: =PieChart3.ItemColorSet
                     Items: =PieChart3.SeriesLabels
                     Size: =12
+                    Visible: =false
                     Width: =400
                     X: =40
                     Y: =470
                     ZIndex: =4
+
+                CompositeColumnChart1_2 As group:
+                    Height: =5
+                    LayoutMinHeight: =5
+                    LayoutMinWidth: =5
+                    Width: =5
+                    X: =-22
+                    Y: =-52
+                    ZIndex: =5
+
+                    ColumnChart2_2 As barChart:
+                        Height: =421
+                        Items: =LR_PDItems
+                        Width: =362
+                        X: =22
+                        ZIndex: =6
+
+                    Legend1_2 As legend:
+                        Height: =141
+                        ItemColorSet: =ColumnChart2_2.ItemColorSet
+                        Items: =ColumnChart2_2.SeriesLabels
+                        Width: =371
+                        X: =25
+                        Y: =365
+                        ZIndex: =7
 
