@@ -133,12 +133,40 @@
                         FontWeight: =FontWeight.Lighter
                         Height: =46
                         Items: =Organizations
-                        OnSelect: |-
-                            =If(CurrentUserOrg.orgAcronym = Dropdown2.Selected.orgAcronym,
-                                ClearCollect(EventInfo, 
-                                    ShowColumn(APF_Uploads, Filter('APF Uploads', 
-                                    ))
-                                    ;
+                        OnChange: |-
+                            =ClearCollect(
+                                EventInfo,
+                                Filter(
+                                    ShowColumns(
+                                        'APF Uploads',
+                                        'Seminar/Webinar/Symposium/Forum',
+                                        'Leadership Training',
+                                        'Community Ext',
+                                        Marketing,
+                                        'Religious/Spiritual',
+                                        'Academic Competition',
+                                        'Culture & Arts',
+                                        'Games & Sports',
+                                        'Social Events',
+                                        'Name of Lead Org',
+                                        'Projected Primary Audience',
+                                        'Projected Secondary Audience'
+                                    ),
+                                    NameofLeadOrg = Dropdown2.Selected.orgAcronym
+                                )
+                            );
+                            ClearCollect(EventTypeReports, 
+                                {SeminarCount: CountIf(EventInfo,Seminar_x002f_Webinar_x002f_Symp = true),
+                                LeadershipCount: CountIf(EventInfo, LeadershipTraining = true),
+                                CommExtCount: CountIf(EventInfo,CommunityExt = true),
+                                MarketingCount: CountIf(EventInfo,Marketing = true),
+                                ReligiousCount: CountIf(EventInfo,Religious_x002f_Spiritual = true),
+                                AcadCompeCount: CountIf(EventInfo,AcademicCompetition = true),
+                                CultureCount: CountIf(EventInfo,CultureArts = true),
+                                GameCount: CountIf(EventInfo,GamesSports = true),
+                                SocialCount: CountIf(EventInfo,SocialEvents = true)
+                                }
+                            )
                         Width: =261
                         X: =115
                         Y: =26
@@ -147,6 +175,36 @@
                     ButtonCanvas2 As Button:
                         DisplayMode: =DisplayMode.Edit
                         Height: =46
+                        OnSelect: |-
+                            =ClearCollect(
+                                    EventInfo,
+                                    ShowColumns(
+                                            'APF Uploads',
+                                            'Seminar/Webinar/Symposium/Forum',
+                                            'Leadership Training',
+                                            'Community Ext',
+                                            Marketing,
+                                            'Religious/Spiritual',
+                                            'Academic Competition',
+                                            'Culture & Arts',
+                                            'Games & Sports',
+                                            'Projected Primary Audience',
+                                            'Projected Secondary Audience'
+                                    )
+                            );
+                            
+                            ClearCollect(EventTypeReports, 
+                                {SeminarCount: CountIf(EventInfo,Seminar_x002f_Webinar_x002f_Symp = true),
+                                LeadershipCount: CountIf(EventInfo, LeadershipTraining = true),
+                                CommExtCount: CountIf(EventInfo,CommunityExt = true),
+                                MarketingCount: CountIf(EventInfo,Marketing = true),
+                                ReligiousCount: CountIf(EventInfo,Religious_x002f_Spiritual = true),
+                                AcadCompeCount: CountIf(EventInfo,AcademicCompetition = true),
+                                CultureCount: CountIf(EventInfo,CultureArts = true),
+                                GameCount: CountIf(EventInfo,GamesSports = true),
+                                SocialCount: CountIf(EventInfo,SocialEvents = true)
+                                }
+                            )
                         Text: ="All"
                         Width: =54
                         X: =41

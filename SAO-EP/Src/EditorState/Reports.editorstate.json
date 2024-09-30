@@ -16,6 +16,14 @@
           "InvariantPropertyName": "Text",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "false",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
         }
       ],
       "HasDynamicProperties": false,
@@ -66,6 +74,11 @@
           "Category": "Design",
           "PropertyName": "ZIndex",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnSelect",
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "",
@@ -2714,15 +2727,15 @@
         "PaddingRight",
         "PaddingBottom",
         "PaddingLeft",
+        "OnSelect",
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
           "AutoRuleBindingString": "false",
-          "InvariantPropertyName": "OnSelect",
+          "InvariantPropertyName": "OnChange",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "OnChange",
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
@@ -5841,7 +5854,7 @@
         {
           "Category": "Design",
           "PropertyName": "RadiusTopLeft",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "",
