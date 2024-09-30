@@ -1,5 +1,5 @@
 "Reports As screen.'welcomeLayout_ver1.0'":
-    OnVisible: |
+    OnVisible: |-
         =If( CurrentUser.userRoles.Id = 3, 
             ClearCollect(
                 EventInfo,
@@ -17,10 +17,12 @@
                         'Social Events',
                         'Name of Lead Org',
                         'Projected Primary Audience',
-                        'Projected Secondary Audience'
+                        'Projected Secondary Audience',
+                        ID
                     ),
                     NameofLeadOrg = CurrentUserOrg.orgAcronym
                 )
+        //        Filter(ShowColumns(LR_Uploads,'PerDiemTotal','HBTOTotal'), LR_Uploads.EventOrg = CurrentUserOrg.orgAcronym)
             ),
             ClearCollect(
                 EventInfo,
@@ -35,9 +37,12 @@
                         'Culture & Arts',
                         'Games & Sports',
                         'Projected Primary Audience',
-                        'Projected Secondary Audience'
+                        'Projected Secondary Audience',
+                        ID
                 )
-            );
+            )
+        );
+        
         
         ClearCollect(EventTypeReports, 
             {SeminarCount: CountIf(EventInfo,Seminar_x002f_Webinar_x002f_Symp = true),
@@ -48,9 +53,13 @@
             AcadCompeCount: CountIf(EventInfo,AcademicCompetition = true),
             CultureCount: CountIf(EventInfo,CultureArts = true),
             GameCount: CountIf(EventInfo,GamesSports = true),
-            SocialCount: CountIf(EventInfo,SocialEvents = true)
+            SocialCount: CountIf(EventInfo,SocialEvents = true),
+            EventID : EventInfo,ID
+            //SeminarCost: Sum(EventInfo, 
             }
-        ))
+        );
+        
+        //AddColumns(EventTypeReports,"SeminarCosts", Sum(Filter(LR_PDItems,LR_ID = 1)))
 
     ScreenContainer4 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(245, 245, 245, 1)
@@ -319,54 +328,6 @@
                     Width: =Parent.Width
                     ZIndex: =18
 
-                    Image31 As image:
-                        ImagePosition: =ImagePosition.Fill
-                        RadiusBottomLeft: =90
-                        RadiusBottomRight: =90
-                        RadiusTopLeft: =90
-                        RadiusTopRight: =90
-                        ZIndex: =19
-
-                TitleContainer32 As groupContainer.verticalAutoLayoutContainer:
-                    AlignInContainer: =AlignInContainer.Center
-                    LayoutDirection: =LayoutDirection.Vertical
-                    LayoutMinHeight: =100
-                    LayoutMinWidth: =Container32.Width
-                    LayoutMode: =LayoutMode.Auto
-                    PaddingTop: =20
-                    Width: =Parent.Width
-                    ZIndex: =20
-
-                    FeatureItemButton31 As Button:
-                        AccessibleLabel: ="Featured item button"
-                        Appearance: ='ButtonCanvas.Appearance'.Transparent
-                        DisplayMode: =DisplayMode.Edit
-                        FontSize: =20
-                        FontWeight: =FontWeight.Bold
-                        Height: =32
-                        LayoutMinHeight: =32
-                        LayoutMinWidth: =Parent.Width
-                        Text: ="<Insert Another Report Here>"
-                        Width: =Parent.Width
-                        X: =0
-                        Y: =0
-                        ZIndex: =21
-
-                    DescriptionText31 As Text:
-                        Align: ='TextCanvas.Align'.Center
-                        DisplayMode: =DisplayMode.Edit
-                        FillPortions: =1
-                        Height: =32
-                        LayoutMinHeight: =32
-                        LayoutMinWidth: =Parent.Width
-                        Size: =16
-                        Text: ="Short description or engaging message"
-                        VerticalAlign: ='TextCanvas.VerticalAlign'.Top
-                        Width: =Parent.Width
-                        X: =0
-                        Y: =0
-                        ZIndex: =22
-
             Container42 As groupContainer.verticalAutoLayoutContainer:
                 Fill: =RGBA(255, 255, 255, 1)
                 LayoutAlignItems: =LayoutAlignItems.Center
@@ -513,8 +474,6 @@
 
                 CompositeColumnChart1_2 As group:
                     Height: =5
-                    LayoutMinHeight: =5
-                    LayoutMinWidth: =5
                     Width: =5
                     X: =-22
                     Y: =-52
@@ -522,7 +481,7 @@
 
                     ColumnChart2_2 As barChart:
                         Height: =421
-                        Items: =LR_PDItems
+                        Items: =EventTypeReports
                         Width: =362
                         X: =22
                         ZIndex: =6
