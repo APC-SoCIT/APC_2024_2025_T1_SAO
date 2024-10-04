@@ -3,43 +3,12 @@
         =If( CurrentUser.userRoles.Id = 3, 
             ClearCollect(
                 EventInfo,
-                Filter(
-                    ShowColumns(
-                        'APF Uploads',
-                        'Seminar/Webinar/Symposium/Forum',
-                        'Leadership Training',
-                        'Community Ext',
-                        Marketing,
-                        'Religious/Spiritual',
-                        'Academic Competition',
-                        'Culture & Arts',
-                        'Games & Sports',
-                        'Social Events',
-                        'Name of Lead Org',
-                        'Projected Primary Audience',
-                        'Projected Secondary Audience',
-                        ID
-                    ),
-                    NameofLeadOrg = CurrentUserOrg.orgAcronym
-                )
-        //        Filter(ShowColumns(LR_Uploads,'PerDiemTotal','HBTOTotal'), LR_Uploads.EventOrg = CurrentUserOrg.orgAcronym)
+                Filter('APF Uploads', NameofLeadOrg = CurrentUserOrg.orgAcronym)
+        //      Filter(ShowColumns(LR_Uploads,'PerDiemTotal','HBTOTotal'), LR_Uploads.EventOrg = CurrentUserOrg.orgAcronym)
             ),
             ClearCollect(
                 EventInfo,
-                ShowColumns(
-                        'APF Uploads',
-                        'Seminar/Webinar/Symposium/Forum',
-                        'Leadership Training',
-                        'Community Ext',
-                        Marketing,
-                        'Religious/Spiritual',
-                        'Academic Competition',
-                        'Culture & Arts',
-                        'Games & Sports',
-                        'Projected Primary Audience',
-                        'Projected Secondary Audience',
-                        ID
-                )
+                'APF Uploads'
             )
         );
         
@@ -344,141 +313,132 @@
                     LayoutMinWidth: =250
                     ZIndex: =1
 
-                    TextCanvas2 As Text:
-                        Align: ='TextCanvas.Align'.Center
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =34
-                        Size: =20
-                        Text: |-
-                            ="Number of Collabs: "
-                        Weight: ='TextCanvas.Weight'.Bold
-                        Width: =236
-                        X: =77
-                        Y: =59
-                        ZIndex: =2
-
-                    TextCanvas2_3 As Text:
-                        Align: ='TextCanvas.Align'.Center
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =73
-                        Size: =50
-                        Text: =CountIf('APF Uploads'.'In Campus', true)
-                        Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =189
-                        X: =101
-                        Y: =0
-                        ZIndex: =5
+                    Rectangle9 As rectangle:
+                        Fill: =RGBA(24, 32, 84, 1)
+                        Height: =216
+                        Width: =381
+                        X: =20
+                        Y: =40
+                        ZIndex: =1
 
                     TextCanvas2_1 As Text:
                         Align: ='TextCanvas.Align'.Center
                         BorderColor: =RGBA(0, 0, 0, 1)
                         BorderStyle: =BorderStyle.None
                         DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(255, 255, 255, 1)
                         Height: =53
                         Size: =20
                         Text: |-
                             ="Internal: "
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =88
-                        X: =61
-                        Y: =152
-                        ZIndex: =6
+                        X: =90
+                        Y: =112
+                        ZIndex: =2
 
                     TextCanvas2_4 As Text:
                         Align: ='TextCanvas.Align'.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
+                        BorderColor: =RGBA(255, 255, 255, 1)
                         BorderStyle: =BorderStyle.Solid
                         DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(255, 255, 255, 1)
                         Height: =53
                         Size: =25
-                        Text: =CountIf('APF Uploads'.'In Campus', ThisRecord.'In Campus'=true)
+                        Text: =CountIf('EventInfo'.'In Campus', ThisRecord.'In Campus'=true)
                         Weight: ='TextCanvas.Weight'.Medium
                         Width: =70
-                        X: =160
-                        Y: =152
-                        ZIndex: =7
+                        X: =189
+                        Y: =112
+                        ZIndex: =3
 
                     TextCanvas2_2 As Text:
                         Align: ='TextCanvas.Align'.Center
                         BorderColor: =RGBA(0, 0, 0, 1)
                         BorderStyle: =BorderStyle.None
                         DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(255, 255, 255, 1)
                         Height: =56
                         Size: =20
                         Text: |-
                             ="External: "
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =88
-                        X: =61
-                        Y: =210
-                        ZIndex: =8
+                        X: =90
+                        Y: =170
+                        ZIndex: =4
 
                     TextCanvas2_5 As Text:
                         Align: ='TextCanvas.Align'.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
+                        BorderColor: =RGBA(255, 255, 255, 1)
                         BorderStyle: =BorderStyle.Solid
                         DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(255, 255, 255, 1)
                         Height: =56
                         Size: =25
-                        Text: =CountIf('APF Uploads'.'Off Campus', ThisRecord.'Off Campus'=true)
+                        Text: =CountIf('EventInfo'.'Off Campus', ThisRecord.'Off Campus'=true)
                         Weight: ='TextCanvas.Weight'.Medium
                         Width: =70
-                        X: =160
-                        Y: =210
-                        ZIndex: =9
+                        X: =189
+                        Y: =170
+                        ZIndex: =5
 
                     TextCanvas2_6 As Text:
                         Align: ='TextCanvas.Align'.Center
                         BorderColor: =RGBA(0, 0, 0, 1)
                         BorderStyle: =BorderStyle.None
                         DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(255, 255, 255, 1)
                         Height: =53
                         Size: =20
                         Text: ="Events"
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =70
-                        X: =160
-                        Y: =94
-                        ZIndex: =10
+                        X: =189
+                        Y: =54
+                        ZIndex: =6
 
                     TextCanvas2_7 As Text:
                         Align: ='TextCanvas.Align'.Center
                         BorderColor: =RGBA(0, 0, 0, 1)
                         BorderStyle: =BorderStyle.None
                         DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(255, 255, 255, 1)
                         Height: =53
                         Size: =20
                         Text: ="Collabs"
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =78
-                        X: =229
-                        Y: =94
-                        ZIndex: =11
+                        X: =258
+                        Y: =54
+                        ZIndex: =7
 
                     TextCanvas2_8 As Text:
                         Align: ='TextCanvas.Align'.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
+                        BorderColor: =RGBA(255, 255, 255, 1)
                         BorderStyle: =BorderStyle.Solid
                         DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(255, 255, 255, 1)
                         Height: =53
                         Size: =25
-                        Text: =CountIf('APF Uploads'.'Name of Co-Org', ThisRecord.'Name of Co-Org' in ShowColumns(Organizations,orgAcronym))
+                        Text: =CountIf('EventInfo'.'Name of Co-Org', ThisRecord.'Name of Co-Org' in ShowColumns(Organizations,orgAcronym))
                         Weight: ='TextCanvas.Weight'.Medium
                         Width: =66
-                        X: =235
-                        Y: =152
-                        ZIndex: =12
+                        X: =264
+                        Y: =112
+                        ZIndex: =8
 
                     TextCanvas2_9 As Text:
                         Align: ='TextCanvas.Align'.Center
-                        BorderColor: =RGBA(0, 0, 0, 1)
+                        BorderColor: =RGBA(255, 255, 255, 1)
                         BorderStyle: =BorderStyle.Solid
                         DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(255, 255, 255, 1)
                         Height: =55
                         Size: =25
                         Text: |-
                             =CountIf(
-                                'APF Uploads'.'Name of Co-Org',
+                                'EventInfo'.'Name of Co-Org',
                                 (Not(ThisRecord.'Name of Co-Org' = "Not Applicable") && Not(
                                     ThisRecord.'Name of Co-Org' in ShowColumns(
                                         Organizations,
@@ -488,9 +448,9 @@
                             )
                         Weight: ='TextCanvas.Weight'.Medium
                         Width: =66
-                        X: =235
-                        Y: =211
-                        ZIndex: =13
+                        X: =264
+                        Y: =171
+                        ZIndex: =9
 
             Container42 As groupContainer.verticalAutoLayoutContainer:
                 Fill: =RGBA(255, 255, 255, 1)
