@@ -101,7 +101,7 @@
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            LayoutOverflowY: =LayoutOverflow.Scroll
+            LayoutOverflowX: =LayoutOverflow.Scroll
             LayoutWrap: =true
             PaddingBottom: =2
             PaddingLeft: =2
@@ -118,12 +118,11 @@
                 LayoutMinHeight: =300
                 LayoutMinWidth: =If(Reports.Size = ScreenSize.Small, Parent.Width, 400)
                 LayoutMode: =LayoutMode.Auto
-                LayoutOverflowY: =LayoutOverflow.Scroll
                 PaddingBottom: =10
                 PaddingLeft: =5
                 PaddingRight: =5
                 PaddingTop: =10
-                ZIndex: =2
+                ZIndex: =1
 
                 Container6 As groupContainer.manualLayoutContainer:
                     DropShadow: =DropShadow.Light
@@ -231,6 +230,7 @@
                 TitleContainer21 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.Center
                     DropShadow: =DropShadow.Light
+                    FillPortions: =1.5
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMinHeight: =100
                     LayoutMinWidth: =Container22.Width
@@ -260,8 +260,9 @@
                     DescriptionText21_1 As Text:
                         Align: ='TextCanvas.Align'.Center
                         AlignInContainer: =AlignInContainer.Center
+                        AutoHeight: =false
                         DisplayMode: =DisplayMode.Edit
-                        FillPortions: =0.5
+                        FillPortions: =1
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =Parent.Width
@@ -269,7 +270,7 @@
                         Text: |-
                             =If(CurrentUser.userRoles.Id = 3, 
                                 "We have served a total of",
-                                "The Student Orgs of APC has served a total of"
+                                "APC's Student Orgs has served a total of"
                             )
                         VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
                         Width: =Parent.Width
@@ -301,11 +302,59 @@
 
             Container32 As groupContainer.verticalAutoLayoutContainer:
                 Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =0.5
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =5
                 LayoutJustifyContent: =LayoutJustifyContent.Center
                 LayoutMinHeight: =300
+                LayoutMinWidth: =If(Reports.Size = ScreenSize.Small, Parent.Width, 400)
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                PaddingBottom: =10
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =10
+                ZIndex: =2
+
+                Container9 As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    ZIndex: =1
+
+                    TextCanvas2 As Text:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =47
+                        Size: =30
+                        Text: |-
+                            ="Number of Collabs: "
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =283
+                        X: =54
+                        Y: =41
+                        ZIndex: =2
+
+                    TextCanvas2_3 As Text:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =73
+                        Size: =50
+                        Text: =CountIf('APF Uploads'.'In Campus', true)
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =189
+                        X: =101
+                        Y: =88
+                        ZIndex: =5
+
+            Container42 As groupContainer.verticalAutoLayoutContainer:
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =2
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =5
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =600
                 LayoutMinWidth: =If(Reports.Size = ScreenSize.Small, Parent.Width, 400)
                 LayoutMode: =LayoutMode.Auto
                 LayoutOverflowY: =LayoutOverflow.Scroll
@@ -314,35 +363,6 @@
                 PaddingRight: =5
                 PaddingTop: =10
                 ZIndex: =3
-
-                ImageContainer32 As groupContainer.verticalAutoLayoutContainer:
-                    AlignInContainer: =AlignInContainer.Center
-                    FillPortions: =1.5
-                    LayoutAlignItems: =LayoutAlignItems.Center
-                    LayoutDirection: =LayoutDirection.Vertical
-                    LayoutGap: =5
-                    LayoutJustifyContent: =LayoutJustifyContent.End
-                    LayoutMinHeight: =100
-                    LayoutMinWidth: =Container32.Width
-                    LayoutMode: =LayoutMode.Auto
-                    Width: =Parent.Width
-                    ZIndex: =18
-
-            Container42 As groupContainer.verticalAutoLayoutContainer:
-                Fill: =RGBA(255, 255, 255, 1)
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutDirection: =LayoutDirection.Vertical
-                LayoutGap: =5
-                LayoutJustifyContent: =LayoutJustifyContent.Center
-                LayoutMinHeight: =300
-                LayoutMinWidth: =If(Reports.Size = ScreenSize.Small, Parent.Width, 400)
-                LayoutMode: =LayoutMode.Auto
-                LayoutOverflowY: =LayoutOverflow.Scroll
-                PaddingBottom: =10
-                PaddingLeft: =5
-                PaddingRight: =5
-                PaddingTop: =10
-                ZIndex: =4
 
                 TitleContainer41 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.Center
@@ -416,6 +436,100 @@
                             Y: =365
                             ZIndex: =4
 
+            Container32_1 As groupContainer.verticalAutoLayoutContainer:
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =0.5
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =5
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =300
+                LayoutMinWidth: =If(Reports.Size = ScreenSize.Small, Parent.Width, 400)
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                PaddingBottom: =10
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =10
+                ZIndex: =4
+
+                Container9_1 As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    ZIndex: =1
+
+                    TextCanvas2_1 As Text:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =73
+                        Size: =30
+                        Text: |-
+                            ="Internal Events: "
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =263
+                        X: =64
+                        Y: =77
+                        ZIndex: =2
+
+                    TextCanvas2_4 As Text:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =73
+                        Size: =50
+                        Text: =CountIf('APF Uploads'.'In Campus', ThisRecord.'In Campus'=true)
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =189
+                        X: =101
+                        Y: =132
+                        ZIndex: =5
+
+            Container32_2 As groupContainer.verticalAutoLayoutContainer:
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =0.5
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =5
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =300
+                LayoutMinWidth: =If(Reports.Size = ScreenSize.Small, Parent.Width, 400)
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                PaddingBottom: =10
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =10
+                ZIndex: =5
+
+                Container9_2 As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    ZIndex: =1
+
+                    TextCanvas2_2 As Text:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =73
+                        Size: =30
+                        Text: |-
+                            ="External Events: "
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =263
+                        X: =64
+                        Y: =77
+                        ZIndex: =2
+
+                    TextCanvas2_5 As Text:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =73
+                        Size: =50
+                        Text: =CountIf('APF Uploads'.'Off Campus', ThisRecord.'Off Campus'=true)
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =189
+                        X: =101
+                        Y: =132
+                        ZIndex: =5
+
             Container42_1 As groupContainer.verticalAutoLayoutContainer:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =400
@@ -430,7 +544,7 @@
                 PaddingLeft: =5
                 PaddingRight: =5
                 PaddingTop: =10
-                ZIndex: =5
+                ZIndex: =6
 
                 Title3 As label:
                     Align: =Align.Center
@@ -474,6 +588,8 @@
 
                 CompositeColumnChart1_2 As group:
                     Height: =5
+                    LayoutMinHeight: =5
+                    LayoutMinWidth: =5
                     Width: =5
                     X: =-22
                     Y: =-52
