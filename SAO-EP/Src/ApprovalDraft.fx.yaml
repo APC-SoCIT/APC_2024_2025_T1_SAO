@@ -75,20 +75,6 @@
                 RadiusTopRight: =8
                 ZIndex: =5
 
-                FormTitleText1 As Text:
-                    Align: ='TextCanvas.Align'.End
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =32
-                    LayoutMinHeight: =32
-                    LayoutMinWidth: =96
-                    Size: =20
-                    Text: ="Request approval"
-                    Weight: ='TextCanvas.Weight'.Semibold
-                    Width: =180
-                    X: =0
-                    Y: =0
-                    ZIndex: =1
-
                 "Gallery2 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
                     DelayItemLoading: =true
                     Items: ='APF Uploads'
@@ -97,9 +83,9 @@
                     LayoutMinWidth: =320
                     LoadingSpinner: =LoadingSpinner.Data
                     TemplatePadding: =0
-                    TemplateSize: =50
+                    TemplateSize: =100
                     Width: =1000
-                    ZIndex: =1
+                    ZIndex: =2
 
                     NextArrow5 As icon.ChevronRight:
                         AccessibleLabel: =Self.Tooltip
@@ -136,24 +122,70 @@
                         Width: =4
                         ZIndex: =6
 
-                    TextCanvas4 As Text:
+                    "'Activity Title' As Text":
                         DisplayMode: =DisplayMode.Edit
                         Height: =50
                         Size: =20
                         Text: =ThisItem.'Activity Title'
                         Width: =400
-                        X: =20
-                        Y: =0
+                        X: =7
+                        Y: =21
                         ZIndex: =7
 
-                    TextCanvas3 As Text:
+                    "'Adviser Approval Status' As Text":
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
                         Text: =Text(LookUp('Approvals History', 'APF ID'.Value = Text(ThisItem.ID)).'Adviser Approval'.Value)
-                        Width: =176
-                        X: =448
-                        Y: =10
+                        Width: =116
+                        X: =419
+                        Y: =34
                         ZIndex: =8
+
+                    "'SAO Head Approval Status' As Text":
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        Text: =Text(LookUp('Approvals History', 'APF ID'.Value = Text(ThisItem.ID)).'SAO Head Approval'.Value)
+                        Width: =116
+                        X: =662
+                        Y: =34
+                        ZIndex: =9
+
+                    TextCanvas5 As Text:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =25
+                        Text: ="SAO Head Approval"
+                        Weight: ='TextCanvas.Weight'.Bold
+                        Width: =141
+                        X: =650
+                        Y: =0
+                        ZIndex: =11
+
+                    TextCanvas4 As Text:
+                        Align: ='TextCanvas.Align'.Center
+                        AutoHeight: =false
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =25
+                        Text: ="Adviser Approval"
+                        Weight: ='TextCanvas.Weight'.Bold
+                        Width: =135
+                        Wrap: =false
+                        X: =409
+                        Y: =0
+                        ZIndex: =12
+
+                FormTitleText1 As Text:
+                    Align: ='TextCanvas.Align'.End
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    Size: =20
+                    Text: ="Request approval"
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =180
+                    X: =0
+                    Y: =0
+                    ZIndex: =3
 
                 ApprovalForm1 As form.PowerApps_CoreControls_Form:
                     DefaultMode: =FormMode.New
@@ -161,7 +193,7 @@
                     LayoutMinWidth: =400
                     NumberOfColumns: =1
                     UseFluentV9Cards: =true
-                    ZIndex: =3
+                    ZIndex: =4
 
                 SubmitButton1 As Button:
                     AccessibleLabel: ="Submit approval request button"
@@ -177,7 +209,7 @@
                     Width: =140
                     X: =0
                     Y: =0
-                    ZIndex: =4
+                    ZIndex: =5
 
             SidebarContainer3 As groupContainer.verticalAutoLayoutContainer:
                 Fill: =RGBA(255, 255, 255, 1)
