@@ -93,6 +93,8 @@
                     DelayItemLoading: =true
                     Items: ='APF Uploads'
                     Layout: =Layout.Vertical
+                    LayoutMinHeight: =287
+                    LayoutMinWidth: =320
                     LoadingSpinner: =LoadingSpinner.Data
                     TemplatePadding: =0
                     TemplateSize: =50
@@ -101,7 +103,10 @@
 
                     NextArrow5 As icon.ChevronRight:
                         AccessibleLabel: =Self.Tooltip
+                        BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(166, 166, 166, 1)
+                        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+                        DisabledColor: =RGBA(119, 119, 119, 1)
                         Height: =50
                         Icon: =Icon.ChevronRight
                         OnSelect: =Select(Parent)
@@ -116,6 +121,7 @@
                         ZIndex: =4
 
                     Separator9 As rectangle:
+                        BorderColor: =RGBA(0, 0, 255, 1)
                         Fill: =RGBA(255, 255, 255, 1)
                         Height: =8
                         OnSelect: =Select(Parent)
@@ -140,8 +146,19 @@
                         Y: =0
                         ZIndex: =7
 
+                    TextCanvas3 As Text:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        Text: =Text(LookUp('Approvals History', 'APF ID'.Value = Text(ThisItem.ID)).'Adviser Approval'.Value)
+                        Width: =176
+                        X: =448
+                        Y: =10
+                        ZIndex: =8
+
                 ApprovalForm1 As form.PowerApps_CoreControls_Form:
                     DefaultMode: =FormMode.New
+                    LayoutMinHeight: =250
+                    LayoutMinWidth: =400
                     NumberOfColumns: =1
                     UseFluentV9Cards: =true
                     ZIndex: =3
