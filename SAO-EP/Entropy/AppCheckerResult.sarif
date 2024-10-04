@@ -8642,6 +8642,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "Reports.ScreenContainer4.MainContainer3.Container22.Container6.ButtonCanvas1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Reports.ScreenContainer4.MainContainer3.Container22.Container6.ButtonCanvas1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Reports",
+                "type": "Reports.ScreenContainer4.MainContainer3.Container22.Container6.ButtonCanvas1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.DelayTimer"
                 }
               ],
