@@ -45,17 +45,18 @@
         
         
         ClearCollect(EventTypeReports, 
-            {SeminarCount: CountIf(EventInfo,Seminar_x002f_Webinar_x002f_Symp = true),
-            LeadershipCount: CountIf(EventInfo, LeadershipTraining = true),
-            CommExtCount: CountIf(EventInfo,CommunityExt = true),
-            MarketingCount: CountIf(EventInfo,Marketing = true),
-            ReligiousCount: CountIf(EventInfo,Religious_x002f_Spiritual = true),
-            AcadCompeCount: CountIf(EventInfo,AcademicCompetition = true),
-            CultureCount: CountIf(EventInfo,CultureArts = true),
-            GameCount: CountIf(EventInfo,GamesSports = true),
-            SocialCount: CountIf(EventInfo,SocialEvents = true),
-            EventID : EventInfo,ID
-            //SeminarCost: Sum(EventInfo, 
+            {
+                SeminarCount: CountIf(EventInfo,Seminar_x002f_Webinar_x002f_Symp = true),
+                LeadershipCount: CountIf(EventInfo, LeadershipTraining = true),
+                CommExtCount: CountIf(EventInfo,CommunityExt = true),
+                MarketingCount: CountIf(EventInfo,Marketing = true),
+                ReligiousCount: CountIf(EventInfo,Religious_x002f_Spiritual = true),
+                AcadCompeCount: CountIf(EventInfo,AcademicCompetition = true),
+                CultureCount: CountIf(EventInfo,CultureArts = true),
+                GameCount: CountIf(EventInfo,GamesSports = true),
+                SocialCount: CountIf(EventInfo,SocialEvents = true)
+                //,EventID : (EventInfo,ID)
+                //SeminarCost: Sum(EventInfo, 
             }
         );
         
