@@ -57,6 +57,9 @@
         "dataSources": {
           "APF Uploads": {
             "tableName": "53b0a088-02c0-4365-a2d0-f7d740ed973f"
+          },
+          "Approvals History": {
+            "tableName": "f581a58d-0447-4012-bc98-2d02e401fd34"
           }
         }
       }
@@ -70,7 +73,8 @@
       "Users",
       "Logistical Needs",
       "LR_HBTOItems",
-      "LR_Uploads"
+      "LR_Uploads",
+      "Approvals History"
     ],
     "dependencies": {},
     "dependents": [],
@@ -104,7 +108,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24094.14",
-        "modifiedOn": "2024-10-04 05:02:01",
+        "modifiedOn": "2024-10-04 08:54:05",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
@@ -533,7 +537,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24094.14",
-        "modifiedOn": "2024-10-04 05:02:01",
+        "modifiedOn": "2024-10-04 08:54:05",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
@@ -562,7 +566,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24094.14",
-        "modifiedOn": "2024-10-04 05:02:01",
+        "modifiedOn": "2024-10-04 08:54:05",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
