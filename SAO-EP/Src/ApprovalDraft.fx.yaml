@@ -1,5 +1,5 @@
 "ApprovalDraft As screen.'autoLayout_Approval_ver1.0'":
-    OnVisible: =ClearCollect(ApprovalsAndAPFs, 'APF Uploads', 'Approvals History')
+    OnVisible: =
 
     ScreenContainer3 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(245, 245, 245, 1)
@@ -75,7 +75,7 @@
                 RadiusTopRight: =8
                 ZIndex: =5
 
-                "Gallery2 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                "ApprovalsAPFGallery As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
                     DelayItemLoading: =true
                     Items: =Filter('APF Uploads','Name of Lead Org' = CurrentUserOrg.orgAcronym)
                     Layout: =Layout.Vertical
@@ -245,50 +245,24 @@
                 ZIndex: =9
 
                 ReviewersText1 As Text:
-                    Align: ='TextCanvas.Align'.End
+                    Align: ='TextCanvas.Align'.Center
+                    AlignInContainer: =AlignInContainer.Center
                     DisplayMode: =DisplayMode.Edit
                     Height: =32
                     LayoutMinHeight: =32
                     LayoutMinWidth: =96
                     Size: =20
-                    Text: ="Reviewers"
+                    Text: ="Approval History"
                     Weight: ='TextCanvas.Weight'.Semibold
-                    Width: =115
+                    Width: =250
                     X: =0
                     Y: =0
                     ZIndex: =10
 
-                ReviewersGallery1 As gallery.galleryVertical:
+                ApprovalsHistoryGallery As gallery.galleryVertical:
                     AccessibleLabel: ="Reviewers gallery"
                     DelayItemLoading: =true
-                    Items: |-
-                        =[
-                            {
-                                Step: 1,
-                                Name: "Name",
-                                Title: "Title",
-                                Status: "Approved",
-                                Current: true
-                            },
-                            {
-                                Step: 2,
-                                Name: "Name",
-                                Title: "Title",
-                                Status: "Pending"
-                            },
-                            {
-                                Step: 3,
-                                Name: "Name",
-                                Title: "Title",
-                                Status: "Not Started"
-                            },
-                            {
-                                Step: 4,
-                                Name: "Name",
-                                Title: "Title",
-                                Status: "Not Started"
-                            }
-                        ]
+                    Items: =Filter('Approvals History', Text(ApprovalsAPFGallery.Selected.ID) = 'APF ID'.Value)
                     Layout: =Layout.Vertical
                     LayoutMinHeight: =0
                     LayoutMinWidth: =Parent.Width
@@ -298,20 +272,10 @@
                     TemplateSize: =If(ApprovalDraft.Size = ScreenSize.Small, 80, 140)
                     ZIndex: =11
 
-                    RectangleShape1 As rectangle:
-                        DisplayMode: =DisplayMode.Disabled
-                        Fill: =RGBA(214, 221, 224, 1)
-                        Height: =If(ThisItem.Step = 1, Parent.TemplateHeight - BadgeStatus1.Height - BadgeStatus1.Y, ThisItem.Step <> Parent.AllItemsCount, Parent.TemplateHeight, BadgeStatus1.Y)
-                        OnSelect: =Select(Parent)
-                        Width: =2
-                        X: =BadgeStatus1.X + (BadgeStatus1.Width / 2)
-                        Y: =If(ThisItem.Step = 1, BadgeStatus1.Height + BadgeStatus1.Y, 0)
-                        ZIndex: =12
-
-                    BadgeStatus1 As Badge:
+                    AdviserApprovalStatus As Badge:
                         AccessibleLabel: ="Review status badge"
-                        BasePaletteColor: =Switch(ThisItem.Status, "Pending", Color.DarkGoldenRod, "Approved", Color.DarkGreen, "Rejected", Color.Red)
-                        Content: =Left(ThisItem.Status, 1)
+                        BasePaletteColor: =Switch(ThisItem.'Adviser Approval'.Value, "Pending Approval", Color.DarkGoldenRod, "Approved", Color.DarkGreen, "Rejected", Color.Red)
+                        Content: =Left(ThisItem.'Adviser Approval'.Value, 1)
                         DisplayMode: =DisplayMode.Edit
                         Height: =47
                         Width: =49
@@ -319,24 +283,50 @@
                         Y: =((Parent.TemplateHeight - Self.Height) / 2) - 32
                         ZIndex: =13
 
-                    ReviewerNameText1 As Text:
+                    AdviserApprovalTimestamp As Text:
                         DisplayMode: =DisplayMode.Edit
-                        Height: =26
-                        Text: =ThisItem.Name
-                        Weight: =If(ThisItem.Current, "Bold", "Regular")
-                        Width: =Parent.TemplateWidth-Self.X
-                        X: =BadgeStatus1.X + BadgeStatus1.Width + 10
-                        Y: =BadgeStatus1.Y
+                        Height: =28
+                        Text: =ThisItem.'Adviser Timestamp'
+                        Width: =131
+                        X: =97
+                        Y: =33
                         ZIndex: =14
 
-                    ReviewTypeText1 As Text:
+                    SAOHeadApprovalStatus As Badge:
+                        AccessibleLabel: ="Review status badge"
+                        BasePaletteColor: =Switch(ThisItem.'Adviser Approval'.Value, "Pending Approval", Color.DarkGoldenRod, "Approved", Color.DarkGreen, "Rejected", Color.Red)
+                        Content: =Left(ThisItem.'SAO Head Approval'.Value, 1)
                         DisplayMode: =DisplayMode.Edit
-                        Height: =Parent.TemplateHeight / 2 - 5
-                        Text: =ThisItem.Title
-                        VerticalAlign: ='TextCanvas.VerticalAlign'.Top
-                        Weight: =If(ThisItem.Current, "Bold", "Regular")
-                        Width: =ReviewerNameText1.Width
-                        X: =ReviewerNameText1.X
-                        Y: =ReviewerNameText1.Y + ReviewerNameText1.Height
+                        Height: =47
+                        Width: =49
+                        X: =30
+                        Y: =72
                         ZIndex: =15
+
+                    SAOHeadApprovalTimestamp As Text:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =28
+                        Text: =ThisItem.'SAO Head Timestamp'
+                        Width: =131
+                        X: =97
+                        Y: =91
+                        ZIndex: =16
+
+                    TextCanvas9 As Text:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        Text: ="Adviser"
+                        Width: =96
+                        X: =100
+                        Y: =14
+                        ZIndex: =17
+
+                    TextCanvas9_1 As Text:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        Text: ="SAO Head"
+                        Width: =96
+                        X: =100
+                        Y: =72
+                        ZIndex: =18
 

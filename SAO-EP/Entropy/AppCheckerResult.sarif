@@ -2313,19 +2313,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ApprovalDraft.ScreenContainer3.MainContainer2.FormContainer1.Gallery2.AccessibleLabel"
+                  "fullyQualifiedName": "ApprovalDraft.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ApprovalDraft.ScreenContainer3.MainContainer2.FormContainer1.Gallery2.AccessibleLabel",
+                  "fullyQualifiedName": "ApprovalDraft.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ApprovalDraft",
-                "type": "ApprovalDraft.ScreenContainer3.MainContainer2.FormContainer1.Gallery2"
+                "type": "ApprovalDraft.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery"
               }
             }
           ],
@@ -2343,19 +2343,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ApprovalDraft.ScreenContainer3.MainContainer2.FormContainer1.Gallery2.TabIndex"
+                  "fullyQualifiedName": "ApprovalDraft.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ApprovalDraft.ScreenContainer3.MainContainer2.FormContainer1.Gallery2.TabIndex",
+                  "fullyQualifiedName": "ApprovalDraft.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "ApprovalDraft",
-                "type": "ApprovalDraft.ScreenContainer3.MainContainer2.FormContainer1.Gallery2"
+                "type": "ApprovalDraft.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery"
               }
             }
           ],
@@ -8911,66 +8911,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ApprovalDraft.OnVisible"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ApprovalDraft.OnVisible",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnVisible",
-                "module": "ApprovalDraft",
-                "type": "ApprovalDraft"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 10
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ApprovalDraft.OnVisible"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ApprovalDraft.OnVisible",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnVisible",
-                "module": "ApprovalDraft",
-                "type": "ApprovalDraft"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 10
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "CalendarComponentEventsSide.screenFirstDayOfMonth"
                 }
               ],
@@ -9053,7 +8993,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 11
+          "ruleIndex": 10
         },
         {
           "locations": [
@@ -9203,7 +9143,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 12
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -9415,23 +9355,6 @@
                 "level": "Medium",
                 "primaryCategory": "performance",
                 "whyFix": "This variable is declared but is not referenced by any control, so it is not needed."
-              }
-            },
-            {
-              "id": "app-CollectDelegatableDataSource",
-              "messageStrings": {
-                "issue": {
-                  "text": "The rows retrieved from the data source may not be complete."
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "howToFix": [
-                  "Limit the data collected from the data source by updating the formula \"ClearCollect(ApprovalsAndAPFs, 'APF Uploads', 'Approvals History')\" to include a filtering function, such as 'Filter' or 'Search'."
-                ],
-                "level": "Medium",
-                "primaryCategory": "performance",
-                "whyFix": "Using the 'Collect' function to create a collection directly from a connected data source may not load every row if the data source is too large."
               }
             },
             {
