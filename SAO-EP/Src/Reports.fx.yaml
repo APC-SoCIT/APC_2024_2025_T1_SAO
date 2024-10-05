@@ -3,7 +3,7 @@
         =If( CurrentUser.userRoles.Id = 3, 
             ClearCollect(
                 EventInfo,
-                Filter('APF Uploads', NameofLeadOrg = CurrentUserOrg.orgAcronym)
+                Filter('APF Uploads', 'Name of Lead Org' = CurrentUserOrg.orgAcronym)
         //      Filter(ShowColumns(LR_Uploads,'PerDiemTotal','HBTOTotal'), LR_Uploads.EventOrg = CurrentUserOrg.orgAcronym)
             ),
             ClearCollect(
@@ -15,15 +15,15 @@
         
         ClearCollect(EventTypeReports, 
             {
-                SeminarCount: CountIf(EventInfo,Seminar_x002f_Webinar_x002f_Symp = true),
-                LeadershipCount: CountIf(EventInfo, LeadershipTraining = true),
-                CommExtCount: CountIf(EventInfo,CommunityExt = true),
+                SeminarCount: CountIf(EventInfo,'Seminar/Webinar/Symposium/Forum' = true),
+                LeadershipCount: CountIf(EventInfo, 'Leadership Training' = true),
+                CommExtCount: CountIf(EventInfo,'Community Ext' = true),
                 MarketingCount: CountIf(EventInfo,Marketing = true),
-                ReligiousCount: CountIf(EventInfo,Religious_x002f_Spiritual = true),
-                AcadCompeCount: CountIf(EventInfo,AcademicCompetition = true),
-                CultureCount: CountIf(EventInfo,CultureArts = true),
-                GameCount: CountIf(EventInfo,GamesSports = true),
-                SocialCount: CountIf(EventInfo,SocialEvents = true)
+                ReligiousCount: CountIf(EventInfo,'Religious/Spiritual' = true),
+                AcadCompeCount: CountIf(EventInfo,'Academic Competition' = true),
+                CultureCount: CountIf(EventInfo,'Culture & Arts' = true),
+                GameCount: CountIf(EventInfo,'Games & Sports' = true),
+                SocialCount: CountIf(EventInfo,'Social Events' = true)
                 //,EventID : (EventInfo,ID)
                 //SeminarCost: Sum(EventInfo, 
             }
@@ -134,15 +134,15 @@
                                 )
                             );
                             ClearCollect(EventTypeReports, 
-                                {SeminarCount: CountIf(EventInfo,Seminar_x002f_Webinar_x002f_Symp = true),
-                                LeadershipCount: CountIf(EventInfo, LeadershipTraining = true),
-                                CommExtCount: CountIf(EventInfo,CommunityExt = true),
+                                {SeminarCount: CountIf(EventInfo,'Seminar/Webinar/Symposium/Forum' = true),
+                                LeadershipCount: CountIf(EventInfo, 'Leadership Training' = true),
+                                CommExtCount: CountIf(EventInfo,'Community Ext' = true),
                                 MarketingCount: CountIf(EventInfo,Marketing = true),
-                                ReligiousCount: CountIf(EventInfo,Religious_x002f_Spiritual = true),
-                                AcadCompeCount: CountIf(EventInfo,AcademicCompetition = true),
-                                CultureCount: CountIf(EventInfo,CultureArts = true),
-                                GameCount: CountIf(EventInfo,GamesSports = true),
-                                SocialCount: CountIf(EventInfo,SocialEvents = true)
+                                ReligiousCount: CountIf(EventInfo,'Religious/Spiritual' = true),
+                                AcadCompeCount: CountIf(EventInfo,'Academic Competition' = true),
+                                CultureCount: CountIf(EventInfo,'Culture & Arts' = true),
+                                GameCount: CountIf(EventInfo,'Games & Sports' = true),
+                                SocialCount: CountIf(EventInfo,'Social Events' = true)
                                 }
                             )
                         Width: =261
@@ -172,15 +172,15 @@
                             );
                             
                             ClearCollect(EventTypeReports, 
-                                {SeminarCount: CountIf(EventInfo,Seminar_x002f_Webinar_x002f_Symp = true),
-                                LeadershipCount: CountIf(EventInfo, LeadershipTraining = true),
-                                CommExtCount: CountIf(EventInfo,CommunityExt = true),
+                                {SeminarCount: CountIf(EventInfo,'Seminar/Webinar/Symposium/Forum' = true),
+                                LeadershipCount: CountIf(EventInfo, 'Leadership Training' = true),
+                                CommExtCount: CountIf(EventInfo,'Community Ext' = true),
                                 MarketingCount: CountIf(EventInfo,Marketing = true),
-                                ReligiousCount: CountIf(EventInfo,Religious_x002f_Spiritual = true),
-                                AcadCompeCount: CountIf(EventInfo,AcademicCompetition = true),
-                                CultureCount: CountIf(EventInfo,CultureArts = true),
-                                GameCount: CountIf(EventInfo,GamesSports = true),
-                                SocialCount: CountIf(EventInfo,SocialEvents = true)
+                                ReligiousCount: CountIf(EventInfo,'Religious/Spiritual' = true),
+                                AcadCompeCount: CountIf(EventInfo,'Academic Competition' = true),
+                                CultureCount: CountIf(EventInfo,'Culture & Arts' = true),
+                                GameCount: CountIf(EventInfo,'Games & Sports' = true),
+                                SocialCount: CountIf(EventInfo,'Social Events' = true)
                                 }
                             )
                         Text: ="All"
@@ -345,7 +345,7 @@
                         FontColor: =RGBA(255, 255, 255, 1)
                         Height: =53
                         Size: =25
-                        Text: =CountIf('EventInfo'.'In Campus', ThisRecord.'In Campus'=true)
+                        Text: =CountIf(EventInfo.'In Campus', ThisRecord.'In Campus'=true)
                         Weight: ='TextCanvas.Weight'.Medium
                         Width: =70
                         X: =189
@@ -376,7 +376,7 @@
                         FontColor: =RGBA(255, 255, 255, 1)
                         Height: =56
                         Size: =25
-                        Text: =CountIf('EventInfo'.'Off Campus', ThisRecord.'Off Campus'=true)
+                        Text: =CountIf(EventInfo.'Off Campus', ThisRecord.'Off Campus'=true)
                         Weight: ='TextCanvas.Weight'.Medium
                         Width: =70
                         X: =189
@@ -421,7 +421,7 @@
                         FontColor: =RGBA(255, 255, 255, 1)
                         Height: =53
                         Size: =25
-                        Text: =CountIf('EventInfo'.'Name of Co-Org', ThisRecord.'Name of Co-Org' in ShowColumns(Organizations,orgAcronym))
+                        Text: =CountIf(EventInfo.'Name of Co-Org', ThisRecord.'Name of Co-Org' in ShowColumns(Organizations,orgAcronym))
                         Weight: ='TextCanvas.Weight'.Medium
                         Width: =66
                         X: =264
@@ -438,7 +438,7 @@
                         Size: =25
                         Text: |-
                             =CountIf(
-                                'EventInfo'.'Name of Co-Org',
+                                EventInfo.'Name of Co-Org',
                                 (Not(ThisRecord.'Name of Co-Org' = "Not Applicable") && Not(
                                     ThisRecord.'Name of Co-Org' in ShowColumns(
                                         Organizations,

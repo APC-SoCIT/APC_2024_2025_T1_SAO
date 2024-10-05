@@ -135,7 +135,8 @@
                     "'Adviser Approval Status' As Text":
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
-                        Text: =Text(LookUp('Approvals History', 'APF ID'.Value = Text(ThisItem.ID)).'Adviser Approval'.Value)
+                        Text: |
+                            =Text(LookUp('Approvals History', 'APF ID'.Value = Text(ThisItem.ID)).'Adviser Approval'.Value)
                         Width: =116
                         X: =419
                         Y: =34
@@ -294,7 +295,7 @@
 
                     SAOHeadApprovalStatus As Badge:
                         AccessibleLabel: ="Review status badge"
-                        BasePaletteColor: =Switch(ThisItem.'Adviser Approval'.Value, "Pending Approval", Color.DarkGoldenRod, "Approved", Color.DarkGreen, "Rejected", Color.Red)
+                        BasePaletteColor: =Switch(ThisItem.'SAO Head Approval'.Value, "Pending Approval", Color.DarkGoldenRod, "Approved", Color.DarkGreen, "Rejected", Color.Red)
                         Content: =Left(ThisItem.'SAO Head Approval'.Value, 1)
                         DisplayMode: =DisplayMode.Edit
                         Height: =47
