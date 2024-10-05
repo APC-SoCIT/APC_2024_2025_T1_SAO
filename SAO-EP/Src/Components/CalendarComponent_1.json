@@ -6313,7 +6313,7 @@
       },
       "ShowCalendarEvents"
     ],
-    "LastModifiedTimestamp": "638637007200628445",
+    "LastModifiedTimestamp": "638637024073368576",
     "Name": "CalendarComponent_1",
     "Rules": [
       {
@@ -6619,7 +6619,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638637007200628445",
+  "LastModifiedTimestamp": "638637024073368576",
   "Name": "5a7f4137ff6b47e598659fa5ba778b90",
   "OverridableProperties": {},
   "TemplateOriginalName": "713e60325d55427c92f8db52235d176b",

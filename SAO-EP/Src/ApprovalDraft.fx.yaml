@@ -133,23 +133,25 @@
                         ZIndex: =7
 
                     "'Adviser Approval Status' As Text":
+                        Align: ='TextCanvas.Align'.Center
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
                         Text: |-
                             =// Text(LookUp('Approvals History', 'APF ID'.Value = Text(ThisItem.ID)).'Adviser Approval'.Value)
                             Last(Filter('Approvals History', 'APF ID'.Value = Text(ThisItem.ID))).'Adviser Approval'.Value
                         Width: =116
-                        X: =419
-                        Y: =34
+                        X: =418
+                        Y: =30
                         ZIndex: =8
 
                     "'SAO Head Approval Status' As Text":
+                        Align: ='TextCanvas.Align'.Center
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
                         Text: =Last(Filter('Approvals History', 'APF ID'.Value = Text(ThisItem.ID))).'SAO Head Approval'.Value
                         Width: =116
                         X: =662
-                        Y: =34
+                        Y: =28
                         ZIndex: =9
 
                     TextCanvas5 As Text:
