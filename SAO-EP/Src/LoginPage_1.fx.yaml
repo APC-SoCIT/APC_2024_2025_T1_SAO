@@ -2,13 +2,13 @@ LoginPage_1 As screen:
     OnVisible: =Set(StartOTPTime, false)
 
     "'Login-LHS_1' As groupContainer.manualLayoutContainer":
-        Height: =768
+        Height: =714
         RadiusBottomLeft: =4
         RadiusBottomRight: =4
         RadiusTopLeft: =4
         RadiusTopRight: =4
-        Width: =828
-        X: =263
+        Width: =836
+        X: =268
         ZIndex: =1
 
         Icon8_1 As icon.CancelBadge:
@@ -34,8 +34,8 @@ LoginPage_1 As screen:
                 Size: =25
                 Text: ="Welcome to SAO Events Portal!"
                 Width: =531
-                X: =154
-                Y: =144
+                X: =174
+                Y: =131
                 ZIndex: =5
 
             EmailLabel_1 As label:
@@ -79,7 +79,7 @@ LoginPage_1 As screen:
 
             "'Sign-inButton_1' As button":
                 Fill: =RGBA(41, 57, 131, 1)
-                FontWeight: =FontWeight.Normal
+                FontWeight: =FontWeight.Bold
                 Height: =48
                 OnSelect: |-
                     =//Set(loginFlow, HashPassword.Run(0,PasswordForm.Text,"verifyPass"));
@@ -100,15 +100,21 @@ LoginPage_1 As screen:
                             NotificationType.Error
                         );
                     );
-                RadiusBottomLeft: =5
-                RadiusBottomRight: =5
-                RadiusTopLeft: =5
-                RadiusTopRight: =5
-                Text: ="Sign In"
-                Width: =242
-                X: =312
-                Y: =578
+                Text: ="LOGIN"
+                Width: =644
+                X: =98
+                Y: =626
                 ZIndex: =18
+
+        "'Heading-1_2' As label":
+            Align: =Align.Right
+            Height: =35
+            Size: =15
+            Text: ="Forgot Password?"
+            Width: =188
+            X: =554
+            Y: =561
+            ZIndex: =21
 
         FPDtls_1 As group:
             Height: =5
@@ -265,4 +271,23 @@ LoginPage_1 As screen:
                 X: =181
                 Y: =550
                 ZIndex: =17
+
+        CheckboxCanvas1 As Checkbox:
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =RGBA(0, 0, 0, 1)
+            FontSize: =20
+            Height: =29
+            Label: ="Remember me"
+            OnCheck: =false
+            OnUncheck: =false
+            Width: =191
+            X: =98
+            Y: =561
+            ZIndex: =23
+
+    Image9 As image:
+        Image: ='SAO Logo (3)'
+        X: =352
+        Y: =132
+        ZIndex: =3
 
