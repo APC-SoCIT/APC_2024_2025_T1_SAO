@@ -62,7 +62,7 @@
         {
           "Category": "Design",
           "PropertyName": "Theme",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "ConstantData",

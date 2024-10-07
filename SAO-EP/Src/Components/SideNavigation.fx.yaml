@@ -1,7 +1,51 @@
 SideNavigation As CanvasComponent:
     Fill: =RGBA(244, 244, 244, 0)
     Height: =768
-    Logo_Compact: ='SAO_1'
+    Logo_Compact: =SAO_1
+    MenuContent: |-
+        =Table(
+            {
+                MenuIcon: "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-house' viewBox='0 0 16 16'>
+          <path d='M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z'/>
+        </svg>",
+                MenuID: 1,
+                MenuName: "Home",
+                PageNavigation: App.ActiveScreen
+            },
+            {
+                MenuIcon: "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-person-gear' viewBox='0 0 16 16'>
+          <path d='M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0'/>
+        </svg>",
+                MenuID: 2,
+                MenuName: "Accounts",
+                PageNavigation: App.ActiveScreen
+            },
+            {
+                MenuIcon: "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-file-earmark' viewBox='0 0 16 16'>
+          <path d='M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z'/>
+        </svg>",
+                MenuID: 3,
+                MenuName: "APF",
+                PageNavigation: App.ActiveScreen
+            },
+            {
+                MenuIcon: "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-wallet2' viewBox='0 0 16 16'>
+          <path d='M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5z'/>
+        </svg>",
+                MenuID: 4,
+                MenuName: "Finance",
+                PageNavigation: App.ActiveScreen
+            },
+             {
+                MenuIcon: "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-box-arrow-right' viewBox='0 0 16 16'>
+          <path fill-rule='evenodd' d='M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z'/>
+          <path fill-rule='evenodd' d='M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z'/>
+        </svg>",
+                MenuID: 5,
+                MenuName: "Logout",
+                PageNavigation: App.ActiveScreen
+            }
+        )
     NavBG: =RGBA(244, 244, 244, 1)
     Width: =70
     X: =0
@@ -30,90 +74,21 @@ SideNavigation As CanvasComponent:
             LayoutMinWidth: =0
             ZIndex: =1
 
-        "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+        Gallery3 As gallery.galleryVertical:
+            AlignInContainer: =AlignInContainer.SetByContainer
             DelayItemLoading: =true
             FillPortions: =0
-            Items: =CustomGallerySample
+            Height: =Self.AllItemsCount * (Self.TemplateHeight+Self.TemplatePadding)
+            Items: =SideNavigation.MenuContent
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
             LayoutMinWidth: =0
             LoadingSpinner: =LoadingSpinner.Data
             TemplatePadding: =0
-            TemplateSize: =50
+            TemplateSize: |-
+                =If(Self.Layout = Layout.Horizontal, Min(50, Self.Width - 60), Min(50
+                , Self.Height - 60))
             ZIndex: =2
-
-            Image12 As image:
-                Height: =72
-                OnSelect: =Select(Parent)
-                RadiusBottomLeft: =8
-                RadiusBottomRight: =8
-                RadiusTopLeft: =8
-                RadiusTopRight: =8
-                Width: =72
-                X: =16
-                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-                ZIndex: =1
-
-            Title2 As label:
-                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                Height: =Self.Size * 1.8
-                OnSelect: =Select(Parent)
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =ThisItem.SampleHeading
-                VerticalAlign: =VerticalAlign.Top
-                Width: =Parent.TemplateWidth - 173
-                X: =103
-                Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + Subtitle2.Size * 1.8)) / 2
-                ZIndex: =2
-
-            Subtitle2 As label:
-                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                Height: =Self.Size * 1.8
-                OnSelect: =Select(Parent)
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =ThisItem.SampleText
-                VerticalAlign: =VerticalAlign.Top
-                Width: =Title2.Width
-                X: =Title2.X
-                Y: =Title2.Y + Title2.Height
-                ZIndex: =3
-
-            NextArrow2 As icon.ChevronRight:
-                AccessibleLabel: =Self.Tooltip
-                Color: =RGBA(166, 166, 166, 1)
-                Height: =50
-                Icon: =Icon.ChevronRight
-                OnSelect: =Select(Parent)
-                PaddingBottom: =16
-                PaddingLeft: =16
-                PaddingRight: =16
-                PaddingTop: =16
-                Tooltip: ="View item details"
-                Width: =50
-                X: =Parent.TemplateWidth - Self.Width - 12
-                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-                ZIndex: =4
-
-            Separator2 As rectangle:
-                Fill: =RGBA(255, 255, 255, 1)
-                Height: =8
-                OnSelect: =Select(Parent)
-                Width: =Parent.TemplateWidth
-                Y: =Parent.TemplateHeight - Self.Height
-                ZIndex: =5
-
-            Rectangle10 As rectangle:
-                Height: =Parent.TemplateHeight - Separator2.Height
-                OnSelect: =Select(Parent)
-                Visible: =ThisItem.IsSelected
-                Width: =4
-                ZIndex: =6
 
         ProfileContainer As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -127,15 +102,19 @@ SideNavigation As CanvasComponent:
             PaddingLeft: =5
             PaddingRight: =5
             Width: =40
-            ZIndex: =3
+            ZIndex: =4
 
             Container12 As groupContainer.manualLayoutContainer:
                 ContentLanguage: =
                 FillPortions: =0
                 LayoutMinHeight: =35
                 LayoutMinWidth: =250
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =5
                 Width: =35
-                ZIndex: =1
+                ZIndex: =2
 
                 Image11 As image:
                     BorderThickness: =2
@@ -146,7 +125,5 @@ SideNavigation As CanvasComponent:
                     RadiusTopLeft: =35
                     RadiusTopRight: =35
                     Width: =35
-                    X: =35
-                    Y: =40
                     ZIndex: =1
 
