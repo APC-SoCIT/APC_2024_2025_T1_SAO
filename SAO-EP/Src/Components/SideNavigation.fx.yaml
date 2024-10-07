@@ -1,6 +1,8 @@
 SideNavigation As CanvasComponent:
+    CurrentMenuID: =1
     Fill: =RGBA(244, 244, 244, 0)
     Height: =768
+    HoverFill: =RGBA(0, 0, 0, 0.1)
     Logo_Compact: =SAO_1
     MenuContent: |-
         =Table(
@@ -47,6 +49,7 @@ SideNavigation As CanvasComponent:
             }
         )
     NavBG: =RGBA(244, 244, 244, 1)
+    PressedFill: =RGBA(0, 0, 0, 0.2)
     Width: =70
     X: =0
     Y: =0
@@ -89,6 +92,31 @@ SideNavigation As CanvasComponent:
                 =If(Self.Layout = Layout.Horizontal, Min(50, Self.Width - 60), Min(50
                 , Self.Height - 60))
             ZIndex: =2
+
+            Container10 As groupContainer.manualLayoutContainer:
+                Height: =50
+                X: =40
+                ZIndex: =1
+
+                Container11 As groupContainer.manualLayoutContainer:
+                    Fill: =
+                    Height: =35
+                    Width: =35
+                    X: |
+                        =7.5
+                    Y: =(Parent.Height - Self.Height)/2
+                    ZIndex: =1
+
+                    Image8 As image:
+                        Image: |-
+                            ="data: image/svg+xml;utf8, " & EncodeUrl(
+                                ThisItem.MenuIcon
+                            )
+                        PaddingBottom: =8
+                        PaddingTop: =8
+                        X: =35
+                        Y: =35
+                        ZIndex: =1
 
         ProfileContainer As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
