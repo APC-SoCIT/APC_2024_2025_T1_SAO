@@ -80,20 +80,75 @@
                 LayoutMode: =LayoutMode.Auto
                 ZIndex: =2
 
-                Container21 As groupContainer.horizontalAutoLayoutContainer:
-                    FillPortions: =0.5
-                    Height: =400
-                    LayoutMinHeight: =300
-                    LayoutMinWidth: |
-                        =400
+                Container24 As groupContainer.horizontalAutoLayoutContainer:
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
                     LayoutOverflowX: =LayoutOverflow.Scroll
                     ZIndex: =1
+
+                    Container25 As groupContainer.verticalAutoLayoutContainer:
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: |
+                            =350
+                        LayoutMode: =LayoutMode.Auto
+                        Width: |
+                            =350
+                        ZIndex: =1
+
+                        CompositeColumnChart5 As group:
+                            Height: =5
+                            LayoutMinHeight: =5
+                            LayoutMinWidth: =5
+                            Width: =5
+                            X: =40
+                            Y: =40
+                            ZIndex: =1
+
+                            Title11 As label:
+                                Align: =Align.Center
+                                AlignInContainer: =AlignInContainer.Start
+                                Height: =20
+                                LineHeight: =1
+                                Text: ="Chart Title"
+                                Width: |
+                                    =350
+                                X: =40
+                                Y: =40
+                                ZIndex: =2
+
+                            ColumnChart5 As barChart:
+                                FillPortions: =1
+                                Height: =Container25.Height-10
+                                Items: =ColumnChartSample
+                                LayoutMinHeight: =300
+                                LayoutMinWidth: =300
+                                Width: =350
+                                X: =40
+                                Y: =70
+                                ZIndex: =3
+
+                    Container26_1 As groupContainer.manualLayoutContainer:
+                        FillPortions: =0.05
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        ZIndex: =4
+
+                        Legend6_1 As legend:
+                            Height: =80
+                            ItemColorSet: =ColumnChart5.ItemColorSet
+                            Items: =ColumnChart5.SeriesLabels
+                            Width: =166
+                            X: =40
+                            Y: =40
+                            ZIndex: =1
 
                 DataTable8 As dataTable.datatable:
                     BorderStyle: =BorderStyle.Solid
                     DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
+                    FillPortions: =0.75
                     Height: =500
                     Items: =Master_Data
                     LayoutMinHeight: =250
@@ -101,7 +156,7 @@
                     Width: =800
                     X: =0
                     Y: =0
-                    ZIndex: =3
+                    ZIndex: =2
 
                     ID_Column3 As dataTableColumn.textualColumn:
                         DisplayMode: =DisplayMode.Edit
