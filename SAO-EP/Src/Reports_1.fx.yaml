@@ -1,22 +1,49 @@
 "Reports_1 As screen.'welcomeLayout_ver1.0'":
-    OnVisible: |+
-        =
-        
-        ClearCollect(
+    OnVisible: |-
+        =ClearCollect(
             Master_Data,
-            ShowColumns('APF Uploads', 
-                ID,
-                'Name of Lead Org',
-                Title,
-                'Activity Title',
-                'Target Date',
-                'Venue/Platform'
+            AddColumns(
+                ShowColumns(
+                    'APF Uploads', 
+                    ID,
+                    'Name of Lead Org',
+                    Title,
+                    'Activity Title',
+                    'Target Date',
+                    'Venue/Platform',
+                    'Workshop/Tech Training',
+                    'Seminar/Webinar/Symposium/Forum',
+                    'Leadership Training',
+                    'Academic Competition',
+                    'Culture & Arts',
+                    'Games & Sports', 
+                    'Religious/Spiritual',
+                    'Community Ext', 
+                    'Social Events',
+                    'Marketing'
+                ),
+                "EventTypes", // New column for concatenated event types
+                Concat(
+                    Filter(
+                        [
+                            {Type: "Workshop", Value: ThisRecord.Workshop_x002f_TechTraining},
+                            {Type: "Seminar", Value: ThisRecord.Workshop_x002f_TechTraining},
+                            {Type: "Leadership", Value: ThisRecord.LeadershipTraining},
+                            {Type: "Academic", Value: ThisRecord.AcademicCompetition},
+                            {Type: "Cultural", Value: ThisRecord.CultureArts},
+                            {Type: "Sports", Value: ThisRecord.GamesSports},
+                            {Type: "Religious", Value: ThisRecord.Religious_x002f_Spiritual},
+                            {Type: "Community", Value: ThisRecord.CommunityExt},
+                            {Type: "Social", Value: ThisRecord.SocialEvents},
+                            {Type: "Marketing", Value: ThisRecord.Marketing}
+                        ],
+                        Value = true // Filter to get only the true values
+                    ),
+                    Type,
+                    "; " // Concatenate with a semicolon and space
                 )
-            ,
-             LR_Uploads,
-              LR_PDItems
+            )
         );
-        
 
     ScreenContainer4_1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(245, 245, 245, 1)
