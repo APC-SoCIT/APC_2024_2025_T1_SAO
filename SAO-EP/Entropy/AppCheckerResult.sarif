@@ -3216,46 +3216,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.Container42_3.DataTable5.Items"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.Container42_3.DataTable5.Items",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 11,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "master_data"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Items",
-                "module": "Reports_1",
-                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.Container42_3.DataTable5"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "master_data"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 6
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "CalendarComponent_1.btnPrevMonth_2.AccessibleLabel"
                 }
               ],
