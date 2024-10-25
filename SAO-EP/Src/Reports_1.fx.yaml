@@ -22,7 +22,7 @@
                     'Social Events',
                     'Marketing'
                 ),
-                "EventTypes", // New column for concatenated event types
+                EventTypes, // New column for concatenated event types
                 Concat(
                     Filter(
                         [
