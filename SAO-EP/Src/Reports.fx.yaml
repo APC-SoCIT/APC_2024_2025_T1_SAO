@@ -219,12 +219,8 @@
                         ZIndex: =5
 
                 TitleContainer21 As groupContainer.verticalAutoLayoutContainer:
-                    AlignInContainer: =AlignInContainer.Center
                     DropShadow: =DropShadow.Light
-                    FillPortions: =1.5
                     LayoutDirection: =LayoutDirection.Vertical
-                    LayoutMinHeight: =100
-                    LayoutMinWidth: =Container22.Width
                     LayoutMode: =LayoutMode.Auto
                     PaddingTop: =20
                     RadiusTopLeft: =05
@@ -234,10 +230,7 @@
                     DescriptionText21 As Text:
                         Align: ='TextCanvas.Align'.Center
                         DisplayMode: =DisplayMode.Edit
-                        FillPortions: =1
                         Height: =32
-                        LayoutMinHeight: =32
-                        LayoutMinWidth: =Parent.Width
                         Size: =25
                         Text: |
                             =Concatenate("With a total of ", CountRows(EventInfo), " Events")
@@ -250,13 +243,9 @@
 
                     DescriptionText21_1 As Text:
                         Align: ='TextCanvas.Align'.Center
-                        AlignInContainer: =AlignInContainer.Center
                         AutoHeight: =false
                         DisplayMode: =DisplayMode.Edit
-                        FillPortions: =1
                         Height: =32
-                        LayoutMinHeight: =32
-                        LayoutMinWidth: =Parent.Width
                         Size: =20
                         Text: |-
                             =If(CurrentUser.userRoles.Id = 3, 
@@ -271,12 +260,8 @@
 
                     DescriptionText21_3 As Text:
                         Align: ='TextCanvas.Align'.Center
-                        AlignInContainer: =AlignInContainer.Center
                         DisplayMode: =DisplayMode.Edit
-                        FillPortions: =1
                         Height: =32
-                        LayoutMinHeight: =32
-                        LayoutMinWidth: =Parent.Width
                         Size: =25
                         Text: |-
                             =Concatenate(
@@ -293,13 +278,10 @@
 
             Container32 As groupContainer.verticalAutoLayoutContainer:
                 Fill: =RGBA(255, 255, 255, 1)
-                FillPortions: =0.5
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =5
                 LayoutJustifyContent: =LayoutJustifyContent.Center
-                LayoutMinHeight: =300
-                LayoutMinWidth: =If(Reports.Size = ScreenSize.Small, Parent.Width, 400)
                 LayoutMode: =LayoutMode.Auto
                 LayoutOverflowY: =LayoutOverflow.Scroll
                 PaddingBottom: =10
@@ -309,8 +291,6 @@
                 ZIndex: =2
 
                 Container9 As groupContainer.manualLayoutContainer:
-                    LayoutMinHeight: =100
-                    LayoutMinWidth: =250
                     ZIndex: =1
 
                     Rectangle9 As rectangle:

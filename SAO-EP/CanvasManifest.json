@@ -42,6 +42,7 @@
       "enableexcelonlinebusinessv2connector": false,
       "enableideaspanel": true,
       "enablelegacybarcodescanner": false,
+      "enablelegacydatatable": false,
       "enableonstart": false,
       "enableonstartnavigate": false,
       "enablepcfmoderndatasets": false,
@@ -93,11 +94,12 @@
       "useguiddatatypes": true,
       "usenonblockingonstartrule": true,
       "userdefinedfunctions": false,
+      "userdefinedtypes": false,
       "webbarcodescanner": false,
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 3,
+    "BindingErrorCount": 4,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,
     "DocumentAppType": "DesktopOrTablet",
@@ -145,6 +147,7 @@
     "Screen1",
     "Screen2",
     "Reports",
+    "Reports_1",
     "ApprovalDraft"
   ]
 }
