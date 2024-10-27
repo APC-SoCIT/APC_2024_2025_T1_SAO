@@ -41,7 +41,7 @@
                     Type,
                     "; "
                 ),
-                "CashAdvance",
+                CashAdvance,
                 LookUp(LR_Uploads, APF_ID.Id = ThisRecord.ID, CashAdvAmt)
             )
         )
