@@ -99,21 +99,6 @@
     "TemplateDisplayName": "Button",
     "Version": "0.0.42"
   },
-  "Checkbox": {
-    "CustomGroupControlTemplateName": "",
-    "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_CheckboxCanvas",
-    "IsComponentTemplate": false,
-    "IsCustomGroupControlTemplate": false,
-    "IsPcfControl": true,
-    "IsPremiumPcfControl": false,
-    "IsWidgetTemplate": false,
-    "LastModifiedTimestamp": "0",
-    "Name": "PowerApps_CoreControls_CheckboxCanvas",
-    "OverridableProperties": {},
-    "TemplateDisplayName": "Checkbox",
-    "Version": "0.0.26"
-  },
   "circle": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,

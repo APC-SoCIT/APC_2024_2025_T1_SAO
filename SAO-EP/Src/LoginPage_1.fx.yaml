@@ -1,6 +1,25 @@
 LoginPage_1 As screen:
     OnVisible: =Set(StartOTPTime, false)
 
+    Container17 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(39, 58, 133, 1)
+        Height: =768
+        Width: =1366
+        ZIndex: =1
+
+    Container14 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.ExtraBold
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =648
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Width: =736
+        X: =321
+        Y: =66
+        ZIndex: =2
+
     "'Login-LHS_1' As groupContainer.manualLayoutContainer":
         Height: =714
         RadiusBottomLeft: =4
@@ -9,7 +28,7 @@ LoginPage_1 As screen:
         RadiusTopRight: =4
         Width: =836
         X: =268
-        ZIndex: =1
+        ZIndex: =3
 
         Icon8_1 As icon.CancelBadge:
             Color: =RGBA(255, 255, 255, 1)
@@ -17,7 +36,6 @@ LoginPage_1 As screen:
             Icon: =Icon.CancelBadge
             Width: =48
             X: =40
-            Y: =40
             ZIndex: =1
 
         LoginDtls_1 As group:
@@ -34,8 +52,8 @@ LoginPage_1 As screen:
                 Size: =25
                 Text: ="Welcome to SAO Events Portal!"
                 Width: =531
-                X: =174
-                Y: =131
+                X: =187
+                Y: =91
                 ZIndex: =5
 
             EmailLabel_1 As label:
@@ -44,7 +62,7 @@ LoginPage_1 As screen:
                 Text: ="EMAIL"
                 Width: =242
                 X: =98
-                Y: =273
+                Y: =233
                 ZIndex: =6
 
             EmailForm_1 As text:
@@ -54,7 +72,7 @@ LoginPage_1 As screen:
                 HintText: ="Enter your Email"
                 Width: =644
                 X: =98
-                Y: =313
+                Y: =273
                 ZIndex: =8
 
             PasswordLabel_1 As label:
@@ -63,7 +81,7 @@ LoginPage_1 As screen:
                 Text: ="PASSWORD"
                 Width: =242
                 X: =98
-                Y: =417
+                Y: =377
                 ZIndex: =12
 
             PasswordForm_1 As text:
@@ -74,7 +92,7 @@ LoginPage_1 As screen:
                 Mode: =TextMode.Password
                 Width: =644
                 X: =98
-                Y: =469
+                Y: =429
                 ZIndex: =14
 
             "'Sign-inButton_1' As button":
@@ -103,7 +121,7 @@ LoginPage_1 As screen:
                 Text: ="LOGIN"
                 Width: =644
                 X: =98
-                Y: =626
+                Y: =586
                 ZIndex: =18
 
         "'Heading-1_2' As label":
@@ -113,7 +131,7 @@ LoginPage_1 As screen:
             Text: ="Forgot Password?"
             Width: =188
             X: =554
-            Y: =561
+            Y: =521
             ZIndex: =21
 
         FPDtls_1 As group:
@@ -131,7 +149,7 @@ LoginPage_1 As screen:
                 Visible: =showFP
                 Width: =600
                 X: =118
-                Y: =61
+                Y: =21
                 ZIndex: =2
 
             FP_Exit_3 As icon.CancelBadge:
@@ -142,7 +160,7 @@ LoginPage_1 As screen:
                 Visible: =showFP
                 Width: =48
                 X: =631
-                Y: =96
+                Y: =56
                 ZIndex: =3
 
             Lbl_ForgotPass_3 As label:
@@ -155,7 +173,7 @@ LoginPage_1 As screen:
                 Visible: =showFP
                 Width: =391
                 X: =223
-                Y: =130
+                Y: =90
                 ZIndex: =4
 
             Lbl_SendOTPTo_1 As label:
@@ -166,7 +184,7 @@ LoginPage_1 As screen:
                     ="SEND OTP TO:"
                 Visible: =showFP
                 X: =181
-                Y: =279
+                Y: =239
                 ZIndex: =7
 
             TI_FPEmail_1 As text:
@@ -181,7 +199,7 @@ LoginPage_1 As screen:
                 Visible: =showFP
                 Width: =450
                 X: =181
-                Y: =316
+                Y: =276
                 ZIndex: =9
 
             Btn_SendFPEmail_3 As button:
@@ -201,7 +219,7 @@ LoginPage_1 As screen:
                 Visible: =showFP
                 Width: =101
                 X: =565
-                Y: =316
+                Y: =276
                 ZIndex: =10
 
             Lbl_FPNotif_1 As label:
@@ -214,7 +232,7 @@ LoginPage_1 As screen:
                     //if FPDtls is Visible and [Condition]
                 Width: =474
                 X: =181
-                Y: =386
+                Y: =346
                 ZIndex: =11
 
             Lbl_OTP_1 As label:
@@ -225,7 +243,7 @@ LoginPage_1 As screen:
                     ="OTP:"
                 Visible: =showFP
                 X: =181
-                Y: =443
+                Y: =403
                 ZIndex: =13
 
             TI_FPOTP_3 As text:
@@ -240,7 +258,7 @@ LoginPage_1 As screen:
                 Visible: =showFP
                 Width: =450
                 X: =181
-                Y: =480
+                Y: =440
                 ZIndex: =15
 
             Btn_SendOTP_3 As button:
@@ -256,7 +274,7 @@ LoginPage_1 As screen:
                 Visible: =showFP
                 Width: =101
                 X: =565
-                Y: =480
+                Y: =440
                 ZIndex: =16
 
             Lbl_InvalidOTP_1 As label:
@@ -269,25 +287,12 @@ LoginPage_1 As screen:
                     //if FPDtls is Visible and [Condition]
                 Width: =474
                 X: =181
-                Y: =550
+                Y: =510
                 ZIndex: =17
 
-        CheckboxCanvas1 As Checkbox:
-            DisplayMode: =DisplayMode.Edit
-            FontColor: =RGBA(0, 0, 0, 1)
-            FontSize: =20
-            Height: =29
-            Label: ="Remember me"
-            OnCheck: =false
-            OnUncheck: =false
-            Width: =191
-            X: =98
-            Y: =561
-            ZIndex: =23
-
     Image9 As image:
-        Image: ='SAO Logo (3)'
-        X: =352
-        Y: =132
-        ZIndex: =3
+        Image: ='SAO_1'
+        X: =366
+        Y: =100
+        ZIndex: =4
 
