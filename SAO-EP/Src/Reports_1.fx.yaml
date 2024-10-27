@@ -3,8 +3,7 @@
         =ClearCollect(
             Master_Data,
             AddColumns(
-                ShowColumns(
-                    'APF Uploads', 
+                ShowColumns('APF Uploads',
                     ID,
                     'Name of Lead Org',
                     Title,
@@ -25,7 +24,7 @@
                 EventTypes, // New column for concatenated event types
                 Concat(
                     Filter(
-                        [
+                       [
                             {Type: "Workshop", Value: ThisRecord.Workshop_x002f_TechTraining},
                             {Type: "Seminar", Value: ThisRecord.Workshop_x002f_TechTraining},
                             {Type: "Leadership", Value: ThisRecord.LeadershipTraining},
@@ -37,16 +36,15 @@
                             {Type: "Social", Value: ThisRecord.SocialEvents},
                             {Type: "Marketing", Value: ThisRecord.Marketing}
                         ],
-                        Value = true // Filter to get only the true values
+                        Value = true
                     ),
                     Type,
-                    "; " // Concatenate with a semicolon and space
-                )
-            ),
-            LR_Uploads,
-            LR_PDItems
-        //    , LR_HBTOItems
-        );
+                    "; "
+                ),
+                "CashAdvance",
+                LookUp(LR_Uploads, APF_ID.Id = ThisRecord.ID, CashAdvAmt)
+            )
+        )
 
     ScreenContainer4_1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(245, 245, 245, 1)
@@ -176,89 +174,37 @@
                                 =103
                             ZIndex: =4
 
-                DataTable8 As dataTable.datatable:
-                    BorderStyle: =BorderStyle.Solid
-                    DisplayMode: =DisplayMode.Edit
-                    Fill: =RGBA(0, 0, 0, 0)
-                    FillPortions: =0.75
-                    Height: =500
-                    Items: =Master_Data
-                    LayoutMinHeight: =250
-                    LayoutMinWidth: =400
-                    Width: =800
-                    X: =0
-                    Y: =0
-                    ZIndex: =2
+                Container13 As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    X: =165
+                    Y: =385
+                    ZIndex: =3
 
-                    ID_Column3 As dataTableColumn.textualColumn:
+                    DataTable2 As dataTable.datatable:
+                        BorderStyle: =BorderStyle.Solid
                         DisplayMode: =DisplayMode.Edit
-                        FieldDisplayName: ="ID"
-                        FieldName: ="ID"
-                        FieldVariantName: ="textualColumn"
-                        Height: =Parent.Height
-                        LayoutHeight: =Parent.Height
-                        Order: =1
-                        Text: =ThisItem.ID
-                        Width: =100
-                        X: =0
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =366
+                        Items: =Master_Data
+                        Width: =800
+                        X: =60
                         Y: =0
-                        ZIndex: =7
+                        ZIndex: =2
 
-                    Title_Column3 As dataTableColumn.textualColumn:
-                        DisplayMode: =DisplayMode.Edit
-                        FieldDisplayName: ="Title"
-                        FieldName: ="Title"
-                        FieldVariantName: ="textualColumn"
-                        Height: =Parent.Height
-                        LayoutHeight: =Parent.Height
-                        Order: =2
-                        Text: =ThisItem.Title
-                        Width: =100
-                        X: =0
-                        Y: =0
-                        ZIndex: =8
-
-                    ActivityTitle_Column2 As dataTableColumn.textualColumn:
-                        DisplayMode: =DisplayMode.Edit
-                        FieldDisplayName: ="ActivityTitle"
-                        FieldName: ="ActivityTitle"
-                        FieldVariantName: ="textualColumn"
-                        Height: =Parent.Height
-                        LayoutHeight: =Parent.Height
-                        Order: =3
-                        Text: =ThisItem.ActivityTitle
-                        Width: =100
-                        X: =458
-                        Y: =0
-                        ZIndex: =9
-
-                    NameofLeadOrg_Column3 As dataTableColumn.textualColumn:
-                        DisplayMode: =DisplayMode.Edit
-                        FieldDisplayName: ="NameofLeadOrg"
-                        FieldName: ="NameofLeadOrg"
-                        FieldVariantName: ="textualColumn"
-                        Height: =Parent.Height
-                        LayoutHeight: =Parent.Height
-                        Order: =4
-                        Text: =ThisItem.NameofLeadOrg
-                        Width: =100
-                        X: =0
-                        Y: =0
-                        ZIndex: =10
-
-                    EventTypes_Column3 As dataTableColumn.textualColumn:
-                        DisplayMode: =DisplayMode.Edit
-                        FieldDisplayName: ="EventTypes"
-                        FieldName: ="EventTypes"
-                        FieldVariantName: ="textualColumn"
-                        Height: =Parent.Height
-                        LayoutHeight: =Parent.Height
-                        Order: =5
-                        Text: =ThisItem.EventTypes
-                        Width: =100
-                        X: =0
-                        Y: =0
-                        ZIndex: =11
+                        CashAdvance_Column1 As dataTableColumn.textualColumn:
+                            DisplayMode: =DisplayMode.Edit
+                            FieldDisplayName: ="CashAdvance"
+                            FieldName: ="CashAdvance"
+                            FieldVariantName: ="textualColumn"
+                            Height: =Parent.Height
+                            LayoutHeight: =Parent.Height
+                            Order: =1
+                            Text: =ThisItem.CashAdvance
+                            Width: =100
+                            X: =0
+                            Y: =0
+                            ZIndex: =11
 
             "'Right Container' As groupContainer.verticalAutoLayoutContainer":
                 DropShadow: =DropShadow.Regular
