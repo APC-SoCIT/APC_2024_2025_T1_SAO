@@ -592,6 +592,30 @@
                         Y: =389
                         ZIndex: =13
 
+                    TextCanvas6_13 As Text:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =49
+                        Size: =20
+                        Text: |-
+                            ="Events Organized:"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =193
+                        X: =40
+                        Y: =438
+                        ZIndex: =14
+
+                    TextCanvas6_14 As Text:
+                        Align: ='TextCanvas.Align'.End
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =49
+                        Size: =20
+                        Text: =100
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =98
+                        X: =286
+                        Y: =438
+                        ZIndex: =15
+
     TSKBR_14 As TSKBR:
         NavigationItems: =gblNavItems
         ZIndex: =2
