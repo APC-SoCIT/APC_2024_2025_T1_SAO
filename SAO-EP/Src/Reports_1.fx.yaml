@@ -1,6 +1,7 @@
 "Reports_1 As screen.'welcomeLayout_ver1.0'":
     OnVisible: |-
-        =ClearCollect(
+        =/**
+        ClearCollect(
             Master_Data,
             AddColumns(
                 ShowColumns('APF Uploads',
@@ -42,7 +43,61 @@
                     "; "
                 ),
                 CashAdvance,
-                    LookUp(LR_Uploads, APF_ID.Id = ThisRecord.ID, CashAdvAmt)
+                If(
+                    Not(IsBlank(
+                        LookUp(LR_Uploads, APF_ID.Id = ThisRecord.ID, CashAdvAmt)
+                    )),
+                    LookUp(LR_Uploads, APF_ID.Id = ThisRecord.ID, CashAdvAmt),
+                    0
+                )
+            )
+        )
+        
+        **/
+        
+        ClearCollect(
+            Master_Data,
+            AddColumns(
+                ShowColumns('APF Uploads',
+                    ID,
+                    'Name of Lead Org',
+                    Title,
+                    'Activity Title',
+                    'Target Date',
+                    'Venue/Platform',
+                    'Workshop/Tech Training',
+                    'Seminar/Webinar/Symposium/Forum',
+                    'Leadership Training',
+                    'Academic Competition',
+                    'Culture & Arts',
+                    'Games & Sports', 
+                    'Religious/Spiritual',
+                    'Community Ext', 
+                    'Social Events',
+                    Marketing
+                ),
+                EventTypes,
+                Concat(
+                    Filter(
+                       [
+                            {Type: "Workshop", Value: ThisRecord.Workshop_x002f_TechTraining},
+                            {Type: "Seminar", Value: ThisRecord.Workshop_x002f_TechTraining},
+                            {Type: "Leadership", Value: ThisRecord.LeadershipTraining},
+                            {Type: "Academic", Value: ThisRecord.AcademicCompetition},
+                            {Type: "Cultural", Value: ThisRecord.CultureArts},
+                            {Type: "Sports", Value: ThisRecord.GamesSports},
+                            {Type: "Religious", Value: ThisRecord.Religious_x002f_Spiritual},
+                            {Type: "Community", Value: ThisRecord.CommunityExt},
+                            {Type: "Social", Value: ThisRecord.SocialEvents},
+                            {Type: "Marketing", Value: ThisRecord.Marketing}
+                        ],
+                        Value = true
+                    ),
+                    Type,
+                    "; "
+                ),
+                CashAdvance,
+                First(Filter(LR_Uploads, APF_ID.Id = ThisRecord.ID)).CashAdvAmt
             )
         )
 
