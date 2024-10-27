@@ -42,7 +42,10 @@
                     Type,
                     "; " // Concatenate with a semicolon and space
                 )
-            )
+            ),
+            LR_Uploads,
+            LR_PDItems
+        //    , LR_HBTOItems
         );
 
     ScreenContainer4_1 As groupContainer.verticalAutoLayoutContainer:
@@ -105,13 +108,8 @@
                             =350
                         ZIndex: =1
 
-                        ColumnChart5 As barChart:
-                            FillPortions: =1
-                            Height: =ChartCont.Height-10
+                        ColumnChart2 As barChart:
                             Items: =ColumnChartSample
-                            LayoutMinHeight: =300
-                            LayoutMinWidth: =300
-                            Width: =350
                             X: =40
                             Y: =70
                             ZIndex: =3
@@ -124,8 +122,8 @@
 
                         Legend6_1 As legend:
                             Height: =80
-                            ItemColorSet: =ColumnChart5.ItemColorSet
-                            Items: =ColumnChart5.SeriesLabels
+                            ItemColorSet: =ColumnChart2.ItemColorSet
+                            Items: =ColumnChart2.SeriesLabels
                             Width: =166
                             X: =42
                             Y: =103
