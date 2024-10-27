@@ -3,7 +3,7 @@
     "IsComponentScoped": false,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "APF_Data",
+    "Name": "LocalLR",
     "Type": "CollectionDataSourceInfo"
   }
 ]

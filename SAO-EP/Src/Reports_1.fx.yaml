@@ -1,71 +1,6 @@
 "Reports_1 As screen.'welcomeLayout_ver1.0'":
-    OnVisible: |-
-        =// Step 1: Create Master_Data collection from 'APF Uploads'
-        ClearCollect(localLRUploads, LR_Uploads);
-        
-        ClearCollect(
-            APF_Data,
-            AddColumns(
-                ShowColumns('APF Uploads',
-                    ID,  // This is the APF_ID
-                    'Name of Lead Org',
-                    Title,
-                    'Activity Title',
-                    'Target Date',
-                    'Venue/Platform',
-                    'Workshop/Tech Training',
-                    'Seminar/Webinar/Symposium/Forum',
-                    'Leadership Training',
-                    'Academic Competition',
-                    'Culture & Arts',
-                    'Games & Sports', 
-                    'Religious/Spiritual',
-                    'Community Ext', 
-                    'Social Events',
-                    Marketing
-                ),
-                EventTypes, 
-                Concat(
-                    Filter(
-                        [
-                            {Type: "Workshop", Value: ThisRecord.Workshop_x002f_TechTraining},
-                            {Type: "Seminar", Value: ThisRecord.Workshop_x002f_TechTraining},
-                            {Type: "Leadership", Value: ThisRecord.LeadershipTraining},
-                            {Type: "Academic", Value: ThisRecord.AcademicCompetition},
-                            {Type: "Cultural", Value: ThisRecord.CultureArts},
-                            {Type: "Sports", Value: ThisRecord.GamesSports},
-                            {Type: "Religious", Value: ThisRecord.Religious_x002f_Spiritual},
-                            {Type: "Community", Value: ThisRecord.CommunityExt},
-                            {Type: "Social", Value: ThisRecord.SocialEvents},
-                            {Type: "Marketing", Value: ThisRecord.Marketing}
-                        ],
-                        Value = true
-                    ),
-                    Type,
-                    "; "
-                )
-            )
-        );
-        
-        //ClearCollect(LR_Data, AddColumns(localLRUploads, CashAdvance, LookUp(APF_Data, Text(ID) = APF_ID.Value, CashAdvAmt)));
-        
-        
-        // Step 3: Merge collections with a fallback for CashAdvance
-        ClearCollect(
-            LR_Data,
-            AddColumns(
-                localLRUploads,
-                "CashAdvance",
-                If(
-                    IsBlank(LookUp(APF_Data, Text(ID) = APF_ID.Value, CashAdvAmt)),
-                    0,  // If no match is found, set CashAdvance to 0
-                    LookUp(APF_Data, Text(ID) = APF_ID.Value, CashAdvAmt) // Otherwise, get the CashAdvAmt
-                )
-            )
-        );
-        /**
-        // First, collect LR_Uploads into a local collection
-        ClearCollect(LocalLR, LR_Uploads);
+    OnVisible: |
+        =ClearCollect(LocalLR, LR_Uploads);
         
         // Then use the local collection in your formula
         ClearCollect(
@@ -116,7 +51,6 @@
                 )
             )
         )
-        **/
 
     ScreenContainer4_1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(245, 245, 245, 1)

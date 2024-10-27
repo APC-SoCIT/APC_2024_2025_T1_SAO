@@ -3,7 +3,7 @@
     "IsComponentScoped": false,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "LR_Data",
+    "Name": "Master_Data",
     "Type": "CollectionDataSourceInfo"
   }
 ]
