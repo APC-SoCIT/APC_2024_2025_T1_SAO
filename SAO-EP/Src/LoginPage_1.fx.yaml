@@ -30,14 +30,6 @@ LoginPage_1 As screen:
         X: =268
         ZIndex: =3
 
-        Icon8_1 As icon.CancelBadge:
-            Color: =RGBA(255, 255, 255, 1)
-            Height: =48
-            Icon: =Icon.CancelBadge
-            Width: =48
-            X: =40
-            ZIndex: =1
-
         LoginDtls_1 As group:
             Height: =5
             Width: =5
