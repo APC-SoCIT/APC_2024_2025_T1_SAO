@@ -1,7 +1,6 @@
 "Reports_1 As screen.'welcomeLayout_ver1.0'":
-    OnVisible: |-
-        =/**
-        ClearCollect(
+    OnVisible: |
+        =ClearCollect(
             Master_Data,
             AddColumns(
                 ShowColumns('APF Uploads',
@@ -53,8 +52,12 @@
             )
         )
         
-        **/
         
+        /**
+        // First, collect LR_Uploads into a local collection
+        ClearCollect(LocalLR, LR_Uploads);
+        
+        // Then use the local collection in your formula
         ClearCollect(
             Master_Data,
             AddColumns(
@@ -79,7 +82,7 @@
                 EventTypes,
                 Concat(
                     Filter(
-                       [
+                        [
                             {Type: "Workshop", Value: ThisRecord.Workshop_x002f_TechTraining},
                             {Type: "Seminar", Value: ThisRecord.Workshop_x002f_TechTraining},
                             {Type: "Leadership", Value: ThisRecord.LeadershipTraining},
@@ -97,9 +100,13 @@
                     "; "
                 ),
                 CashAdvance,
-                First(Filter(LR_Uploads, APF_ID.Id = ThisRecord.ID)).CashAdvAmt
+                IfError(
+                    LookUp(LocalLR, APF_ID.Id = ThisRecord.ID, CashAdvAmt),
+                    0
+                )
             )
         )
+        **/
 
     ScreenContainer4_1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(245, 245, 245, 1)
