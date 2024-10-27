@@ -1,10 +1,11 @@
 "Reports_1 As screen.'welcomeLayout_ver1.0'":
-    OnVisible: |
-        =ClearCollect(
+    OnVisible: |-
+        =// Step 1: Create Master_Data collection from 'APF Uploads'
+        ClearCollect(
             Master_Data,
             AddColumns(
                 ShowColumns('APF Uploads',
-                    ID,
+                    ID,  // This is the APF_ID
                     'Name of Lead Org',
                     Title,
                     'Activity Title',
@@ -21,10 +22,10 @@
                     'Social Events',
                     Marketing
                 ),
-                EventTypes, // New column for concatenated event types
+                EventTypes, 
                 Concat(
                     Filter(
-                       [
+                        [
                             {Type: "Workshop", Value: ThisRecord.Workshop_x002f_TechTraining},
                             {Type: "Seminar", Value: ThisRecord.Workshop_x002f_TechTraining},
                             {Type: "Leadership", Value: ThisRecord.LeadershipTraining},
@@ -41,17 +42,16 @@
                     Type,
                     "; "
                 ),
-                CashAdvance,
+                CashAdvance, 
                 If(
                     Not(IsBlank(
                         LookUp(LR_Uploads, APF_ID.Id = ThisRecord.ID, CashAdvAmt)
                     )),
                     LookUp(LR_Uploads, APF_ID.Id = ThisRecord.ID, CashAdvAmt),
-                    0
+                    0 // Default value if no match is found
                 )
             )
-        )
-        
+        );
         
         /**
         // First, collect LR_Uploads into a local collection
@@ -106,6 +106,78 @@
                 )
             )
         )
+        **/
+        /**
+        
+        // Step 1: Create a temporary collection for LR_Uploads with relevant fields
+        ClearCollect(
+            LR_Uploads_Collection,
+            ShowColumns(
+                LR_Uploads,
+                'APF_ID',         // Include APF_ID
+                'CashAdvAmt'      // Include any other necessary fields
+                // Add more fields as needed
+            )
+        );
+        
+        // Step 2: Create Master_Data collection from 'APF Uploads'
+        ClearCollect(
+            Master_Data,
+            AddColumns(
+                ShowColumns('APF Uploads',
+                    ID,
+                    'Name of Lead Org',
+                    Title,
+                    'Activity Title',
+                    'Target Date',
+                    'Venue/Platform',
+                    'Workshop/Tech Training',
+                    'Seminar/Webinar/Symposium/Forum',
+                    'Leadership Training',
+                    'Academic Competition',
+                    'Culture & Arts',
+                    'Games & Sports', 
+                    'Religious/Spiritual',
+                    'Community Ext', 
+                    'Social Events',
+                    Marketing
+                ),
+                EventTypes, Concat(
+                    Filter(
+                        [
+                            {Type: "Workshop", Value: ThisRecord.Workshop_x002f_TechTraining},
+                            {Type: "Seminar", Value: ThisRecord.Workshop_x002f_TechTraining},
+                            {Type: "Leadership", Value: ThisRecord.LeadershipTraining},
+                            {Type: "Academic", Value: ThisRecord.AcademicCompetition},
+                            {Type: "Cultural", Value: ThisRecord.CultureArts},
+                            {Type: "Sports", Value: ThisRecord.GamesSports},
+                            {Type: "Religious", Value: ThisRecord.Religious_x002f_Spiritual},
+                            {Type: "Community", Value: ThisRecord.CommunityExt},
+                            {Type: "Social", Value: ThisRecord.SocialEvents},
+                            {Type: "Marketing", Value: ThisRecord.Marketing}
+                        ],
+                        Value = true
+                    ),
+                    Type,
+                    "; "
+                )
+            )
+        );
+        
+        // Step 3: Perform the left join to create Joined_Data
+        ClearCollect(
+            Joined_Data,
+            AddColumns(
+                Master_Data,
+                CashAdvance, If(
+                    CountRows(Filter(LR_Uploads_Collection, APF_ID.Id = ThisRecord.APF_ID.Id)) > 0,
+                    First(Filter(LR_Uploads_Collection, APF_ID.Id = ThisRecord.APF_ID.Id)).CashAdvAmt,
+                    0 // Default value if no match is found
+                )
+            )
+        );
+        
+        // Optional: Debugging - Display Joined_Data in a gallery to see the results
         **/
 
     ScreenContainer4_1 As groupContainer.verticalAutoLayoutContainer:
