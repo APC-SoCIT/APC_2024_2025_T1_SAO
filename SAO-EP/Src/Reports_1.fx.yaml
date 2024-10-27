@@ -49,6 +49,24 @@
                     )),
                     LookUp(LR_Uploads, APF_ID.Id = ThisRecord.ID, CashAdvAmt),
                     0 // Default value if no match is found
+                ),
+        
+                TotalExpenses, 
+                If(
+                    Not(IsBlank(
+                        LookUp(LR_Uploads, APF_ID.Id = ThisRecord.ID, TotalExpenses)
+                    )),
+                    LookUp(LR_Uploads, APF_ID.Id = ThisRecord.ID, TotalExpenses),
+                    0 // Default value if no match is found
+                ),
+        
+                Balance, 
+                If(
+                    Not(IsBlank(
+                        LookUp(LR_Uploads, APF_ID.Id = ThisRecord.ID, Balance)
+                    )),
+                    LookUp(LR_Uploads, APF_ID.Id = ThisRecord.ID, Balance),
+                    0 // Default value if no match is found
                 )
             )
         );
