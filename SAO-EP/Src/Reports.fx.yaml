@@ -221,6 +221,8 @@
                 TitleContainer21 As groupContainer.verticalAutoLayoutContainer:
                     DropShadow: =DropShadow.Light
                     LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
                     PaddingTop: =20
                     RadiusTopLeft: =05
@@ -231,6 +233,8 @@
                         Align: ='TextCanvas.Align'.Center
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
                         Size: =25
                         Text: |
                             =Concatenate("With a total of ", CountRows(EventInfo), " Events")
@@ -246,6 +250,8 @@
                         AutoHeight: =false
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
                         Size: =20
                         Text: |-
                             =If(CurrentUser.userRoles.Id = 3, 
@@ -262,6 +268,8 @@
                         Align: ='TextCanvas.Align'.Center
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
                         Size: =25
                         Text: |-
                             =Concatenate(
@@ -282,6 +290,8 @@
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =5
                 LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 LayoutOverflowY: =LayoutOverflow.Scroll
                 PaddingBottom: =10
@@ -291,6 +301,8 @@
                 ZIndex: =2
 
                 Container9 As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
                     ZIndex: =1
 
                     Rectangle9 As rectangle:

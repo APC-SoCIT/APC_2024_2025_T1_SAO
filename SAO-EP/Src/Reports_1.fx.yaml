@@ -20,7 +20,7 @@
                     'Religious/Spiritual',
                     'Community Ext', 
                     'Social Events',
-                    'Marketing'
+                    Marketing
                 ),
                 EventTypes, // New column for concatenated event types
                 Concat(
@@ -71,65 +71,52 @@
             PaddingLeft: =2
             PaddingRight: =2
             PaddingTop: =2
+            RadiusBottomLeft: =30
+            RadiusBottomRight: =30
+            RadiusTopLeft: =30
+            RadiusTopRight: =30
             ZIndex: =2
 
-            Container20 As groupContainer.verticalAutoLayoutContainer:
+            LeftCont As groupContainer.verticalAutoLayoutContainer:
+                Fill: =RGBA(255, 255, 255, 1)
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =30
+                RadiusBottomRight: =30
+                RadiusTopLeft: =30
+                RadiusTopRight: =30
                 ZIndex: =2
 
-                Container24 As groupContainer.horizontalAutoLayoutContainer:
+                ChartsSlider As groupContainer.horizontalAutoLayoutContainer:
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
                     LayoutOverflowX: =LayoutOverflow.Scroll
                     ZIndex: =1
 
-                    Container25 As groupContainer.verticalAutoLayoutContainer:
+                    ChartCont As groupContainer.verticalAutoLayoutContainer:
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutMinHeight: =100
-                        LayoutMinWidth: |
-                            =350
+                        LayoutMinWidth: =350
                         LayoutMode: =LayoutMode.Auto
                         Width: |
                             =350
                         ZIndex: =1
 
-                        CompositeColumnChart5 As group:
-                            Height: =5
-                            LayoutMinHeight: =5
-                            LayoutMinWidth: =5
-                            Width: =5
+                        ColumnChart5 As barChart:
+                            FillPortions: =1
+                            Height: =ChartCont.Height-10
+                            Items: =ColumnChartSample
+                            LayoutMinHeight: =300
+                            LayoutMinWidth: =300
+                            Width: =350
                             X: =40
-                            Y: =40
-                            ZIndex: =1
+                            Y: =70
+                            ZIndex: =3
 
-                            Title11 As label:
-                                Align: =Align.Center
-                                AlignInContainer: =AlignInContainer.Start
-                                Height: =20
-                                LineHeight: =1
-                                Text: ="Chart Title"
-                                Width: |
-                                    =350
-                                X: =40
-                                Y: =40
-                                ZIndex: =2
-
-                            ColumnChart5 As barChart:
-                                FillPortions: =1
-                                Height: =Container25.Height-10
-                                Items: =ColumnChartSample
-                                LayoutMinHeight: =300
-                                LayoutMinWidth: =300
-                                Width: =350
-                                X: =40
-                                Y: =70
-                                ZIndex: =3
-
-                    Container26_1 As groupContainer.manualLayoutContainer:
+                    LabelCont As groupContainer.manualLayoutContainer:
                         FillPortions: =0.05
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
@@ -140,9 +127,56 @@
                             ItemColorSet: =ColumnChart5.ItemColorSet
                             Items: =ColumnChart5.SeriesLabels
                             Width: =166
-                            X: =40
-                            Y: =40
+                            X: =42
+                            Y: =103
                             ZIndex: =1
+
+                        Title11 As label:
+                            Align: =Align.Center
+                            Height: =20
+                            LineHeight: =1
+                            Text: ="Chart Title"
+                            Width: =250
+                            Y: =60
+                            ZIndex: =2
+
+                    ChartCont_1 As groupContainer.verticalAutoLayoutContainer:
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =350
+                        LayoutMode: =LayoutMode.Auto
+                        Width: |
+                            =350
+                        ZIndex: =5
+
+                        ColumnChart1 As barChart:
+                            Items: =ColumnChartSample
+                            X: =40
+                            Y: =70
+                            ZIndex: =3
+
+                    LabelCont_1 As groupContainer.manualLayoutContainer:
+                        FillPortions: =0.05
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        ZIndex: =6
+
+                        Title2 As label:
+                            Align: =Align.Center
+                            Height: =25
+                            Text: ="Chart Title"
+                            Width: =250
+                            Y: =40
+                            ZIndex: =3
+
+                        Legend1 As legend:
+                            Height: =80
+                            ItemColorSet: =ColumnChart1.ItemColorSet
+                            Items: =ColumnChart1.SeriesLabels
+                            Width: =250
+                            Y: |
+                                =103
+                            ZIndex: =4
 
                 DataTable8 As dataTable.datatable:
                     BorderStyle: =BorderStyle.Solid
@@ -228,7 +262,8 @@
                         Y: =0
                         ZIndex: =11
 
-            Container22_1 As groupContainer.verticalAutoLayoutContainer:
+            "'Right Container' As groupContainer.verticalAutoLayoutContainer":
+                DropShadow: =DropShadow.Regular
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0.5
                 LayoutAlignItems: =LayoutAlignItems.Center

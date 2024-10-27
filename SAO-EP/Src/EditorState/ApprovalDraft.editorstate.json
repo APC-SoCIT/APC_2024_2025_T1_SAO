@@ -51,7 +51,7 @@
       "MetaDataIDKey": "",
       "Name": "Activity Title",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -135,7 +135,7 @@
       "MetaDataIDKey": "",
       "Name": "Adviser Approval Status",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -227,7 +227,7 @@
       "MetaDataIDKey": "%BadgeStatus.ID%",
       "Name": "AdviserApprovalStatus",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -308,7 +308,7 @@
       "MetaDataIDKey": "",
       "Name": "AdviserApprovalTimestamp",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -505,7 +505,7 @@
       "MetaDataIDKey": "%ApprovalForm.ID%",
       "Name": "ApprovalForm1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -691,7 +691,7 @@
       "MetaDataIDKey": "",
       "Name": "ApprovalsAPFGallery",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1373,7 +1373,7 @@
       "MetaDataIDKey": "%FormTitleText.ID%",
       "Name": "FormTitleText1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2061,7 +2061,7 @@
       "MetaDataIDKey": "%TemplateBrowseGalleryNextIcon.ID%",
       "Name": "NextArrow5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2546,7 +2546,7 @@
       "MetaDataIDKey": "",
       "Name": "SAO Head Approval Status",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2719,7 +2719,7 @@
       "MetaDataIDKey": "",
       "Name": "SAOHeadApprovalTimestamp",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2953,7 +2953,7 @@
       "MetaDataIDKey": "%TemplateBrowseGallerySeparator1.ID%",
       "Name": "Separator9",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3331,7 +3331,7 @@
       "MetaDataIDKey": "%SubmitButton.ID%",
       "Name": "SubmitButton1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3412,7 +3412,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 9,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3529,7 +3529,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas4",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3817,7 +3817,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 8,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3893,7 +3893,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas9",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3964,7 +3964,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas9_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
