@@ -5046,66 +5046,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.Container6_1.Gallery1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.Container6_1.Gallery1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Reports_1",
-                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.Container6_1.Gallery1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.Container6_1.Gallery1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.Container6_1.Gallery1.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "Reports_1",
-                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.Container6_1.Gallery1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 10
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "LoginPage_1.'Login-LHS_1'.FP_Exit_3.AccessibleLabel"
                 }
               ],
