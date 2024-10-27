@@ -42,7 +42,7 @@
                     "; "
                 ),
                 CashAdvance,
-                LookUp(LR_Uploads, APF_ID.Id = ThisRecord.ID, CashAdvAmt)
+                    LookUp(LR_Uploads, APF_ID.Id = ThisRecord.ID, CashAdvAmt)
             )
         )
 
