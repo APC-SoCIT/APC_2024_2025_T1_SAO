@@ -1,9 +1,35 @@
 "Reports_1 As screen.'welcomeLayout_ver1.0'":
     OnVisible: |+
-        =ClearCollect(LocalLR, LR_Uploads);
-        ClearCollect(LocalAPF, 
-            AddColumns('APF Uploads', ID_Num, ID)
+        =If(CurrentUser.userRoles.Id > 1, 
+            ClearCollect(
+                LocalAPF,
+                Filter('APF Uploads', 'Name of Lead Org' = CurrentUserOrg.orgAcronym);
+                AddColumns('APF Uploads', ID_Num, ID)
+            ),
+            ClearCollect(LocalAPF, 
+                AddColumns('APF Uploads', ID_Num, ID)
+            );
+          
         );
+        
+        If(CurrentUser.userRoles.Id > 1, 
+            ClearCollect(
+                LocalLR,
+                Filter(LR_Uploads, 'EventOrg' = CurrentUserOrg.orgAcronym);
+                AddColumns('LR_Uploads', ID_Num, ID);
+            ),
+            ClearCollect(LocalLR, LR_Uploads);
+            AddColumns('LR_Uploads', ID_Num, ID);
+        );
+        
+        If(CurrentUser.userRoles.Id > 1, 
+            ClearCollect(
+                LocalPD,
+                Filter(LR_PDItems, !IsBlank(LookUp(LocalLR, ID_Num = LR_ID.Id)))
+            ),
+            ClearCollect(LocalPD, LR_PDItems);
+        );
+        
         
         // Then use the local collection in your formula
         ClearCollect(
@@ -66,7 +92,41 @@
                         APF_ID.Id = ID_Num,
                         CashAdvAmt
                     )
-                )    
+                )
+                
+                ,TotalExpenses,
+                If(
+                    IsBlank(
+                        LookUp(
+                            LocalLR,
+                            APF_ID.Id = ID_Num,
+                            TotalExpenses
+                        )
+                    ),
+                    0,
+                    LookUp(
+                        LocalLR,
+                        APF_ID.Id = ID_Num,
+                        TotalExpenses
+                    )
+                )
+        
+                ,Balance,
+                If(
+                    IsBlank(
+                        LookUp(
+                            LocalLR,
+                            APF_ID.Id = ID_Num,
+                            Balance
+                        )
+                    ),
+                    0,
+                    LookUp(
+                        LocalLR,
+                        APF_ID.Id = ID_Num,
+                        Balance
+                    )
+                )          
             )
         );
         
@@ -189,7 +249,7 @@
                         ZIndex: =5
 
                         PieChart1 As pieChart:
-                            Items: =LR_PDItems
+                            Items: =LocalPD
                             X: =40
                             Y: =70
                             ZIndex: =3
@@ -237,61 +297,19 @@
                         Y: =0
                         ZIndex: =2
 
-                        ID_Column1 As dataTableColumn.textualColumn:
+                        ID_Num_Column1 As dataTableColumn.textualColumn:
                             DisplayMode: =DisplayMode.Edit
-                            FieldDisplayName: ="ID"
-                            FieldName: ="ID"
+                            FieldDisplayName: ="ID_Num"
+                            FieldName: ="ID_Num"
                             FieldVariantName: ="textualColumn"
                             Height: =Parent.Height
                             LayoutHeight: =Parent.Height
                             Order: =1
-                            Text: =ThisItem.ID
+                            Text: =ThisItem.ID_Num
                             Width: =100
                             X: =0
                             Y: =0
-                            ZIndex: =11
-
-                        Title_Column1 As dataTableColumn.textualColumn:
-                            DisplayMode: =DisplayMode.Edit
-                            FieldDisplayName: ="Title"
-                            FieldName: ="Title"
-                            FieldVariantName: ="textualColumn"
-                            Height: =Parent.Height
-                            LayoutHeight: =Parent.Height
-                            Order: =2
-                            Text: =ThisItem.Title
-                            Width: =100
-                            X: =0
-                            Y: =0
-                            ZIndex: =12
-
-                        ActivityTitle_Column1 As dataTableColumn.textualColumn:
-                            DisplayMode: =DisplayMode.Edit
-                            FieldDisplayName: ="ActivityTitle"
-                            FieldName: ="ActivityTitle"
-                            FieldVariantName: ="textualColumn"
-                            Height: =Parent.Height
-                            LayoutHeight: =Parent.Height
-                            Order: =3
-                            Text: =ThisItem.ActivityTitle
-                            Width: =100
-                            X: =0
-                            Y: =0
-                            ZIndex: =13
-
-                        EventTypes_Column1 As dataTableColumn.textualColumn:
-                            DisplayMode: =DisplayMode.Edit
-                            FieldDisplayName: ="EventTypes"
-                            FieldName: ="EventTypes"
-                            FieldVariantName: ="textualColumn"
-                            Height: =Parent.Height
-                            LayoutHeight: =Parent.Height
-                            Order: =4
-                            Text: =ThisItem.EventTypes
-                            Width: =100
-                            X: =0
-                            Y: =0
-                            ZIndex: =14
+                            ZIndex: =16
 
                         NameofLeadOrg_Column1 As dataTableColumn.textualColumn:
                             DisplayMode: =DisplayMode.Edit
@@ -300,12 +318,110 @@
                             FieldVariantName: ="textualColumn"
                             Height: =Parent.Height
                             LayoutHeight: =Parent.Height
-                            Order: =5
+                            Order: =2
                             Text: =ThisItem.NameofLeadOrg
                             Width: =100
                             X: =0
                             Y: =0
-                            ZIndex: =15
+                            ZIndex: =17
+
+                        Title_Column1 As dataTableColumn.textualColumn:
+                            DisplayMode: =DisplayMode.Edit
+                            FieldDisplayName: ="Title"
+                            FieldName: ="Title"
+                            FieldVariantName: ="textualColumn"
+                            Height: =Parent.Height
+                            LayoutHeight: =Parent.Height
+                            Order: =3
+                            Text: =ThisItem.Title
+                            Width: =100
+                            X: =0
+                            Y: =0
+                            ZIndex: =18
+
+                        ActivityTitle_Column1 As dataTableColumn.textualColumn:
+                            DisplayMode: =DisplayMode.Edit
+                            FieldDisplayName: ="ActivityTitle"
+                            FieldName: ="ActivityTitle"
+                            FieldVariantName: ="textualColumn"
+                            Height: =Parent.Height
+                            LayoutHeight: =Parent.Height
+                            Order: =4
+                            Text: =ThisItem.ActivityTitle
+                            Width: =100
+                            X: =0
+                            Y: =0
+                            ZIndex: =19
+
+                        Target_x0020_Date_Column1 As dataTableColumn.textualColumn:
+                            DisplayMode: =DisplayMode.Edit
+                            FieldDisplayName: ="Target_x0020_Date"
+                            FieldName: ="Target_x0020_Date"
+                            FieldVariantName: ="textualColumn"
+                            Height: =Parent.Height
+                            LayoutHeight: =Parent.Height
+                            Order: =5
+                            Text: =ThisItem.Target_x0020_Date
+                            Width: =100
+                            X: =0
+                            Y: =0
+                            ZIndex: =20
+
+                        Venue_x002f_Platform_Column1 As dataTableColumn.textualColumn:
+                            DisplayMode: =DisplayMode.Edit
+                            FieldDisplayName: ="Venue_x002f_Platform"
+                            FieldName: ="Venue_x002f_Platform"
+                            FieldVariantName: ="textualColumn"
+                            Height: =Parent.Height
+                            LayoutHeight: =Parent.Height
+                            Order: =6
+                            Text: =ThisItem.Venue_x002f_Platform
+                            Width: =100
+                            X: =0
+                            Y: =0
+                            ZIndex: =21
+
+                        EventTypes_Column1 As dataTableColumn.textualColumn:
+                            DisplayMode: =DisplayMode.Edit
+                            FieldDisplayName: ="EventTypes"
+                            FieldName: ="EventTypes"
+                            FieldVariantName: ="textualColumn"
+                            Height: =Parent.Height
+                            LayoutHeight: =Parent.Height
+                            Order: =7
+                            Text: =ThisItem.EventTypes
+                            Width: =100
+                            X: =0
+                            Y: =0
+                            ZIndex: =22
+
+                        ProjectedPrimaryAudience_Column1 As dataTableColumn.textualColumn:
+                            DisplayMode: =DisplayMode.Edit
+                            FieldDisplayName: ="ProjectedPrimaryAudience"
+                            FieldName: ="ProjectedPrimaryAudience"
+                            FieldVariantName: ="textualColumn"
+                            Height: =Parent.Height
+                            LayoutHeight: =Parent.Height
+                            Order: =8
+                            Text: =ThisItem.ProjectedPrimaryAudience
+                            Width: =100
+                            X: =0
+                            Y: =0
+                            ZIndex: =23
+
+                        ProjectedSecondaryAudience_Column1 As dataTableColumn.textualColumn:
+                            DisplayMode: =DisplayMode.Edit
+                            FieldDisplayName: ="ProjectedSecondaryAudience"
+                            FieldName: ="ProjectedSecondaryAudience"
+                            FieldVariantName: ="textualColumn"
+                            Height: =Parent.Height
+                            LayoutHeight: =Parent.Height
+                            Order: =9
+                            Text: =ThisItem.ProjectedSecondaryAudience
+                            Width: =100
+                            X: =0
+                            Y: =0
+                            ZIndex: =24
 
                         CashAdvance_Column1 As dataTableColumn.textualColumn:
                             DisplayMode: =DisplayMode.Edit
@@ -314,12 +430,40 @@
                             FieldVariantName: ="textualColumn"
                             Height: =Parent.Height
                             LayoutHeight: =Parent.Height
-                            Order: =6
-                            Text: =
+                            Order: =10
+                            Text: =ThisItem.CashAdvance
                             Width: =100
                             X: =0
                             Y: =0
-                            ZIndex: =16
+                            ZIndex: =25
+
+                        TotalExpenses_Column1 As dataTableColumn.textualColumn:
+                            DisplayMode: =DisplayMode.Edit
+                            FieldDisplayName: ="TotalExpenses"
+                            FieldName: ="TotalExpenses"
+                            FieldVariantName: ="textualColumn"
+                            Height: =Parent.Height
+                            LayoutHeight: =Parent.Height
+                            Order: =11
+                            Text: =ThisItem.TotalExpenses
+                            Width: =100
+                            X: =0
+                            Y: =0
+                            ZIndex: =26
+
+                        Balance_Column1 As dataTableColumn.textualColumn:
+                            DisplayMode: =DisplayMode.Edit
+                            FieldDisplayName: ="Balance"
+                            FieldName: ="Balance"
+                            FieldVariantName: ="textualColumn"
+                            Height: =Parent.Height
+                            LayoutHeight: =Parent.Height
+                            Order: =12
+                            Text: =ThisItem.Balance
+                            Width: =100
+                            X: =0
+                            Y: =0
+                            ZIndex: =27
 
             "'Right Container' As groupContainer.verticalAutoLayoutContainer":
                 DropShadow: =DropShadow.Regular
@@ -356,39 +500,141 @@
                         Height: =46
                         Items: =Organizations
                         OnChange: |-
-                            =ClearCollect(
-                                EventInfo,
-                                Filter(
-                                    ShowColumns(
-                                        'APF Uploads',
+                            =// Update LocalAPF
+                            ClearCollect(
+                                LocalAPF,
+                                AddColumns(
+                                    Filter('APF Uploads', 'Name of Lead Org' = Dropdown2_1.Selected.orgAcronym), // Apply the filter based on dropdown selection
+                                    ID_Num, ID
+                                )
+                            );
+                            
+                            // Update LocalLR
+                            ClearCollect(
+                                LocalLR,
+                                AddColumns(
+                                    Filter(LR_Uploads, 'EventOrg' = CurrentUserOrg.orgAcronym && 'EventOrg' = Dropdown2_1.Selected.orgAcronym), // Filter based on EventOrg
+                                    ID_Num, ID
+                                )
+                            );
+                            
+                            // Update LocalPD
+                            ClearCollect(
+                                LocalPD,
+                                Filter(LR_PDItems, !IsBlank(LookUp(LocalLR, ID_Num = LR_ID.Id))) // No filtering condition, just look up based on LocalLR
+                            );
+                            
+                            // Update Master_Data
+                            ClearCollect(
+                                Master_Data,
+                                AddColumns(
+                                    ShowColumns(LocalAPF,
+                                        ID_Num,
+                                        ID,
+                                        'Name of Lead Org',
+                                        Title,
+                                        'Activity Title',
+                                        'Target Date',
+                                        'Venue/Platform',
+                                        'Workshop/Tech Training',
                                         'Seminar/Webinar/Symposium/Forum',
                                         'Leadership Training',
-                                        'Community Ext',
-                                        Marketing,
-                                        'Religious/Spiritual',
                                         'Academic Competition',
                                         'Culture & Arts',
-                                        'Games & Sports',
+                                        'Games & Sports', 
+                                        'Religious/Spiritual',
+                                        'Community Ext', 
                                         'Social Events',
-                                        'Name of Lead Org',
+                                        Marketing,
                                         'Projected Primary Audience',
                                         'Projected Secondary Audience'
                                     ),
-                                    NameofLeadOrg = Dropdown2_1.Selected.orgAcronym
+                                    EventTypes,
+                                    Concat(
+                                        Filter(
+                                            [
+                                                {Type: "Workshop", Value: ThisRecord.Workshop_x002f_TechTraining},
+                                                {Type: "Seminar", Value: ThisRecord.Seminar_x002f_Webinar_x002f_Symp},
+                                                {Type: "Leadership", Value: ThisRecord.LeadershipTraining},
+                                                {Type: "Academic", Value: ThisRecord.AcademicCompetition},
+                                                {Type: "Cultural", Value: ThisRecord.CultureArts},
+                                                {Type: "Sports", Value: ThisRecord.GamesSports},
+                                                {Type: "Religious", Value: ThisRecord.Religious_x002f_Spiritual},
+                                                {Type: "Community", Value: ThisRecord.CommunityExt},
+                                                {Type: "Social", Value: ThisRecord.SocialEvents},
+                                                {Type: "Marketing", Value: ThisRecord.Marketing}
+                                            ],
+                                            Value = true
+                                        ),
+                                        Type,
+                                        "; "
+                                    ),
+                                    // Other calculations for CashAdvance, TotalExpenses, Balance
+                                    CashAdvance,
+                                    If(
+                                        IsBlank(
+                                            LookUp(
+                                                LocalLR,
+                                                APF_ID.Id = ID_Num,
+                                                CashAdvAmt
+                                            )
+                                        ),
+                                        0,
+                                        LookUp(
+                                            LocalLR,
+                                            APF_ID.Id = ID_Num,
+                                            CashAdvAmt
+                                        )
+                                    ),
+                                    TotalExpenses,
+                                    If(
+                                        IsBlank(
+                                            LookUp(
+                                                LocalLR,
+                                                APF_ID.Id = ID_Num,
+                                                TotalExpenses
+                                            )
+                                        ),
+                                        0,
+                                        LookUp(
+                                            LocalLR,
+                                            APF_ID.Id = ID_Num,
+                                            TotalExpenses
+                                        )
+                                    ),
+                                    Balance,
+                                    If(
+                                        IsBlank(
+                                            LookUp(
+                                                LocalLR,
+                                                APF_ID.Id = ID_Num,
+                                                Balance
+                                            )
+                                        ),
+                                        0,
+                                        LookUp(
+                                            LocalLR,
+                                            APF_ID.Id = ID_Num,
+                                            Balance
+                                        )
+                                    )
                                 )
                             );
+                            
+                            // Update EventTypeReports
                             ClearCollect(EventTypeReports, 
-                                {SeminarCount: CountIf(EventInfo,'Seminar/Webinar/Symposium/Forum' = true),
-                                LeadershipCount: CountIf(EventInfo, 'Leadership Training' = true),
-                                CommExtCount: CountIf(EventInfo,'Community Ext' = true),
-                                MarketingCount: CountIf(EventInfo,Marketing = true),
-                                ReligiousCount: CountIf(EventInfo,'Religious/Spiritual' = true),
-                                AcadCompeCount: CountIf(EventInfo,'Academic Competition' = true),
-                                CultureCount: CountIf(EventInfo,'Culture & Arts' = true),
-                                GameCount: CountIf(EventInfo,'Games & Sports' = true),
-                                SocialCount: CountIf(EventInfo,'Social Events' = true)
+                                {
+                                    SeminarCount: CountIf(Master_Data, Seminar_x002f_Webinar_x002f_Symp = true),
+                                    LeadershipCount: CountIf(Master_Data, LeadershipTraining = true),
+                                    CommExtCount: CountIf(Master_Data, CommunityExt = true),
+                                    MarketingCount: CountIf(Master_Data, Marketing = true),
+                                    ReligiousCount: CountIf(Master_Data, Religious_x002f_Spiritual = true),
+                                    AcadCompeCount: CountIf(Master_Data, AcademicCompetition = true),
+                                    CultureCount: CountIf(Master_Data, CultureArts = true),
+                                    GameCount: CountIf(Master_Data, GamesSports = true),
+                                    SocialCount: CountIf(Master_Data, SocialEvents = true)
                                 }
-                            )
+                            );
                         Width: =261
                         X: =84
                         Y: =48
