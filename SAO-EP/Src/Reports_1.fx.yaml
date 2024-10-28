@@ -31,7 +31,7 @@
                     Filter(
                         [
                             {Type: "Workshop", Value: ThisRecord.Workshop_x002f_TechTraining},
-                            {Type: "Seminar", Value: ThisRecord.Workshop_x002f_TechTraining},
+                            {Type: "Seminar", Value: ThisRecord.Seminar_x002f_Webinar_x002f_Symp},
                             {Type: "Leadership", Value: ThisRecord.LeadershipTraining},
                             {Type: "Academic", Value: ThisRecord.AcademicCompetition},
                             {Type: "Cultural", Value: ThisRecord.CultureArts},
@@ -56,15 +56,15 @@
         
         ClearCollect(EventTypeReports, 
             {
-                SeminarCount: CountIf(EventInfo,'Seminar/Webinar/Symposium/Forum' = true),
-                LeadershipCount: CountIf(EventInfo, 'Leadership Training' = true),
-                CommExtCount: CountIf(EventInfo,'Community Ext' = true),
-                MarketingCount: CountIf(EventInfo,Marketing = true),
-                ReligiousCount: CountIf(EventInfo,'Religious/Spiritual' = true),
-                AcadCompeCount: CountIf(EventInfo,'Academic Competition' = true),
-                CultureCount: CountIf(EventInfo,'Culture & Arts' = true),
-                GameCount: CountIf(EventInfo,'Games & Sports' = true),
-                SocialCount: CountIf(EventInfo,'Social Events' = true)
+                SeminarCount: CountIf(Master_Data, Seminar_x002f_Webinar_x002f_Symp = true),
+                LeadershipCount: CountIf(Master_Data, LeadershipTraining = true),
+                CommExtCount: CountIf(Master_Data,CommunityExt = true),
+                MarketingCount: CountIf(Master_Data,Marketing = true),
+                ReligiousCount: CountIf(Master_Data,Religious_x002f_Spiritual = true),
+                AcadCompeCount: CountIf(Master_Data,AcademicCompetition = true),
+                CultureCount: CountIf(Master_Data,CultureArts = true),
+                GameCount: CountIf(Master_Data,GamesSports = true),
+                SocialCount: CountIf(Master_Data,SocialEvents = true)
                 //,EventID : (EventInfo,ID)
                 //SeminarCost: Sum(EventInfo, 
             }
