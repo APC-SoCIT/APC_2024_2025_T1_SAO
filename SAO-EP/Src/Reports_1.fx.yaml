@@ -7,6 +7,7 @@
             Master_Data,
             AddColumns(
                 ShowColumns('APF Uploads',
+                    TEST_ID,
                     ID,
                     'Name of Lead Org',
                     Title,
@@ -50,7 +51,7 @@
                 ,CashAdvance,
                 LookUp(
                     LocalLR,
-                    APF_ID.Id = ThisRecord.TEST_ID,
+                    APF_ID.Id = TEST_ID,
                     If(
                         IsBlank(CashAdvAmt),
                         0,
