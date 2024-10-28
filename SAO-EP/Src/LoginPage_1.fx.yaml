@@ -283,7 +283,7 @@ LoginPage_1 As screen:
                 ZIndex: =17
 
     Image9 As image:
-        Image: ='SAO_1'
+        Image: =SAO_1
         X: =366
         Y: =100
         ZIndex: =4

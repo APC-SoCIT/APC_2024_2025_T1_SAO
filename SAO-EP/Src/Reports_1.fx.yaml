@@ -22,7 +22,9 @@
                     'Religious/Spiritual',
                     'Community Ext', 
                     'Social Events',
-                    Marketing
+                    Marketing,
+                    'Projected Primary Audience',
+                    'Projected Secondary Audience'
                 ),
                 EventTypes,
                 Concat(
@@ -50,7 +52,23 @@
                     0
                 )
             )
-        )
+        );
+        
+        ClearCollect(EventTypeReports, 
+            {
+                SeminarCount: CountIf(EventInfo,'Seminar/Webinar/Symposium/Forum' = true),
+                LeadershipCount: CountIf(EventInfo, 'Leadership Training' = true),
+                CommExtCount: CountIf(EventInfo,'Community Ext' = true),
+                MarketingCount: CountIf(EventInfo,Marketing = true),
+                ReligiousCount: CountIf(EventInfo,'Religious/Spiritual' = true),
+                AcadCompeCount: CountIf(EventInfo,'Academic Competition' = true),
+                CultureCount: CountIf(EventInfo,'Culture & Arts' = true),
+                GameCount: CountIf(EventInfo,'Games & Sports' = true),
+                SocialCount: CountIf(EventInfo,'Social Events' = true)
+                //,EventID : (EventInfo,ID)
+                //SeminarCost: Sum(EventInfo, 
+            }
+        );
 
     ScreenContainer4_1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(245, 245, 245, 1)
@@ -113,7 +131,9 @@
                         ZIndex: =1
 
                         ColumnChart2 As barChart:
-                            Items: =ColumnChartSample
+                            GridStyle: =GridStyle.All
+                            Items: =EventTypeReports
+                            NumberOfSeries: =9
                             X: =40
                             Y: =70
                             ZIndex: =3
@@ -125,19 +145,19 @@
                         ZIndex: =4
 
                         Legend6_1 As legend:
-                            Height: =80
+                            Height: =230
                             ItemColorSet: =ColumnChart2.ItemColorSet
                             Items: =ColumnChart2.SeriesLabels
                             Width: =166
                             X: =42
-                            Y: =103
+                            Y: =91
                             ZIndex: =1
 
                         Title11 As label:
                             Align: =Align.Center
                             Height: =20
                             LineHeight: =1
-                            Text: ="Chart Title"
+                            Text: ="Event Type"
                             Width: =250
                             Y: =60
                             ZIndex: =2
@@ -465,7 +485,7 @@
                         Height: =49
                         Size: =20
                         Text: |-
-                            ="Events Organized:"
+                            ="Total Audience:"
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =193
                         X: =40
