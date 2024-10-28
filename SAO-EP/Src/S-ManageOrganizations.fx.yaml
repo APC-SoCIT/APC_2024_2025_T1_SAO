@@ -332,9 +332,11 @@
             ZIndex: =9
 
             OrgSelector_1 As dropdown:
+                ChevronBackground: =RGBA(9, 33, 98, 1)
                 Default: ="JISSA"
                 Height: =48
                 Items: =Organizations
+                SelectionFill: =RGBA(9, 33, 98, 1)
                 Size: =16
                 Width: =308
                 X: =40

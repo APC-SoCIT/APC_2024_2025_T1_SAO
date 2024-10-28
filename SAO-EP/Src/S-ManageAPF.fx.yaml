@@ -73,6 +73,7 @@
             SMapf_OrgSelector As dropdown:
                 AlignInContainer: |
                     =AlignInContainer.Stretch
+                ChevronBackground: =RGBA(9, 33, 98, 1)
                 Items: =Organizations
                 ZIndex: =1
 
