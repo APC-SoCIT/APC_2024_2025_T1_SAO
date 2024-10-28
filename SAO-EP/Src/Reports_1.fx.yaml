@@ -96,7 +96,7 @@
                     0,
                     LookUp(
                         LocalLR,
-                        ThisRecord.APF_ID_Num = ID_Num,
+                        ThisRecord.APF_ID_Num = APF_ID_Num,
                         CashAdvAmt
                     )
                 )
@@ -106,14 +106,14 @@
                     IsBlank(
                         LookUp(
                             LocalLR,
-                            APF_ID.Id = APF_ID_Num,
+                            ThisRecord.APF_ID_Num = APF_ID_Num,
                             TotalExpenses
                         )
                     ),
                     0,
                     LookUp(
                         LocalLR,
-                        APF_ID.Id = APF_ID_Num,
+                        ThisRecord.APF_ID_Num = APF_ID_Num,
                         TotalExpenses
                     )
                 )
@@ -123,14 +123,14 @@
                     IsBlank(
                         LookUp(
                             LocalLR,
-                            APF_ID.Id = APF_ID_Num,
+                            ThisRecord.APF_ID_Num = APF_ID_Num,
                             Balance
                         )
                     ),
                     0,
                     LookUp(
                         LocalLR,
-                        APF_ID.Id = APF_ID_Num,
+                        ThisRecord.APF_ID_Num = APF_ID_Num,
                         Balance
                     )
                 )          
