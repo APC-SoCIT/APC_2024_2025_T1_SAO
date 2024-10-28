@@ -7,7 +7,7 @@
             Master_Data,
             AddColumns(
                 ShowColumns('APF Uploads',
-                    TEST_ID,
+                    ID_APF,
                     ID,
                     'Name of Lead Org',
                     Title,
@@ -170,6 +170,7 @@
                             ZIndex: =3
 
                     LabelCont As groupContainer.manualLayoutContainer:
+                        Fill: =RGBA(255, 255, 255, 1)
                         FillPortions: =0.05
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
@@ -202,8 +203,8 @@
                             =350
                         ZIndex: =5
 
-                        ColumnChart1 As barChart:
-                            Items: =ColumnChartSample
+                        PieChart1 As pieChart:
+                            Items: =LR_PDItems
                             X: =40
                             Y: =70
                             ZIndex: =3
@@ -217,18 +218,18 @@
                         Title2 As label:
                             Align: =Align.Center
                             Height: =25
-                            Text: ="Chart Title"
+                            Text: ="Expenses"
                             Width: =250
-                            Y: =40
+                            Y: =60
                             ZIndex: =3
 
-                        Legend1 As legend:
-                            Height: =80
-                            ItemColorSet: =ColumnChart1.ItemColorSet
-                            Items: =ColumnChart1.SeriesLabels
+                        Legend3 As legend:
+                            Height: =200
+                            ItemColorSet: =PieChart1.ItemColorSet
+                            Items: =PieChart1.SeriesLabels
                             Width: =250
                             Y: |
-                                =103
+                                =91
                             ZIndex: =4
 
                 Container13 As groupContainer.manualLayoutContainer:
