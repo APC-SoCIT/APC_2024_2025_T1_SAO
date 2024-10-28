@@ -485,11 +485,11 @@
                         Height: =49
                         Size: =20
                         Text: |-
-                            ="Total Audience:"
+                            ="Total Participation:"
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =193
                         X: =40
-                        Y: =193
+                        Y: =291
                         ZIndex: =3
 
                     TextCanvas6_3 As Text:
@@ -497,11 +497,11 @@
                         Height: =49
                         Size: =20
                         Text: |-
-                            ="Events Organized:"
+                            ="Upcoming Events:"
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =193
                         X: =40
-                        Y: =242
+                        Y: =193
                         ZIndex: =4
 
                     TextCanvas6_4 As Text:
@@ -509,21 +509,23 @@
                         Height: =49
                         Size: =20
                         Text: |-
-                            ="Events Organized:"
+                            ="Total Events:"
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =193
                         X: =40
-                        Y: =291
+                        Y: =242
                         ZIndex: =5
 
                     TextCanvas6_5 As Text:
+                        Align: ="Start"
                         DisplayMode: =DisplayMode.Edit
                         Height: =49
                         Size: =20
                         Text: |-
-                            ="Events Organized:"
+                            ="Total Budget Utilized:"
+                        VerticalAlign: ="Middle"
                         Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =193
+                        Width: =264
                         X: =40
                         Y: =340
                         ZIndex: =6
@@ -533,9 +535,9 @@
                         Height: =49
                         Size: =20
                         Text: |-
-                            ="Events Organized:"
+                            ="Average Cost per Participant:"
                         Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =193
+                        Width: =296
                         X: =40
                         Y: =389
                         ZIndex: =7
@@ -557,11 +559,11 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =49
                         Size: =20
-                        Text: =100
+                        Text: =Sum(Master_Data, ProjectedPrimaryAudience) + Sum(Master_Data, ProjectedSecondaryAudience)
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
-                        Y: =193
+                        Y: =291
                         ZIndex: =9
 
                     TextCanvas6_9 As Text:
@@ -569,11 +571,11 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =49
                         Size: =20
-                        Text: =100
+                        Text: =CountIf(Master_Data,Target_x0020_Date >= Today())
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
-                        Y: =242
+                        Y: =193
                         ZIndex: =10
 
                     TextCanvas6_10 As Text:
@@ -581,11 +583,11 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =49
                         Size: =20
-                        Text: =100
+                        Text: =CountRows('Master_Data')
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
-                        Y: =291
+                        Y: =242
                         ZIndex: =11
 
                     TextCanvas6_11 As Text:
