@@ -4,10 +4,10 @@
             ClearCollect(
                 LocalAPF,
                 Filter('APF Uploads', 'Name of Lead Org' = CurrentUserOrg.orgAcronym);
-                AddColumns('APF Uploads', ID_Num, ID)
+                AddColumns('APF Uploads', APF_ID_Num, ID)
             ),
             ClearCollect(LocalAPF, 
-                AddColumns('APF Uploads', ID_Num, ID)
+                AddColumns('APF Uploads', APF_ID_Num, ID)
             );
           
         );
@@ -15,17 +15,24 @@
         If(CurrentUser.userRoles.Id > 1, 
             ClearCollect(
                 LocalLR,
-                Filter(LR_Uploads, 'EventOrg' = CurrentUserOrg.orgAcronym);
-                AddColumns('LR_Uploads', ID_Num, ID);
+                Filter(LR_Uploads, EventOrg = CurrentUserOrg.orgAcronym);
+                AddColumns('LR_Uploads', 
+                    LR_ID_Num, ID,
+                    APF_ID_Num, APF_ID.Id
+                );
             ),
-            ClearCollect(LocalLR, LR_Uploads);
-            AddColumns('LR_Uploads', ID_Num, ID);
+            ClearCollect(LocalLR, 
+                AddColumns('LR_Uploads', 
+                    LR_ID_Num, ID,
+                    APF_ID_Num, APF_ID.Id
+                );
+            );
         );
         
         If(CurrentUser.userRoles.Id > 1, 
             ClearCollect(
                 LocalPD,
-                Filter(LR_PDItems, !IsBlank(LookUp(LocalLR, ID_Num = LR_ID.Id)))
+                Filter(LR_PDItems, !IsBlank(LookUp(LocalLR, LR_ID_Num = LR_ID.Id)))
             ),
             ClearCollect(LocalPD, LR_PDItems);
         );
@@ -36,7 +43,7 @@
             Master_Data,
             AddColumns(
                 ShowColumns(LocalAPF,
-                    ID_Num,
+                    APF_ID_Num,
                     ID,
                     'Name of Lead Org',
                     Title,
@@ -82,14 +89,14 @@
                     IsBlank(
                         LookUp(
                             LocalLR,
-                            APF_ID.Id = ID_Num,
+                            APF_ID.Id = APF_ID_Num,
                             CashAdvAmt
                         )
                     ),
                     0,
                     LookUp(
                         LocalLR,
-                        APF_ID.Id = ID_Num,
+                        APF_ID.Id = APF_ID_Num,
                         CashAdvAmt
                     )
                 )
@@ -99,14 +106,14 @@
                     IsBlank(
                         LookUp(
                             LocalLR,
-                            APF_ID.Id = ID_Num,
+                            APF_ID.Id = APF_ID_Num,
                             TotalExpenses
                         )
                     ),
                     0,
                     LookUp(
                         LocalLR,
-                        APF_ID.Id = ID_Num,
+                        APF_ID.Id = APF_ID_Num,
                         TotalExpenses
                     )
                 )
@@ -116,14 +123,14 @@
                     IsBlank(
                         LookUp(
                             LocalLR,
-                            APF_ID.Id = ID_Num,
+                            APF_ID.Id = APF_ID_Num,
                             Balance
                         )
                     ),
                     0,
                     LookUp(
                         LocalLR,
-                        APF_ID.Id = ID_Num,
+                        APF_ID.Id = APF_ID_Num,
                         Balance
                     )
                 )          
@@ -518,7 +525,7 @@
                                 AddColumns(
                                     Filter(
                                         LR_Uploads,
-                                        'EventOrg' = Dropdown2_1.Selected.orgAcronym
+                                        EventOrg = Dropdown2_1.Selected.orgAcronym
                                     ),// Filter based on EventOrg
                                     ID_Num,
                                     ID
