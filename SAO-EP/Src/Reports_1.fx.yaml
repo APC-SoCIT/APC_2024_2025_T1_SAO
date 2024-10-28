@@ -1,5 +1,5 @@
 "Reports_1 As screen.'welcomeLayout_ver1.0'":
-    OnVisible: |
+    OnVisible: |-
         =ClearCollect(LocalLR, LR_Uploads);
         
         // Then use the local collection in your formula
@@ -75,6 +75,14 @@
                 //,EventID : (EventInfo,ID)
                 //SeminarCost: Sum(EventInfo, 
             }
+        );
+        
+        
+        ClearCollect(colMasterData, 
+            AddColumns(Master_Data, 
+                CashAdvance,
+                LookUp(LR_Uploads, Text(ID) = APF_ID.Value, CashAdvAmt)
+            )
         );
 
     ScreenContainer4_1 As groupContainer.verticalAutoLayoutContainer:
@@ -305,7 +313,7 @@
                             Height: =Parent.Height
                             LayoutHeight: =Parent.Height
                             Order: =6
-                            Text: =ThisItem.CashAdvance
+                            Text: =
                             Width: =100
                             X: =0
                             Y: =0
