@@ -29,6 +29,7 @@
             ZIndex: =2
 
             Header1 As Header:
+                BasePaletteColor: =
                 DisplayMode: =DisplayMode.Edit
                 Height: =75
                 LayoutMinHeight: =75
