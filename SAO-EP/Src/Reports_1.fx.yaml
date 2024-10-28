@@ -1,5 +1,5 @@
 "Reports_1 As screen.'welcomeLayout_ver1.0'":
-    OnVisible: |+
+    OnVisible: |-
         =If(CurrentUser.userRoles.Id > 1, 
             ClearCollect(
                 LocalAPF,
@@ -89,14 +89,14 @@
                     IsBlank(
                         LookUp(
                             LocalLR,
-                            APF_ID.Id = APF_ID_Num,
+                            ThisRecord.APF_ID_Num = APF_ID_Num,
                             CashAdvAmt
                         )
                     ),
                     0,
                     LookUp(
                         LocalLR,
-                        APF_ID.Id = APF_ID_Num,
+                        ThisRecord.APF_ID_Num = APF_ID_Num,
                         CashAdvAmt
                     )
                 )
@@ -150,8 +150,6 @@
                 SocialCount: CountIf(Master_Data,SocialEvents = true)
             }
         );
-        
-        
 
     ScreenContainer4_1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(245, 245, 245, 1)
