@@ -73,7 +73,7 @@ LoginPage_1 As screen:
                 Text: ="PASSWORD"
                 Width: =242
                 X: =98
-                Y: =377
+                Y: =386
                 ZIndex: =12
 
             PasswordForm_1 As text:
