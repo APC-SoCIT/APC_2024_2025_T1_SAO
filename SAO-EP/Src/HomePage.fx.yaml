@@ -142,6 +142,7 @@ HomePage As screen:
 
             SAO As label:
                 Align: =Align.Right
+                Color: =RGBA(9, 33, 98, 1)
                 FontWeight: =FontWeight.Bold
                 Height: =43
                 Size: =25
@@ -152,7 +153,7 @@ HomePage As screen:
                 ZIndex: =3
 
             EDMS As label:
-                Color: =RGBA(39, 113, 194, 1)
+                Color: =RGBA(9, 33, 98, 1)
                 FontWeight: =FontWeight.Bold
                 Height: =43
                 Size: =25
@@ -199,7 +200,7 @@ HomePage As screen:
             );
         OnUncheck: |
             =Set(CalDeets, ShowColumns('APF Uploads','Activity Title','Time of Activity','Target Date','Venue/Platform'));
-        TrueFill: =RGBA(39, 113, 194, 1)
+        TrueFill: =RGBA(9, 33, 98, 1)
         TrueText: ="Own Org"
         Visible: |
             =If(Or(CurrentUser.userRoles.Id = 1, CurrentUser.userRoles.Id = 4), false, true) 

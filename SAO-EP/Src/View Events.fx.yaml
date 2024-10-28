@@ -212,6 +212,7 @@
                     ZIndex: =17
 
                 Arrow2 As arrow.backArrow:
+                    Fill: =RGBA(9, 33, 98, 1)
                     Height: =34
                     OnSelect: =Back()
                     Width: =34

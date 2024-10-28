@@ -150,6 +150,7 @@ LoginPage As screen:
 
             ForgotPasswordButton As button:
                 AutoDisableOnSelect: =false
+                Fill: =RGBA(39, 113, 194, 1)
                 FontWeight: =FontWeight.Normal
                 Height: =48
                 OnSelect: |-

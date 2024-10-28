@@ -2313,6 +2313,7 @@
                     ZIndex: =7
 
                     Button4 As button:
+                        Fill: =RGBA(9, 33, 98, 1)
                         Height: =90
                         OnSelect: =Set(dispViewLogistics,true)
                         RadiusBottomLeft: =90
@@ -2327,6 +2328,7 @@
 
                     OpenWindow As icon.BackArrow:
                         Color: =RGBA(255, 255, 255, 1)
+                        Fill: =RGBA(9, 33, 98, 1)
                         Height: =45
                         Icon: =Icon.ChevronLeft
                         OnSelect: =Set(dispViewLogistics,true)

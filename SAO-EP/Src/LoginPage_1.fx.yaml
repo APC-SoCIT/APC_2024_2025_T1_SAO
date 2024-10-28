@@ -73,7 +73,7 @@ LoginPage_1 As screen:
                 Text: ="PASSWORD"
                 Width: =242
                 X: =98
-                Y: =377
+                Y: =386
                 ZIndex: =12
 
             PasswordForm_1 As text:
@@ -116,15 +116,29 @@ LoginPage_1 As screen:
                 Y: =586
                 ZIndex: =18
 
-        "'Heading-1_2' As label":
+        ForgotPasswordButton_1 As button:
             Align: =Align.Right
-            Height: =35
-            Size: =15
+            AutoDisableOnSelect: =false
+            Color: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =FontWeight.Normal
+            Height: =48
+            HoverColor: =RGBA(9, 33, 98, 1)
+            HoverFill: =
+            OnSelect: |-
+                =Set(randLowest, 1);
+                Set(randHighest, 9999);
+                Set(randBetween, RoundDown(Rand()*(randHighest-randLowest + 1)+randLowest,0));
+                Set(showFP,true);
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
             Text: ="Forgot Password?"
-            Width: =188
-            X: =554
-            Y: =521
-            ZIndex: =21
+            Width: =183
+            X: =552
+            Y: =524
+            ZIndex: =19
 
         FPDtls_1 As group:
             Height: =5

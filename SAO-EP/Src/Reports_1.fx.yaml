@@ -598,7 +598,7 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =49
                         Size: =20
-                        Text: =CountRows('Master_Data')
+                        Text: =CountRows(Master_Data)
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
