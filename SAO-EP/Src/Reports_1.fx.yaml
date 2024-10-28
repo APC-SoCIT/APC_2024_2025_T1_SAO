@@ -499,36 +499,50 @@
                         FontWeight: =FontWeight.Lighter
                         Height: =46
                         Items: =Organizations
-                        OnChange: |-
+                        OnChange: |
                             =// Update LocalAPF
                             ClearCollect(
                                 LocalAPF,
                                 AddColumns(
-                                    Filter('APF Uploads', 'Name of Lead Org' = Dropdown2_1.Selected.orgAcronym), // Apply the filter based on dropdown selection
-                                    ID_Num, ID
+                                    Filter(
+                                        'APF Uploads',
+                                        'Name of Lead Org' = Dropdown2_1.Selected.orgAcronym
+                                    ),// Apply the filter based on dropdown selection
+                                    ID_Num,
+                                    ID
                                 )
                             );
-                            
                             // Update LocalLR
                             ClearCollect(
                                 LocalLR,
                                 AddColumns(
-                                    Filter(LR_Uploads, 'EventOrg' = CurrentUserOrg.orgAcronym && 'EventOrg' = Dropdown2_1.Selected.orgAcronym), // Filter based on EventOrg
-                                    ID_Num, ID
+                                    Filter(
+                                        LR_Uploads,
+                                        'EventOrg' = Dropdown2_1.Selected.orgAcronym
+                                    ),// Filter based on EventOrg
+                                    ID_Num,
+                                    ID
                                 )
                             );
-                            
                             // Update LocalPD
                             ClearCollect(
                                 LocalPD,
-                                Filter(LR_PDItems, !IsBlank(LookUp(LocalLR, ID_Num = LR_ID.Id))) // No filtering condition, just look up based on LocalLR
+                                Filter(
+                                    LR_PDItems,
+                                    !IsBlank(
+                                        LookUp(
+                                            LocalLR,
+                                            ID_Num = LR_ID.Id
+                                        )
+                                    )// Check if there is a matching ID in LocalLR
+                                )
                             );
-                            
                             // Update Master_Data
                             ClearCollect(
                                 Master_Data,
                                 AddColumns(
-                                    ShowColumns(LocalAPF,
+                                    ShowColumns(
+                                        LocalAPF,
                                         ID_Num,
                                         ID,
                                         'Name of Lead Org',
@@ -541,9 +555,9 @@
                                         'Leadership Training',
                                         'Academic Competition',
                                         'Culture & Arts',
-                                        'Games & Sports', 
+                                        'Games & Sports',
                                         'Religious/Spiritual',
-                                        'Community Ext', 
+                                        'Community Ext',
                                         'Social Events',
                                         Marketing,
                                         'Projected Primary Audience',
@@ -553,16 +567,46 @@
                                     Concat(
                                         Filter(
                                             [
-                                                {Type: "Workshop", Value: ThisRecord.Workshop_x002f_TechTraining},
-                                                {Type: "Seminar", Value: ThisRecord.Seminar_x002f_Webinar_x002f_Symp},
-                                                {Type: "Leadership", Value: ThisRecord.LeadershipTraining},
-                                                {Type: "Academic", Value: ThisRecord.AcademicCompetition},
-                                                {Type: "Cultural", Value: ThisRecord.CultureArts},
-                                                {Type: "Sports", Value: ThisRecord.GamesSports},
-                                                {Type: "Religious", Value: ThisRecord.Religious_x002f_Spiritual},
-                                                {Type: "Community", Value: ThisRecord.CommunityExt},
-                                                {Type: "Social", Value: ThisRecord.SocialEvents},
-                                                {Type: "Marketing", Value: ThisRecord.Marketing}
+                                                {
+                                                    Type: "Workshop",
+                                                    Value: ThisRecord.Workshop_x002f_TechTraining
+                                                },
+                                                {
+                                                    Type: "Seminar",
+                                                    Value: ThisRecord.Seminar_x002f_Webinar_x002f_Symp
+                                                },
+                                                {
+                                                    Type: "Leadership",
+                                                    Value: ThisRecord.LeadershipTraining
+                                                },
+                                                {
+                                                    Type: "Academic",
+                                                    Value: ThisRecord.AcademicCompetition
+                                                },
+                                                {
+                                                    Type: "Cultural",
+                                                    Value: ThisRecord.CultureArts
+                                                },
+                                                {
+                                                    Type: "Sports",
+                                                    Value: ThisRecord.GamesSports
+                                                },
+                                                {
+                                                    Type: "Religious",
+                                                    Value: ThisRecord.Religious_x002f_Spiritual
+                                                },
+                                                {
+                                                    Type: "Community",
+                                                    Value: ThisRecord.CommunityExt
+                                                },
+                                                {
+                                                    Type: "Social",
+                                                    Value: ThisRecord.SocialEvents
+                                                },
+                                                {
+                                                    Type: "Marketing",
+                                                    Value: ThisRecord.Marketing
+                                                }
                                             ],
                                             Value = true
                                         ),
@@ -570,6 +614,7 @@
                                         "; "
                                     ),
                                     // Other calculations for CashAdvance, TotalExpenses, Balance
+                                    
                                     CashAdvance,
                                     If(
                                         IsBlank(
@@ -620,19 +665,46 @@
                                     )
                                 )
                             );
-                            
                             // Update EventTypeReports
-                            ClearCollect(EventTypeReports, 
+                            ClearCollect(
+                                EventTypeReports,
                                 {
-                                    SeminarCount: CountIf(Master_Data, Seminar_x002f_Webinar_x002f_Symp = true),
-                                    LeadershipCount: CountIf(Master_Data, LeadershipTraining = true),
-                                    CommExtCount: CountIf(Master_Data, CommunityExt = true),
-                                    MarketingCount: CountIf(Master_Data, Marketing = true),
-                                    ReligiousCount: CountIf(Master_Data, Religious_x002f_Spiritual = true),
-                                    AcadCompeCount: CountIf(Master_Data, AcademicCompetition = true),
-                                    CultureCount: CountIf(Master_Data, CultureArts = true),
-                                    GameCount: CountIf(Master_Data, GamesSports = true),
-                                    SocialCount: CountIf(Master_Data, SocialEvents = true)
+                                    SeminarCount: CountIf(
+                                        Master_Data,
+                                        Seminar_x002f_Webinar_x002f_Symp = true
+                                    ),
+                                    LeadershipCount: CountIf(
+                                        Master_Data,
+                                        LeadershipTraining = true
+                                    ),
+                                    CommExtCount: CountIf(
+                                        Master_Data,
+                                        CommunityExt = true
+                                    ),
+                                    MarketingCount: CountIf(
+                                        Master_Data,
+                                        Marketing = true
+                                    ),
+                                    ReligiousCount: CountIf(
+                                        Master_Data,
+                                        Religious_x002f_Spiritual = true
+                                    ),
+                                    AcadCompeCount: CountIf(
+                                        Master_Data,
+                                        AcademicCompetition = true
+                                    ),
+                                    CultureCount: CountIf(
+                                        Master_Data,
+                                        CultureArts = true
+                                    ),
+                                    GameCount: CountIf(
+                                        Master_Data,
+                                        GamesSports = true
+                                    ),
+                                    SocialCount: CountIf(
+                                        Master_Data,
+                                        SocialEvents = true
+                                    )
                                 }
                             );
                         Width: =261
@@ -858,7 +930,7 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =49
                         Size: =20
-                        Text: =100
+                        Text: ="100"
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
