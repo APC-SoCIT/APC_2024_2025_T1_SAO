@@ -1,7 +1,6 @@
 "Reports_1 As screen.'welcomeLayout_ver1.0'":
     OnVisible: |
         =ClearCollect(LocalLR, LR_Uploads);
-        //AddColumns(LocalLR,APF_ID_Int, ShowColumns(LocalLR, APF_ID.));
         
         // Then use the local collection in your formula
         ClearCollect(
