@@ -1,6 +1,7 @@
 "Reports_1 As screen.'welcomeLayout_ver1.0'":
     OnVisible: |
         =ClearCollect(LocalLR, LR_Uploads);
+        //AddColumns(LocalLR,APF_ID_Int, ShowColumns(LocalLR, APF_ID.));
         
         // Then use the local collection in your formula
         ClearCollect(
@@ -45,12 +46,19 @@
                     ),
                     Type,
                     "; "
-                ),
-                CashAdvance,
-                IfError(
-                    LookUp(LocalLR, APF_ID.Id = ThisRecord.ID, CashAdvAmt),
-                    0
                 )
+                /**
+                ,CashAdvance,
+                LookUp(
+                    LocalLR,
+                    APF_ID.Id = ThisRecord.ID,
+                    If(
+                        IsBlank(CashAdvAmt),
+                        0,
+                        CashAdvAmt
+                    )
+                )
+                **/
             )
         );
         
