@@ -38,7 +38,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "Loading Screen",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1089,
+        "PublishOrderIndex": 76,
         "Rules": [
           {
             "Category": "Design",
@@ -240,7 +240,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "Loading Screen",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1090,
+        "PublishOrderIndex": 77,
         "Rules": [
           {
             "Category": "Data",
@@ -541,7 +541,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "Loading Screen",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 1091,
+        "PublishOrderIndex": 78,
         "Rules": [
           {
             "Category": "Data",
@@ -750,7 +750,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638656916384198169",
+    "LastModifiedTimestamp": "638656965891621863",
     "Name": "Loading Screen",
     "Rules": [
       {
@@ -809,7 +809,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638656916384198169",
+  "LastModifiedTimestamp": "638656965891621863",
   "Name": "3a1b6f29a8704cf2afb1757787e91aae",
   "OverridableProperties": {},
   "Version": "1.0"

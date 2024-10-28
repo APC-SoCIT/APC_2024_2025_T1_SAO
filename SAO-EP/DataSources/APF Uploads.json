@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
     "CdpRevision": {
       "BaseUrl": "/",
-      "LastChangedTimeString": "2024-01-31T21:49:46.2020000Z",
+      "LastChangedTimeString": "2024-06-26T16:30:50.2010000Z",
       "RevisionNumber": 1
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -58,6 +58,7 @@
       "Seminar_x002f_Webinar_x002f_Symp": "Seminar/Webinar/Symposium/Forum",
       "SocialEvents": "Social Events",
       "Target_x0020_Date": "Target Date",
+      "TEST_ID": "TEST_ID",
       "TimeofActivity": "Time of Activity",
       "Title": "Title",
       "Venue_x002f_Platform": "Venue/Platform",

@@ -1506,7 +1506,8 @@
         "Height",
         "DisplayMode",
         "OnSelectLogo",
-        "ZIndex"
+        "ZIndex",
+        "BasePaletteColor"
       ],
       "DynamicProperties": [
         {
@@ -1560,6 +1561,11 @@
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
+        {
+          "Category": "Data",
+          "PropertyName": "BasePaletteColor",
+          "RuleProviderType": "Unknown"
+        },
         {
           "Category": "Data",
           "PropertyName": "Title",

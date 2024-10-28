@@ -46,18 +46,18 @@
                     Type,
                     "; "
                 )
-                /**
+                
                 ,CashAdvance,
                 LookUp(
                     LocalLR,
-                    APF_ID.Id = ThisRecord.ID,
+                    APF_ID.Id = ThisRecord.TEST_ID,
                     If(
                         IsBlank(CashAdvAmt),
                         0,
                         CashAdvAmt
                     )
                 )
-                **/
+                
             )
         );
         
@@ -77,13 +77,28 @@
             }
         );
         
-        
-        ClearCollect(colMasterData, 
-            AddColumns(Master_Data, 
-                CashAdvance,
-                LookUp(LR_Uploads, Text(ID) = APF_ID.Value, CashAdvAmt)
+        ClearCollect(debugCollection,
+            AddColumns(LR_Uploads,
+                ID_Text, Text(APF_ID.Value),
+                CashAdvAmt_Value, CashAdvAmt
             )
         );
+        
+        /**
+        ClearCollect(colMasterData, 
+            AddColumns(Master_Data, 
+                CashAdvance, 
+                With(
+                    {lookupResult: LookUp(LR_Uploads, Trim(Text(ThisRecord.TEST_ID)) = Trim(Text(APF_ID.Value)), CashAdvAmt)},
+                    If(
+                        IsBlank(lookupResult),
+                        0,
+                        lookupResult
+                    )
+                )
+            )
+        );
+        **/
 
     ScreenContainer4_1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(245, 245, 245, 1)
