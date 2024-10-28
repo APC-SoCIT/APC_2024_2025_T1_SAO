@@ -1,13 +1,16 @@
 "Reports_1 As screen.'welcomeLayout_ver1.0'":
-    OnVisible: |-
+    OnVisible: |+
         =ClearCollect(LocalLR, LR_Uploads);
+        ClearCollect(LocalAPF, 
+            AddColumns('APF Uploads', ID_Num, ID)
+        );
         
         // Then use the local collection in your formula
         ClearCollect(
             Master_Data,
             AddColumns(
-                ShowColumns('APF Uploads',
-                    ID_APF,
+                ShowColumns(LocalAPF,
+                    ID_Num,
                     ID,
                     'Name of Lead Org',
                     Title,
@@ -49,16 +52,21 @@
                 )
                 
                 ,CashAdvance,
-                LookUp(
-                    LocalLR,
-                    APF_ID.Id = TEST_ID,
-                    If(
-                        IsBlank(CashAdvAmt),
-                        0,
+                If(
+                    IsBlank(
+                        LookUp(
+                            LocalLR,
+                            APF_ID.Id = ID_Num,
+                            CashAdvAmt
+                        )
+                    ),
+                    0,
+                    LookUp(
+                        LocalLR,
+                        APF_ID.Id = ID_Num,
                         CashAdvAmt
                     )
-                )
-                
+                )    
             )
         );
         
@@ -73,33 +81,10 @@
                 CultureCount: CountIf(Master_Data,CultureArts = true),
                 GameCount: CountIf(Master_Data,GamesSports = true),
                 SocialCount: CountIf(Master_Data,SocialEvents = true)
-                //,EventID : (EventInfo,ID)
-                //SeminarCost: Sum(EventInfo, 
             }
         );
         
-        ClearCollect(debugCollection,
-            AddColumns(LR_Uploads,
-                ID_Text, Text(APF_ID.Value),
-                CashAdvAmt_Value, CashAdvAmt
-            )
-        );
         
-        /**
-        ClearCollect(colMasterData, 
-            AddColumns(Master_Data, 
-                CashAdvance, 
-                With(
-                    {lookupResult: LookUp(LR_Uploads, Trim(Text(ThisRecord.TEST_ID)) = Trim(Text(APF_ID.Value)), CashAdvAmt)},
-                    If(
-                        IsBlank(lookupResult),
-                        0,
-                        lookupResult
-                    )
-                )
-            )
-        );
-        **/
 
     ScreenContainer4_1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(245, 245, 245, 1)
