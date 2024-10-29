@@ -1,10 +1,10 @@
 "Reports_1 As screen.'welcomeLayout_ver1.0'":
     OnVisible: |-
-        =If(CurrentUser.userRoles.Id > 1, 
-            ClearCollect(
-                LocalAPF,
-                Filter('APF Uploads', 'Name of Lead Org' = CurrentUserOrg.orgAcronym);
-                AddColumns('APF Uploads', APFU_ID_Num, ID)
+        =Set(isRunning, false);
+        
+        If(CurrentUser.userRoles.Id > 1, 
+            ClearCollect(LocalAPF,
+                AddColumns(Filter('APF Uploads', 'Name of Lead Org' = CurrentUserOrg.orgAcronym), APFU_ID_Num, ID)
             ),
             ClearCollect(LocalAPF, 
                 AddColumns('APF Uploads', APFU_ID_Num, ID)
@@ -13,10 +13,8 @@
         );
         
         If(CurrentUser.userRoles.Id > 1, 
-            ClearCollect(
-                LocalLR,
-                Filter(LR_Uploads, EventOrg = CurrentUserOrg.orgAcronym);
-                AddColumns('LR_Uploads', 
+            ClearCollect(LocalLR,
+                AddColumns(Filter(LR_Uploads, EventOrg = CurrentUserOrg.orgAcronym), 
                     LR_ID_Num, ID,
                     APF_ID_Num, APF_ID.Id
                 );
@@ -41,6 +39,7 @@
             ),
             ClearCollect(LocalPD, LR_PDItems);
         );
+        
         
         
         // Then use the local collection in your formula
@@ -1031,14 +1030,100 @@
                         FontSize: =18
                         Height: =46
                         Icon: ="ArrowDownload"
-                        OnSelect: =ExportReport.Run(JSON(Master_Data),orgReport);
+                        OnSelect: |-
+                            =Set(isRunning,true);
+                            Set(reportOutput, ExportReport.Run(JSON(Master_Data),orgReport));
+                            Set(isRunning, false);
                         Text: ="Export Report"
                         Width: =204
                         X: =116
                         Y: =468
                         ZIndex: =14
 
+                Container16 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: ='Right Container'.AlignInContainer
+                    DropShadow: =DropShadow.Light
+                    Fill: =RGBA(0, 0, 0, 0.14)
+                    FillPortions: =0.3
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    ZIndex: =7
+
+                    TextCanvas3 As Text:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =82
+                        Size: =15
+                        Text: =reportOutput.reportlink
+                        Width: =381
+                        X: =24
+                        Y: =20
+                        ZIndex: =1
+
     TSKBR_14 As TSKBR:
         NavigationItems: =gblNavItems
-        ZIndex: =2
+        ZIndex: =3
+
+    SetDelay_2 As timer:
+        Duration: =6000
+        Height: =0
+        OnTimerEnd: |-
+            =
+            Set(isRunning, true); 
+            Set(TimerDone, true);
+        OnTimerStart: |-
+            =SetDelay_2;
+            Set(isRunning, false);
+            Set(TimerDone, false);
+        Repeat: =isRunning
+        Reset: =TimerDone
+        Width: =0
+        Y: =768
+        ZIndex: =4
+
+    LoadScreenPanel_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =8
+
+        Rectangle6_8 As rectangle:
+            Fill: =RGBA(0, 0, 0, 0.2)
+            Height: =768
+            Visible: =isRunning
+            Width: =1366
+            ZIndex: =2
+
+        Rectangle6_7 As rectangle:
+            Fill: =RGBA(24, 32, 82, 1)
+            Height: =330
+            Visible: =isRunning
+            Width: =825
+            X: =275
+            Y: =238
+            ZIndex: =5
+
+        Image7_4 As image:
+            Image: ='Spinner-1.5s-200px'
+            Visible: =isRunning
+            X: =633
+            Y: =442
+            ZIndex: =6
+
+        Label2_4 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Font: =Font.'Lato Black'
+            Height: =214
+            Size: =30
+            Text: ="Processing your document. Please wait."
+            Visible: =isRunning
+            Width: =624
+            X: =371
+            Y: =267
+            ZIndex: =7
 
