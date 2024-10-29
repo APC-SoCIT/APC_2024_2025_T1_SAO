@@ -525,31 +525,35 @@
                         FontWeight: =FontWeight.Lighter
                         Height: =46
                         Items: =Organizations
-                        OnChange: |
+                        OnChange: |-
                             =// Update LocalAPF
                             ClearCollect(
                                 LocalAPF,
                                 AddColumns(
                                     Filter(
                                         'APF Uploads',
-                                        'Name of Lead Org' = Dropdown2_1.Selected.orgAcronym
-                                    ),// Apply the filter based on dropdown selection
-                                    ID_Num,
+                                        'Name of Lead Org' = Dropdown2_1.Selected.orgAcronym // Apply the filter based on dropdown selection
+                                    ),
+                                    APFU_ID_Num,
                                     ID
                                 )
                             );
+                            
                             // Update LocalLR
                             ClearCollect(
                                 LocalLR,
                                 AddColumns(
                                     Filter(
                                         LR_Uploads,
-                                        EventOrg = Dropdown2_1.Selected.orgAcronym
-                                    ),// Filter based on EventOrg
-                                    ID_Num,
-                                    ID
+                                        EventOrg = Dropdown2_1.Selected.orgAcronym // Filter based on EventOrg
+                                    ),
+                                    LR_ID_Num,
+                                    ID,
+                                    APF_ID_Num,
+                                    APF_ID.Id
                                 )
                             );
+                            
                             // Update LocalPD
                             ClearCollect(
                                 LocalPD,
@@ -558,18 +562,19 @@
                                     !IsBlank(
                                         LookUp(
                                             LocalLR,
-                                            ID_Num = LR_ID.Id
+                                            LR_ID_Num = LR_ID.Id // Check if there is a matching ID in LocalLR
                                         )
-                                    )// Check if there is a matching ID in LocalLR
+                                    )
                                 )
                             );
+                            
                             // Update Master_Data
                             ClearCollect(
                                 Master_Data,
                                 AddColumns(
                                     ShowColumns(
                                         LocalAPF,
-                                        ID_Num,
+                                        APFU_ID_Num,
                                         ID,
                                         'Name of Lead Org',
                                         Title,
@@ -593,46 +598,16 @@
                                     Concat(
                                         Filter(
                                             [
-                                                {
-                                                    Type: "Workshop",
-                                                    Value: ThisRecord.Workshop_x002f_TechTraining
-                                                },
-                                                {
-                                                    Type: "Seminar",
-                                                    Value: ThisRecord.Seminar_x002f_Webinar_x002f_Symp
-                                                },
-                                                {
-                                                    Type: "Leadership",
-                                                    Value: ThisRecord.LeadershipTraining
-                                                },
-                                                {
-                                                    Type: "Academic",
-                                                    Value: ThisRecord.AcademicCompetition
-                                                },
-                                                {
-                                                    Type: "Cultural",
-                                                    Value: ThisRecord.CultureArts
-                                                },
-                                                {
-                                                    Type: "Sports",
-                                                    Value: ThisRecord.GamesSports
-                                                },
-                                                {
-                                                    Type: "Religious",
-                                                    Value: ThisRecord.Religious_x002f_Spiritual
-                                                },
-                                                {
-                                                    Type: "Community",
-                                                    Value: ThisRecord.CommunityExt
-                                                },
-                                                {
-                                                    Type: "Social",
-                                                    Value: ThisRecord.SocialEvents
-                                                },
-                                                {
-                                                    Type: "Marketing",
-                                                    Value: ThisRecord.Marketing
-                                                }
+                                                { Type: "Workshop", Value: ThisRecord.Workshop_x002f_TechTraining },
+                                                { Type: "Seminar", Value: ThisRecord.Seminar_x002f_Webinar_x002f_Symp },
+                                                { Type: "Leadership", Value: ThisRecord.LeadershipTraining },
+                                                { Type: "Academic", Value: ThisRecord.AcademicCompetition },
+                                                { Type: "Cultural", Value: ThisRecord.CultureArts },
+                                                { Type: "Sports", Value: ThisRecord.GamesSports },
+                                                { Type: "Religious", Value: ThisRecord.Religious_x002f_Spiritual },
+                                                { Type: "Community", Value: ThisRecord.CommunityExt },
+                                                { Type: "Social", Value: ThisRecord.SocialEvents },
+                                                { Type: "Marketing", Value: ThisRecord.Marketing }
                                             ],
                                             Value = true
                                         ),
@@ -640,20 +615,19 @@
                                         "; "
                                     ),
                                     // Other calculations for CashAdvance, TotalExpenses, Balance
-                            
                                     CashAdvance,
                                     If(
                                         IsBlank(
                                             LookUp(
                                                 LocalLR,
-                                                APF_ID.Id = ID_Num,
+                                                APFU_ID_Num = ThisRecord.APF_ID_Num,
                                                 CashAdvAmt
                                             )
                                         ),
                                         0,
                                         LookUp(
                                             LocalLR,
-                                            APF_ID.Id = ID_Num,
+                                            APFU_ID_Num = ThisRecord.APF_ID_Num,
                                             CashAdvAmt
                                         )
                                     ),
@@ -662,14 +636,14 @@
                                         IsBlank(
                                             LookUp(
                                                 LocalLR,
-                                                APF_ID.Id = ID_Num,
+                                                APFU_ID_Num = ThisRecord.APF_ID_Num,
                                                 TotalExpenses
                                             )
                                         ),
                                         0,
                                         LookUp(
                                             LocalLR,
-                                            APF_ID.Id = ID_Num,
+                                            APFU_ID_Num = ThisRecord.APF_ID_Num,
                                             TotalExpenses
                                         )
                                     ),
@@ -678,59 +652,43 @@
                                         IsBlank(
                                             LookUp(
                                                 LocalLR,
-                                                APF_ID.Id = ID_Num,
+                                                APFU_ID_Num = ThisRecord.APF_ID_Num,
                                                 Balance
                                             )
                                         ),
                                         0,
                                         LookUp(
                                             LocalLR,
-                                            APF_ID.Id = ID_Num,
+                                            APFU_ID_Num = ThisRecord.APF_ID_Num,
                                             Balance
                                         )
+                                    ),
+                                    CostPerParticipant,
+                                    If(
+                                        Or(
+                                            Sum(ThisRecord.ProjectedPrimaryAudience, ThisRecord.ProjectedSecondaryAudience) = 0,
+                                            IsBlank(LookUp(LocalLR, APFU_ID_Num = ThisRecord.APF_ID_Num, TotalExpenses))
+                                        ),
+                                        0,
+                                        LookUp(LocalLR, APFU_ID_Num = ThisRecord.APF_ID_Num, TotalExpenses) / 
+                                        Sum(ThisRecord.ProjectedPrimaryAudience, ThisRecord.ProjectedSecondaryAudience)
                                     )
                                 )
                             );
+                            
                             // Update EventTypeReports
                             ClearCollect(
                                 EventTypeReports,
                                 {
-                                    SeminarCount: CountIf(
-                                        Master_Data,
-                                        Seminar_x002f_Webinar_x002f_Symp = true
-                                    ),
-                                    LeadershipCount: CountIf(
-                                        Master_Data,
-                                        LeadershipTraining = true
-                                    ),
-                                    CommExtCount: CountIf(
-                                        Master_Data,
-                                        CommunityExt = true
-                                    ),
-                                    MarketingCount: CountIf(
-                                        Master_Data,
-                                        Marketing = true
-                                    ),
-                                    ReligiousCount: CountIf(
-                                        Master_Data,
-                                        Religious_x002f_Spiritual = true
-                                    ),
-                                    AcadCompeCount: CountIf(
-                                        Master_Data,
-                                        AcademicCompetition = true
-                                    ),
-                                    CultureCount: CountIf(
-                                        Master_Data,
-                                        CultureArts = true
-                                    ),
-                                    GameCount: CountIf(
-                                        Master_Data,
-                                        GamesSports = true
-                                    ),
-                                    SocialCount: CountIf(
-                                        Master_Data,
-                                        SocialEvents = true
-                                    )
+                                    SeminarCount: CountIf(Master_Data, Seminar_x002f_Webinar_x002f_Symp = true),
+                                    LeadershipCount: CountIf(Master_Data, LeadershipTraining = true),
+                                    CommExtCount: CountIf(Master_Data, CommunityExt = true),
+                                    MarketingCount: CountIf(Master_Data, Marketing = true),
+                                    ReligiousCount: CountIf(Master_Data, Religious_x002f_Spiritual = true),
+                                    AcadCompeCount: CountIf(Master_Data, AcademicCompetition = true),
+                                    CultureCount: CountIf(Master_Data, CultureArts = true),
+                                    GameCount: CountIf(Master_Data, GamesSports = true),
+                                    SocialCount: CountIf(Master_Data, SocialEvents = true)
                                 }
                             );
                         Width: =261
@@ -742,35 +700,167 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =46
                         OnSelect: |-
-                            =ClearCollect(
-                                    EventInfo,
-                                    ShowColumns(
-                                            'APF Uploads',
+                            =// Reset the dropdown selection
+                                Reset(Dropdown2_1);
+                            
+                                // Update LocalAPF to include all APF Uploads
+                                ClearCollect(
+                                    LocalAPF,
+                                    AddColumns(
+                                        'APF Uploads',
+                                        APFU_ID_Num,
+                                        ID
+                                    )
+                                );
+                            
+                                // Update LocalLR to include all LR Uploads
+                                ClearCollect(
+                                    LocalLR,
+                                    AddColumns(
+                                        'LR_Uploads',
+                                        LR_ID_Num,
+                                        ID,
+                                        APF_ID_Num,
+                                        APF_ID.Id
+                                    )
+                                );
+                            
+                                // Update LocalPD to include all relevant PD items
+                                ClearCollect(
+                                    LocalPD,
+                                    Filter(
+                                        LR_PDItems,
+                                        !IsBlank(
+                                            LookUp(
+                                                LocalLR,
+                                                LR_ID_Num = LR_ID.Id
+                                            )
+                                        )
+                                    )
+                                );
+                            
+                                // Update Master_Data with all items
+                                ClearCollect(
+                                    Master_Data,
+                                    AddColumns(
+                                        ShowColumns(
+                                            LocalAPF,
+                                            APFU_ID_Num,
+                                            ID,
+                                            'Name of Lead Org',
+                                            Title,
+                                            'Activity Title',
+                                            'Target Date',
+                                            'Venue/Platform',
+                                            'Workshop/Tech Training',
                                             'Seminar/Webinar/Symposium/Forum',
                                             'Leadership Training',
-                                            'Community Ext',
-                                            Marketing,
-                                            'Religious/Spiritual',
                                             'Academic Competition',
                                             'Culture & Arts',
                                             'Games & Sports',
+                                            'Religious/Spiritual',
+                                            'Community Ext',
+                                            'Social Events',
+                                            Marketing,
                                             'Projected Primary Audience',
                                             'Projected Secondary Audience'
+                                        ),
+                                        EventTypes,
+                                        Concat(
+                                            Filter(
+                                                [
+                                                    { Type: "Workshop", Value: ThisRecord.Workshop_x002f_TechTraining },
+                                                    { Type: "Seminar", Value: ThisRecord.Seminar_x002f_Webinar_x002f_Symp },
+                                                    { Type: "Leadership", Value: ThisRecord.LeadershipTraining },
+                                                    { Type: "Academic", Value: ThisRecord.AcademicCompetition },
+                                                    { Type: "Cultural", Value: ThisRecord.CultureArts },
+                                                    { Type: "Sports", Value: ThisRecord.GamesSports },
+                                                    { Type: "Religious", Value: ThisRecord.Religious_x002f_Spiritual },
+                                                    { Type: "Community", Value: ThisRecord.CommunityExt },
+                                                    { Type: "Social", Value: ThisRecord.SocialEvents },
+                                                    { Type: "Marketing", Value: ThisRecord.Marketing }
+                                                ],
+                                                Value = true
+                                            ),
+                                            Type,
+                                            "; "
+                                        ),
+                                        CashAdvance,
+                                        If(
+                                            IsBlank(
+                                                LookUp(
+                                                    LocalLR,
+                                                    APFU_ID_Num = ThisRecord.APF_ID_Num,
+                                                    CashAdvAmt
+                                                )
+                                            ),
+                                            0,
+                                            LookUp(
+                                                LocalLR,
+                                                APFU_ID_Num = ThisRecord.APF_ID_Num,
+                                                CashAdvAmt
+                                            )
+                                        ),
+                                        TotalExpenses,
+                                        If(
+                                            IsBlank(
+                                                LookUp(
+                                                    LocalLR,
+                                                    APFU_ID_Num = ThisRecord.APF_ID_Num,
+                                                    TotalExpenses
+                                                )
+                                            ),
+                                            0,
+                                            LookUp(
+                                                LocalLR,
+                                                APFU_ID_Num = ThisRecord.APF_ID_Num,
+                                                TotalExpenses
+                                            )
+                                        ),
+                                        Balance,
+                                        If(
+                                            IsBlank(
+                                                LookUp(
+                                                    LocalLR,
+                                                    APFU_ID_Num = ThisRecord.APF_ID_Num,
+                                                    Balance
+                                                )
+                                            ),
+                                            0,
+                                            LookUp(
+                                                LocalLR,
+                                                APFU_ID_Num = ThisRecord.APF_ID_Num,
+                                                Balance
+                                            )
+                                        ),
+                                        CostPerParticipant,
+                                        If(
+                                            Or(
+                                                Sum(ThisRecord.ProjectedPrimaryAudience, ThisRecord.ProjectedSecondaryAudience) = 0,
+                                                IsBlank(LookUp(LocalLR, APFU_ID_Num = ThisRecord.APF_ID_Num, TotalExpenses))
+                                            ),
+                                            0,
+                                            LookUp(LocalLR, APFU_ID_Num = ThisRecord.APF_ID_Num, TotalExpenses) / 
+                                            Sum(ThisRecord.ProjectedPrimaryAudience, ThisRecord.ProjectedSecondaryAudience)
+                                        )
                                     )
-                            );
+                                );
                             
-                            ClearCollect(EventTypeReports, 
-                                {SeminarCount: CountIf(EventInfo,'Seminar/Webinar/Symposium/Forum' = true),
-                                LeadershipCount: CountIf(EventInfo, 'Leadership Training' = true),
-                                CommExtCount: CountIf(EventInfo,'Community Ext' = true),
-                                MarketingCount: CountIf(EventInfo,Marketing = true),
-                                ReligiousCount: CountIf(EventInfo,'Religious/Spiritual' = true),
-                                AcadCompeCount: CountIf(EventInfo,'Academic Competition' = true),
-                                CultureCount: CountIf(EventInfo,'Culture & Arts' = true),
-                                GameCount: CountIf(EventInfo,'Games & Sports' = true),
-                                SocialCount: CountIf(EventInfo,'Social Events' = true)
-                                }
-                            )
+                                // Update EventTypeReports
+                                ClearCollect(
+                                    EventTypeReports,
+                                    {
+                                        SeminarCount: CountIf(Master_Data, Seminar_x002f_Webinar_x002f_Symp = true),
+                                        LeadershipCount: CountIf(Master_Data, LeadershipTraining = true),
+                                        CommExtCount: CountIf(Master_Data, CommunityExt = true),
+                                        MarketingCount: CountIf(Master_Data, Marketing = true),
+                                        ReligiousCount: CountIf(Master_Data, Religious_x002f_Spiritual = true),
+                                        AcadCompeCount: CountIf(Master_Data, AcademicCompetition = true),
+                                        CultureCount: CountIf(Master_Data, CultureArts = true),
+                                        GameCount: CountIf(Master_Data, GamesSports = true),
+                                        SocialCount: CountIf(Master_Data, SocialEvents = true)
+                                    }
+                                )
                         Text: ="All"
                         Width: =54
                         X: =10
