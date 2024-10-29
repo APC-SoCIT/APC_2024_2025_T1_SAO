@@ -1,4 +1,6 @@
 "Reports_1 As screen.'welcomeLayout_ver1.0'":
+    OnHidden: |-
+        =UpdateContext({ReportLink: {Text: ""}})
     OnVisible: |-
         =Set(isRunning, false);
         
@@ -1053,7 +1055,7 @@
                     RadiusTopRight: =10
                     ZIndex: =7
 
-                    TextCanvas3 As Text:
+                    ReportLink As Text:
                         DisplayMode: =DisplayMode.Edit
                         Height: =82
                         Size: =15
