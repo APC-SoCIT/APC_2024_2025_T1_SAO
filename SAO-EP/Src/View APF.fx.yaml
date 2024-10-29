@@ -3072,9 +3072,28 @@
             FontSize: =50
             Height: =95
             Icon: ="DocumentAdd"
-            OnSelect: |-
+            OnSelect: |+
                 =Set(isSelectingUpload, false);
-                //Set(advEmail, LookUp(Users,(CurrentUserOrg.ID = userOrg.Id && userRoles.Id = 2), userEmail));
+                Set(
+                    advEmail,
+                    LookUp(
+                        Filter(Users, CurrentUserOrg.ID = userOrg.Id),
+                        userRoles.Id = 2,
+                        userEmail
+                    )
+                );
+                
+                
+                uploadUnsignedAPF.Run(
+                    CurrentUserOrg.orgAcronym,
+                    CurrentUser.userEmail,
+                    advEmail,
+                    {
+                        contentBytes: First(FileAttachment_2.Attachments).Value,
+                        name: First(FileAttachment_2.Attachments).Name
+                    }
+                )
+                
             Text: =
             Visible: =isSelectingUpload
             Width: =102
