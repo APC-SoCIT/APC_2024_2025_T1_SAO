@@ -691,7 +691,7 @@
                                     SocialCount: CountIf(Master_Data, SocialEvents = true)
                                 }
                             );
-                        Width: =261
+                        Width: =320
                         X: =84
                         Y: =48
                         ZIndex: =6
@@ -875,27 +875,6 @@
                         Y: =48
                         ZIndex: =8
 
-                    ButtonCanvas1_1 As Button:
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        BorderStyle: =BorderStyle.Solid
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =46
-                        Icon: ="ArrowDownload"
-                        OnSelect: =PDF(Reports_1)
-                        Text: =
-                        Width: =41
-                        X: =365
-                        Y: =48
-                        ZIndex: =9
-
-                    Icon21_3 As icon.VerticalLine:
-                        Height: =46
-                        Icon: =Icon.VerticalLine
-                        Width: =20
-                        X: =345
-                        Y: =48
-                        ZIndex: =10
-
                 Container6_2 As groupContainer.manualLayoutContainer:
                     DropShadow: =DropShadow.Light
                     LayoutMinHeight: =100
@@ -927,7 +906,7 @@
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =193
                         X: =40
-                        Y: =193
+                        Y: =172
                         ZIndex: =2
 
                     TextCanvas6_2 As Text:
@@ -939,7 +918,7 @@
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =193
                         X: =40
-                        Y: =291
+                        Y: =270
                         ZIndex: =3
 
                     TextCanvas6_3 As Text:
@@ -951,7 +930,7 @@
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =193
                         X: =40
-                        Y: =242
+                        Y: =221
                         ZIndex: =4
 
                     TextCanvas6_5 As Text:
@@ -965,7 +944,7 @@
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =264
                         X: =40
-                        Y: =340
+                        Y: =319
                         ZIndex: =6
 
                     TextCanvas6_6 As Text:
@@ -977,7 +956,7 @@
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =296
                         X: =40
-                        Y: =389
+                        Y: =368
                         ZIndex: =7
 
                     TextCanvas6_7 As Text:
@@ -989,7 +968,7 @@
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
-                        Y: =193
+                        Y: =172
                         ZIndex: =8
 
                     TextCanvas6_8 As Text:
@@ -1001,7 +980,7 @@
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
-                        Y: =291
+                        Y: =270
                         ZIndex: =9
 
                     TextCanvas6_9 As Text:
@@ -1013,7 +992,7 @@
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
-                        Y: =242
+                        Y: =221
                         ZIndex: =10
 
                     TextCanvas6_11 As Text:
@@ -1025,7 +1004,7 @@
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
-                        Y: =340
+                        Y: =319
                         ZIndex: =12
 
                     TextCanvas6_12 As Text:
@@ -1037,8 +1016,22 @@
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
-                        Y: =389
+                        Y: =368
                         ZIndex: =13
+
+                    ButtonCanvas1_1 As Button:
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        BorderStyle: =BorderStyle.Solid
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =18
+                        Height: =46
+                        Icon: ="ArrowDownload"
+                        OnSelect: =JSON(Master_Data)
+                        Text: ="Export Report"
+                        Width: =204
+                        X: =116
+                        Y: =468
+                        ZIndex: =14
 
     TSKBR_14 As TSKBR:
         NavigationItems: =gblNavItems

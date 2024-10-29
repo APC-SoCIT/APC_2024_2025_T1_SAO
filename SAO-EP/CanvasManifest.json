@@ -134,7 +134,7 @@
   },
   "ScreenOrder": [
     "LoginPage",
-    "LoginPage_1",
+    "LoginPage_old",
     "HomePage",
     "View Events",
     "View APF",

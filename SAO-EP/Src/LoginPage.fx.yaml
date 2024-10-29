@@ -1,335 +1,292 @@
 LoginPage As screen:
     OnVisible: =Set(StartOTPTime, false)
 
-    "'Login-RHS' As groupContainer.manualLayoutContainer":
-        DropShadow: =DropShadow.Light
+    Container17 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(39, 58, 133, 1)
         Height: =768
-        RadiusBottomLeft: =4
-        RadiusBottomRight: =4
-        RadiusTopLeft: =4
-        RadiusTopRight: =4
-        Width: =537
-        X: =829
+        Width: =1366
         ZIndex: =1
 
-        OTPExpiry As timer:
-            AutoStart: =StartOTPTime
-            Duration: =900000
-            OnTimerEnd: |-
-                =Set(OTPvar, Blank());
-                Notify("OTP has been reset",NotificationType.Error)
-                //add reset timer
-            Visible: =false
-            X: =377
-            Y: =728
-            ZIndex: =3
+        Container14 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.ExtraBold
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =648
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Width: =736
+            X: =320
+            Y: =56
+            ZIndex: =1
 
-        Group1 As group:
-            Height: =5
-            Width: =5
-            X: =-788
-            Y: =40
-            ZIndex: =3
-
-            Image1 As image:
-                Height: =768
-                Image: ='pexels-karolina-grabowska-4219101'
-                ImagePosition: =ImagePosition.Fill
-                Width: =537
-                ZIndex: =1
-
-            Rectangle2_1 As rectangle:
-                DisabledFill: =RGBA(0, 0, 0, 0)
-                Fill: =RGBA(0, 0, 0, 0.4)
-                Height: =768
-                HoverFill: =RGBA(0, 0, 0, 0)
-                PressedFill: =RGBA(0, 0, 0, 0)
-                Width: =537
-                ZIndex: =2
-
-    "'Login-LHS' As groupContainer.manualLayoutContainer":
-        DropShadow: =DropShadow.Light
-        Height: =768
-        RadiusBottomLeft: =4
-        RadiusBottomRight: =4
-        RadiusTopLeft: =4
-        RadiusTopRight: =4
-        Width: =828
-        X: =1
-        ZIndex: =2
-
-        LoginDtls As group:
-            Height: =5
-            Width: =5
-            X: =40
-            Y: =40
-            ZIndex: =8
-
-            EmailLabel As label:
-                FontWeight: =FontWeight.Semibold
-                Size: =16
-                Text: ="YOUR EMAIL"
-                Width: =242
-                X: =98
-                Y: =273
-                ZIndex: =1
-
-            PasswordForm As text:
-                BorderColor: =RGBA(217, 217, 216, 1)
-                Default: =""
-                Height: =72
-                HintText: ="Enter your Password"
-                Mode: =TextMode.Password
-                Width: =644
-                X: =98
-                Y: =469
-                ZIndex: =2
-
-            PasswordLabel As label:
-                FontWeight: =FontWeight.Semibold
-                Size: =16
-                Text: ="YOUR PASSWORD"
-                Width: =242
-                X: =98
-                Y: =417
-                ZIndex: =3
-
-            "'Heading-1' As label":
-                Align: =Align.Center
-                FontWeight: =FontWeight.Bold
-                Height: =104
-                Size: =25
-                Text: ="Sign In to SAO Events Portal"
-                Width: =531
-                X: =154
-                Y: =144
-                ZIndex: =4
-
-            EmailForm As text:
-                BorderColor: =RGBA(217, 217, 216, 1)
-                Default: =""
-                Height: =72
-                HintText: ="Enter your Email"
-                Width: =644
-                X: =98
-                Y: =313
-                ZIndex: =5
-
-            "'Sign-inButton' As button":
-                Fill: =RGBA(120, 72, 244, 1)
-                FontWeight: =FontWeight.Normal
-                Height: =48
-                OnSelect: |-
-                    =//Set(loginFlow, HashPassword.Run(0,PasswordForm.Text,"verifyPass"));
-                    If(
-                        CountRows(
-                            Filter(
-                                Users,
-                                And(
-                                    EmailForm.Text = userEmail,
-                                    PasswordForm.Text = hidpass
-                                    //loginFlow.hashpass = userPassword
-                                )
-                            )
-                        ) = 1,
-                        Set(CurrentUser, LookUp(Users, userEmail = EmailForm.Text)); Navigate(HomePage), 
-                        Notify(
-                            "Invalid Credentials",
-                            NotificationType.Error
-                        );
-                    );
-                RadiusBottomLeft: =5
-                RadiusBottomRight: =5
-                RadiusTopLeft: =5
-                RadiusTopRight: =5
-                Text: ="Sign In"
-                Width: =242
-                X: =312
-                Y: =578
-                ZIndex: =6
-
-            ForgotPasswordButton As button:
-                AutoDisableOnSelect: =false
-                Fill: =RGBA(39, 113, 194, 1)
-                FontWeight: =FontWeight.Normal
-                Height: =48
-                OnSelect: |-
-                    =Set(randLowest, 1);
-                    Set(randHighest, 9999);
-                    Set(randBetween, RoundDown(Rand()*(randHighest-randLowest + 1)+randLowest,0));
-                    Set(showFP,true);
-                RadiusBottomLeft: =5
-                RadiusBottomRight: =5
-                RadiusTopLeft: =5
-                RadiusTopRight: =5
-                Text: ="Forgot Password?"
-                Width: =242
-                X: =312
-                Y: =639
-                ZIndex: =7
-
-        Icon8 As icon.CancelBadge:
-            Color: =RGBA(255, 255, 255, 1)
-            Height: =48
-            Icon: =Icon.CancelBadge
-            Width: =48
-            X: =40
-            Y: =40
-            ZIndex: =20
-
-        FPDtls As group:
-            Height: =5
-            Width: =5
-            X: =40
-            Y: =40
-            ZIndex: =22
-
-            FP_BG As rectangle:
-                BorderColor: =RGBA(0, 0, 0, 1)
-                BorderThickness: =2
-                Fill: =RGBA(24, 32, 82, 1)
-                Height: =642
-                Visible: =showFP
-                Width: =600
-                X: =118
-                Y: =61
-                ZIndex: =8
-
-            FP_Exit As icon.CancelBadge:
-                Color: =RGBA(255, 255, 255, 1)
-                Height: =48
-                Icon: =Icon.CancelBadge
-                OnSelect: =Set(showFP,false)
-                Visible: =showFP
-                Width: =48
-                X: =631
-                Y: =96
+            Group5 As group:
+                Height: =5
+                Width: =5
+                X: =80
+                Y: =80
                 ZIndex: =9
 
-            Lbl_ForgotPass As label:
-                Align: =Align.Center
-                Color: =RGBA(255, 255, 255, 1)
-                FontWeight: =FontWeight.Bold
-                Height: =102
-                Size: =32
-                Text: ="FORGOT PASSWORD"
-                Visible: =showFP
-                Width: =391
-                X: =223
-                Y: =130
-                ZIndex: =10
+                "'Heading-1_1' As label":
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Bold
+                    Height: =104
+                    Size: =25
+                    Text: ="Welcome to SAO Events Portal!"
+                    Width: =531
+                    X: =129
+                    Y: =40
+                    ZIndex: =1
 
-            Lbl_InvalidOTP As label:
-                Color: =RGBA(255, 255, 255, 1)
-                Height: =31
-                Italic: =true
-                Text: ="Invalid OTP"
-                Visible: |-
-                    =false
-                    //if FPDtls is Visible and [Condition]
-                Width: =474
-                X: =181
-                Y: =550
-                ZIndex: =11
+                EmailLabel_1 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Size: =16
+                    Text: ="EMAIL"
+                    Width: =242
+                    X: =40
+                    Y: =182
+                    ZIndex: =2
 
-            TI_FPOTP As text:
-                Color: =RGBA(0, 0, 0, 0.66)
-                Default: =
-                Height: =70
-                HintText: ="Enter OTP Here"
-                RadiusBottomLeft: =10
-                RadiusBottomRight: =10
-                RadiusTopLeft: =10
-                RadiusTopRight: =10
-                Visible: =showFP
-                Width: =450
-                X: =181
-                Y: =480
-                ZIndex: =12
+                EmailForm_1 As text:
+                    BorderColor: =RGBA(217, 217, 216, 1)
+                    Default: =""
+                    Height: =72
+                    HintText: ="Enter your Email"
+                    Width: =644
+                    X: =40
+                    Y: =222
+                    ZIndex: =3
 
-            Btn_SendOTP As button:
-                Height: =70
-                OnSelect: |-
-                    =If(
-                        TI_FPOTP.Text = Text(OTPvar),
-                        Set(CurrentUser, LookUp(Users, userEmail = TI_FPEmail.Text));
-                        Navigate(HomePage),
-                        Notify("That is the wrong OTP")
-                    )
-                Text: ="Submit"
-                Visible: =showFP
-                Width: =101
-                X: =565
-                Y: =480
-                ZIndex: =13
+                PasswordLabel_1 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Size: =16
+                    Text: ="PASSWORD"
+                    Width: =242
+                    X: =40
+                    Y: =335
+                    ZIndex: =4
 
-            Lbl_OTP As label:
-                Color: =RGBA(255, 255, 255, 1)
-                FontWeight: =FontWeight.Semibold
-                Size: =15
-                Text: |-
-                    ="OTP:"
-                Visible: =showFP
-                X: =181
-                Y: =443
-                ZIndex: =14
+                PasswordForm_1 As text:
+                    BorderColor: =RGBA(217, 217, 216, 1)
+                    Default: =""
+                    Height: =72
+                    HintText: ="Enter your Password"
+                    Mode: =TextMode.Password
+                    Width: =644
+                    X: =40
+                    Y: =378
+                    ZIndex: =5
 
-            TI_FPEmail As text:
-                Color: =RGBA(0, 0, 0, 0.66)
-                Default: =""
-                Height: =70
-                HintText: ="Enter you Email Here"
-                RadiusBottomLeft: =10
-                RadiusBottomRight: =10
-                RadiusTopLeft: =10
-                RadiusTopRight: =10
-                Visible: =showFP
-                Width: =450
-                X: =181
-                Y: =316
-                ZIndex: =16
+                "'Sign-inButton_1' As button":
+                    Fill: =RGBA(41, 57, 131, 1)
+                    FontWeight: =FontWeight.Bold
+                    Height: =48
+                    OnSelect: |-
+                        =//Set(loginFlow, HashPassword.Run(0,PasswordForm.Text,"verifyPass"));
+                        If(
+                            CountRows(
+                                Filter(
+                                    Users,
+                                    And(
+                                        EmailForm_1.Text = userEmail,
+                                        PasswordForm_1.Text = hidpass
+                                        //loginFlow.hashpass = userPassword
+                                    )
+                                )
+                            ) = 1,
+                            Set(CurrentUser, LookUp(Users, userEmail = EmailForm_1.Text)); Navigate(HomePage), 
+                            Notify(
+                                "Invalid Credentials",
+                                NotificationType.Error
+                            );
+                        );
+                    Text: ="LOGIN"
+                    Width: =644
+                    X: =40
+                    Y: =535
+                    ZIndex: =6
 
-            Btn_SendFPEmail As button:
-                Height: =70
-                OnSelect: |-
-                    =If(
-                        TI_FPEmail.Text in Users.userEmail,
-                        Set(OTPvar,RandBetween(0,999999));
-                        SendOTP.Run(TI_FPEmail.Text,OTPvar); 
-                        Notify("An Email has been sent to you");
-                        Set(StartOTPTime, true)
-                        ,
-                        
-                        Notify("This email does not exist in our system")
-                    );
-                Text: ="Send"
-                Visible: =showFP
-                Width: =101
-                X: =565
-                Y: =316
-                ZIndex: =17
+                ForgotPasswordButton_1 As button:
+                    Align: =Align.Right
+                    AutoDisableOnSelect: =false
+                    Color: =RGBA(0, 0, 0, 1)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    FontWeight: =FontWeight.Normal
+                    Height: =48
+                    HoverColor: =RGBA(9, 33, 98, 1)
+                    HoverFill: =
+                    OnSelect: |-
+                        =Set(randLowest, 1);
+                        Set(randHighest, 9999);
+                        Set(randBetween, RoundDown(Rand()*(randHighest-randLowest + 1)+randLowest,0));
+                        Set(showFP,true);
+                    RadiusBottomLeft: =5
+                    RadiusBottomRight: =5
+                    RadiusTopLeft: =5
+                    RadiusTopRight: =5
+                    Text: ="Forgot Password?"
+                    Width: =183
+                    X: =501
+                    Y: =468
+                    ZIndex: =7
 
-            Lbl_SendOTPTo As label:
-                Color: =RGBA(255, 255, 255, 1)
-                FontWeight: =FontWeight.Semibold
-                Size: =15
-                Text: |-
-                    ="SEND OTP TO:"
-                Visible: =showFP
-                X: =181
-                Y: =279
-                ZIndex: =18
-
-            Lbl_FPNotif As label:
-                Color: =RGBA(255, 255, 255, 1)
-                Height: =31
-                Italic: =true
-                Text: ="An email has been sent. Click here if you didn't receive one"
-                Visible: |-
-                    =false
-                    //if FPDtls is Visible and [Condition]
-                Width: =474
-                X: =181
-                Y: =386
+            Image9 As image:
+                Image: =SAO_1
+                X: =40
+                Y: =42
                 ZIndex: =19
+
+            FPDtls_1 As group:
+                Height: =5
+                Width: =5
+                X: =-48
+                Y: =-57
+                ZIndex: =22
+
+                FP_BG_3 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    BorderThickness: =2
+                    Fill: =RGBA(24, 32, 82, 1)
+                    Height: =648
+                    Visible: =showFP
+                    Width: =736
+                    ZIndex: =8
+
+                FP_Exit_3 As icon.CancelBadge:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =48
+                    Icon: =Icon.CancelBadge
+                    OnSelect: =Set(showFP,false)
+                    Visible: =showFP
+                    Width: =48
+                    X: =644
+                    Y: =47
+                    ZIndex: =9
+
+                Lbl_ForgotPass_3 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    FontWeight: =FontWeight.Bold
+                    Height: =102
+                    Size: =32
+                    Text: ="FORGOT PASSWORD"
+                    Visible: =showFP
+                    Width: =391
+                    X: =173
+                    Y: =84
+                    ZIndex: =10
+
+                Lbl_SendOTPTo_1 As label:
+                    Color: =RGBA(255, 255, 255, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Size: =15
+                    Text: |-
+                        ="SEND OTP TO:"
+                    Visible: =showFP
+                    X: =131
+                    Y: =233
+                    ZIndex: =11
+
+                TI_FPEmail_1 As text:
+                    Color: =RGBA(0, 0, 0, 0.66)
+                    Default: =""
+                    Height: =70
+                    HintText: ="Enter you Email Here"
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Visible: =showFP
+                    Width: =450
+                    X: =131
+                    Y: =270
+                    ZIndex: =12
+
+                Btn_SendFPEmail_3 As button:
+                    Height: =70
+                    OnSelect: |-
+                        =If(
+                            TI_FPEmail_1.Text in Users.userEmail,
+                            Set(OTPvar,RandBetween(0,999999));
+                            SendOTP.Run(TI_FPEmail_1.Text,OTPvar); 
+                            Notify("An Email has been sent to you");
+                            Set(StartOTPTime, true)
+                            ,
+                            
+                            Notify("This email does not exist in our system")
+                        );
+                    Text: ="Send"
+                    Visible: =showFP
+                    Width: =101
+                    X: =515
+                    Y: =270
+                    ZIndex: =13
+
+                Lbl_FPNotif_1 As label:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =31
+                    Italic: =true
+                    Text: ="An email has been sent. Click here if you didn't receive one"
+                    Visible: |-
+                        =false
+                        //if FPDtls is Visible and [Condition]
+                    Width: =474
+                    X: =131
+                    Y: =340
+                    ZIndex: =14
+
+                Lbl_OTP_1 As label:
+                    Color: =RGBA(255, 255, 255, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Size: =15
+                    Text: |-
+                        ="OTP:"
+                    Visible: =showFP
+                    X: =131
+                    Y: =397
+                    ZIndex: =15
+
+                TI_FPOTP_3 As text:
+                    Color: =RGBA(0, 0, 0, 0.66)
+                    Default: =
+                    Height: =70
+                    HintText: ="Enter OTP Here"
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Visible: =showFP
+                    Width: =450
+                    X: =131
+                    Y: =434
+                    ZIndex: =16
+
+                Btn_SendOTP_3 As button:
+                    Height: =70
+                    OnSelect: |-
+                        =If(
+                            TI_FPOTP_3.Text = Text(OTPvar),
+                            Set(CurrentUser, LookUp(Users, userEmail = TI_FPEmail_1.Text));
+                            Navigate(HomePage),
+                            Notify("That is the wrong OTP")
+                        )
+                    Text: ="Submit"
+                    Visible: =showFP
+                    Width: =101
+                    X: =515
+                    Y: =434
+                    ZIndex: =17
+
+                Lbl_InvalidOTP_1 As label:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =31
+                    Italic: =true
+                    Text: ="Invalid OTP"
+                    Visible: |-
+                        =false
+                        //if FPDtls is Visible and [Condition]
+                    Width: =474
+                    X: =131
+                    Y: =504
+                    ZIndex: =18
 
