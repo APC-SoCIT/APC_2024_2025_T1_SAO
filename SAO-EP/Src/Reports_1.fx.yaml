@@ -30,6 +30,11 @@
         );
         
         If(CurrentUser.userRoles.Id > 1, 
+            Set(orgReport, CurrentUserOrg.orgAcronym),
+            Set(orgReport, "SAOHEAD")
+        );
+        
+        If(CurrentUser.userRoles.Id > 1, 
             ClearCollect(
                 LocalPD,
                 Filter(LR_PDItems, !IsBlank(LookUp(LocalLR, LR_ID_Num = LR_ID.Id)))
@@ -1026,9 +1031,7 @@
                         FontSize: =18
                         Height: =46
                         Icon: ="ArrowDownload"
-                        OnSelect: |-
-                            =JSON(Master_Data)
-                            R
+                        OnSelect: =ExportReport.Run(JSON(Master_Data),orgReport);
                         Text: ="Export Report"
                         Width: =204
                         X: =116

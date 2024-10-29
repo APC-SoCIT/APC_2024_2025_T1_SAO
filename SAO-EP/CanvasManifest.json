@@ -99,7 +99,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 3,
+    "BindingErrorCount": 2,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,
     "DocumentAppType": "DesktopOrTablet",
@@ -118,7 +118,7 @@
     "ManualOfflineProfileId": "",
     "Name": "SAOEMS%2BCopy.msapp",
     "OriginatingVersion": "1.296",
-    "ParserErrorCount": 3,
+    "ParserErrorCount": 1,
     "ShowStatusBar": false
   },
   "PublishInfo": {
