@@ -3072,8 +3072,9 @@
             FontSize: =50
             Height: =95
             Icon: ="DocumentAdd"
-            OnSelect: |+
+            OnSelect: |-
                 =Set(isSelectingUpload, false);
+                Set(isRunning, true);
                 Set(
                     advEmail,
                     LookUp(
@@ -3083,17 +3084,19 @@
                     )
                 );
                 
+                Set(flowResponse,
+                    uploadUnsignedAPF.Run(
+                        CurrentUserOrg.orgAcronym,
+                        CurrentUser.userEmail,
+                        advEmail,
+                        {
+                            contentBytes: First(FileAttachment_2.Attachments).Value,
+                            name: First(FileAttachment_2.Attachments).Name
+                        }
+                    )
+                );
                 
-                uploadUnsignedAPF.Run(
-                    CurrentUserOrg.orgAcronym,
-                    CurrentUser.userEmail,
-                    advEmail,
-                    {
-                        contentBytes: First(FileAttachment_2.Attachments).Value,
-                        name: First(FileAttachment_2.Attachments).Name
-                    }
-                )
-                
+                Set(isRunning, false);
             Text: =
             Visible: =isSelectingUpload
             Width: =102

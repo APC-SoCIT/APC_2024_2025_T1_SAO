@@ -2826,7 +2826,7 @@
                 },
                 "region": {
                   "charLength": 3,
-                  "charOffset": 115,
+                  "charOffset": 133,
                   "snippet": {
                     "text": ".Id"
                   }
@@ -2866,7 +2866,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 106,
+                  "charOffset": 124,
                   "snippet": {
                     "text": "="
                   }
@@ -3376,6 +3376,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "SideNavigation.RootContainer.Gallery3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "SideNavigation.RootContainer.Gallery3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "SideNavigation",
+                "type": "SideNavigation.RootContainer.Gallery3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "SideNavigation.RootContainer.Gallery3.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "SideNavigation.RootContainer.Gallery3.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "SideNavigation",
+                "type": "SideNavigation.RootContainer.Gallery3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "CalendarComponent_1.btnPrevMonth_2.AccessibleLabel"
                 }
               ],
@@ -3719,66 +3779,6 @@
                 "member": "TabIndex",
                 "module": "CalendarComponent_1",
                 "type": "CalendarComponent_1.galCalItems_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "SideNavigation.RootContainer.Gallery3.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "SideNavigation.RootContainer.Gallery3.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "SideNavigation",
-                "type": "SideNavigation.RootContainer.Gallery3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "SideNavigation.RootContainer.Gallery3.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "SideNavigation.RootContainer.Gallery3.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "SideNavigation",
-                "type": "SideNavigation.RootContainer.Gallery3"
               }
             }
           ],

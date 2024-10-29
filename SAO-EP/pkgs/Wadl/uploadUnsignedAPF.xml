@@ -17,9 +17,9 @@
         <property name="email" type="string" />
         <property name="email_1" type="string" />
       </object>
-      <string name="ResponseActionOutput_uploadoutput_def" />
+      <string name="ResponseActionOutput_responsemsg_def" />
       <object name="ResponseActionOutput">
-        <property name="uploadoutput" type="string" />
+        <property name="responsemsg" type="string" />
       </object>
       <object name="Run_responses_default_def" />
     </jsonTypes>

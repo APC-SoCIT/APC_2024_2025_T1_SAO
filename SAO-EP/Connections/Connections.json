@@ -14,8 +14,7 @@
     "dependencies": {},
     "dependents": [
       "971587d0-e8b0-4158-aad4-2b74d955c1ac",
-      "b9d11604-091e-4fd8-803c-a1412d6f7cb4",
-      "b60a5288-bd43-4cd6-97d0-3c768bc3e172"
+      "b9d11604-091e-4fd8-803c-a1412d6f7cb4"
     ],
     "id": "018da2c9-2eb6-4756-bef2-a05c181511cb"
   },
@@ -157,7 +156,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 19:12:33",
+        "modifiedOn": "2024-10-29 19:38:24",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
@@ -230,6 +229,20 @@
     },
     "dependents": [],
     "id": "4d11535a-e395-4a9f-8673-48e3fbf6ad63"
+  },
+  "50f979bd-fcae-43c1-ab15-30dee8c07eba": {
+    "connectionRef": {
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1716/1.0.1716.3922/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "b60a5288-bd43-4cd6-97d0-3c768bc3e172"
+    ],
+    "id": "50f979bd-fcae-43c1-ab15-30dee8c07eba"
   },
   "76956eda-8a49-4051-8d3f-f2387fab0805": {
     "appActions": [
@@ -388,7 +401,7 @@
       "uploadUnsignedAPF"
     ],
     "dependencies": {
-      "shared_office365": "018da2c9-2eb6-4756-bef2-a05c181511cb",
+      "shared_office365_1": "50f979bd-fcae-43c1-ab15-30dee8c07eba",
       "shared_sharepointonline": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
     },
     "dependents": [],
@@ -625,7 +638,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 19:12:33",
+        "modifiedOn": "2024-10-29 19:38:24",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
@@ -694,7 +707,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 19:12:33",
+        "modifiedOn": "2024-10-29 19:38:24",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
