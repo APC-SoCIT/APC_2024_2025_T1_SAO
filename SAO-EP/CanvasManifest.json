@@ -116,13 +116,13 @@
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "",
     "ManualOfflineProfileId": "",
-    "Name": "SAOEMS%2BCopy.msapp",
+    "Name": "SAOEP_Finals",
     "OriginatingVersion": "1.296",
     "ParserErrorCount": 1,
     "ShowStatusBar": false
   },
   "PublishInfo": {
-    "AppName": "SAOEMS Copy",
+    "AppName": "SAOEP_Finals",
     "BackgroundColor": "rgba(0, 176, 240, 1)",
     "IconColor": "RGBA(255,255,255,1)",
     "IconName": "Edit",

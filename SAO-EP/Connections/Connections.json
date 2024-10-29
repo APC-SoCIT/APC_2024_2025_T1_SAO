@@ -156,7 +156,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 20:15:11",
+        "modifiedOn": "2024-10-29 20:24:39",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
@@ -299,7 +299,7 @@
     "dependents": [],
     "id": "76956eda-8a49-4051-8d3f-f2387fab0805"
   },
-  "888b10e6-ae51-4d7b-9f8a-d7dd319eff31": {
+  "85ea97c0-da22-4f87-b1e2-e9119175cde6": {
     "connectionRef": {
       "displayName": "Office 365 Outlook",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1716/1.0.1716.3922/office365/icon.png",
@@ -311,7 +311,7 @@
     "dependents": [
       "b60a5288-bd43-4cd6-97d0-3c768bc3e172"
     ],
-    "id": "888b10e6-ae51-4d7b-9f8a-d7dd319eff31"
+    "id": "85ea97c0-da22-4f87-b1e2-e9119175cde6"
   },
   "971587d0-e8b0-4158-aad4-2b74d955c1ac": {
     "appActions": [
@@ -374,6 +374,12 @@
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1719/1.0.1719.3953/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
       "parameterHints": {
+        "0dc58e79-0509-4be2-b2fa-4eab99ff9203": {
+          "value": "shared_sharepointonline"
+        },
+        "85ea97c0-da22-4f87-b1e2-e9119175cde6": {
+          "value": "shared_office365_1"
+        },
         "workflowDisplayName": {
           "value": "uploadUnsignedAPF"
         },
@@ -385,6 +391,12 @@
         }
       },
       "parameterHintsV2": {
+        "shared_office365_1": {
+          "value": "85ea97c0-da22-4f87-b1e2-e9119175cde6"
+        },
+        "shared_sharepointonline": {
+          "value": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
+        },
         "workflowDisplayName": {
           "value": "uploadUnsignedAPF"
         },
@@ -401,7 +413,7 @@
       "uploadUnsignedAPF"
     ],
     "dependencies": {
-      "shared_office365_1": "888b10e6-ae51-4d7b-9f8a-d7dd319eff31",
+      "shared_office365_1": "85ea97c0-da22-4f87-b1e2-e9119175cde6",
       "shared_sharepointonline": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
     },
     "dependents": [],
@@ -638,7 +650,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 20:15:11",
+        "modifiedOn": "2024-10-29 20:24:39",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
@@ -707,7 +719,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 20:15:11",
+        "modifiedOn": "2024-10-29 20:24:39",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },

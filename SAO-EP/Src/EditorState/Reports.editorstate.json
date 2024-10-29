@@ -466,7 +466,7 @@
       "MetaDataIDKey": "",
       "Name": "ColumnChart2_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1016,7 +1016,7 @@
       "MetaDataIDKey": "%Container3.ID%",
       "Name": "Container32",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1228,7 +1228,7 @@
       "MetaDataIDKey": "%Container4.ID%",
       "Name": "Container42",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1447,7 +1447,7 @@
       "MetaDataIDKey": "",
       "Name": "Container42_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4063,7 +4063,7 @@
       "MetaDataIDKey": "",
       "Name": "Legend1_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4284,7 +4284,7 @@
       "MetaDataIDKey": "",
       "Name": "Legend2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4722,7 +4722,7 @@
       "MetaDataIDKey": "%PieChart.ID%",
       "Name": "PieChart3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6531,7 +6531,7 @@
       "MetaDataIDKey": "",
       "Name": "Title3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

@@ -227,7 +227,7 @@
       "MetaDataIDKey": "%BadgeStatus.ID%",
       "Name": "AdviserApprovalStatus",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -308,7 +308,7 @@
       "MetaDataIDKey": "",
       "Name": "AdviserApprovalTimestamp",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2344,7 +2344,7 @@
       "MetaDataIDKey": "",
       "Name": "SAOHeadApprovalStatus",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2425,7 +2425,7 @@
       "MetaDataIDKey": "",
       "Name": "SAOHeadApprovalTimestamp",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3353,7 +3353,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas9_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
