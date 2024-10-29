@@ -89,14 +89,14 @@
                     IsBlank(
                         LookUp(
                             LocalLR,
-                            ThisRecord.APF_ID_Num = APF_ID_Num,
+                            APF_ID_Num = ThisRecord.APF_ID_Num,
                             CashAdvAmt
                         )
                     ),
                     0,
                     LookUp(
                         LocalLR,
-                        ThisRecord.APF_ID_Num = APF_ID_Num,
+                        APF_ID_Num = ThisRecord.APF_ID_Num,
                         CashAdvAmt
                     )
                 )
