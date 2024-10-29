@@ -187,61 +187,6 @@
                         Y: =0
                         ZIndex: =13
 
-                FormTitleText1 As Text:
-                    Align: ='TextCanvas.Align'.End
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =32
-                    LayoutMinHeight: =32
-                    LayoutMinWidth: =96
-                    Size: =20
-                    Text: ="Request approval"
-                    Weight: ='TextCanvas.Weight'.Semibold
-                    Width: =180
-                    X: =0
-                    Y: =0
-                    ZIndex: =3
-
-                ApprovalForm1 As form.PowerApps_CoreControls_Form:
-                    DefaultMode: =FormMode.New
-                    LayoutMinHeight: =250
-                    LayoutMinWidth: =400
-                    NumberOfColumns: =1
-                    UseFluentV9Cards: =true
-                    ZIndex: =4
-
-                SubmitButton1 As Button:
-                    AccessibleLabel: ="Submit approval request button"
-                    AlignInContainer: =AlignInContainer.End
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =32
-                    LayoutMinHeight: =32
-                    LayoutMinWidth: =96
-                    OnSelect: |
-                        =SubmitForm(ApprovalForm1);
-                        ResetForm(ApprovalForm1);
-                    Text: ="Submit request"
-                    Width: =140
-                    X: =0
-                    Y: =0
-                    ZIndex: =5
-
-                TextCanvas4_1 As Text:
-                    Align: ='TextCanvas.Align'.Center
-                    AlignInContainer: =AlignInContainer.Start
-                    AutoHeight: =false
-                    DisplayMode: =DisplayMode.Edit
-                    FillPortions: =1
-                    Height: =25
-                    LayoutMinHeight: =32
-                    LayoutMinWidth: =96
-                    Text: ="Adviser Approval"
-                    Weight: ='TextCanvas.Weight'.Bold
-                    Width: =135
-                    Wrap: =false
-                    X: =410
-                    Y: =0
-                    ZIndex: =6
-
             SidebarContainer3 As groupContainer.verticalAutoLayoutContainer:
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =2
@@ -301,7 +246,7 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =28
                         Text: =ThisItem.'Adviser Timestamp'
-                        Width: =131
+                        Width: =150
                         X: =97
                         Y: =33
                         ZIndex: =14
@@ -321,7 +266,7 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =28
                         Text: =ThisItem.'SAO Head Timestamp'
-                        Width: =131
+                        Width: =150
                         X: =97
                         Y: =91
                         ZIndex: =16
