@@ -14,7 +14,8 @@
     "dependencies": {},
     "dependents": [
       "971587d0-e8b0-4158-aad4-2b74d955c1ac",
-      "b9d11604-091e-4fd8-803c-a1412d6f7cb4"
+      "b9d11604-091e-4fd8-803c-a1412d6f7cb4",
+      "b60a5288-bd43-4cd6-97d0-3c768bc3e172"
     ],
     "id": "018da2c9-2eb6-4756-bef2-a05c181511cb"
   },
@@ -123,7 +124,8 @@
     "dependencies": {},
     "dependents": [
       "02d71dc0-816c-43ea-9885-54eec35bb0db",
-      "f410d7c0-42b3-40b2-8c2a-766890ebf0ed"
+      "f410d7c0-42b3-40b2-8c2a-766890ebf0ed",
+      "b60a5288-bd43-4cd6-97d0-3c768bc3e172"
     ],
     "id": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
   },
@@ -155,7 +157,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 16:53:45",
+        "modifiedOn": "2024-10-29 19:03:55",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
@@ -352,6 +354,45 @@
     },
     "dependents": [],
     "id": "971587d0-e8b0-4158-aad4-2b74d955c1ac"
+  },
+  "b60a5288-bd43-4cd6-97d0-3c768bc3e172": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1719/1.0.1719.3953/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowDisplayName": {
+          "value": "uploadUnsignedAPF"
+        },
+        "workflowEntityId": {
+          "value": "123b41c1-2496-ef11-8a69-000d3a8166af"
+        },
+        "workflowName": {
+          "value": "ffd08008-6ead-07f2-40f0-258f9651b6ff"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowDisplayName": {
+          "value": "uploadUnsignedAPF"
+        },
+        "workflowEntityId": {
+          "value": "123b41c1-2496-ef11-8a69-000d3a8166af"
+        },
+        "workflowName": {
+          "value": "ffd08008-6ead-07f2-40f0-258f9651b6ff"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "uploadUnsignedAPF"
+    ],
+    "dependencies": {
+      "shared_office365": "018da2c9-2eb6-4756-bef2-a05c181511cb",
+      "shared_sharepointonline": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
+    },
+    "dependents": [],
+    "id": "b60a5288-bd43-4cd6-97d0-3c768bc3e172"
   },
   "b9d11604-091e-4fd8-803c-a1412d6f7cb4": {
     "appActions": [
@@ -584,7 +625,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 16:53:45",
+        "modifiedOn": "2024-10-29 19:03:55",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
@@ -653,7 +694,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 16:53:45",
+        "modifiedOn": "2024-10-29 19:03:55",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },

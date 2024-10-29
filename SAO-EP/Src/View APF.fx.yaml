@@ -3072,7 +3072,9 @@
             FontSize: =50
             Height: =95
             Icon: ="DocumentAdd"
-            OnSelect: =Set(isSelectingUpload, false);
+            OnSelect: |-
+                =Set(isSelectingUpload, false);
+                //Set(advEmail, LookUp(Users,(CurrentUserOrg.ID = userOrg.Id && userRoles.Id = 2), userEmail));
             Text: =
             Visible: =isSelectingUpload
             Width: =102
