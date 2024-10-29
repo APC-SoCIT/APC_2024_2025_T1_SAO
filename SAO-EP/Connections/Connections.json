@@ -18,6 +18,44 @@
     ],
     "id": "018da2c9-2eb6-4756-bef2-a05c181511cb"
   },
+  "02d71dc0-816c-43ea-9885-54eec35bb0db": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1719/1.0.1719.3953/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowDisplayName": {
+          "value": "ExportReport"
+        },
+        "workflowEntityId": {
+          "value": "7c70f371-f195-ef11-8a69-000d3a8166af"
+        },
+        "workflowName": {
+          "value": "1eef4fbb-918d-43f9-855f-7635df0ec9d2"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowDisplayName": {
+          "value": "ExportReport"
+        },
+        "workflowEntityId": {
+          "value": "7c70f371-f195-ef11-8a69-000d3a8166af"
+        },
+        "workflowName": {
+          "value": "1eef4fbb-918d-43f9-855f-7635df0ec9d2"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "ExportReport"
+    ],
+    "dependencies": {
+      "shared_sharepointonline": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
+    },
+    "dependents": [],
+    "id": "02d71dc0-816c-43ea-9885-54eec35bb0db"
+  },
   "04e67acf-c1df-420e-adc4-8914df40c033": {
     "appActions": [
       "UserPhoto_V2"
@@ -77,7 +115,9 @@
       "Approvals History"
     ],
     "dependencies": {},
-    "dependents": [],
+    "dependents": [
+      "02d71dc0-816c-43ea-9885-54eec35bb0db"
+    ],
     "id": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
   },
   "1c69ec8a-ffe4-49a4-a7a1-4c35def6aa2f": {
@@ -108,7 +148,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 10:36:26",
+        "modifiedOn": "2024-10-29 12:30:04",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
@@ -537,7 +577,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 10:36:26",
+        "modifiedOn": "2024-10-29 12:30:04",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
@@ -566,7 +606,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 10:36:26",
+        "modifiedOn": "2024-10-29 12:30:04",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },

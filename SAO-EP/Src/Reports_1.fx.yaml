@@ -1026,7 +1026,9 @@
                         FontSize: =18
                         Height: =46
                         Icon: ="ArrowDownload"
-                        OnSelect: =JSON(Master_Data)
+                        OnSelect: |-
+                            =JSON(Master_Data)
+                            R
                         Text: ="Export Report"
                         Width: =204
                         X: =116
