@@ -101,7 +101,7 @@
                     )
                 )
                 
-                ,TotalExpenses,
+                ,TotalExpensesValue,
                 If(
                     IsBlank(
                         LookUp(
@@ -133,7 +133,14 @@
                         ThisRecord.APF_ID_Num = APFU_ID_Num,
                         Balance
                     )
-                )          
+                )
+                ,CostPerParticipant,  
+                If(
+                    Or(Sum(ThisRecord.ProjectedPrimaryAudience, ThisRecord.ProjectedSecondaryAudience) = 0,
+                    IsBlank(LookUp(LocalLR, APFU_ID_Num = ThisRecord.APF_ID_Num,TotalExpenses))),
+                    0,
+                    LookUp(LocalLR, APFU_ID_Num = ThisRecord.APF_ID_Num,TotalExpenses) / Sum(ThisRecord.ProjectedPrimaryAudience, ThisRecord.ProjectedSecondaryAudience)
+                )
             )
         );
         
@@ -302,15 +309,15 @@
                         Y: =0
                         ZIndex: =2
 
-                        ID_Num_Column1 As dataTableColumn.textualColumn:
+                        APFU_ID_Num_Column1 As dataTableColumn.textualColumn:
                             DisplayMode: =DisplayMode.Edit
-                            FieldDisplayName: ="ID_Num"
-                            FieldName: ="ID_Num"
+                            FieldDisplayName: ="APF ID"
+                            FieldName: ="APFU_ID_Num"
                             FieldVariantName: ="textualColumn"
                             Height: =Parent.Height
                             LayoutHeight: =Parent.Height
                             Order: =1
-                            Text: =ThisItem.ID_Num
+                            Text: =ThisItem.APFU_ID_Num
                             Width: =100
                             X: =0
                             Y: =0
@@ -318,7 +325,7 @@
 
                         NameofLeadOrg_Column1 As dataTableColumn.textualColumn:
                             DisplayMode: =DisplayMode.Edit
-                            FieldDisplayName: ="NameofLeadOrg"
+                            FieldDisplayName: ="Organization"
                             FieldName: ="NameofLeadOrg"
                             FieldVariantName: ="textualColumn"
                             Height: =Parent.Height
@@ -330,9 +337,9 @@
                             Y: =0
                             ZIndex: =17
 
-                        Title_Column1 As dataTableColumn.textualColumn:
+                        Title_Column2 As dataTableColumn.textualColumn:
                             DisplayMode: =DisplayMode.Edit
-                            FieldDisplayName: ="Title"
+                            FieldDisplayName: ="Control Number"
                             FieldName: ="Title"
                             FieldVariantName: ="textualColumn"
                             Height: =Parent.Height
@@ -346,7 +353,7 @@
 
                         ActivityTitle_Column1 As dataTableColumn.textualColumn:
                             DisplayMode: =DisplayMode.Edit
-                            FieldDisplayName: ="ActivityTitle"
+                            FieldDisplayName: ="Activity Title"
                             FieldName: ="ActivityTitle"
                             FieldVariantName: ="textualColumn"
                             Height: =Parent.Height
@@ -360,7 +367,7 @@
 
                         Target_x0020_Date_Column1 As dataTableColumn.textualColumn:
                             DisplayMode: =DisplayMode.Edit
-                            FieldDisplayName: ="Target_x0020_Date"
+                            FieldDisplayName: ="Target Date"
                             FieldName: ="Target_x0020_Date"
                             FieldVariantName: ="textualColumn"
                             Height: =Parent.Height
@@ -374,7 +381,7 @@
 
                         Venue_x002f_Platform_Column1 As dataTableColumn.textualColumn:
                             DisplayMode: =DisplayMode.Edit
-                            FieldDisplayName: ="Venue_x002f_Platform"
+                            FieldDisplayName: ="Venue/Platform"
                             FieldName: ="Venue_x002f_Platform"
                             FieldVariantName: ="textualColumn"
                             Height: =Parent.Height
@@ -388,7 +395,7 @@
 
                         EventTypes_Column1 As dataTableColumn.textualColumn:
                             DisplayMode: =DisplayMode.Edit
-                            FieldDisplayName: ="EventTypes"
+                            FieldDisplayName: ="Event Type"
                             FieldName: ="EventTypes"
                             FieldVariantName: ="textualColumn"
                             Height: =Parent.Height
@@ -402,7 +409,7 @@
 
                         ProjectedPrimaryAudience_Column1 As dataTableColumn.textualColumn:
                             DisplayMode: =DisplayMode.Edit
-                            FieldDisplayName: ="ProjectedPrimaryAudience"
+                            FieldDisplayName: ="Primary Audiences"
                             FieldName: ="ProjectedPrimaryAudience"
                             FieldVariantName: ="textualColumn"
                             Height: =Parent.Height
@@ -416,7 +423,7 @@
 
                         ProjectedSecondaryAudience_Column1 As dataTableColumn.textualColumn:
                             DisplayMode: =DisplayMode.Edit
-                            FieldDisplayName: ="ProjectedSecondaryAudience"
+                            FieldDisplayName: ="Secondary Audiences"
                             FieldName: ="ProjectedSecondaryAudience"
                             FieldVariantName: ="textualColumn"
                             Height: =Parent.Height
@@ -430,7 +437,7 @@
 
                         CashAdvance_Column1 As dataTableColumn.textualColumn:
                             DisplayMode: =DisplayMode.Edit
-                            FieldDisplayName: ="CashAdvance"
+                            FieldDisplayName: ="Cash Advance"
                             FieldName: ="CashAdvance"
                             FieldVariantName: ="textualColumn"
                             Height: =Parent.Height
@@ -442,15 +449,15 @@
                             Y: =0
                             ZIndex: =25
 
-                        TotalExpenses_Column1 As dataTableColumn.textualColumn:
+                        TotalExpensesValue_Column1 As dataTableColumn.textualColumn:
                             DisplayMode: =DisplayMode.Edit
-                            FieldDisplayName: ="TotalExpenses"
-                            FieldName: ="TotalExpenses"
+                            FieldDisplayName: ="Total Expenses"
+                            FieldName: ="TotalExpensesValue"
                             FieldVariantName: ="textualColumn"
                             Height: =Parent.Height
                             LayoutHeight: =Parent.Height
                             Order: =11
-                            Text: =ThisItem.TotalExpenses
+                            Text: =ThisItem.TotalExpensesValue
                             Width: =100
                             X: =0
                             Y: =0
@@ -469,6 +476,20 @@
                             X: =0
                             Y: =0
                             ZIndex: =27
+
+                        CostPerParticipant_Column1 As dataTableColumn.textualColumn:
+                            DisplayMode: =DisplayMode.Edit
+                            FieldDisplayName: ="Cost Per Participant"
+                            FieldName: ="CostPerParticipant"
+                            FieldVariantName: ="textualColumn"
+                            Height: =Parent.Height
+                            LayoutHeight: =Parent.Height
+                            Order: =13
+                            Text: =ThisItem.CostPerParticipant
+                            Width: =100
+                            X: =0
+                            Y: =0
+                            ZIndex: =28
 
             "'Right Container' As groupContainer.verticalAutoLayoutContainer":
                 DropShadow: =DropShadow.Regular
@@ -793,7 +814,6 @@
                     RadiusBottomRight: =5
                     RadiusTopLeft: =5
                     RadiusTopRight: =5
-                    Visible: =If(CurrentUser.userRoles.Id = 1, true, false)
                     ZIndex: =6
 
                     TextCanvas6 As Text:
@@ -817,7 +837,7 @@
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =193
                         X: =40
-                        Y: =144
+                        Y: =193
                         ZIndex: =2
 
                     TextCanvas6_2 As Text:
@@ -841,20 +861,8 @@
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =193
                         X: =40
-                        Y: =193
-                        ZIndex: =4
-
-                    TextCanvas6_4 As Text:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =49
-                        Size: =20
-                        Text: |-
-                            ="Total Events:"
-                        Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =193
-                        X: =40
                         Y: =242
-                        ZIndex: =5
+                        ZIndex: =4
 
                     TextCanvas6_5 As Text:
                         Align: ="Start"
@@ -887,11 +895,11 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =49
                         Size: =20
-                        Text: =100
+                        Text: =CountRows(Master_Data)
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
-                        Y: =144
+                        Y: =193
                         ZIndex: =8
 
                     TextCanvas6_8 As Text:
@@ -915,27 +923,15 @@
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
-                        Y: =193
-                        ZIndex: =10
-
-                    TextCanvas6_10 As Text:
-                        Align: ='TextCanvas.Align'.End
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =49
-                        Size: =20
-                        Text: =CountRows(Master_Data)
-                        Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =98
-                        X: =286
                         Y: =242
-                        ZIndex: =11
+                        ZIndex: =10
 
                     TextCanvas6_11 As Text:
                         Align: ='TextCanvas.Align'.End
                         DisplayMode: =DisplayMode.Edit
                         Height: =49
                         Size: =20
-                        Text: ="100"
+                        Text: =Concatenate(Round(Sum(Master_Data, TotalExpenses) / 11000 * 100,2), "%")
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
@@ -947,36 +943,12 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =49
                         Size: =20
-                        Text: =100
+                        Text: =Round(Sum(Master_Data,CostPerParticipant),2)
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
                         Y: =389
                         ZIndex: =13
-
-                    TextCanvas6_13 As Text:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =49
-                        Size: =20
-                        Text: |-
-                            ="Events Organized:"
-                        Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =193
-                        X: =40
-                        Y: =438
-                        ZIndex: =14
-
-                    TextCanvas6_14 As Text:
-                        Align: ='TextCanvas.Align'.End
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =49
-                        Size: =20
-                        Text: =100
-                        Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =98
-                        X: =286
-                        Y: =438
-                        ZIndex: =15
 
     TSKBR_14 As TSKBR:
         NavigationItems: =gblNavItems
