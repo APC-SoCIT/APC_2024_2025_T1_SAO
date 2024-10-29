@@ -122,7 +122,8 @@
     ],
     "dependencies": {},
     "dependents": [
-      "02d71dc0-816c-43ea-9885-54eec35bb0db"
+      "02d71dc0-816c-43ea-9885-54eec35bb0db",
+      "f410d7c0-42b3-40b2-8c2a-766890ebf0ed"
     ],
     "id": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
   },
@@ -154,7 +155,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 13:23:21",
+        "modifiedOn": "2024-10-29 13:24:03",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
@@ -583,7 +584,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 13:23:21",
+        "modifiedOn": "2024-10-29 13:24:03",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
@@ -604,6 +605,40 @@
     ],
     "id": "e5e50b90-437d-4e1b-b97f-10834073c24c"
   },
+  "f410d7c0-42b3-40b2-8c2a-766890ebf0ed": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1719/1.0.1719.3953/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowDisplayName": {
+          "value": "Change Approval Status"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "9bcb647d-fafe-411d-9f78-c268a726cf7a"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowDisplayName": {
+          "value": "Change Approval Status"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "9bcb647d-fafe-411d-9f78-c268a726cf7a"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "ChangeApprovalStatus"
+    ],
+    "dependencies": {
+      "shared_sharepointonline": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
+    },
+    "dependents": [],
+    "id": "f410d7c0-42b3-40b2-8c2a-766890ebf0ed"
+  },
   "ffb23968-329c-48f0-916a-aea3255d49f5": {
     "appActions": [],
     "connectionRef": {
@@ -612,7 +647,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 13:23:21",
+        "modifiedOn": "2024-10-29 13:24:03",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
