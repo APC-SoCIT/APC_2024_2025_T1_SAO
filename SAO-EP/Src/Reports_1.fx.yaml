@@ -1,6 +1,6 @@
 "Reports_1 As screen.'welcomeLayout_ver1.0'":
     OnHidden: |-
-        =UpdateContext({ReportLink: {Text: ""}})
+        =UpdateContext({ReportLink: Blank()});
     OnVisible: |-
         =Set(isRunning, false);
         If(CurrentUser.userRoles.Id > 1, 
