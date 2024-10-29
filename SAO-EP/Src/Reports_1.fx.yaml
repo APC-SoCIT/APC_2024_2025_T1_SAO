@@ -4,10 +4,10 @@
             ClearCollect(
                 LocalAPF,
                 Filter('APF Uploads', 'Name of Lead Org' = CurrentUserOrg.orgAcronym);
-                AddColumns('APF Uploads', APF_ID_Num, ID)
+                AddColumns('APF Uploads', APFU_ID_Num, ID)
             ),
             ClearCollect(LocalAPF, 
-                AddColumns('APF Uploads', APF_ID_Num, ID)
+                AddColumns('APF Uploads', APFU_ID_Num, ID)
             );
           
         );
@@ -43,7 +43,7 @@
             Master_Data,
             AddColumns(
                 ShowColumns(LocalAPF,
-                    APF_ID_Num,
+                    APFU_ID_Num,
                     ID,
                     'Name of Lead Org',
                     Title,
@@ -89,14 +89,14 @@
                     IsBlank(
                         LookUp(
                             LocalLR,
-                            APF_ID_Num = ThisRecord.APF_ID_Num,
+                            APFU_ID_Num = ThisRecord.APF_ID_Num,
                             CashAdvAmt
                         )
                     ),
                     0,
                     LookUp(
                         LocalLR,
-                        APF_ID_Num = ThisRecord.APF_ID_Num,
+                        APFU_ID_Num = ThisRecord.APF_ID_Num,
                         CashAdvAmt
                     )
                 )
@@ -106,14 +106,14 @@
                     IsBlank(
                         LookUp(
                             LocalLR,
-                            ThisRecord.APF_ID_Num = APF_ID_Num,
+                            ThisRecord.APF_ID_Num = APFU_ID_Num,
                             TotalExpenses
                         )
                     ),
                     0,
                     LookUp(
                         LocalLR,
-                        ThisRecord.APF_ID_Num = APF_ID_Num,
+                        ThisRecord.APF_ID_Num = APFU_ID_Num,
                         TotalExpenses
                     )
                 )
@@ -123,14 +123,14 @@
                     IsBlank(
                         LookUp(
                             LocalLR,
-                            ThisRecord.APF_ID_Num = APF_ID_Num,
+                            ThisRecord.APF_ID_Num = APFU_ID_Num,
                             Balance
                         )
                     ),
                     0,
                     LookUp(
                         LocalLR,
-                        ThisRecord.APF_ID_Num = APF_ID_Num,
+                        ThisRecord.APF_ID_Num = APFU_ID_Num,
                         Balance
                     )
                 )          
