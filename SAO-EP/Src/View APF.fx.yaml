@@ -102,7 +102,9 @@
                     Height: =44
                     Icon: =Icon.Add
                     OnSelect: |-
-                        =Set(flowResponse,Blank());
+                        =Set(isSelectingUpload, true);
+                        /**
+                        Set(flowResponse,Blank());
                         Set(isRunning, true); 
                         
                         Set(
@@ -129,6 +131,7 @@
                         Set(LNId,LookUp('Logistical Needs','APF ID'.Id = LastAddedItem.ID,'APF ID'));
                         
                         SendReservationEmail.Run(CurrentUser.userEmail,Text(LastAddedItem.ID),Text(LNId.Value));
+                        **/
                     PaddingBottom: =10
                     PaddingLeft: =10
                     PaddingRight: =10
@@ -2981,12 +2984,6 @@
         Y: =768
         ZIndex: =3
 
-    Label10 As label:
-        Text: =
-        X: =700
-        Y: =252
-        ZIndex: =8
-
     LoadScreenPanel As group:
         Height: =5
         Width: =5
@@ -3029,4 +3026,144 @@
             Visible: =isRunning
             Width: =1366
             ZIndex: =7
+
+    SelectUpload As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =16
+
+        Rectangle6_10 As rectangle:
+            Fill: =RGBA(0, 0, 0, 0.29)
+            Height: =768
+            Visible: =isSelectingUpload
+            Width: =1366
+            ZIndex: =8
+
+        Rectangle6_9 As rectangle:
+            Fill: =RGBA(24, 32, 82, 1)
+            Height: =364
+            Visible: =isSelectingUpload
+            Width: =825
+            X: =275
+            Y: =204
+            ZIndex: =9
+
+        Label2_5 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Font: =Font.'Lato Black'
+            Height: =73
+            Size: =30
+            Text: ="What file are you uploading?"
+            Visible: =isSelectingUpload
+            Width: =632
+            X: =368
+            Y: =267
+            ZIndex: =10
+
+        ButtonCanvas3 As Button:
+            BorderRadiusBottomLeft: =10
+            BorderRadiusBottomRight: =10
+            BorderRadiusTopLeft: =10
+            BorderRadiusTopRight: =10
+            DisplayMode: =DisplayMode.Edit
+            FontSize: =50
+            Height: =95
+            Icon: ="DocumentAdd"
+            OnSelect: =Set(isSelectingUpload, false);
+            Text: =
+            Visible: =isSelectingUpload
+            Width: =102
+            X: =486
+            Y: =365
+            ZIndex: =11
+
+        ButtonCanvas3_1 As Button:
+            BorderRadiusBottomLeft: =10
+            BorderRadiusBottomRight: =10
+            BorderRadiusTopLeft: =10
+            BorderRadiusTopRight: =10
+            DisplayMode: =DisplayMode.Edit
+            FontSize: =50
+            Height: =95
+            Icon: ="DocumentBulletList"
+            OnSelect: |
+                =Set(isSelectingUpload, false);
+                Set(flowResponse,Blank());
+                Set(isRunning, true); 
+                
+                Set(
+                    flowResponse,
+                    SAOEMS_APF_FLOW.Run(
+                        {
+                            contentBytes: First(FileAttachment_2.Attachments).Value,
+                            name: First(FileAttachment_2.Attachments).Name
+                        },
+                        CurrentUserOrg.orgAcronym;
+                    );
+                );
+                
+                If(
+                    IsBlank(flowResponse.responsemsg) && isRunning = true,
+                    true, Not(IsBlank(flowResponse)), Set(DelayTimer, true), Navigate(Refresher), Set(ResetSetDelay, true);
+                ); 
+                
+                
+                Set(isRunning, false);
+                
+                // Send Email
+                Set(LastAddedItem,First(Sort('APF Uploads',ID,SortOrder.Descending)));
+                Set(LNId,LookUp('Logistical Needs','APF ID'.Id = LastAddedItem.ID,'APF ID'));
+                
+                SendReservationEmail.Run(CurrentUser.userEmail,Text(LastAddedItem.ID),Text(LNId.Value));
+            Text: =
+            Visible: =isSelectingUpload
+            Width: =102
+            X: =763
+            Y: =365
+            ZIndex: =12
+
+        TextCanvas3 As Text:
+            Align: ='TextCanvas.Align'.Center
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =RGBA(255, 255, 255, 1)
+            Height: =27
+            Size: =18
+            Text: ="New APF"
+            Visible: =isSelectingUpload
+            Width: =102
+            X: =486
+            Y: =481
+            ZIndex: =13
+
+        TextCanvas3_1 As Text:
+            Align: ='TextCanvas.Align'.Center
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =RGBA(255, 255, 255, 1)
+            Height: =27
+            Size: =18
+            Text: ="Approved APF"
+            Visible: =isSelectingUpload
+            Width: =132
+            X: =748
+            Y: =481
+            ZIndex: =14
+
+        ButtonCanvas4 As Button:
+            BorderRadiusBottomLeft: =100
+            BorderRadiusBottomRight: =100
+            BorderRadiusTopLeft: =100
+            BorderRadiusTopRight: =100
+            DisplayMode: =DisplayMode.Edit
+            Height: =34
+            Icon: ="Dismiss"
+            OnSelect: =Set(isSelectingUpload, false)
+            Text: =
+            Visible: =isSelectingUpload
+            Width: =33
+            X: =1037
+            Y: =232
+            ZIndex: =15
 
