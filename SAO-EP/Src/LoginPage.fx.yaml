@@ -20,6 +20,12 @@ LoginPage As screen:
             Y: =56
             ZIndex: =1
 
+            Image9 As image:
+                Image: =SAO_1
+                X: =40
+                Y: =42
+                ZIndex: =1
+
             Group5 As group:
                 Height: =5
                 Width: =5
@@ -36,7 +42,7 @@ LoginPage As screen:
                     Width: =531
                     X: =129
                     Y: =40
-                    ZIndex: =1
+                    ZIndex: =2
 
                 EmailLabel_1 As label:
                     FontWeight: =FontWeight.Semibold
@@ -45,7 +51,7 @@ LoginPage As screen:
                     Width: =242
                     X: =40
                     Y: =182
-                    ZIndex: =2
+                    ZIndex: =3
 
                 EmailForm_1 As text:
                     BorderColor: =RGBA(217, 217, 216, 1)
@@ -55,7 +61,7 @@ LoginPage As screen:
                     Width: =644
                     X: =40
                     Y: =222
-                    ZIndex: =3
+                    ZIndex: =4
 
                 PasswordLabel_1 As label:
                     FontWeight: =FontWeight.Semibold
@@ -64,7 +70,7 @@ LoginPage As screen:
                     Width: =242
                     X: =40
                     Y: =335
-                    ZIndex: =4
+                    ZIndex: =5
 
                 PasswordForm_1 As text:
                     BorderColor: =RGBA(217, 217, 216, 1)
@@ -75,7 +81,7 @@ LoginPage As screen:
                     Width: =644
                     X: =40
                     Y: =378
-                    ZIndex: =5
+                    ZIndex: =6
 
                 "'Sign-inButton_1' As button":
                     Fill: =RGBA(41, 57, 131, 1)
@@ -104,7 +110,7 @@ LoginPage As screen:
                     Width: =644
                     X: =40
                     Y: =535
-                    ZIndex: =6
+                    ZIndex: =7
 
                 ForgotPasswordButton_1 As button:
                     Align: =Align.Right
@@ -128,13 +134,7 @@ LoginPage As screen:
                     Width: =183
                     X: =501
                     Y: =468
-                    ZIndex: =7
-
-            Image9 As image:
-                Image: =SAO_1
-                X: =40
-                Y: =42
-                ZIndex: =19
+                    ZIndex: =8
 
             FPDtls_1 As group:
                 Height: =5
@@ -150,7 +150,7 @@ LoginPage As screen:
                     Height: =648
                     Visible: =showFP
                     Width: =736
-                    ZIndex: =8
+                    ZIndex: =9
 
                 FP_Exit_3 As icon.CancelBadge:
                     Color: =RGBA(255, 255, 255, 1)
@@ -161,7 +161,7 @@ LoginPage As screen:
                     Width: =48
                     X: =644
                     Y: =47
-                    ZIndex: =9
+                    ZIndex: =10
 
                 Lbl_ForgotPass_3 As label:
                     Align: =Align.Center
@@ -174,7 +174,7 @@ LoginPage As screen:
                     Width: =391
                     X: =173
                     Y: =84
-                    ZIndex: =10
+                    ZIndex: =11
 
                 Lbl_SendOTPTo_1 As label:
                     Color: =RGBA(255, 255, 255, 1)
@@ -185,7 +185,7 @@ LoginPage As screen:
                     Visible: =showFP
                     X: =131
                     Y: =233
-                    ZIndex: =11
+                    ZIndex: =12
 
                 TI_FPEmail_1 As text:
                     Color: =RGBA(0, 0, 0, 0.66)
@@ -200,7 +200,7 @@ LoginPage As screen:
                     Width: =450
                     X: =131
                     Y: =270
-                    ZIndex: =12
+                    ZIndex: =13
 
                 Btn_SendFPEmail_3 As button:
                     Height: =70
@@ -220,7 +220,7 @@ LoginPage As screen:
                     Width: =101
                     X: =515
                     Y: =270
-                    ZIndex: =13
+                    ZIndex: =14
 
                 Lbl_FPNotif_1 As label:
                     Color: =RGBA(255, 255, 255, 1)
@@ -233,7 +233,7 @@ LoginPage As screen:
                     Width: =474
                     X: =131
                     Y: =340
-                    ZIndex: =14
+                    ZIndex: =15
 
                 Lbl_OTP_1 As label:
                     Color: =RGBA(255, 255, 255, 1)
@@ -244,7 +244,7 @@ LoginPage As screen:
                     Visible: =showFP
                     X: =131
                     Y: =397
-                    ZIndex: =15
+                    ZIndex: =16
 
                 TI_FPOTP_3 As text:
                     Color: =RGBA(0, 0, 0, 0.66)
@@ -259,7 +259,7 @@ LoginPage As screen:
                     Width: =450
                     X: =131
                     Y: =434
-                    ZIndex: =16
+                    ZIndex: =17
 
                 Btn_SendOTP_3 As button:
                     Height: =70
@@ -275,7 +275,7 @@ LoginPage As screen:
                     Width: =101
                     X: =515
                     Y: =434
-                    ZIndex: =17
+                    ZIndex: =18
 
                 Lbl_InvalidOTP_1 As label:
                     Color: =RGBA(255, 255, 255, 1)
@@ -288,5 +288,5 @@ LoginPage As screen:
                     Width: =474
                     X: =131
                     Y: =504
-                    ZIndex: =18
+                    ZIndex: =19
 
