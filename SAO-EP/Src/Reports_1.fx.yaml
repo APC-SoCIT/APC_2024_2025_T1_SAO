@@ -3,7 +3,6 @@
         =UpdateContext({ReportLink: {Text: ""}})
     OnVisible: |-
         =Set(isRunning, false);
-        
         If(CurrentUser.userRoles.Id > 1, 
             ClearCollect(LocalAPF,
                 AddColumns(Filter('APF Uploads', 'Name of Lead Org' = CurrentUserOrg.orgAcronym), APFU_ID_Num, ID)
