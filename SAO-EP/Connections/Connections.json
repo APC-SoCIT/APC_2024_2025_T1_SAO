@@ -156,7 +156,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-30 05:00:55",
+        "modifiedOn": "2024-10-30 06:07:31",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
@@ -236,9 +236,6 @@
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1719/1.0.1719.3953/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
       "parameterHints": {
-        "0dc58e79-0509-4be2-b2fa-4eab99ff9203": {
-          "value": "shared_sharepointonline"
-        },
         "workflowDisplayName": {
           "value": "uploadUnsignedAPF"
         },
@@ -250,9 +247,6 @@
         }
       },
       "parameterHintsV2": {
-        "shared_sharepointonline": {
-          "value": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
-        },
         "workflowDisplayName": {
           "value": "uploadUnsignedAPF"
         },
@@ -269,6 +263,7 @@
       "uploadUnsignedAPF"
     ],
     "dependencies": {
+      "shared_office365": "a5f36bf5-3c98-48dd-a743-cca2a744745e",
       "shared_sharepointonline": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
     },
     "dependents": [],
@@ -397,6 +392,20 @@
     },
     "dependents": [],
     "id": "971587d0-e8b0-4158-aad4-2b74d955c1ac"
+  },
+  "a5f36bf5-3c98-48dd-a743-cca2a744745e": {
+    "connectionRef": {
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1716/1.0.1716.3922/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "649168f5-ba2f-4b32-8e95-9d13005f1dbd"
+    ],
+    "id": "a5f36bf5-3c98-48dd-a743-cca2a744745e"
   },
   "b9d11604-091e-4fd8-803c-a1412d6f7cb4": {
     "appActions": [
@@ -629,7 +638,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-30 05:00:55",
+        "modifiedOn": "2024-10-30 06:07:31",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
@@ -698,7 +707,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-30 05:00:55",
+        "modifiedOn": "2024-10-30 06:07:31",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
