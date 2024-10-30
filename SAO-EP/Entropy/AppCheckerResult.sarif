@@ -3376,19 +3376,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.btnPrevMonth_3.AccessibleLabel"
+                  "fullyQualifiedName": "TSKBR_3.Gallery5_4.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.btnPrevMonth_3.AccessibleLabel",
+                  "fullyQualifiedName": "TSKBR_3.Gallery5_4.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "CalendarComponentEventsSide",
-                "type": "CalendarComponentEventsSide.btnPrevMonth_3"
+                "module": "TSKBR_3",
+                "type": "TSKBR_3.Gallery5_4"
               }
             }
           ],
@@ -3406,19 +3406,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.btnPrevMonth_3.TabIndex"
+                  "fullyQualifiedName": "TSKBR_3.Gallery5_4.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.btnPrevMonth_3.TabIndex",
+                  "fullyQualifiedName": "TSKBR_3.Gallery5_4.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "CalendarComponentEventsSide",
-                "type": "CalendarComponentEventsSide.btnPrevMonth_3"
+                "module": "TSKBR_3",
+                "type": "TSKBR_3.Gallery5_4"
               }
             }
           ],
@@ -3436,19 +3436,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.btnNextMonth_3.AccessibleLabel"
+                  "fullyQualifiedName": "TSKBR_3.Gallery5_4.Icon6_3.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.btnNextMonth_3.AccessibleLabel",
+                  "fullyQualifiedName": "TSKBR_3.Gallery5_4.Icon6_3.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "CalendarComponentEventsSide",
-                "type": "CalendarComponentEventsSide.btnNextMonth_3"
+                "module": "TSKBR_3",
+                "type": "TSKBR_3.Gallery5_4.Icon6_3"
               }
             }
           ],
@@ -3466,19 +3466,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.btnNextMonth_3.TabIndex"
+                  "fullyQualifiedName": "TSKBR_3.Gallery5_4.Icon6_3.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.btnNextMonth_3.TabIndex",
+                  "fullyQualifiedName": "TSKBR_3.Gallery5_4.Icon6_3.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "CalendarComponentEventsSide",
-                "type": "CalendarComponentEventsSide.btnNextMonth_3"
+                "module": "TSKBR_3",
+                "type": "TSKBR_3.Gallery5_4.Icon6_3"
               }
             }
           ],
@@ -3496,19 +3496,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalItems_2.AccessibleLabel"
+                  "fullyQualifiedName": "SideNavigation.RootContainer.Gallery3.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalItems_2.AccessibleLabel",
+                  "fullyQualifiedName": "SideNavigation.RootContainer.Gallery3.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "CalendarComponentEventsSide",
-                "type": "CalendarComponentEventsSide.galCalItems_2"
+                "module": "SideNavigation",
+                "type": "SideNavigation.RootContainer.Gallery3"
               }
             }
           ],
@@ -3526,19 +3526,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalItems_2.TabIndex"
+                  "fullyQualifiedName": "SideNavigation.RootContainer.Gallery3.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalItems_2.TabIndex",
+                  "fullyQualifiedName": "SideNavigation.RootContainer.Gallery3.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "CalendarComponentEventsSide",
-                "type": "CalendarComponentEventsSide.galCalItems_2"
+                "module": "SideNavigation",
+                "type": "SideNavigation.RootContainer.Gallery3"
               }
             }
           ],
@@ -3550,186 +3550,6 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.galWeekdays_3.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.galWeekdays_3.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "CalendarComponentEventsSide",
-                "type": "CalendarComponentEventsSide.galWeekdays_3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.galWeekdays_3.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.galWeekdays_3.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "CalendarComponentEventsSide",
-                "type": "CalendarComponentEventsSide.galWeekdays_3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalendar_3.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalendar_3.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "CalendarComponentEventsSide",
-                "type": "CalendarComponentEventsSide.galCalendar_3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalendar_3.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalendar_3.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "CalendarComponentEventsSide",
-                "type": "CalendarComponentEventsSide.galCalendar_3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalendar_3.btnDayBack_2.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalendar_3.btnDayBack_2.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "CalendarComponentEventsSide",
-                "type": "CalendarComponentEventsSide.galCalendar_3.btnDayBack_2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 10
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalendar_3.btnDayValue_2.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalendar_3.btnDayValue_2.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "CalendarComponentEventsSide",
-                "type": "CalendarComponentEventsSide.galCalendar_3.btnDayValue_2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 10
         },
         {
           "locations": [
@@ -4210,6 +4030,366 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.btnPrevMonth_3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.btnPrevMonth_3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "CalendarComponentEventsSide",
+                "type": "CalendarComponentEventsSide.btnPrevMonth_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.btnPrevMonth_3.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.btnPrevMonth_3.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "CalendarComponentEventsSide",
+                "type": "CalendarComponentEventsSide.btnPrevMonth_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.btnNextMonth_3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.btnNextMonth_3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "CalendarComponentEventsSide",
+                "type": "CalendarComponentEventsSide.btnNextMonth_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.btnNextMonth_3.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.btnNextMonth_3.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "CalendarComponentEventsSide",
+                "type": "CalendarComponentEventsSide.btnNextMonth_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalItems_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalItems_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "CalendarComponentEventsSide",
+                "type": "CalendarComponentEventsSide.galCalItems_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalItems_2.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalItems_2.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "CalendarComponentEventsSide",
+                "type": "CalendarComponentEventsSide.galCalItems_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.galWeekdays_3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.galWeekdays_3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "CalendarComponentEventsSide",
+                "type": "CalendarComponentEventsSide.galWeekdays_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.galWeekdays_3.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.galWeekdays_3.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "CalendarComponentEventsSide",
+                "type": "CalendarComponentEventsSide.galWeekdays_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalendar_3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalendar_3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "CalendarComponentEventsSide",
+                "type": "CalendarComponentEventsSide.galCalendar_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalendar_3.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalendar_3.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "CalendarComponentEventsSide",
+                "type": "CalendarComponentEventsSide.galCalendar_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalendar_3.btnDayBack_2.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalendar_3.btnDayBack_2.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "CalendarComponentEventsSide",
+                "type": "CalendarComponentEventsSide.galCalendar_3.btnDayBack_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalendar_3.btnDayValue_2.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CalendarComponentEventsSide.galCalendar_3.btnDayValue_2.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "CalendarComponentEventsSide",
+                "type": "CalendarComponentEventsSide.galCalendar_3.btnDayValue_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 10
         },
         {
           "locations": [
@@ -4859,186 +5039,6 @@
                 "member": "TabIndex",
                 "module": "TSKBR_2",
                 "type": "TSKBR_2.Gallery5_3.Icon6_2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "TSKBR_3.Gallery5_4.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "TSKBR_3.Gallery5_4.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "TSKBR_3",
-                "type": "TSKBR_3.Gallery5_4"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "TSKBR_3.Gallery5_4.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "TSKBR_3.Gallery5_4.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "TSKBR_3",
-                "type": "TSKBR_3.Gallery5_4"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "TSKBR_3.Gallery5_4.Icon6_3.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "TSKBR_3.Gallery5_4.Icon6_3.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "TSKBR_3",
-                "type": "TSKBR_3.Gallery5_4.Icon6_3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "TSKBR_3.Gallery5_4.Icon6_3.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "TSKBR_3.Gallery5_4.Icon6_3.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "TSKBR_3",
-                "type": "TSKBR_3.Gallery5_4.Icon6_3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "SideNavigation.RootContainer.Gallery3.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "SideNavigation.RootContainer.Gallery3.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "SideNavigation",
-                "type": "SideNavigation.RootContainer.Gallery3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "SideNavigation.RootContainer.Gallery3.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "SideNavigation.RootContainer.Gallery3.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "SideNavigation",
-                "type": "SideNavigation.RootContainer.Gallery3"
               }
             }
           ],
@@ -6010,6 +6010,66 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'S-ManageAPF'.BodyContainer1_3.SidebarContainer1_5.SearchContainer1_3.Approvals_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'S-ManageAPF'.BodyContainer1_3.SidebarContainer1_5.SearchContainer1_3.Approvals_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "S-ManageAPF",
+                "type": "'S-ManageAPF'.BodyContainer1_3.SidebarContainer1_5.SearchContainer1_3.Approvals_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'S-ManageAPF'.BodyContainer1_3.SidebarContainer1_5.SearchContainer1_3.Approvals_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'S-ManageAPF'.BodyContainer1_3.SidebarContainer1_5.SearchContainer1_3.Approvals_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "S-ManageAPF",
+                "type": "'S-ManageAPF'.BodyContainer1_3.SidebarContainer1_5.SearchContainer1_3.Approvals_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -12027,66 +12087,6 @@
                 "member": "TabIndex",
                 "module": "View LR",
                 "type": "'View LR'.ScreenContainer1.BodyContainer1.RightContainer1_4.MainContainer1_2.Containerrr.OpenWindow_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'S-ManageAPF'.BodyContainer1_3.SidebarContainer1_5.SearchContainer1_3.Approvals_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'S-ManageAPF'.BodyContainer1_3.SidebarContainer1_5.SearchContainer1_3.Approvals_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "S-ManageAPF",
-                "type": "'S-ManageAPF'.BodyContainer1_3.SidebarContainer1_5.SearchContainer1_3.Approvals_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'S-ManageAPF'.BodyContainer1_3.SidebarContainer1_5.SearchContainer1_3.Approvals_1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'S-ManageAPF'.BodyContainer1_3.SidebarContainer1_5.SearchContainer1_3.Approvals_1.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "S-ManageAPF",
-                "type": "'S-ManageAPF'.BodyContainer1_3.SidebarContainer1_5.SearchContainer1_3.Approvals_1"
               }
             }
           ],
