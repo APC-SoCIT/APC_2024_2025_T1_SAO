@@ -171,7 +171,7 @@
                 Approvals As icon:
                     Height: =44
                     Icon: =Icon.ListWatchlistRemind
-                    OnSelect: =//Navigate(Approval);
+                    OnSelect: =Navigate(APF_Approvals);
                     PaddingBottom: =10
                     PaddingLeft: =10
                     PaddingRight: =10

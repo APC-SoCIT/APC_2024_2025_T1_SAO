@@ -102,11 +102,23 @@
                 LayoutMode: =LayoutMode.Auto
                 ZIndex: =3
 
+                Approvals_1 As icon:
+                    Height: =44
+                    Icon: =Icon.ListWatchlistRemind
+                    OnSelect: =Navigate(APF_Approvals);
+                    PaddingBottom: =10
+                    PaddingLeft: =10
+                    PaddingRight: =10
+                    PaddingTop: =10
+                    Width: =44
+                    ZIndex: =1
+
                 SearchInput1_3 As text:
                     Default: =""
                     Height: =44
                     HintText: ="Enter Org"
-                    ZIndex: =7
+                    Width: =Parent.Width - (2*Approvals_1.Width)
+                    ZIndex: =2
 
                 SearchIcon1_3 As icon:
                     Height: =44
@@ -117,7 +129,7 @@
                     PaddingRight: =10
                     PaddingTop: =10
                     Width: =44
-                    ZIndex: =8
+                    ZIndex: =3
 
             RecordsListSeparator1_3 As rectangle:
                 AlignInContainer: =AlignInContainer.Stretch
