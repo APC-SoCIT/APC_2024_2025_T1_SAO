@@ -124,8 +124,7 @@
     "dependents": [
       "02d71dc0-816c-43ea-9885-54eec35bb0db",
       "f410d7c0-42b3-40b2-8c2a-766890ebf0ed",
-      "649168f5-ba2f-4b32-8e95-9d13005f1dbd",
-      "7685eb1d-d20f-49a1-97c4-2c3a167b5aa0"
+      "649168f5-ba2f-4b32-8e95-9d13005f1dbd"
     ],
     "id": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
   },
@@ -274,44 +273,6 @@
     },
     "dependents": [],
     "id": "649168f5-ba2f-4b32-8e95-9d13005f1dbd"
-  },
-  "7685eb1d-d20f-49a1-97c4-2c3a167b5aa0": {
-    "connectionRef": {
-      "displayName": "Logic flows",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1719/1.0.1719.3953/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "workflowDisplayName": {
-          "value": "uploadAPFApproval"
-        },
-        "workflowEntityId": {
-          "value": "4bb8c988-5d96-ef11-8a69-000d3a8166af"
-        },
-        "workflowName": {
-          "value": "07826b7e-7ba0-c29a-3480-51076ba11c78"
-        }
-      },
-      "parameterHintsV2": {
-        "workflowDisplayName": {
-          "value": "uploadAPFApproval"
-        },
-        "workflowEntityId": {
-          "value": "4bb8c988-5d96-ef11-8a69-000d3a8166af"
-        },
-        "workflowName": {
-          "value": "07826b7e-7ba0-c29a-3480-51076ba11c78"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "uploadAPFApproval"
-    ],
-    "dependencies": {
-      "shared_sharepointonline": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
-    },
-    "dependents": [],
-    "id": "7685eb1d-d20f-49a1-97c4-2c3a167b5aa0"
   },
   "76956eda-8a49-4051-8d3f-f2387fab0805": {
     "appActions": [
