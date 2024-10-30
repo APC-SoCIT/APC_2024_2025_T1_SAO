@@ -3092,9 +3092,11 @@
                         CurrentUserOrg.orgAcronym,
                         CurrentUser.userEmail,
                         advEmail,
-                        {
+                        {file:
+                            {
                             contentBytes: First(FileAttachment_2.Attachments).Value,
                             name: First(FileAttachment_2.Attachments).Name
+                            }
                         }
                     )
                 );
