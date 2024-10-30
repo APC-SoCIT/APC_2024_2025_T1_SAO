@@ -168,13 +168,25 @@
                 LayoutMode: =LayoutMode.Auto
                 ZIndex: =3
 
+                Approvals As icon:
+                    Height: =44
+                    Icon: =Icon.ListWatchlistRemind
+                    OnSelect: =//Navigate(Approval);
+                    PaddingBottom: =10
+                    PaddingLeft: =10
+                    PaddingRight: =10
+                    PaddingTop: =10
+                    Width: =44
+                    ZIndex: =1
+
                 SearchInput1_2 As text:
                     Default: =""
                     Height: =44
                     HintText: ="Search"
-                    ZIndex: =7
+                    Width: =SearchContainer1_2.Width-(2*Approvals.Width)
+                    ZIndex: =2
 
-                SearchIcon1_2 As icon:
+                SearchIcon1_5 As icon:
                     Height: =44
                     Icon: =Icon.Search
                     PaddingBottom: =10
@@ -182,7 +194,7 @@
                     PaddingRight: =10
                     PaddingTop: =10
                     Width: =44
-                    ZIndex: =8
+                    ZIndex: =3
 
             RecordsListSeparator1_2 As rectangle:
                 AlignInContainer: =AlignInContainer.Stretch
@@ -2998,14 +3010,21 @@
             Width: =825
             X: =275
             Y: =238
-            ZIndex: =4
+            ZIndex: =12
+
+        Rectangle6_1 As rectangle:
+            Fill: =RGBA(0, 0, 0, 0.24)
+            Height: =768
+            Visible: =isRunning
+            Width: =1366
+            ZIndex: =13
 
         Image7_1 As image:
             Image: ='Spinner-1.5s-200px'
             Visible: =isRunning
             X: =633
             Y: =442
-            ZIndex: =5
+            ZIndex: =14
 
         Label2_1 As label:
             Align: =Align.Center
@@ -3018,14 +3037,7 @@
             Width: =624
             X: =371
             Y: =267
-            ZIndex: =6
-
-        Rectangle6_1 As rectangle:
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =768
-            Visible: =isRunning
-            Width: =1366
-            ZIndex: =7
+            ZIndex: =15
 
     SelectUpload As group:
         Height: =5
@@ -3034,13 +3046,6 @@
         Y: =40
         ZIndex: =16
 
-        Rectangle6_10 As rectangle:
-            Fill: =RGBA(0, 0, 0, 0.29)
-            Height: =768
-            Visible: =isSelectingUpload
-            Width: =1366
-            ZIndex: =8
-
         Rectangle6_9 As rectangle:
             Fill: =RGBA(24, 32, 82, 1)
             Height: =364
@@ -3048,7 +3053,7 @@
             Width: =825
             X: =275
             Y: =204
-            ZIndex: =9
+            ZIndex: =4
 
         Label2_5 As label:
             Align: =Align.Center
@@ -3061,7 +3066,14 @@
             Width: =632
             X: =368
             Y: =267
-            ZIndex: =10
+            ZIndex: =5
+
+        Rectangle6_10 As rectangle:
+            Fill: =RGBA(0, 0, 0, 0.29)
+            Height: =768
+            Visible: =isSelectingUpload
+            Width: =1366
+            ZIndex: =6
 
         ButtonCanvas3 As Button:
             BorderRadiusBottomLeft: =10
@@ -3107,7 +3119,7 @@
             Width: =102
             X: =486
             Y: =365
-            ZIndex: =11
+            ZIndex: =7
 
         ButtonCanvas3_1 As Button:
             BorderRadiusBottomLeft: =10
@@ -3152,7 +3164,7 @@
             Width: =102
             X: =763
             Y: =365
-            ZIndex: =12
+            ZIndex: =8
 
         TextCanvas3 As Text:
             Align: ='TextCanvas.Align'.Center
@@ -3165,7 +3177,7 @@
             Width: =102
             X: =486
             Y: =481
-            ZIndex: =13
+            ZIndex: =9
 
         TextCanvas3_1 As Text:
             Align: ='TextCanvas.Align'.Center
@@ -3178,7 +3190,7 @@
             Width: =132
             X: =748
             Y: =481
-            ZIndex: =14
+            ZIndex: =10
 
         ButtonCanvas4 As Button:
             BorderRadiusBottomLeft: =100
@@ -3194,5 +3206,5 @@
             Width: =33
             X: =1037
             Y: =232
-            ZIndex: =15
+            ZIndex: =11
 

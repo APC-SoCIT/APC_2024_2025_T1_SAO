@@ -11984,6 +11984,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'View APF'.BodyContainer1_2.SidebarContainer1_4.SearchContainer1_2.Approvals.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'View APF'.BodyContainer1_2.SidebarContainer1_4.SearchContainer1_2.Approvals.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "View APF",
+                "type": "'View APF'.BodyContainer1_2.SidebarContainer1_4.SearchContainer1_2.Approvals"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'View APF'.BodyContainer1_2.SidebarContainer1_4.SearchContainer1_2.Approvals.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'View APF'.BodyContainer1_2.SidebarContainer1_4.SearchContainer1_2.Approvals.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "View APF",
+                "type": "'View APF'.BodyContainer1_2.SidebarContainer1_4.SearchContainer1_2.Approvals"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.VarPopUp"
                 }
               ],
@@ -12767,7 +12827,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"View APF\" is 309, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"View APF\" is 310, which exceeds the maximum threshold recommended (300)."
               }
             }
           ],
