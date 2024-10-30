@@ -124,7 +124,8 @@
     "dependents": [
       "02d71dc0-816c-43ea-9885-54eec35bb0db",
       "f410d7c0-42b3-40b2-8c2a-766890ebf0ed",
-      "b60a5288-bd43-4cd6-97d0-3c768bc3e172"
+      "649168f5-ba2f-4b32-8e95-9d13005f1dbd",
+      "7685eb1d-d20f-49a1-97c4-2c3a167b5aa0"
     ],
     "id": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
   },
@@ -156,7 +157,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 20:24:39",
+        "modifiedOn": "2024-10-30 01:35:48",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
@@ -230,6 +231,88 @@
     "dependents": [],
     "id": "4d11535a-e395-4a9f-8673-48e3fbf6ad63"
   },
+  "649168f5-ba2f-4b32-8e95-9d13005f1dbd": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1719/1.0.1719.3953/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "0dc58e79-0509-4be2-b2fa-4eab99ff9203": {
+          "value": "shared_sharepointonline"
+        },
+        "workflowDisplayName": {
+          "value": "uploadUnsignedAPF"
+        },
+        "workflowEntityId": {
+          "value": "123b41c1-2496-ef11-8a69-000d3a8166af"
+        },
+        "workflowName": {
+          "value": "ffd08008-6ead-07f2-40f0-258f9651b6ff"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sharepointonline": {
+          "value": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
+        },
+        "workflowDisplayName": {
+          "value": "uploadUnsignedAPF"
+        },
+        "workflowEntityId": {
+          "value": "123b41c1-2496-ef11-8a69-000d3a8166af"
+        },
+        "workflowName": {
+          "value": "ffd08008-6ead-07f2-40f0-258f9651b6ff"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "uploadUnsignedAPF"
+    ],
+    "dependencies": {
+      "shared_sharepointonline": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
+    },
+    "dependents": [],
+    "id": "649168f5-ba2f-4b32-8e95-9d13005f1dbd"
+  },
+  "7685eb1d-d20f-49a1-97c4-2c3a167b5aa0": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1719/1.0.1719.3953/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowDisplayName": {
+          "value": "uploadAPFApproval"
+        },
+        "workflowEntityId": {
+          "value": "4bb8c988-5d96-ef11-8a69-000d3a8166af"
+        },
+        "workflowName": {
+          "value": "07826b7e-7ba0-c29a-3480-51076ba11c78"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowDisplayName": {
+          "value": "uploadAPFApproval"
+        },
+        "workflowEntityId": {
+          "value": "4bb8c988-5d96-ef11-8a69-000d3a8166af"
+        },
+        "workflowName": {
+          "value": "07826b7e-7ba0-c29a-3480-51076ba11c78"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "uploadAPFApproval"
+    ],
+    "dependencies": {
+      "shared_sharepointonline": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
+    },
+    "dependents": [],
+    "id": "7685eb1d-d20f-49a1-97c4-2c3a167b5aa0"
+  },
   "76956eda-8a49-4051-8d3f-f2387fab0805": {
     "appActions": [
       "Run"
@@ -299,20 +382,6 @@
     "dependents": [],
     "id": "76956eda-8a49-4051-8d3f-f2387fab0805"
   },
-  "85ea97c0-da22-4f87-b1e2-e9119175cde6": {
-    "connectionRef": {
-      "displayName": "Office 365 Outlook",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1716/1.0.1716.3922/office365/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_office365"
-    },
-    "datasets": {},
-    "dataSources": [],
-    "dependencies": {},
-    "dependents": [
-      "b60a5288-bd43-4cd6-97d0-3c768bc3e172"
-    ],
-    "id": "85ea97c0-da22-4f87-b1e2-e9119175cde6"
-  },
   "971587d0-e8b0-4158-aad4-2b74d955c1ac": {
     "appActions": [
       "Run"
@@ -367,57 +436,6 @@
     },
     "dependents": [],
     "id": "971587d0-e8b0-4158-aad4-2b74d955c1ac"
-  },
-  "b60a5288-bd43-4cd6-97d0-3c768bc3e172": {
-    "connectionRef": {
-      "displayName": "Logic flows",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1719/1.0.1719.3953/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "0dc58e79-0509-4be2-b2fa-4eab99ff9203": {
-          "value": "shared_sharepointonline"
-        },
-        "85ea97c0-da22-4f87-b1e2-e9119175cde6": {
-          "value": "shared_office365_1"
-        },
-        "workflowDisplayName": {
-          "value": "uploadUnsignedAPF"
-        },
-        "workflowEntityId": {
-          "value": "123b41c1-2496-ef11-8a69-000d3a8166af"
-        },
-        "workflowName": {
-          "value": "ffd08008-6ead-07f2-40f0-258f9651b6ff"
-        }
-      },
-      "parameterHintsV2": {
-        "shared_office365_1": {
-          "value": "85ea97c0-da22-4f87-b1e2-e9119175cde6"
-        },
-        "shared_sharepointonline": {
-          "value": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
-        },
-        "workflowDisplayName": {
-          "value": "uploadUnsignedAPF"
-        },
-        "workflowEntityId": {
-          "value": "123b41c1-2496-ef11-8a69-000d3a8166af"
-        },
-        "workflowName": {
-          "value": "ffd08008-6ead-07f2-40f0-258f9651b6ff"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "uploadUnsignedAPF"
-    ],
-    "dependencies": {
-      "shared_office365_1": "85ea97c0-da22-4f87-b1e2-e9119175cde6",
-      "shared_sharepointonline": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
-    },
-    "dependents": [],
-    "id": "b60a5288-bd43-4cd6-97d0-3c768bc3e172"
   },
   "b9d11604-091e-4fd8-803c-a1412d6f7cb4": {
     "appActions": [
@@ -650,7 +668,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 20:24:39",
+        "modifiedOn": "2024-10-30 01:35:48",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },
@@ -719,7 +737,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-29 20:24:39",
+        "modifiedOn": "2024-10-30 01:35:48",
         "policy": "{\"type\":\"invalid\"}",
         "version": 1
       },

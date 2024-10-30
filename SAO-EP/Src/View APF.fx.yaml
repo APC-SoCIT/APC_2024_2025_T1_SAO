@@ -3070,11 +3070,13 @@
             BorderRadiusTopRight: =10
             DisplayMode: =DisplayMode.Edit
             FontSize: =50
+            FontWeight: =FontWeight.Normal
             Height: =95
             Icon: ="DocumentAdd"
             OnSelect: |-
                 =Set(isSelectingUpload, false);
                 Set(isRunning, true);
+                
                 Set(
                     advEmail,
                     LookUp(
@@ -3083,6 +3085,7 @@
                         userEmail
                     )
                 );
+                
                 
                 Set(flowResponse,
                     uploadUnsignedAPF.Run(
