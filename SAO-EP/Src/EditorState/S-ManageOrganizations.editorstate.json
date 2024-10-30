@@ -20,7 +20,7 @@
       "MetaDataIDKey": "",
       "Name": "Add Organization",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 20,
+      "ParentIndex": 19,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3448,7 +3448,7 @@
       "MetaDataIDKey": "%FieldName.ID%",
       "Name": "DataCardKey20",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6690,7 +6690,7 @@
       "MetaDataIDKey": "%FieldValue.ID%",
       "Name": "DataCardValue20",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11807,7 +11807,7 @@
       "MetaDataIDKey": "",
       "Name": "Group6",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 19,
+      "ParentIndex": 20,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24733,7 +24733,7 @@
       "MetaDataIDKey": "%FieldRequired.ID%",
       "Name": "StarVisible20",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

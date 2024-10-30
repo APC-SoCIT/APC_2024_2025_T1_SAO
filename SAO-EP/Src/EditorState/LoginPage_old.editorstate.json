@@ -1840,7 +1840,7 @@
       "MetaDataIDKey": "",
       "Name": "FPDtls",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 20,
+      "ParentIndex": 19,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4097,7 +4097,7 @@
       "MetaDataIDKey": "",
       "Name": "LoginDtls",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 19,
+      "ParentIndex": 20,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
