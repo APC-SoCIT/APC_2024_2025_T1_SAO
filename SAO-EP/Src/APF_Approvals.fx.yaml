@@ -49,6 +49,23 @@
                 RadiusTopRight: =8
                 ZIndex: =5
 
+                Container15 As groupContainer.manualLayoutContainer:
+                    FillPortions: =0.25
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    ZIndex: =1
+
+                    TextCanvas7 As Text:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =45
+                        Size: =30
+                        Text: ="Approval History"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =356
+                        X: =15
+                        Y: =42
+                        ZIndex: =1
+
                 "ApprovalsAPFGallery As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
                     DelayItemLoading: =true
                     Items: =Filter('APF Uploads','Name of Lead Org' = CurrentUserOrg.orgAcronym)
@@ -102,8 +119,8 @@
                         Size: =20
                         Text: =ThisItem.'Activity Title'
                         Width: =400
-                        X: =45
-                        Y: =21
+                        X: =47
+                        Y: =5
                         ZIndex: =7
 
                     "'Adviser Approval Status' As Text":
@@ -161,6 +178,17 @@
                         Y: =34
                         ZIndex: =13
 
+                    ButtonCanvas5 As Button:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =24
+                        OnSelect: |
+                            =ChangeApprovalStatus.Run(ApprovalsAPFGallery.Selected.ID, CurrentUser.userRoles.Id, "Approved",{text_1:" "});
+                        Text: ="Approve"
+                        Width: =66
+                        X: =47
+                        Y: =51
+                        ZIndex: =14
+
             SidebarContainer3 As groupContainer.verticalAutoLayoutContainer:
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =2
@@ -205,63 +233,94 @@
                     TemplateSize: =If(APF_Approvals.Size = ScreenSize.Small, 80, 140)
                     ZIndex: =11
 
-                    AdviserApprovalStatus As Badge:
-                        AccessibleLabel: ="Review status badge"
-                        BasePaletteColor: =Switch(ThisItem.'Adviser Approval'.Value, "Pending Approval", Color.DarkGoldenRod, "Approved", Color.DarkGreen, "Rejected", Color.Red)
-                        Content: =Left(ThisItem.'Adviser Approval'.Value, 1)
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =47
-                        Width: =49
-                        X: =30
-                        Y: =((Parent.TemplateHeight - Self.Height) / 2) - 32
-                        ZIndex: =13
+                    Container18 As groupContainer.manualLayoutContainer:
+                        DropShadow: =DropShadow.Semilight
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =160
+                        RadiusBottomLeft: =10
+                        RadiusBottomRight: =10
+                        RadiusTopLeft: =10
+                        RadiusTopRight: =10
+                        Width: =292
+                        ZIndex: =21
 
-                    AdviserApprovalTimestamp As Text:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =28
-                        Text: =ThisItem.'Adviser Timestamp'
-                        Width: =150
-                        X: =97
-                        Y: =33
-                        ZIndex: =14
+                        AdviserApprovalStatus As Badge:
+                            AccessibleLabel: ="Review status badge"
+                            BasePaletteColor: =Switch(ThisItem.'Adviser Approval'.Value, "Pending Approval", Color.DarkGoldenRod, "Approved", Color.DarkGreen, "Rejected", Color.Red)
+                            Content: =Left(ThisItem.'Adviser Approval'.Value, 1)
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =47
+                            Width: =49
+                            X: =90
+                            Y: =27
+                            ZIndex: =1
 
-                    SAOHeadApprovalStatus As Badge:
-                        AccessibleLabel: ="Review status badge"
-                        BasePaletteColor: =Switch(ThisItem.'SAO Head Approval'.Value, "Pending Approval", Color.DarkGoldenRod, "Approved", Color.DarkGreen, "Rejected", Color.Red)
-                        Content: =Left(ThisItem.'SAO Head Approval'.Value, 1)
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =47
-                        Width: =49
-                        X: =30
-                        Y: =72
-                        ZIndex: =15
+                        AdviserApprovalTimestamp As Text:
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =25
+                            Text: =ThisItem.'Adviser Timestamp'
+                            Width: =141
+                            X: =151
+                            Y: =49
+                            ZIndex: =2
 
-                    SAOHeadApprovalTimestamp As Text:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =28
-                        Text: =ThisItem.'SAO Head Timestamp'
-                        Width: =150
-                        X: =97
-                        Y: =91
-                        ZIndex: =16
+                        SAOHeadApprovalStatus As Badge:
+                            AccessibleLabel: ="Review status badge"
+                            BasePaletteColor: =Switch(ThisItem.'SAO Head Approval'.Value, "Pending Approval", Color.DarkGoldenRod, "Approved", Color.DarkGreen, "Rejected", Color.Red)
+                            Content: =Left(ThisItem.'SAO Head Approval'.Value, 1)
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =47
+                            Width: =49
+                            X: =90
+                            Y: =88
+                            ZIndex: =3
 
-                    TextCanvas9 As Text:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =32
-                        Text: ="Adviser"
-                        Width: =96
-                        X: =100
-                        Y: =14
-                        ZIndex: =17
+                        SAOHeadApprovalTimestamp As Text:
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =28
+                            Text: =ThisItem.'SAO Head Timestamp'
+                            Width: =141
+                            X: =151
+                            Y: =108
+                            ZIndex: =4
 
-                    TextCanvas9_1 As Text:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =32
-                        Text: ="SAO Head"
-                        Width: =96
-                        X: =100
-                        Y: =72
-                        ZIndex: =18
+                        Adviser As Text:
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Text: ="Adviser"
+                            Width: =96
+                            X: =151
+                            Y: =22
+                            ZIndex: =5
+
+                        SAOHead As Text:
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Text: ="SAO Head"
+                            Width: =96
+                            X: =151
+                            Y: =88
+                            ZIndex: =6
+
+                        AdviserApprovalTimestamp_1 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =52
+                            Text: =ThisItem.'Adviser Approval'.Value
+                            Width: =77
+                            X: =13
+                            Y: =24
+                            ZIndex: =7
+
+                        AdviserApprovalTimestamp_2 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =52
+                            Text: =ThisItem.'SAO Head Approval'.Value
+                            Width: =77
+                            X: =13
+                            Y: =88
+                            ZIndex: =8
 
     HP_TSKBR_2 As TSKBR:
         NavigationItems: =gblNavItems

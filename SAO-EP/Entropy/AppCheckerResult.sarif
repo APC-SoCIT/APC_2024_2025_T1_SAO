@@ -12104,6 +12104,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery.ButtonCanvas5.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery.ButtonCanvas5.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "APF_Approvals",
+                "type": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery.ButtonCanvas5"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.VarPopUp"
                 }
               ],
