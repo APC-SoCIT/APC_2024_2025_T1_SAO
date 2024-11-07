@@ -12054,6 +12054,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.Container13.LocalPDCont.ButtonCanvas6.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.Container13.LocalPDCont.ButtonCanvas6.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Reports_1",
+                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.Container13.LocalPDCont.ButtonCanvas6"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.Container13.LocPDViewer.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.Container13.LocPDViewer.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Reports_1",
+                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.Container13.LocPDViewer"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.DelayTimer"
                 }
               ],

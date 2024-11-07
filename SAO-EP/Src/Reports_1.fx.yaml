@@ -338,7 +338,7 @@
                         BorderStyle: =BorderStyle.Solid
                         DisplayMode: =DisplayMode.Edit
                         Fill: =RGBA(0, 0, 0, 0)
-                        Height: =Parent.Height
+                        Height: =321
                         Items: |-
                             =Filter(
                                 Master_Data,NameofLeadOrg = Dropdown2_1.SelectedText.Value ||
@@ -346,8 +346,8 @@
                             )
                         Width: =Parent.Width
                         X: =Parent.X
-                        Y: =0
-                        ZIndex: =2
+                        Y: =45
+                        ZIndex: =1
 
                         APFU_ID_Num_Column1 As dataTableColumn.textualColumn:
                             DisplayMode: =DisplayMode.Edit
@@ -373,7 +373,7 @@
                             Order: =2
                             Text: =ThisItem.NameofLeadOrg
                             Width: =100
-                            X: =0
+                            X: =541
                             Y: =0
                             ZIndex: =17
 
@@ -415,7 +415,7 @@
                             Order: =5
                             Text: =ThisItem.Target_x0020_Date
                             Width: =100
-                            X: =0
+                            X: =691
                             Y: =0
                             ZIndex: =20
 
@@ -530,6 +530,127 @@
                             X: =0
                             Y: =0
                             ZIndex: =28
+
+                    LocPDViewer As Button:
+                        Appearance: =
+                        BasePaletteColor: =RGBA(24, 32, 82, 1)
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        BorderStyle: =BorderStyle.Dashed
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =Parent.Height - DataTable2.Height
+                        Icon: ="ChevronDown"
+                        IconStyle: ='ButtonCanvas.IconStyle'.Filled
+                        OnSelect: =Set(ToggleLocalPDViewer,true)
+                        Text: =
+                        Width: =876
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                    LocalPDCont As groupContainer.manualLayoutContainer:
+                        Fill: =RGBA(9, 33, 98, 1)
+                        Height: =319
+                        Visible: =ToggleLocalPDViewer
+                        Width: =876
+                        ZIndex: =3
+
+                        ButtonCanvas6 As Button:
+                            Appearance: =
+                            BasePaletteColor: =RGBA(24, 32, 82, 1)
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Icon: ="ChevronUp"
+                            OnSelect: =Set(ToggleLocalPDViewer,false)
+                            Text: =
+                            Width: =876
+                            X: =0
+                            Y: =287
+                            ZIndex: =1
+
+                        DataTable3 As dataTable.datatable:
+                            BorderStyle: =BorderStyle.Solid
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisplayMode: =DisplayMode.Edit
+                            Fill: =RGBA(0, 0, 0, 0)
+                            Height: =287
+                            Items: =LocalPD
+                            SelectedColor: =RGBA(112, 181, 250, 1)
+                            Width: =876
+                            X: =0
+                            Y: =0
+                            ZIndex: =3
+
+                            LR_ID_Column1 As dataTableColumn.textualColumn:
+                                AutoWidth: =false
+                                DisplayMode: =DisplayMode.Edit
+                                FieldDisplayName: ="LR_ID"
+                                FieldName: ="LR_ID"
+                                FieldVariantName: ="textualColumn"
+                                Height: =Parent.Height
+                                LayoutHeight: =Parent.Height
+                                Order: =1
+                                Text: =ThisItem.LR_ID.Value
+                                Width: =100
+                                X: =0
+                                Y: =0
+                                ZIndex: =29
+
+                            PD_Date_Column1 As dataTableColumn.textualColumn:
+                                DisplayMode: =DisplayMode.Edit
+                                FieldDisplayName: ="PD_Date"
+                                FieldName: ="PD_Date"
+                                FieldVariantName: ="textualColumn"
+                                Height: =Parent.Height
+                                LayoutHeight: =Parent.Height
+                                Order: =2
+                                Text: =ThisItem.PD_Date
+                                Width: =100
+                                X: =0
+                                Y: =0
+                                ZIndex: =30
+
+                            Amt_Column1 As dataTableColumn.textualColumn:
+                                DisplayMode: =DisplayMode.Edit
+                                FieldDisplayName: ="Amt"
+                                FieldName: ="Amt"
+                                FieldVariantName: ="textualColumn"
+                                Height: =Parent.Height
+                                LayoutHeight: =Parent.Height
+                                Order: =3
+                                Text: =ThisItem.Amt
+                                Width: =100
+                                X: =0
+                                Y: =0
+                                ZIndex: =31
+
+                            Title_Column1 As dataTableColumn.textualColumn:
+                                DisplayMode: =DisplayMode.Edit
+                                FieldDisplayName: ="Title"
+                                FieldName: ="Title"
+                                FieldVariantName: ="textualColumn"
+                                Height: =Parent.Height
+                                LayoutHeight: =Parent.Height
+                                Order: =4
+                                Text: =ThisItem.Title
+                                Width: =100
+                                X: =0
+                                Y: =0
+                                ZIndex: =32
+
+                            PD_Price_Column1 As dataTableColumn.textualColumn:
+                                DisplayMode: =DisplayMode.Edit
+                                FieldDisplayName: ="PD_Price"
+                                FieldName: ="PD_Price"
+                                FieldVariantName: ="textualColumn"
+                                Height: =Parent.Height
+                                LayoutHeight: =Parent.Height
+                                Order: =5
+                                Text: =ThisItem.PD_Price
+                                Width: =100
+                                X: =0
+                                Y: =0
+                                ZIndex: =33
 
             "'Right Container' As groupContainer.verticalAutoLayoutContainer":
                 DropShadow: =DropShadow.Regular
