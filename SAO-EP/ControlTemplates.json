@@ -97,7 +97,7 @@
     "Name": "PowerApps_CoreControls_ButtonCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Button",
-    "Version": "0.0.42"
+    "Version": "0.0.43"
   },
   "circle": {
     "CustomGroupControlTemplateName": "",
@@ -408,7 +408,7 @@
     "Name": "PowerApps_CoreControls_TextCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Text",
-    "Version": "0.0.42"
+    "Version": "0.0.43"
   },
   "timer": {
     "CustomGroupControlTemplateName": "",

@@ -267,6 +267,116 @@
 
                         PieChart1 As pieChart:
                             Items: =LocalPD
+                            OnSelect: |-
+                                =ClearCollect(
+                                    Master_Data,
+                                    AddColumns(
+                                        Filter(
+                                            ShowColumns(
+                                                LocalAPF,
+                                                APFU_ID_Num,
+                                                ID,
+                                                'Name of Lead Org',
+                                                Title,
+                                                'Activity Title',
+                                                'Target Date',
+                                                'Venue/Platform',
+                                                'Workshop/Tech Training',
+                                                'Seminar/Webinar/Symposium/Forum',
+                                                'Leadership Training',
+                                                'Academic Competition',
+                                                'Culture & Arts',
+                                                'Games & Sports',
+                                                'Religious/Spiritual',
+                                                'Community Ext',
+                                                'Social Events',
+                                                Marketing,
+                                                'Projected Primary Audience',
+                                                'Projected Secondary Audience'
+                                            ),
+                                        APFU_ID_Num
+                                        ),
+                                        EventTypes,
+                                        Concat(
+                                            Filter(
+                                                [
+                                                    { Type: "Workshop", Value: ThisRecord.Workshop_x002f_TechTraining },
+                                                    { Type: "Seminar", Value: ThisRecord.Seminar_x002f_Webinar_x002f_Symp },
+                                                    { Type: "Leadership", Value: ThisRecord.LeadershipTraining },
+                                                    { Type: "Academic", Value: ThisRecord.AcademicCompetition },
+                                                    { Type: "Cultural", Value: ThisRecord.CultureArts },
+                                                    { Type: "Sports", Value: ThisRecord.GamesSports },
+                                                    { Type: "Religious", Value: ThisRecord.Religious_x002f_Spiritual },
+                                                    { Type: "Community", Value: ThisRecord.CommunityExt },
+                                                    { Type: "Social", Value: ThisRecord.SocialEvents },
+                                                    { Type: "Marketing", Value: ThisRecord.Marketing }
+                                                ],
+                                                Value = true
+                                            ),
+                                            Type,
+                                            "; "
+                                        ),
+                                        // Other calculations for CashAdvance, TotalExpenses, Balance
+                                        CashAdvance,
+                                        If(
+                                            IsBlank(
+                                                LookUp(
+                                                    LocalLR,
+                                                    APFU_ID_Num = ThisRecord.APF_ID_Num,
+                                                    CashAdvAmt
+                                                )
+                                            ),
+                                            0,
+                                            LookUp(
+                                                LocalLR,
+                                                APFU_ID_Num = ThisRecord.APF_ID_Num,
+                                                CashAdvAmt
+                                            )
+                                        ),
+                                        TotalExpenses,
+                                        If(
+                                            IsBlank(
+                                                LookUp(
+                                                    LocalLR,
+                                                    APFU_ID_Num = ThisRecord.APF_ID_Num,
+                                                    TotalExpenses
+                                                )
+                                            ),
+                                            0,
+                                            LookUp(
+                                                LocalLR,
+                                                APFU_ID_Num = ThisRecord.APF_ID_Num,
+                                                TotalExpenses
+                                            )
+                                        ),
+                                        Balance,
+                                        If(
+                                            IsBlank(
+                                                LookUp(
+                                                    LocalLR,
+                                                    APFU_ID_Num = ThisRecord.APF_ID_Num,
+                                                    Balance
+                                                )
+                                            ),
+                                            0,
+                                            LookUp(
+                                                LocalLR,
+                                                APFU_ID_Num = ThisRecord.APF_ID_Num,
+                                                Balance
+                                            )
+                                        ),
+                                        CostPerParticipant,
+                                        If(
+                                            Or(
+                                                Sum(ThisRecord.ProjectedPrimaryAudience, ThisRecord.ProjectedSecondaryAudience) = 0,
+                                                IsBlank(LookUp(LocalLR, APFU_ID_Num = ThisRecord.APF_ID_Num, TotalExpenses))
+                                            ),
+                                            0,
+                                            LookUp(LocalLR, APFU_ID_Num = ThisRecord.APF_ID_Num, TotalExpenses) / 
+                                            Sum(ThisRecord.ProjectedPrimaryAudience, ThisRecord.ProjectedSecondaryAudience)
+                                        )
+                                    )
+                                );
                             X: =40
                             Y: =70
                             ZIndex: =3
@@ -308,7 +418,11 @@
                         DisplayMode: =DisplayMode.Edit
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =Parent.Height
-                        Items: =Master_Data
+                        Items: |-
+                            =Filter(
+                                Master_Data,NameofLeadOrg = Dropdown2_1.SelectedText.Value ||
+                                Dropdown2_1.SelectedText.Value = "All"
+                            )
                         Width: =Parent.Width
                         X: =Parent.X
                         Y: =0
@@ -526,12 +640,13 @@
                     ZIndex: =5
 
                     Dropdown2_1 As dropdown:
-                        Default: ="Select an Organization"
+                        Default: ="All"
                         FontWeight: =FontWeight.Lighter
                         Height: =46
-                        Items: =Organizations
-                        OnChange: |-
+                        Items: =ShowColumns(Organizations,orgAcronym)
+                        OnChange: |+
                             =// Update LocalAPF
+                            /**
                             ClearCollect(
                                 LocalAPF,
                                 AddColumns(
@@ -696,6 +811,8 @@
                                     SocialCount: CountIf(Master_Data, SocialEvents = true)
                                 }
                             );
+                            **/
+                            
                         Width: =320
                         X: =84
                         Y: =48

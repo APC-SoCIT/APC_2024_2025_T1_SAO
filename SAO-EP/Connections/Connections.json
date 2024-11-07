@@ -155,9 +155,9 @@
       "displayName": "Encodian",
       "executionRestrictions": {
         "apiId": "unknown",
-        "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-30 06:07:31",
-        "policy": "{\"type\":\"invalid\"}",
+        "appVer": "3.24104.14",
+        "modifiedOn": "2024-11-07 15:28:55",
+        "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1680/1.0.1680.3652/encodiandocumentmanager/icon.png",
@@ -236,6 +236,12 @@
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1719/1.0.1719.3953/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
       "parameterHints": {
+        "0dc58e79-0509-4be2-b2fa-4eab99ff9203": {
+          "value": "shared_sharepointonline"
+        },
+        "a5f36bf5-3c98-48dd-a743-cca2a744745e": {
+          "value": "shared_office365"
+        },
         "workflowDisplayName": {
           "value": "uploadUnsignedAPF"
         },
@@ -247,6 +253,12 @@
         }
       },
       "parameterHintsV2": {
+        "shared_office365": {
+          "value": "a5f36bf5-3c98-48dd-a743-cca2a744745e"
+        },
+        "shared_sharepointonline": {
+          "value": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
+        },
         "workflowDisplayName": {
           "value": "uploadUnsignedAPF"
         },
@@ -637,9 +649,9 @@
       "displayName": "MySQL",
       "executionRestrictions": {
         "apiId": "unknown",
-        "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-30 06:07:31",
-        "policy": "{\"type\":\"invalid\"}",
+        "appVer": "3.24104.14",
+        "modifiedOn": "2024-11-07 15:28:55",
+        "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
       "gatewayObjectIdHint": "ed73e1d5-f450-4447-816a-28bc1b574852",
@@ -706,9 +718,9 @@
       "displayName": "Encodian",
       "executionRestrictions": {
         "apiId": "unknown",
-        "appVer": "3.24102.15",
-        "modifiedOn": "2024-10-30 06:07:31",
-        "policy": "{\"type\":\"invalid\"}",
+        "appVer": "3.24104.14",
+        "modifiedOn": "2024-11-07 15:28:55",
+        "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1680/1.0.1680.3652/encodiandocumentmanager/icon.png",
