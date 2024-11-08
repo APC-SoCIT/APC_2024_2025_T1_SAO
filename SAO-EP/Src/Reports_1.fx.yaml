@@ -618,7 +618,7 @@
                                 Height: =Parent.Height
                                 LayoutHeight: =Parent.Height
                                 Order: =3
-                                Text: =ThisItem.Amt
+                                Text: =ThisItem.PD_Amt
                                 Width: =100
                                 X: =0
                                 Y: =0
