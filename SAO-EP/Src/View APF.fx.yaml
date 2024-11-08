@@ -208,7 +208,9 @@
                 DelayItemLoading: =true
                 Fill: =RGBA(250, 250, 250, 1)
                 Items: |+
-                    =Search(Filter('APF Uploads','Name of Lead Org' = CurrentUserOrg.orgAcronym),SearchInput1_2.Text, Title, 'Activity Title')
+                    =Search(Filter('APF Uploads','Name of Lead Org' = CurrentUserOrg.orgAcronym && IsApproved = true),SearchInput1_2.Text, Title, 'Activity Title')
+                    
+                    //Search(Filter('APF Uploads','Name of Lead Org' = CurrentUserOrg.orgAcronym),SearchInput1_2.Text, Title, 'Activity Title')
                     
                     //Search(Filter('APF Uploads','Name of Lead Org' = "<insert_orgname_here>"),SearchInput1.Text, "Title", "Title")
                     
