@@ -887,6 +887,7 @@
                             ZIndex: =1
 
                         OrgSelectorReport As dropdown:
+                            AlignInContainer: =AlignInContainer.Stretch
                             AllowEmptySelection: =true
                             Default: =
                             FillPortions: =0.55
@@ -1083,6 +1084,7 @@
                             ZIndex: =2
 
                         ButtonCanvas2_1 As Button:
+                            AlignInContainer: =AlignInContainer.Stretch
                             DisplayMode: =DisplayMode.Edit
                             FillPortions: =0.15
                             Height: =46
@@ -1141,6 +1143,25 @@
                             Height: =46
                             Items: =Distinct(CalDeets, AcadYear)
                             LayoutMinWidth: =80
+                            OnChange: |-
+                                =ClearCollect(
+                                    FilteredDataTable,
+                                    If(
+                                        IsBlank(AcadYearSelector3.SelectedText.Value),
+                                        LocalPD, // Show all data if the dropdown is empty
+                                        Filter(
+                                            LocalPD,
+                                            LR_ID.Id in Filter(
+                                                LocalLR,
+                                                If(
+                                                    Month(EventDate) = 8 || Month(EventDate) > 8,
+                                                    Text(Year(EventDate), "[$-en-US]0") & "-" & Text(Year(EventDate) + 1, "[$-en-US]0"),
+                                                    Text(Year(EventDate) - 1, "[$-en-US]0") & "-" & Text(Year(EventDate), "[$-en-US]0")
+                                                ) = AcadYearSelector3.SelectedText.Value
+                                            ).ID
+                                        )
+                                    )    
+                                );
                             Reset: =true
                             Width: =136
                             X: =232
