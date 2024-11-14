@@ -206,7 +206,7 @@
       "MetaDataIDKey": "",
       "Name": "Adviser Approval Status",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 8,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1199,7 +1199,7 @@
       "MetaDataIDKey": "",
       "Name": "ButtonCanvas5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 9,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1341,7 +1341,7 @@
       "MetaDataIDKey": "",
       "Name": "ButtonCanvas8",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1491,7 +1491,7 @@
       "MetaDataIDKey": "",
       "Name": "CloseDialogueBox",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2097,7 +2097,7 @@
       "MetaDataIDKey": "",
       "Name": "Container19",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2678,7 +2678,7 @@
       "MetaDataIDKey": "",
       "Name": "DropdownCanvas1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3889,7 +3889,7 @@
       "MetaDataIDKey": "",
       "Name": "SAO Head Approval Status",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5161,7 +5161,7 @@
       "MetaDataIDKey": "",
       "Name": "TextInputCanvas1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

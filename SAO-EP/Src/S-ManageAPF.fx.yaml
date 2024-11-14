@@ -196,7 +196,8 @@
                                     Text(Year(DateValue('Target Date')), "[$-en-US]0") & "-" & Text(Year(DateValue('Target Date')) + 1, "[$-en-US]0"),
                                     Text(Year(DateValue('Target Date')) - 1, "[$-en-US]0") & "-" & Text(Year(DateValue('Target Date')), "[$-en-US]0")
                                 ) = AcadYearSelector.Selected.Value // Compare derived academic year with selected value
-                            )
+                            ) &&
+                            'IsApproved' = true
                         ),
                         SearchInput1_3.Text,
                         Title,

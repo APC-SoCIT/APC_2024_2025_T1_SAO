@@ -37,7 +37,7 @@
       "MetaDataIDKey": "",
       "Name": "ButtonCanvas7",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -121,7 +121,7 @@
       "MetaDataIDKey": "",
       "Name": "ButtonCanvas7_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -928,7 +928,7 @@
       "MetaDataIDKey": "%TemplateBrowseGalleryNextIcon.ID%",
       "Name": "NextArrow6",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1246,7 +1246,7 @@
       "MetaDataIDKey": "%TemplateBrowseGallerySeparator1.ID%",
       "Name": "Separator6",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1666,7 +1666,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas8_10",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1768,7 +1768,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas8_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1865,7 +1865,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas8_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2059,7 +2059,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas8_5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2156,7 +2156,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas8_6",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2253,7 +2253,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas8_7",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2350,7 +2350,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas8_8",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 8,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2447,7 +2447,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas8_9",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 9,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2555,7 +2555,7 @@
       "MetaDataIDKey": "%TemplateBrowseGalleryTitle.ID%",
       "Name": "Title9",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3621,7 +3621,7 @@
       "MetaDataIDKey": "",
       "Name": "VE_SearchInput",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

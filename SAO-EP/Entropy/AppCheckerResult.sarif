@@ -2776,6 +2776,46 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'S-ManageAPF'.BodyContainer1_3.SidebarContainer1_5.RecordsGallery1_3.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'S-ManageAPF'.BodyContainer1_3.SidebarContainer1_5.RecordsGallery1_3.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 690,
+                  "snippet": {
+                    "text": "&&"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "S-ManageAPF",
+                "type": "'S-ManageAPF'.BodyContainer1_3.SidebarContainer1_5.RecordsGallery1_3"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'View APF'.'APF Title Confirmation Container'.'Confirm New APF Button'.OnSelect"
                 }
               ],
