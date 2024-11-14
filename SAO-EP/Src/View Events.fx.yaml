@@ -157,17 +157,6 @@
             Y: =16
             ZIndex: =2
 
-            VE_Title As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =57
-                Size: =30
-                Text: =VE_Gallery.Selected.ActivityTitle
-                Weight: ='TextCanvas.Weight'.Bold
-                Width: =692
-                X: =104
-                Y: =152
-                ZIndex: =1
-
             Icon14 As icon.BackArrow:
                 Height: =43
                 Icon: =Icon.BackArrow
