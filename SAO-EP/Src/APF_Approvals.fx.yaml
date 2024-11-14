@@ -187,11 +187,11 @@
                         Height: =24
                         OnSelect: |
                             =ChangeApprovalStatus.Run(ApprovalsAPFGallery.Selected.ID, CurrentUser.userRoles.Id, "Approved",{text_1:" "});
-                        Text: ="Approve"
+                        Text: ="Review"
                         Visible: =If(CurrentUser.userRoles.Id<3,true,false)
                         Width: =66
-                        X: =47
-                        Y: =51
+                        X: =864
+                        Y: =38
                         ZIndex: =14
 
             SidebarContainer3 As groupContainer.verticalAutoLayoutContainer:
