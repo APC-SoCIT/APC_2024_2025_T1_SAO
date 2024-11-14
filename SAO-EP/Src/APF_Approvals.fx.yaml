@@ -126,7 +126,7 @@
                         Text: =ThisItem.'Activity Title'
                         Width: =400
                         X: =47
-                        Y: =5
+                        Y: =10
                         ZIndex: =7
 
                     "'Adviser Approval Status' As Text":
