@@ -230,7 +230,7 @@
                             Items: |-
                                 =//EventTypeReports
                                 
-                                If(Dropdown2_1.SelectedText.Value = Blank(),   
+                                If(OrgSelectorReport.SelectedText.Value = Blank(),   
                                     Table({
                                             'Seminar/Webinar Count': CountIf(Master_Data, Seminar_x002f_Webinar_x002f_Symp = true),
                                             'LeadershipCount': CountIf(Master_Data, LeadershipTraining = true),
@@ -243,15 +243,15 @@
                                             'Social Events Count': CountIf(Master_Data,SocialEvents = true)
                                         }),
                                     Table({
-                                            'Seminar/Webinar Count': CountIf(Filter(Master_Data,NameofLeadOrg= Dropdown2_1.SelectedText.Value), Seminar_x002f_Webinar_x002f_Symp = true),
-                                            'LeadershipCount': CountIf(Filter(Master_Data,NameofLeadOrg= Dropdown2_1.SelectedText.Value), LeadershipTraining = true),
-                                            'Community Extension': CountIf(Filter(Master_Data,NameofLeadOrg= Dropdown2_1.SelectedText.Value),CommunityExt = true),
-                                            'Marketing Count': CountIf(Filter(Master_Data,NameofLeadOrg= Dropdown2_1.SelectedText.Value),Marketing = true),
-                                            'Religious Count': CountIf(Filter(Master_Data,NameofLeadOrg= Dropdown2_1.SelectedText.Value),Religious_x002f_Spiritual = true),
-                                            'Acad Competitions Count': CountIf(Filter(Master_Data,NameofLeadOrg =Dropdown2_1.SelectedText.Value),AcademicCompetition = true),
-                                            'Culture/Arts Count': CountIf(Filter(Master_Data,NameofLeadOrg= Dropdown2_1.SelectedText.Value),CultureArts = true),
-                                            'Game/Sports Count': CountIf(Filter(Master_Data,NameofLeadOrg= Dropdown2_1.SelectedText.Value),GamesSports = true),
-                                            'Social Events Count': CountIf(Filter(Master_Data,NameofLeadOrg= Dropdown2_1.SelectedText.Value),SocialEvents = true)
+                                            'Seminar/Webinar Count': CountIf(Filter(Master_Data,NameofLeadOrg= OrgSelectorReport.SelectedText.Value), Seminar_x002f_Webinar_x002f_Symp = true),
+                                            'LeadershipCount': CountIf(Filter(Master_Data,NameofLeadOrg= OrgSelectorReport.SelectedText.Value), LeadershipTraining = true),
+                                            'Community Extension': CountIf(Filter(Master_Data,NameofLeadOrg= OrgSelectorReport.SelectedText.Value),CommunityExt = true),
+                                            'Marketing Count': CountIf(Filter(Master_Data,NameofLeadOrg= OrgSelectorReport.SelectedText.Value),Marketing = true),
+                                            'Religious Count': CountIf(Filter(Master_Data,NameofLeadOrg= OrgSelectorReport.SelectedText.Value),Religious_x002f_Spiritual = true),
+                                            'Acad Competitions Count': CountIf(Filter(Master_Data,NameofLeadOrg =OrgSelectorReport.SelectedText.Value),AcademicCompetition = true),
+                                            'Culture/Arts Count': CountIf(Filter(Master_Data,NameofLeadOrg= OrgSelectorReport.SelectedText.Value),CultureArts = true),
+                                            'Game/Sports Count': CountIf(Filter(Master_Data,NameofLeadOrg= OrgSelectorReport.SelectedText.Value),GamesSports = true),
+                                            'Social Events Count': CountIf(Filter(Master_Data,NameofLeadOrg= OrgSelectorReport.SelectedText.Value),SocialEvents = true)
                                         })
                                 )
                             NumberOfSeries: =9
@@ -273,8 +273,8 @@
                             ItemColorSet: =ColumnChart2.ItemColorSet
                             Items: =ColumnChart2.SeriesLabels
                             Width: =210
-                            X: =25
-                            Y: =91
+                            X: =20
+                            Y: =80
                             ZIndex: =1
 
                         Title11 As label:
@@ -298,11 +298,11 @@
                         PieChart1 As pieChart:
                             Items: |-
                                 =If(
-                                    IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), 
+                                    IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), 
                                     LocalPD,
                                     Filter(
                                         LocalPD, 
-                                        LR_ID.Id in Filter(LocalLR, EventOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName').ID
+                                        LR_ID.Id in Filter(LocalLR, EventOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName').ID
                                     )
                                 )
                             OnSelect: |-
@@ -313,11 +313,11 @@
                                 ClearCollect(
                                     FilteredDataTable,
                                     If(
-                                        IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
+                                        IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
                                         LocalPD, // Show all data if the dropdown is empty
                                         Filter(
                                             LocalPD,
-                                            LR_ID.Id in Filter(LocalLR, EventOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName').ID
+                                            LR_ID.Id in Filter(LocalLR, EventOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName').ID
                                         )
                                     )    
                                 );
@@ -363,9 +363,26 @@
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =321
                         Items: |-
-                            =Filter(
-                                Master_Data,NameofLeadOrg = Dropdown2_1.SelectedText.Value ||
-                                Dropdown2_1.SelectedText.Value = Blank()
+                            =/*
+                            Filter(
+                                Master_Data,
+                                (NameofLeadOrg = OrgSelectorReport.SelectedText.Value ||
+                                OrgSelectorReport.SelectedText.Value = Blank())
+                            )
+                            */
+                            
+                            Filter(
+                                Master_Data,
+                                (NameofLeadOrg = OrgSelectorReport.SelectedText.Value || 
+                                OrgSelectorReport.SelectedText.Value = Blank()) &&
+                                (
+                                    If(
+                                        Month(DateValue('Target_x0020_Date')) = 8 || Month(DateValue('Target_x0020_Date')) > 8,
+                                        Text(Year(DateValue('Target_x0020_Date')), "[$-en-US]0") & "-" & Text(Year(DateValue('Target_x0020_Date')) + 1, "[$-en-US]0"),
+                                        Text(Year(DateValue('Target_x0020_Date')) - 1, "[$-en-US]0") & "-" & Text(Year(DateValue('Target_x0020_Date')), "[$-en-US]0")
+                                    ) = AcadYearSelector_3.Selected.Value || 
+                                    AcadYearSelector_3.Selected.Value = Blank()
+                                )
                             )
                         Width: =Parent.Width
                         X: =Parent.X
@@ -850,7 +867,7 @@
                     Visible: =If(CurrentUser.userRoles.Id = 1, true, false)
                     ZIndex: =5
 
-                    Dropdown2_1 As dropdown:
+                    OrgSelectorReport As dropdown:
                         AllowEmptySelection: =true
                         Default: =
                         FontWeight: =FontWeight.Lighter
@@ -860,11 +877,11 @@
                             =ClearCollect(
                                 FilteredDataTable,
                                 If(
-                                    IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
+                                    IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
                                     LocalPD, // Show all data if the dropdown is empty
                                     Filter(
                                         LocalPD,
-                                        LR_ID.Id in Filter(LocalLR, EventOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName').ID
+                                        LR_ID.Id in Filter(LocalLR, EventOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName').ID
                                     )
                                 )    
                             );
@@ -1039,9 +1056,9 @@
                             **/
                             
                         Reset: =true
-                        Width: =320
-                        X: =84
-                        Y: =48
+                        Width: =128
+                        X: =10
+                        Y: =33
                         ZIndex: =6
 
                     ButtonCanvas2_1 As Button:
@@ -1049,31 +1066,54 @@
                         Height: =46
                         OnSelect: |-
                             =// Reset the dropdown selection
-                                Reset(Dropdown2_1);
+                                Reset(OrgSelectorReport);
                                 ClearCollect(
                                 FilteredDataTable,
                                 If(
-                                    IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
+                                    IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
                                     LocalPD, // Show all data if the dropdown is empty
                                     Filter(
                                         LocalPD,
-                                        LR_ID.Id in Filter(LocalLR, EventOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName').ID
+                                        LR_ID.Id in Filter(LocalLR, EventOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName').ID
                                     )
                                 )    
                             );
                         Text: ="All"
                         Width: =54
-                        X: =10
-                        Y: =48
+                        X: =144
+                        Y: =33
                         ZIndex: =7
 
                     Icon21_2 As icon.VerticalLine:
                         Height: =46
                         Icon: =Icon.VerticalLine
-                        Width: =20
-                        X: =64
-                        Y: =48
+                        Width: =14
+                        X: =202
+                        Y: =33
                         ZIndex: =8
+
+                    AcadYearSelector_3 As dropdown:
+                        AllowEmptySelection: =true
+                        ChevronBackground: =RGBA(39, 113, 194, 1)
+                        Color: =
+                        Default: ="0"
+                        Height: =46
+                        Items: =Distinct(CalDeets, AcadYear)
+                        Reset: =true
+                        Width: =136
+                        X: =232
+                        Y: =33
+                        ZIndex: =9
+
+                    AY_AllBtn_3 As Button:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =46
+                        OnSelect: =Reset(AcadYearSelector_3)
+                        Text: ="All"
+                        Width: =54
+                        X: =371
+                        Y: =33
+                        ZIndex: =10
 
                 Container6_2 As groupContainer.manualLayoutContainer:
                     DropShadow: =DropShadow.Light
@@ -1165,16 +1205,29 @@
                         Height: =49
                         Size: =20
                         Text: |-
-                            =If(CurrentUser.userRoles.Id > 1, 
+                            =If(
+                                CurrentUser .userRoles.Id > 1, 
                                 CountRows(Master_Data), 
-                                If(IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), CountRows(Master_Data),
-                                CountIf(Master_Data, NameofLeadOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName')
+                                If(
+                                    IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), 
+                                    CountRows(Master_Data), 
+                                    CountIf(
+                                        Master_Data,
+                                        NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName' &&
+                                        (
+                                            If(
+                                                Month(DateValue('Target_x0020_Date')) = 8 || Month(DateValue('Target_x0020_Date')) > 8,
+                                                Text(Year(DateValue('Target_x0020_Date')), "[$-en-US]0") & "-" & Text(Year(DateValue('Target_x0020_Date')) + 1, "[$-en-US]0"),
+                                                Text(Year(DateValue('Target_x0020_Date')) - 1, "[$-en-US]0") & "-" & Text(Year(DateValue('Target_x0020_Date')), "[$-en-US]0")
+                                            ) = AcadYearSelector_3.Selected.Value
+                                        )
+                                    )
                                 )
                             )
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =291
-                        Y: =111
+                        Y: =100
                         ZIndex: =8
 
                     TextCanvas6_8 As Text:
@@ -1185,9 +1238,9 @@
                         Text: |+
                             =If(CurrentUser.userRoles.Id > 1, 
                                 Sum(Master_Data, ProjectedPrimaryAudience) + Sum(Master_Data, ProjectedSecondaryAudience), 
-                                If(IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), Sum(Master_Data, ProjectedPrimaryAudience) + Sum(Master_Data, ProjectedSecondaryAudience),
-                                    Sum(Filter(Master_Data, NameofLeadOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), ProjectedPrimaryAudience) + 
-                                    Sum(Filter(Master_Data, NameofLeadOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), ProjectedSecondaryAudience)
+                                If(IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), Sum(Master_Data, ProjectedPrimaryAudience) + Sum(Master_Data, ProjectedSecondaryAudience),
+                                    Sum(Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), ProjectedPrimaryAudience) + 
+                                    Sum(Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), ProjectedSecondaryAudience)
                                 )
                             )
                             
@@ -1205,8 +1258,8 @@
                         Text: |
                             =If(CurrentUser.userRoles.Id > 1, 
                                 CountIf(Master_Data,Target_x0020_Date >= Today()), 
-                                If(IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), CountIf(Master_Data,Target_x0020_Date >= Today()),
-                                CountIf(Master_Data, NameofLeadOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName' && Target_x0020_Date >= Today())
+                                If(IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), CountIf(Master_Data,Target_x0020_Date >= Today()),
+                                CountIf(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName' && Target_x0020_Date >= Today())
                                 )
                             )
                         Weight: ='TextCanvas.Weight'.Semibold
@@ -1225,11 +1278,11 @@
                                 CurrentUser .userRoles.Id > 1,
                                 Concatenate(Round(Sum(Master_Data, TotalExpensesValue) / 11000 * 100, 2), "%"),
                                 If(
-                                    IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
+                                    IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
                                     Concatenate(Round(Sum(Master_Data, TotalExpensesValue) / 11000 * 100, 2), "%"),
                                     Concatenate(
                                         Round(
-                                            Sum(Filter(Master_Data, NameofLeadOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), TotalExpensesValue) / 11000 * 100,
+                                            Sum(Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), TotalExpensesValue) / 11000 * 100,
                                             2
                                         ),
                                         "%"
@@ -1252,11 +1305,11 @@
                                 CurrentUser .userRoles.Id > 1,
                                 Round(Sum(Master_Data, CostPerParticipant), 2),
                                 If(
-                                    IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
+                                    IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
                                     Round(Sum(Master_Data, CostPerParticipant), 2),
                                     Round(
                                         Sum(
-                                            Filter(Master_Data, NameofLeadOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), 
+                                            Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), 
                                             CostPerParticipant
                                         ), 
                                         2
@@ -1281,8 +1334,8 @@
                             
                             If(CurrentUser.userRoles.Id > 1, 
                                 Set(reportOutput, ExportReport.Run(JSON(Master_Data),orgReport)),
-                                If(IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), Set(reportOutput, ExportReport.Run(JSON(Master_Data),orgReport));,
-                                    Set(reportOutput, ExportReport.Run(JSON(Filter(Master_Data,NameofLeadOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName')),orgReport));
+                                If(IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), Set(reportOutput, ExportReport.Run(JSON(Master_Data),orgReport));,
+                                    Set(reportOutput, ExportReport.Run(JSON(Filter(Master_Data,NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName')),orgReport));
                                 )
                             );
                             
