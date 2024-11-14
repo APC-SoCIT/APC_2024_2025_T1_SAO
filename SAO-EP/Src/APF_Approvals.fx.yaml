@@ -183,7 +183,10 @@
                         ZIndex: =13
 
                     ButtonCanvas5 As Button:
-                        DisplayMode: =DisplayMode.Edit
+                        DisplayMode: |-
+                            =If(ThisItem.IsApproved,
+                               DisplayMode.Disabled,
+                               DisplayMode.Edit)
                         Height: =24
                         OnSelect: |-
                             =//ChangeApprovalStatus.Run(ApprovalsAPFGallery.Selected.ID, CurrentUser.userRoles.Id, "Approved",{text_1:" "});
@@ -357,5 +360,32 @@
                 AlignInContainer: =AlignInContainer.End
                 Icon: =Icon.Cancel
                 OnSelect: =Set(openApprovalScreen,false)
+                Width: =40
                 ZIndex: =1
+
+            DropdownCanvas1 As Dropdown.pcfdataset:
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                Items: =["Approved", "Rejected", "For Revision"]
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                Width: =320
+                X: =0
+                Y: =0
+                ZIndex: =2
+
+            ButtonCanvas8 As Button:
+                DisplayMode: |-
+                    =If(DropdownCanvas1.Selected.Value = "Approved" || DropdownCanvas1.Selected.Value = "Rejected",
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                OnSelect: =
+                Width: =96
+                X: =0
+                Y: =0
+                ZIndex: =3
 
