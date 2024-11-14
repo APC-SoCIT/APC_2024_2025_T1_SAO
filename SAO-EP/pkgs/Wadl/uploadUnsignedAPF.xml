@@ -11,11 +11,13 @@
       <string name="ManualTriggerInput_text_def" />
       <string name="ManualTriggerInput_email_def" />
       <string name="ManualTriggerInput_email_1_def" />
+      <string name="ManualTriggerInput_text_1_def" />
       <object name="ManualTriggerInput">
         <property name="file" typeRef="ManualTriggerInput_file_def" />
         <property name="text" type="string" />
         <property name="email" type="string" />
         <property name="email_1" type="string" />
+        <property name="text_1" type="string" />
       </object>
       <string name="ResponseActionOutput_responsemsg_def" />
       <object name="ResponseActionOutput">
@@ -45,6 +47,9 @@
             </param>
             <param style="plain" name="email_1" path="/email_1" type="xs:string" required="true">
               <doc title="adviserMail" />
+            </param>
+            <param style="plain" name="text_1" path="/text_1" type="xs:string" required="true">
+              <doc title="Activity Title" />
             </param>
           </representation>
         </request>

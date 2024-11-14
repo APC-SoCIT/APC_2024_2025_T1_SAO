@@ -3265,6 +3265,7 @@
                         CurrentUserOrg.orgAcronym,
                         CurrentUser.userEmail,
                         advEmail,
+                        'Confirm New APF Title'.Value,
                         {file:
                             {
                             contentBytes: First(FileAttachment_2.Attachments).Value,
