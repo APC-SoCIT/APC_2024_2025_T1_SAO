@@ -4,7 +4,26 @@ HomePage As screen:
         =Set(CurrentUserOrg, LookUp(Organizations, ID = CurrentUser.userOrg.Id));
         Set(VarPopUp, true);
         
-        ClearCollect(CalDeets, ShowColumns(Filter('APF Uploads',IsApproved=true),'Activity Title','Time of Activity','Name of Lead Org', 'Target Date','Venue/Platform'));
+        ClearCollect(
+            CalDeets,
+            AddColumns(
+                ShowColumns(
+                    Filter('APF Uploads', IsApproved = true),
+                    'Activity Title',
+                    'Time of Activity',
+                    'Name of Lead Org',
+                    'Target Date',
+                    'Venue/Platform'
+                ),
+                'AcadYear',
+                If(
+                    Month(DateValue(Target_x0020_Date)) = 8 || Month(DateValue(Target_x0020_Date)) > 8,
+                    Text(Year(DateValue(Target_x0020_Date)), "[$-en-US]0") & "-" & Text(Year(DateValue(Target_x0020_Date)) + 1, "[$-en-US]0"),
+                    Text(Year(DateValue(Target_x0020_Date)) - 1, "[$-en-US]0") & "-" & Text(Year(DateValue(Target_x0020_Date)), "[$-en-US]0")
+                )
+            )
+        );
+        
         
         If(
             CurrentUser.userRoles.Value = "1",
