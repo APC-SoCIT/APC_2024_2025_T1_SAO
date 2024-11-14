@@ -3087,41 +3087,7 @@
             FontWeight: =FontWeight.Normal
             Height: =95
             Icon: ="DocumentAdd"
-            OnSelect: |-
-                =Set(ConfirmNewAPFActivityTitle_Visible, true);
-                Set(ConfirmNewAPFButton_Visible, true);
-                
-                /*
-                Set(isSelectingUpload, false);
-                Set(isRunning, true);
-                
-                Set(
-                    advEmail,
-                    LookUp(
-                        Filter(Users, CurrentUserOrg.ID = userOrg.Id),
-                        userRoles.Id = 2,
-                        userEmail
-                    )
-                );
-                
-                
-                Set(flowResponse,
-                    uploadUnsignedAPF.Run(
-                        CurrentUserOrg.orgAcronym,
-                        CurrentUser.userEmail,
-                        advEmail,
-                        {file:
-                            {
-                            contentBytes: First(FileAttachment_2.Attachments).Value,
-                            name: First(FileAttachment_2.Attachments).Name
-                            }
-                        }
-                    )
-                );
-                
-                
-                Set(isRunning, false);
-                */
+            OnSelect: =Set(ConfirmNewAPFDialogue, true);
             Text: =
             Visible: =isSelectingUpload
             Width: =102
@@ -3221,6 +3187,7 @@
         LayoutAlignItems: =LayoutAlignItems.Center
         LayoutJustifyContent: =LayoutJustifyContent.Center
         LayoutMode: =LayoutMode.Auto
+        Visible: =ConfirmNewAPFDialogue
         X: =433
         Y: =481
         ZIndex: =17
@@ -3231,7 +3198,7 @@
             LayoutMinHeight: =32
             LayoutMinWidth: =320
             Placeholder: ="Please enter the Title of your Activity"
-            Visible: =ConfirmNewAPFActivityTitle_Visible
+            Visible: =true
             Width: =320
             X: =486
             Y: =510
@@ -3276,8 +3243,10 @@
                 );
                 
                 Set(isRunning, false);
+                
+                Set(ConfirmNewAPFDialogue, false);
             Text: ="Confirm"
-            Visible: =ConfirmNewAPFButton_Visible
+            Visible: =true
             Width: =96
             X: =40
             Y: =40
