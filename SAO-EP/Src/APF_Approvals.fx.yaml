@@ -61,11 +61,11 @@
                         FontColor: =RGBA(25, 33, 83, 1)
                         Height: =45
                         Size: =30
-                        Text: ="APPROVAL HISTORY"
+                        Text: ="APPROVALS"
                         Weight: ='TextCanvas.Weight'.Bold
                         Width: =356
-                        X: =15
-                        Y: =33
+                        X: =0
+                        Y: =28
                         ZIndex: =1
 
                 "ApprovalsAPFGallery As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
@@ -105,7 +105,7 @@
 
                     Separator9 As rectangle:
                         BorderColor: =RGBA(0, 0, 255, 1)
-                        Fill: =RGBA(255, 255, 255, 1)
+                        Fill: =RGBA(214, 221, 224, 1)
                         Height: =8
                         OnSelect: =Select(Parent)
                         Width: =Parent.TemplateWidth
@@ -435,6 +435,16 @@
                     Y: =0
                     ZIndex: =2
 
+            TextCanvas8 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                Width: =96
+                X: =0
+                Y: =0
+                ZIndex: =5
+
     Container25 As groupContainer.manualLayoutContainer:
         Fill: =RGBA(25, 33, 83, 1)
         Height: =45
@@ -483,27 +493,15 @@
             Y: =6
             ZIndex: =3
 
-        TextCanvas12_3 As Text:
-            DisplayMode: =DisplayMode.Edit
-            FontColor: =RGBA(255, 255, 255, 1)
-            Height: =32
-            Size: =18
-            Text: ="ADVISER"
-            Weight: ='TextCanvas.Weight'.Semibold
-            Width: =78
-            X: =477
-            Y: =6
-            ZIndex: =4
-
         TextCanvas12_4 As Text:
             DisplayMode: =DisplayMode.Edit
             FontColor: =RGBA(255, 255, 255, 1)
             Height: =32
             Size: =18
-            Text: ="SAO HEAD"
+            Text: ="APPROVAL STATUS"
             Weight: ='TextCanvas.Weight'.Semibold
-            Width: =94
-            X: =693
-            Y: =6
+            Width: =188
+            X: =534
+            Y: =9
             ZIndex: =5
 
