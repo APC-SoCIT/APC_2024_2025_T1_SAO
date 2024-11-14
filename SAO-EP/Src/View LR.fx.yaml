@@ -864,7 +864,7 @@
                                     PressedBorderColor: =RGBA(16, 110, 190, 1)
                                     PressedFill: =RGBA(0, 120, 212, 1)
                                     SearchFields: =["Value"]
-                                    SearchItems: =[]
+                                    SearchItems: =Choices(LR_Uploads.APF_ID,DataCardValue2_5.SearchText)
                                     SelectionFill: =RGBA(0, 120, 212, 1)
                                     SelectMultiple: =false
                                     Tooltip: =Parent.DisplayName

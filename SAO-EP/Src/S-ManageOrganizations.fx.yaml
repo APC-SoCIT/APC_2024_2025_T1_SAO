@@ -1486,7 +1486,7 @@
                     Items: =Choices([@Users].userRoles)
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     SearchFields: =["Value"]
-                    SearchItems: =[]
+                    SearchItems: =Choices(Users.userRoles,userRoleVal_1.SearchText)
                     SelectMultiple: =false
                     Tooltip: =Parent.DisplayName
                     Width: =(Parent.Width - 60) * 0.15

@@ -185,8 +185,9 @@
                     ButtonCanvas5 As Button:
                         DisplayMode: =DisplayMode.Edit
                         Height: =24
-                        OnSelect: |
-                            =ChangeApprovalStatus.Run(ApprovalsAPFGallery.Selected.ID, CurrentUser.userRoles.Id, "Approved",{text_1:" "});
+                        OnSelect: |-
+                            =//ChangeApprovalStatus.Run(ApprovalsAPFGallery.Selected.ID, CurrentUser.userRoles.Id, "Approved",{text_1:" "});
+                            Set(openApprovalScreen, true)
                         Text: ="Review"
                         Visible: =If(CurrentUser.userRoles.Id<3,true,false)
                         Width: =66
@@ -330,4 +331,31 @@
     HP_TSKBR_2 As TSKBR:
         NavigationItems: =gblNavItems
         ZIndex: =2
+
+    DialogContainer As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(0,0,0,0.3)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        Visible: =openApprovalScreen
+        Width: =Parent.Width
+        ZIndex: =3
+
+        Container21 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =1
+
+            Icon15 As icon.Cancel:
+                AlignInContainer: =AlignInContainer.End
+                Icon: =Icon.Cancel
+                OnSelect: =Set(openApprovalScreen,false)
+                ZIndex: =1
 
