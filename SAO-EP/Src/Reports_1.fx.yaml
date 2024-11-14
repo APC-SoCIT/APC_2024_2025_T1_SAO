@@ -881,6 +881,17 @@
                         OnSelect: |-
                             =// Reset the dropdown selection
                                 Reset(Dropdown2_1);
+                                ClearCollect(
+                                FilteredDataTable,
+                                If(
+                                    IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
+                                    LocalPD, // Show all data if the dropdown is empty
+                                    Filter(
+                                        LocalPD,
+                                        LR_ID.Id in Filter(LocalLR, EventOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName').ID
+                                    )
+                                )    
+                            );
                         Text: ="All"
                         Width: =54
                         X: =10
