@@ -350,20 +350,22 @@
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
+            LayoutAlignItems: =LayoutAlignItems.End
             LayoutDirection: =LayoutDirection.Vertical
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             ZIndex: =1
 
             CloseDialogueBox As icon.Cancel:
-                AlignInContainer: =AlignInContainer.End
                 Icon: =Icon.Cancel
                 OnSelect: =Set(openApprovalScreen,false)
-                Width: =40
+                Width: =30
                 ZIndex: =1
 
             DropdownCanvas1 As Dropdown.pcfdataset:
+                AlignInContainer: =AlignInContainer.Center
                 DisplayMode: =DisplayMode.Edit
                 Height: =32
                 Items: =["Approved", "Rejected", "For Revision"]
@@ -374,18 +376,48 @@
                 Y: =0
                 ZIndex: =2
 
-            ButtonCanvas8 As Button:
-                DisplayMode: |-
-                    =If(DropdownCanvas1.Selected.Value = "Approved" || DropdownCanvas1.Selected.Value = "Rejected",
-                        DisplayMode.Edit,
-                        DisplayMode.Disabled
-                    )
-                Height: =32
-                LayoutMinHeight: =32
-                LayoutMinWidth: =96
-                OnSelect: =
-                Width: =96
-                X: =0
-                Y: =0
-                ZIndex: =3
+            Container19 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =10
+                LayoutJustifyContent: =LayoutJustifyContent.End
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =15
+                ZIndex: =4
+
+                "TextInputCanvas1 As 'Text input'":
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    PaddingBottom: =0
+                    Placeholder: ="Enter Reason"
+                    Visible: =If(DropdownCanvas1.Selected.Value = "For Revision", true, false)
+                    Width: =320
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                ButtonCanvas8 As Button:
+                    DisplayMode: |-
+                        =If(DropdownCanvas1.Selected.Value = "Approved" || DropdownCanvas1.Selected.Value = "Rejected",
+                            DisplayMode.Edit,
+                            If(IsBlank(TextInputCanvas1.Value),
+                                DisplayMode.Disabled, 
+                                DisplayMode.Edit
+                            )
+                        )
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    OnSelect: =
+                    PaddingTop: =
+                    Text: ="Confirm"
+                    Width: =96
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
 

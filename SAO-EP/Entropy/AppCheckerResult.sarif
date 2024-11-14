@@ -12104,19 +12104,49 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "APF_Approvals.DialogContainer.DialogueBox.ButtonCanvas8.AccessibleLabel"
+                  "fullyQualifiedName": "APF_Approvals.DialogContainer.DialogueBox.Container19.ButtonCanvas8.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "APF_Approvals.DialogContainer.DialogueBox.ButtonCanvas8.AccessibleLabel",
+                  "fullyQualifiedName": "APF_Approvals.DialogContainer.DialogueBox.Container19.ButtonCanvas8.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "APF_Approvals",
-                "type": "APF_Approvals.DialogContainer.DialogueBox.ButtonCanvas8"
+                "type": "APF_Approvals.DialogContainer.DialogueBox.Container19.ButtonCanvas8"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "APF_Approvals.DialogContainer.DialogueBox.Container19.TextInputCanvas1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "APF_Approvals.DialogContainer.DialogueBox.Container19.TextInputCanvas1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "APF_Approvals",
+                "type": "APF_Approvals.DialogContainer.DialogueBox.Container19.TextInputCanvas1"
               }
             }
           ],
