@@ -69,7 +69,7 @@
                 "ApprovalsAPFGallery As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
                     DelayItemLoading: =true
                     Items: |-
-                        =If(CurrentUser.userRoles.Id >1,
+                        =If(CurrentUser.userRoles.Id > 1,
                             Filter('APF Uploads','Name of Lead Org' = CurrentUserOrg.orgAcronym),
                             'APF Uploads'
                         )
