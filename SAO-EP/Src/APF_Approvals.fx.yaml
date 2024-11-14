@@ -189,7 +189,7 @@
                                DisplayMode.Edit)
                         Height: =24
                         OnSelect: |-
-                            =//ChangeApprovalStatus.Run(ApprovalsAPFGallery.Selected.ID, CurrentUser.userRoles.Id, "Approved",{text_1:" "});
+                            =Set(CurrentAPF_ID, ThisItem.ID);
                             Set(openApprovalScreen, true)
                         Text: ="Review"
                         Visible: =If(CurrentUser.userRoles.Id<3,true,false)
@@ -413,7 +413,8 @@
                     Height: =32
                     LayoutMinHeight: =32
                     LayoutMinWidth: =96
-                    OnSelect: =
+                    OnSelect: |-
+                        =ChangeApprovalStatus.Run(CurrentAPF_ID, CurrentUser.userRoles.Id, DropdownCanvas1.Selected.Value, {text_1:TextInputCanvas1.Value})
                     PaddingTop: =
                     Text: ="Confirm"
                     Width: =96
