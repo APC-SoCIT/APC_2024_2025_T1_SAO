@@ -4,7 +4,7 @@ CalendarComponent_1 As CanvasComponent:
     CalendarItems: |-
         =Table(
             {
-                Date: "1/3/2024",
+                Date: "11/13/2024",
                 Title: "Meeting",
                 Time: "1:30pm",
                 Venue: "MPH1"
@@ -880,7 +880,7 @@ CalendarComponent_1 As CanvasComponent:
             Height: =154
             Items: =Filter(CalendarComponent_1.CalendarItems,DateValue(Date) = CalendarComponent_1.StartDate)
             Layout: =Layout.Vertical
-            TemplateSize: =45
+            TemplateSize: =50
             Visible: =HideVisibility
             Width: =636
             X: =619
@@ -888,8 +888,10 @@ CalendarComponent_1 As CanvasComponent:
             ZIndex: =10
 
             lblEventName_1 As label:
-                Height: =25
+                Height: =35
+                LineHeight: =1
                 OnSelect: =Select(Parent)
+                Size: =12
                 Text: =ThisItem.Title
                 Width: =440
                 X: =27
@@ -897,6 +899,7 @@ CalendarComponent_1 As CanvasComponent:
 
             lblEventTime_1 As label:
                 OnSelect: =Select(Parent)
+                Size: =12
                 Text: =ThisItem.Time
                 Width: =153
                 X: =467
@@ -904,10 +907,10 @@ CalendarComponent_1 As CanvasComponent:
 
             Rectangle1_1 As rectangle:
                 Fill: =RGBA(128, 128, 128, 1)
-                Height: =40
+                Height: =50
                 OnSelect: =Select(Parent)
-                Width: =8
-                X: =9
+                Width: =11
+                X: =5
                 ZIndex: =3
 
             lblEventVenue_1 As label:
@@ -917,6 +920,6 @@ CalendarComponent_1 As CanvasComponent:
                 Text: =ThisItem.Venue
                 Width: =440
                 X: =27
-                Y: =25
+                Y: =35
                 ZIndex: =4
 

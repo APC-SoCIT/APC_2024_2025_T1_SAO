@@ -4,8 +4,7 @@ HomePage As screen:
         =Set(CurrentUserOrg, LookUp(Organizations, ID = CurrentUser.userOrg.Id));
         Set(VarPopUp, true);
         
-        Set(CalDeets, ShowColumns('APF Uploads','Activity Title','Time of Activity','Target Date','Venue/Platform'));
-        
+        ClearCollect(CalDeets, ShowColumns(Filter('APF Uploads',IsApproved=true),'Activity Title','Time of Activity','Name of Lead Org', 'Target Date','Venue/Platform'));
         
         If(
             CurrentUser.userRoles.Value = "1",
@@ -184,7 +183,7 @@ HomePage As screen:
         FalseText: ="All Orgs"
         Height: =24
         OnCheck: |-
-            =Set(
+            =ClearCollect(
                 CalDeets,
                 Filter(
                     ShowColumns(
@@ -199,7 +198,7 @@ HomePage As screen:
                 )
             );
         OnUncheck: |
-            =Set(CalDeets, ShowColumns('APF Uploads','Activity Title','Time of Activity','Target Date','Venue/Platform'));
+            =ClearCollect(CalDeets, ShowColumns('APF Uploads','Activity Title','Time of Activity','Target Date','Venue/Platform'));
         TrueFill: =RGBA(9, 33, 98, 1)
         TrueText: ="Own Org"
         Visible: |
