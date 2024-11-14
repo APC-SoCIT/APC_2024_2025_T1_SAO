@@ -2996,7 +2996,7 @@
         Reset: =TimerDone
         Width: =0
         Y: =768
-        ZIndex: =3
+        ZIndex: =4
 
     LoadScreenPanel As group:
         Height: =5
@@ -3048,6 +3048,13 @@
         Y: =40
         ZIndex: =16
 
+        Rectangle6_10 As rectangle:
+            Fill: =RGBA(0, 0, 0, 0.29)
+            Height: =768
+            Visible: =isSelectingUpload
+            Width: =1366
+            ZIndex: =3
+
         Rectangle6_9 As rectangle:
             Fill: =RGBA(24, 32, 82, 1)
             Height: =364
@@ -3055,7 +3062,7 @@
             Width: =825
             X: =275
             Y: =204
-            ZIndex: =4
+            ZIndex: =5
 
         Label2_5 As label:
             Align: =Align.Center
@@ -3068,13 +3075,6 @@
             Width: =632
             X: =368
             Y: =267
-            ZIndex: =5
-
-        Rectangle6_10 As rectangle:
-            Fill: =RGBA(0, 0, 0, 0.29)
-            Height: =768
-            Visible: =isSelectingUpload
-            Width: =1366
             ZIndex: =6
 
         ButtonCanvas3 As Button:
@@ -3088,7 +3088,11 @@
             Height: =95
             Icon: ="DocumentAdd"
             OnSelect: |-
-                =Set(isSelectingUpload, false);
+                =Set(ConfirmNewAPFActivityTitle_Visible, true);
+                Set(ConfirmNewAPFButton_Visible, true);
+                
+                /*
+                Set(isSelectingUpload, false);
                 Set(isRunning, true);
                 
                 Set(
@@ -3115,7 +3119,9 @@
                     )
                 );
                 
+                
                 Set(isRunning, false);
+                */
             Text: =
             Visible: =isSelectingUpload
             Width: =102
@@ -3209,4 +3215,70 @@
             X: =1037
             Y: =232
             ZIndex: =11
+
+    "'APF Title Confirmation Container' As groupContainer.horizontalAutoLayoutContainer":
+        Height: =100
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        X: =433
+        Y: =481
+        ZIndex: =17
+
+        "'Confirm New APF Title' As 'Text input'":
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            LayoutMinHeight: =32
+            LayoutMinWidth: =320
+            Placeholder: ="Please enter the Title of your Activity"
+            Visible: =ConfirmNewAPFActivityTitle_Visible
+            Width: =320
+            X: =486
+            Y: =510
+            ZIndex: =1
+
+        "'Confirm New APF Button' As Button":
+            DisplayMode: |-
+                =If(IsBlank('Confirm New APF Title'),
+                    DisplayMode.Edit,
+                    DisplayMode.Disabled
+                )
+            Height: =32
+            LayoutMinHeight: =32
+            LayoutMinWidth: =96
+            OnSelect: |-
+                =Set(isSelectingUpload, false);
+                Set(isRunning, true);
+                
+                Set(
+                    advEmail,
+                    LookUp(
+                        Filter(Users, CurrentUserOrg.ID = userOrg.Id),
+                        userRoles.Id = 2,
+                        userEmail
+                    )
+                );
+                
+                
+                Set(flowResponse,
+                    uploadUnsignedAPF.Run(
+                        CurrentUserOrg.orgAcronym,
+                        CurrentUser.userEmail,
+                        advEmail,
+                        {file:
+                            {
+                            contentBytes: First(FileAttachment_2.Attachments).Value,
+                            name: First(FileAttachment_2.Attachments).Name
+                            }
+                        }
+                    )
+                );
+                
+                Set(isRunning, false);
+            Text: ="Confirm"
+            Visible: =ConfirmNewAPFButton_Visible
+            Width: =96
+            X: =40
+            Y: =40
+            ZIndex: =2
 
