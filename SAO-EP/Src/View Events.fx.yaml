@@ -76,7 +76,7 @@
             "VE_Gallery As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver5.0'":
                 DelayItemLoading: =true
                 Height: =570
-                Items: =Search(CalDeets,VE_SearchInput.Text,ActivityTitle,NameofLeadOrg)
+                Items: =Search(SortByColumns(CalDeets,"Target_x0020_Date",SortOrder.Descending),VE_SearchInput.Text,ActivityTitle,NameofLeadOrg)
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
@@ -170,6 +170,7 @@
             Icon14 As icon.BackArrow:
                 Height: =43
                 Icon: =Icon.BackArrow
+                OnSelect: =Navigate('HomePage')
                 Width: =43
                 X: =36
                 Y: =46
@@ -191,7 +192,7 @@
                 DisplayMode: =DisplayMode.Edit
                 Height: =57
                 Size: =20
-                Text: =VE_Gallery.Selected.TimeofActivity
+                Text: =If(IsBlank(VE_Gallery.Selected.TimeofActivity),"Not Applicable",VE_Gallery.Selected.TimeofActivity)
                 Weight: ='TextCanvas.Weight'.Regular
                 Width: =418
                 X: =323
@@ -218,7 +219,7 @@
                 Weight: ='TextCanvas.Weight'.Regular
                 Width: =418
                 X: =323
-                Y: =386
+                Y: =398
                 ZIndex: =7
 
             TextCanvas8_7 As Text:
@@ -236,7 +237,7 @@
                 DisplayMode: =DisplayMode.Edit
                 Height: =57
                 Size: =20
-                Text: =VE_Gallery.Selected.Venue_x002f_Platform
+                Text: =If(IsBlank(VE_Gallery.Selected.Venue_x002f_Platform),"Not Applicable",VE_Gallery.Selected.Venue_x002f_Platform)
                 Weight: ='TextCanvas.Weight'.Regular
                 Width: =418
                 X: =323
@@ -267,4 +268,15 @@
                 X: =104
                 Y: =399
                 ZIndex: =12
+
+            TextCanvas8_6 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =103
+                Size: =35
+                Text: =VE_Gallery.Selected.ActivityTitle
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =713
+                X: =104
+                Y: =89
+                ZIndex: =13
 
