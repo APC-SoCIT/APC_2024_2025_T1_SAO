@@ -5106,7 +5106,7 @@
       "MetaDataIDKey": "",
       "Name": "Container7",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24440,7 +24440,8 @@
         "FocusedBorderColor",
         "ZIndex",
         "BorderThickness",
-        "FocusedBorderThickness"
+        "FocusedBorderThickness",
+        "Visible"
       ],
       "DynamicProperties": [
         {
@@ -24494,6 +24495,11 @@
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
+        {
+          "Category": "Design",
+          "PropertyName": "Visible",
+          "RuleProviderType": "Unknown"
+        },
         {
           "Category": "Design",
           "PropertyName": "Icon",
@@ -29186,7 +29192,7 @@
       "MetaDataIDKey": "",
       "Name": "OrgNameContainer_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -34371,7 +34377,8 @@
         "PaddingRight",
         "PaddingBottom",
         "PaddingLeft",
-        "Default"
+        "Default",
+        "Visible"
       ],
       "DynamicProperties": [
         {
@@ -34418,7 +34425,7 @@
           "Property": {
             "Category": "Design",
             "PropertyName": "LayoutMinWidth",
-            "RuleProviderType": "User"
+            "RuleProviderType": "Unknown"
           },
           "PropertyName": "LayoutMinWidth"
         },
@@ -34455,6 +34462,11 @@
           "Category": "Data",
           "NameMap": "{\"Value\":\"orgName\"}",
           "PropertyName": "Items",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Visible",
           "RuleProviderType": "Unknown"
         },
         {
@@ -34635,7 +34647,7 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",

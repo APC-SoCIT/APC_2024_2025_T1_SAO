@@ -464,10 +464,46 @@
             FontColor: =RGBA(255, 255, 255, 1)
             Height: =32
             Size: =18
-            Text: ="ID"
+            Text: ="ACTIVITY TITLE"
             Weight: ='TextCanvas.Weight'.Semibold
-            Width: =96
-            X: =53
-            Y: =6
+            Width: =140
+            X: =52
+            Y: =9
             ZIndex: =2
+
+        TextCanvas12_2 As Text:
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =RGBA(255, 255, 255, 1)
+            Height: =32
+            Size: =18
+            Text: ="RESPOND"
+            Weight: ='TextCanvas.Weight'.Semibold
+            Width: =90
+            X: =863
+            Y: =6
+            ZIndex: =3
+
+        TextCanvas12_3 As Text:
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =RGBA(255, 255, 255, 1)
+            Height: =32
+            Size: =18
+            Text: ="ADVISER"
+            Weight: ='TextCanvas.Weight'.Semibold
+            Width: =78
+            X: =477
+            Y: =6
+            ZIndex: =4
+
+        TextCanvas12_4 As Text:
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =RGBA(255, 255, 255, 1)
+            Height: =32
+            Size: =18
+            Text: ="SAO HEAD"
+            Weight: ='TextCanvas.Weight'.Semibold
+            Width: =94
+            X: =693
+            Y: =6
+            ZIndex: =5
 
