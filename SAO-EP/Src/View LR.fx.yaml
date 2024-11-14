@@ -63,7 +63,7 @@
                         ChevronBackground: =RGBA(39, 113, 194, 1)
                         Color: =
                         Default: ="0"
-                        FillPortions: =0.25
+                        FillPortions: =0.75
                         Height: =Parent.Height
                         Items: =Distinct(CalDeets, AcadYear)
                         LayoutMinWidth: =135
@@ -88,6 +88,7 @@
 
                     Icon15_1 As icon.VerticalLine:
                         Icon: =Icon.VerticalLine
+                        Visible: =If(CurrentUser.userRoles.Id > 1, false,true)
                         Width: =10
                         ZIndex: =3
 
@@ -98,6 +99,7 @@
                         Height: =Parent.Height
                         Items: =Organizations
                         LayoutMinWidth: =100
+                        Visible: =If(CurrentUser.userRoles.Id > 1, false,true)
                         Width: =100
                         ZIndex: =4
 
