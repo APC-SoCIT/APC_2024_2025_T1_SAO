@@ -5,10 +5,10 @@
         =Set(isRunning, false);
         If(CurrentUser.userRoles.Id > 1, 
             ClearCollect(LocalAPF,
-                AddColumns(Filter('APF Uploads', 'Name of Lead Org' = CurrentUserOrg.orgAcronym), APFU_ID_Num, ID)
+                AddColumns(Filter('APF Uploads', 'Name of Lead Org' = CurrentUserOrg.orgAcronym && IsApproved = true), APFU_ID_Num, ID)
             ),
             ClearCollect(LocalAPF, 
-                AddColumns('APF Uploads', APFU_ID_Num, ID)
+                AddColumns(Filter('APF Uploads', IsApproved = true),APFU_ID_Num, ID)
             );
           
         );
