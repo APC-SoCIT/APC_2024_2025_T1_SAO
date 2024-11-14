@@ -1093,8 +1093,8 @@
                             ="Quick Stats:"
                         Weight: ='TextCanvas.Weight'.Bold
                         Width: =193
-                        X: =40
-                        Y: =59
+                        X: =45
+                        Y: =27
                         ZIndex: =1
 
                     TextCanvas6_1 As Text:
@@ -1105,8 +1105,8 @@
                             ="Events Organized:"
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =193
-                        X: =40
-                        Y: =172
+                        X: =45
+                        Y: =100
                         ZIndex: =2
 
                     TextCanvas6_2 As Text:
@@ -1117,8 +1117,8 @@
                             ="Total Participation:"
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =193
-                        X: =40
-                        Y: =270
+                        X: =45
+                        Y: =209
                         ZIndex: =3
 
                     TextCanvas6_3 As Text:
@@ -1129,8 +1129,8 @@
                             ="Upcoming Events:"
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =193
-                        X: =40
-                        Y: =221
+                        X: =45
+                        Y: =149
                         ZIndex: =4
 
                     TextCanvas6_5 As Text:
@@ -1143,8 +1143,8 @@
                         VerticalAlign: ="Middle"
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =264
-                        X: =40
-                        Y: =319
+                        X: =45
+                        Y: =258
                         ZIndex: =6
 
                     TextCanvas6_6 As Text:
@@ -1155,8 +1155,8 @@
                             ="Average Cost per Participant:"
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =296
-                        X: =40
-                        Y: =368
+                        X: =45
+                        Y: =307
                         ZIndex: =7
 
                     TextCanvas6_7 As Text:
@@ -1173,8 +1173,8 @@
                             )
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
-                        X: =286
-                        Y: =172
+                        X: =291
+                        Y: =111
                         ZIndex: =8
 
                     TextCanvas6_8 As Text:
@@ -1193,8 +1193,8 @@
                             
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
-                        X: =286
-                        Y: =270
+                        X: =291
+                        Y: =209
                         ZIndex: =9
 
                     TextCanvas6_9 As Text:
@@ -1211,8 +1211,8 @@
                             )
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
-                        X: =286
-                        Y: =221
+                        X: =291
+                        Y: =160
                         ZIndex: =10
 
                     TextCanvas6_11 As Text:
@@ -1238,8 +1238,8 @@
                             )
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
-                        X: =286
-                        Y: =319
+                        X: =291
+                        Y: =258
                         ZIndex: =12
 
                     TextCanvas6_12 As Text:
@@ -1265,8 +1265,8 @@
                             )
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
-                        X: =286
-                        Y: =368
+                        X: =291
+                        Y: =307
                         ZIndex: =13
 
                     ButtonCanvas1_1 As Button:
@@ -1278,12 +1278,20 @@
                         Icon: ="ArrowDownload"
                         OnSelect: |-
                             =Set(isRunning,true);
-                            Set(reportOutput, ExportReport.Run(JSON(Master_Data),orgReport));
+                            
+                            If(CurrentUser.userRoles.Id > 1, 
+                                Set(reportOutput, ExportReport.Run(JSON(Master_Data),orgReport));
+                                If(IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), Set(reportOutput, ExportReport.Run(JSON(Master_Data),orgReport));,
+                                    Set(reportOutput, ExportReport.Run(JSON(Filter(Master_Data,NameofLeadOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName')),orgReport));
+                                )
+                            );
+                            
                             Set(isRunning, false);
                         Text: ="Export Report"
+                        Visible: =true
                         Width: =204
-                        X: =116
-                        Y: =468
+                        X: =120
+                        Y: =380
                         ZIndex: =14
 
                 Container16 As groupContainer.manualLayoutContainer:
