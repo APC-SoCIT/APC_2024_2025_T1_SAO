@@ -6269,7 +6269,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638672063611976331",
+    "LastModifiedTimestamp": "638672236169509563",
     "Name": "CalendarComponentEventsSide",
     "Rules": [
       {
@@ -6584,7 +6584,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638672063611976331",
+  "LastModifiedTimestamp": "638672236169509563",
   "Name": "f3da326ab7ab4c8a8e299494f5b50dc1",
   "OverridableProperties": {},
   "TemplateOriginalName": "ed7ed63143d849f6bb0e7460865e0a88",

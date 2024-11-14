@@ -5596,19 +5596,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.Container6_1.ButtonCanvas2_1.AccessibleLabel"
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.FiltersCont.OrgFilterCont.ButtonCanvas2_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.Container6_1.ButtonCanvas2_1.AccessibleLabel",
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.FiltersCont.OrgFilterCont.ButtonCanvas2_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Reports_1",
-                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.Container6_1.ButtonCanvas2_1"
+                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.FiltersCont.OrgFilterCont.ButtonCanvas2_1"
               }
             }
           ],
@@ -5626,19 +5626,79 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.Container6_1.Dropdown2_1.AccessibleLabel"
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.FiltersCont.OrgFilterCont.OrgSelectorReport.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.Container6_1.Dropdown2_1.AccessibleLabel",
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.FiltersCont.OrgFilterCont.OrgSelectorReport.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Reports_1",
-                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.Container6_1.Dropdown2_1"
+                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.FiltersCont.OrgFilterCont.OrgSelectorReport"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.FiltersCont.AYFilterCont.AcadYearSelector3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.FiltersCont.AYFilterCont.AcadYearSelector3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Reports_1",
+                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.FiltersCont.AYFilterCont.AcadYearSelector3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.FiltersCont.AYFilterCont.AY_AllBtn_3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.FiltersCont.AYFilterCont.AY_AllBtn_3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Reports_1",
+                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.'Right Container'.FiltersCont.AYFilterCont.AY_AllBtn_3"
               }
             }
           ],

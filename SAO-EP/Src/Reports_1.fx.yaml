@@ -380,8 +380,8 @@
                                         Month(DateValue('Target_x0020_Date')) = 8 || Month(DateValue('Target_x0020_Date')) > 8,
                                         Text(Year(DateValue('Target_x0020_Date')), "[$-en-US]0") & "-" & Text(Year(DateValue('Target_x0020_Date')) + 1, "[$-en-US]0"),
                                         Text(Year(DateValue('Target_x0020_Date')) - 1, "[$-en-US]0") & "-" & Text(Year(DateValue('Target_x0020_Date')), "[$-en-US]0")
-                                    ) = AcadYearSelector_3.Selected.Value || 
-                                    AcadYearSelector_3.Selected.Value = Blank()
+                                    ) = AcadYearSelector3.Selected.Value || 
+                                    AcadYearSelector3.Selected.Value = Blank()
                                 )
                             )
                         Width: =Parent.Width
@@ -855,265 +855,311 @@
                 PaddingTop: =10
                 ZIndex: =4
 
-                Container6_1 As groupContainer.manualLayoutContainer:
-                    DropShadow: =DropShadow.Light
+                FiltersCont As groupContainer.verticalAutoLayoutContainer:
                     FillPortions: =0.25
+                    LayoutDirection: =LayoutDirection.Vertical
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
-                    RadiusBottomLeft: =5
-                    RadiusBottomRight: =5
-                    RadiusTopLeft: =5
-                    RadiusTopRight: =5
-                    Visible: =If(CurrentUser.userRoles.Id = 1, true, false)
-                    ZIndex: =5
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =1
 
-                    OrgSelectorReport As dropdown:
-                        AllowEmptySelection: =true
-                        Default: =
-                        FontWeight: =FontWeight.Lighter
-                        Height: =46
-                        Items: =ShowColumns(Organizations,orgAcronym)
-                        OnChange: |+
-                            =ClearCollect(
-                                FilteredDataTable,
-                                If(
-                                    IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
-                                    LocalPD, // Show all data if the dropdown is empty
-                                    Filter(
-                                        LocalPD,
-                                        LR_ID.Id in Filter(LocalLR, EventOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName').ID
+                    OrgFilterCont As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0.5
+                        LayoutMinHeight: =50
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =1
+
+                        TextCanvas9_1 As Text:
+                            AlignInContainer: =AlignInContainer.Stretch
+                            DisplayMode: =DisplayMode.Edit
+                            FillPortions: =0.3
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            Size: =20
+                            Text: |-
+                                ="   Org Filter: "
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =96
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        OrgSelectorReport As dropdown:
+                            AllowEmptySelection: =true
+                            Default: =
+                            FillPortions: =0.55
+                            FontWeight: =FontWeight.Lighter
+                            Height: =46
+                            Items: =ShowColumns(Organizations,orgAcronym)
+                            LayoutMinWidth: =80
+                            OnChange: |+
+                                =ClearCollect(
+                                    FilteredDataTable,
+                                    If(
+                                        IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
+                                        LocalPD, // Show all data if the dropdown is empty
+                                        Filter(
+                                            LocalPD,
+                                            LR_ID.Id in Filter(LocalLR, EventOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName').ID
+                                        )
+                                    )    
+                                );
+                                
+                                
+                                // Update LocalAPF
+                                /**
+                                ClearCollect(
+                                    LocalAPF,
+                                    AddColumns(
+                                        Filter(
+                                            'APF Uploads',
+                                            'Name of Lead Org' = Dropdown2_1.Selected.orgAcronym // Apply the filter based on dropdown selection
+                                        ),
+                                        APFU_ID_Num,
+                                        ID
                                     )
-                                )    
-                            );
-                            
-                            
-                            // Update LocalAPF
-                            /**
-                            ClearCollect(
-                                LocalAPF,
-                                AddColumns(
+                                );
+                                
+                                // Update LocalLR
+                                ClearCollect(
+                                    LocalLR,
+                                    AddColumns(
+                                        Filter(
+                                            LR_Uploads,
+                                            EventOrg = Dropdown2_1.Selected.orgAcronym // Filter based on EventOrg
+                                        ),
+                                        LR_ID_Num,
+                                        ID,
+                                        APF_ID_Num,
+                                        APF_ID.Id
+                                    )
+                                );
+                                
+                                // Update LocalPD
+                                ClearCollect(
+                                    LocalPD,
                                     Filter(
-                                        'APF Uploads',
-                                        'Name of Lead Org' = Dropdown2_1.Selected.orgAcronym // Apply the filter based on dropdown selection
-                                    ),
-                                    APFU_ID_Num,
-                                    ID
-                                )
-                            );
-                            
-                            // Update LocalLR
-                            ClearCollect(
-                                LocalLR,
-                                AddColumns(
-                                    Filter(
-                                        LR_Uploads,
-                                        EventOrg = Dropdown2_1.Selected.orgAcronym // Filter based on EventOrg
-                                    ),
-                                    LR_ID_Num,
-                                    ID,
-                                    APF_ID_Num,
-                                    APF_ID.Id
-                                )
-                            );
-                            
-                            // Update LocalPD
-                            ClearCollect(
-                                LocalPD,
-                                Filter(
-                                    LR_PDItems,
-                                    !IsBlank(
-                                        LookUp(
-                                            LocalLR,
-                                            LR_ID_Num = LR_ID.Id // Check if there is a matching ID in LocalLR
+                                        LR_PDItems,
+                                        !IsBlank(
+                                            LookUp(
+                                                LocalLR,
+                                                LR_ID_Num = LR_ID.Id // Check if there is a matching ID in LocalLR
+                                            )
                                         )
                                     )
-                                )
-                            );
-                            
-                            // Update Master_Data
-                            ClearCollect(
-                                Master_Data,
-                                AddColumns(
-                                    ShowColumns(
-                                        LocalAPF,
-                                        APFU_ID_Num,
-                                        ID,
-                                        'Name of Lead Org',
-                                        Title,
-                                        'Activity Title',
-                                        'Target Date',
-                                        'Venue/Platform',
-                                        'Workshop/Tech Training',
-                                        'Seminar/Webinar/Symposium/Forum',
-                                        'Leadership Training',
-                                        'Academic Competition',
-                                        'Culture & Arts',
-                                        'Games & Sports',
-                                        'Religious/Spiritual',
-                                        'Community Ext',
-                                        'Social Events',
-                                        Marketing,
-                                        'Projected Primary Audience',
-                                        'Projected Secondary Audience'
-                                    ),
-                                    EventTypes,
-                                    Concat(
-                                        Filter(
-                                            [
-                                                { Type: "Workshop", Value: ThisRecord.Workshop_x002f_TechTraining },
-                                                { Type: "Seminar", Value: ThisRecord.Seminar_x002f_Webinar_x002f_Symp },
-                                                { Type: "Leadership", Value: ThisRecord.LeadershipTraining },
-                                                { Type: "Academic", Value: ThisRecord.AcademicCompetition },
-                                                { Type: "Cultural", Value: ThisRecord.CultureArts },
-                                                { Type: "Sports", Value: ThisRecord.GamesSports },
-                                                { Type: "Religious", Value: ThisRecord.Religious_x002f_Spiritual },
-                                                { Type: "Community", Value: ThisRecord.CommunityExt },
-                                                { Type: "Social", Value: ThisRecord.SocialEvents },
-                                                { Type: "Marketing", Value: ThisRecord.Marketing }
-                                            ],
-                                            Value = true
+                                );
+                                
+                                // Update Master_Data
+                                ClearCollect(
+                                    Master_Data,
+                                    AddColumns(
+                                        ShowColumns(
+                                            LocalAPF,
+                                            APFU_ID_Num,
+                                            ID,
+                                            'Name of Lead Org',
+                                            Title,
+                                            'Activity Title',
+                                            'Target Date',
+                                            'Venue/Platform',
+                                            'Workshop/Tech Training',
+                                            'Seminar/Webinar/Symposium/Forum',
+                                            'Leadership Training',
+                                            'Academic Competition',
+                                            'Culture & Arts',
+                                            'Games & Sports',
+                                            'Religious/Spiritual',
+                                            'Community Ext',
+                                            'Social Events',
+                                            Marketing,
+                                            'Projected Primary Audience',
+                                            'Projected Secondary Audience'
                                         ),
-                                        Type,
-                                        "; "
-                                    ),
-                                    // Other calculations for CashAdvance, TotalExpenses, Balance
-                                    CashAdvance,
-                                    If(
-                                        IsBlank(
+                                        EventTypes,
+                                        Concat(
+                                            Filter(
+                                                [
+                                                    { Type: "Workshop", Value: ThisRecord.Workshop_x002f_TechTraining },
+                                                    { Type: "Seminar", Value: ThisRecord.Seminar_x002f_Webinar_x002f_Symp },
+                                                    { Type: "Leadership", Value: ThisRecord.LeadershipTraining },
+                                                    { Type: "Academic", Value: ThisRecord.AcademicCompetition },
+                                                    { Type: "Cultural", Value: ThisRecord.CultureArts },
+                                                    { Type: "Sports", Value: ThisRecord.GamesSports },
+                                                    { Type: "Religious", Value: ThisRecord.Religious_x002f_Spiritual },
+                                                    { Type: "Community", Value: ThisRecord.CommunityExt },
+                                                    { Type: "Social", Value: ThisRecord.SocialEvents },
+                                                    { Type: "Marketing", Value: ThisRecord.Marketing }
+                                                ],
+                                                Value = true
+                                            ),
+                                            Type,
+                                            "; "
+                                        ),
+                                        // Other calculations for CashAdvance, TotalExpenses, Balance
+                                        CashAdvance,
+                                        If(
+                                            IsBlank(
+                                                LookUp(
+                                                    LocalLR,
+                                                    APFU_ID_Num = ThisRecord.APF_ID_Num,
+                                                    CashAdvAmt
+                                                )
+                                            ),
+                                            0,
                                             LookUp(
                                                 LocalLR,
                                                 APFU_ID_Num = ThisRecord.APF_ID_Num,
                                                 CashAdvAmt
                                             )
                                         ),
-                                        0,
-                                        LookUp(
-                                            LocalLR,
-                                            APFU_ID_Num = ThisRecord.APF_ID_Num,
-                                            CashAdvAmt
-                                        )
-                                    ),
-                                    TotalExpenses,
-                                    If(
-                                        IsBlank(
+                                        TotalExpenses,
+                                        If(
+                                            IsBlank(
+                                                LookUp(
+                                                    LocalLR,
+                                                    APFU_ID_Num = ThisRecord.APF_ID_Num,
+                                                    TotalExpenses
+                                                )
+                                            ),
+                                            0,
                                             LookUp(
                                                 LocalLR,
                                                 APFU_ID_Num = ThisRecord.APF_ID_Num,
                                                 TotalExpenses
                                             )
                                         ),
-                                        0,
-                                        LookUp(
-                                            LocalLR,
-                                            APFU_ID_Num = ThisRecord.APF_ID_Num,
-                                            TotalExpenses
-                                        )
-                                    ),
-                                    Balance,
-                                    If(
-                                        IsBlank(
+                                        Balance,
+                                        If(
+                                            IsBlank(
+                                                LookUp(
+                                                    LocalLR,
+                                                    APFU_ID_Num = ThisRecord.APF_ID_Num,
+                                                    Balance
+                                                )
+                                            ),
+                                            0,
                                             LookUp(
                                                 LocalLR,
                                                 APFU_ID_Num = ThisRecord.APF_ID_Num,
                                                 Balance
                                             )
                                         ),
-                                        0,
-                                        LookUp(
-                                            LocalLR,
-                                            APFU_ID_Num = ThisRecord.APF_ID_Num,
-                                            Balance
+                                        CostPerParticipant,
+                                        If(
+                                            Or(
+                                                Sum(ThisRecord.ProjectedPrimaryAudience, ThisRecord.ProjectedSecondaryAudience) = 0,
+                                                IsBlank(LookUp(LocalLR, APFU_ID_Num = ThisRecord.APF_ID_Num, TotalExpenses))
+                                            ),
+                                            0,
+                                            LookUp(LocalLR, APFU_ID_Num = ThisRecord.APF_ID_Num, TotalExpenses) / 
+                                            Sum(ThisRecord.ProjectedPrimaryAudience, ThisRecord.ProjectedSecondaryAudience)
                                         )
-                                    ),
-                                    CostPerParticipant,
-                                    If(
-                                        Or(
-                                            Sum(ThisRecord.ProjectedPrimaryAudience, ThisRecord.ProjectedSecondaryAudience) = 0,
-                                            IsBlank(LookUp(LocalLR, APFU_ID_Num = ThisRecord.APF_ID_Num, TotalExpenses))
-                                        ),
-                                        0,
-                                        LookUp(LocalLR, APFU_ID_Num = ThisRecord.APF_ID_Num, TotalExpenses) / 
-                                        Sum(ThisRecord.ProjectedPrimaryAudience, ThisRecord.ProjectedSecondaryAudience)
                                     )
-                                )
-                            );
-                            
-                            // Update EventTypeReports
-                            ClearCollect(
-                                EventTypeReports,
-                                {
-                                    SeminarCount: CountIf(Master_Data, Seminar_x002f_Webinar_x002f_Symp = true),
-                                    LeadershipCount: CountIf(Master_Data, LeadershipTraining = true),
-                                    CommExtCount: CountIf(Master_Data, CommunityExt = true),
-                                    MarketingCount: CountIf(Master_Data, Marketing = true),
-                                    ReligiousCount: CountIf(Master_Data, Religious_x002f_Spiritual = true),
-                                    AcadCompeCount: CountIf(Master_Data, AcademicCompetition = true),
-                                    CultureCount: CountIf(Master_Data, CultureArts = true),
-                                    GameCount: CountIf(Master_Data, GamesSports = true),
-                                    SocialCount: CountIf(Master_Data, SocialEvents = true)
-                                }
-                            );
-                            **/
-                            
-                        Reset: =true
-                        Width: =128
-                        X: =10
-                        Y: =33
-                        ZIndex: =6
-
-                    ButtonCanvas2_1 As Button:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =46
-                        OnSelect: |-
-                            =// Reset the dropdown selection
-                                Reset(OrgSelectorReport);
+                                );
+                                
+                                // Update EventTypeReports
                                 ClearCollect(
-                                FilteredDataTable,
-                                If(
-                                    IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
-                                    LocalPD, // Show all data if the dropdown is empty
-                                    Filter(
-                                        LocalPD,
-                                        LR_ID.Id in Filter(LocalLR, EventOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName').ID
-                                    )
-                                )    
-                            );
-                        Text: ="All"
-                        Width: =54
-                        X: =144
-                        Y: =33
-                        ZIndex: =7
+                                    EventTypeReports,
+                                    {
+                                        SeminarCount: CountIf(Master_Data, Seminar_x002f_Webinar_x002f_Symp = true),
+                                        LeadershipCount: CountIf(Master_Data, LeadershipTraining = true),
+                                        CommExtCount: CountIf(Master_Data, CommunityExt = true),
+                                        MarketingCount: CountIf(Master_Data, Marketing = true),
+                                        ReligiousCount: CountIf(Master_Data, Religious_x002f_Spiritual = true),
+                                        AcadCompeCount: CountIf(Master_Data, AcademicCompetition = true),
+                                        CultureCount: CountIf(Master_Data, CultureArts = true),
+                                        GameCount: CountIf(Master_Data, GamesSports = true),
+                                        SocialCount: CountIf(Master_Data, SocialEvents = true)
+                                    }
+                                );
+                                **/
+                                
+                            Reset: =true
+                            Width: =128
+                            X: =10
+                            Y: =33
+                            ZIndex: =2
 
-                    Icon21_2 As icon.VerticalLine:
-                        Height: =46
-                        Icon: =Icon.VerticalLine
-                        Width: =14
-                        X: =202
-                        Y: =33
-                        ZIndex: =8
+                        ButtonCanvas2_1 As Button:
+                            DisplayMode: =DisplayMode.Edit
+                            FillPortions: =0.15
+                            Height: =46
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =40
+                            OnSelect: |-
+                                =// Reset the dropdown selection
+                                    Reset(OrgSelectorReport);
+                                    ClearCollect(
+                                    FilteredDataTable,
+                                    If(
+                                        IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
+                                        LocalPD, // Show all data if the dropdown is empty
+                                        Filter(
+                                            LocalPD,
+                                            LR_ID.Id in Filter(LocalLR, EventOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName').ID
+                                        )
+                                    )    
+                                );
+                            Text: ="All"
+                            Width: =54
+                            X: =144
+                            Y: =33
+                            ZIndex: =3
 
-                    AcadYearSelector_3 As dropdown:
-                        AllowEmptySelection: =true
-                        ChevronBackground: =RGBA(39, 113, 194, 1)
-                        Color: =
-                        Default: ="0"
-                        Height: =46
-                        Items: =Distinct(CalDeets, AcadYear)
-                        Reset: =true
-                        Width: =136
-                        X: =232
-                        Y: =33
-                        ZIndex: =9
+                    AYFilterCont As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0.5
+                        LayoutMinHeight: =50
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =2
 
-                    AY_AllBtn_3 As Button:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =46
-                        OnSelect: =Reset(AcadYearSelector_3)
-                        Text: ="All"
-                        Width: =54
-                        X: =371
-                        Y: =33
-                        ZIndex: =10
+                        TextCanvas9 As Text:
+                            AlignInContainer: =AlignInContainer.Stretch
+                            DisplayMode: =DisplayMode.Edit
+                            FillPortions: =0.3
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            Size: =20
+                            Text: |-
+                                ="   AY Filter: "
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =96
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        AcadYearSelector3 As dropdown:
+                            AlignInContainer: =AlignInContainer.Stretch
+                            AllowEmptySelection: =true
+                            ChevronBackground: =RGBA(39, 113, 194, 1)
+                            Color: =
+                            Default: ="0"
+                            FillPortions: =0.55
+                            Height: =46
+                            Items: =Distinct(CalDeets, AcadYear)
+                            LayoutMinWidth: =80
+                            Reset: =true
+                            Width: =136
+                            X: =232
+                            Y: =33
+                            ZIndex: =2
+
+                        AY_AllBtn_3 As Button:
+                            AlignInContainer: =AlignInContainer.Stretch
+                            DisplayMode: =DisplayMode.Edit
+                            FillPortions: =0.15
+                            Height: =46
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =40
+                            OnSelect: =Reset(AcadYearSelector3)
+                            Text: ="All"
+                            Width: =54
+                            X: =371
+                            Y: =33
+                            ZIndex: =3
 
                 Container6_2 As groupContainer.manualLayoutContainer:
                     DropShadow: =DropShadow.Light
@@ -1123,7 +1169,7 @@
                     RadiusBottomRight: =5
                     RadiusTopLeft: =5
                     RadiusTopRight: =5
-                    ZIndex: =6
+                    ZIndex: =3
 
                     TextCanvas6 As Text:
                         DisplayMode: =DisplayMode.Edit
@@ -1219,7 +1265,7 @@
                                                 Month(DateValue('Target_x0020_Date')) = 8 || Month(DateValue('Target_x0020_Date')) > 8,
                                                 Text(Year(DateValue('Target_x0020_Date')), "[$-en-US]0") & "-" & Text(Year(DateValue('Target_x0020_Date')) + 1, "[$-en-US]0"),
                                                 Text(Year(DateValue('Target_x0020_Date')) - 1, "[$-en-US]0") & "-" & Text(Year(DateValue('Target_x0020_Date')), "[$-en-US]0")
-                                            ) = AcadYearSelector_3.Selected.Value
+                                            ) = AcadYearSelector3.Selected.Value
                                         )
                                     )
                                 )
@@ -1358,7 +1404,7 @@
                     RadiusBottomRight: =10
                     RadiusTopLeft: =10
                     RadiusTopRight: =10
-                    ZIndex: =7
+                    ZIndex: =4
 
                     ReportLink As Text:
                         DisplayMode: =DisplayMode.Edit
