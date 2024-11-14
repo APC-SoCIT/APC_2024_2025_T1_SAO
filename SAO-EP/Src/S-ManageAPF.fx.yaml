@@ -113,10 +113,13 @@
                     ZIndex: =3
 
                 SMapf_OrgSelector As dropdown:
+                    AlignInContainer: =AlignInContainer.Stretch
                     ChevronBackground: =RGBA(9, 33, 98, 1)
                     FillPortions: =1
                     Height: =Parent.Height
                     Items: =Organizations
+                    LayoutMinWidth: =100
+                    Width: =100
                     ZIndex: =4
 
             OrgNameContainer_4 As groupContainer.horizontalAutoLayoutContainer:

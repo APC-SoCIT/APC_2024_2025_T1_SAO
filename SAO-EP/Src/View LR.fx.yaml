@@ -49,6 +49,58 @@
                 Visible: =If(And('View LR'.Size = ScreenSize.Small, Or(newMode, editMode, itemSelected)), false, true)
                 ZIndex: =5
 
+                Filtering_1 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0.05
+                    LayoutGap: =5
+                    LayoutMinHeight: =50
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =1
+
+                    AcadYearSelector_1 As dropdown:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        AllowEmptySelection: =true
+                        ChevronBackground: =RGBA(39, 113, 194, 1)
+                        Color: =
+                        Default: ="0"
+                        FillPortions: =0.25
+                        Height: =Parent.Height
+                        Items: =Distinct(CalDeets, AcadYear)
+                        LayoutMinWidth: =135
+                        Reset: =true
+                        Width: =50
+                        ZIndex: =1
+
+                    AY_AllBtn_1 As Button:
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =0.3
+                        Height: =Parent.Height
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: |
+                            =30
+                        OnSelect: =Reset(AcadYearSelector_1)
+                        Text: ="All"
+                        Width: |
+                            =30
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                    Icon15_1 As icon.VerticalLine:
+                        Icon: =Icon.VerticalLine
+                        Width: =10
+                        ZIndex: =3
+
+                    SMapf_OrgSelector_1 As dropdown:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        ChevronBackground: =RGBA(9, 33, 98, 1)
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Items: =Organizations
+                        LayoutMinWidth: =100
+                        Width: =100
+                        ZIndex: =4
+
                 OrgNameContainer_3 As groupContainer.horizontalAutoLayoutContainer:
                     Fill: =RGBA(245, 245, 245, 1)
                     FillPortions: =0
@@ -57,7 +109,7 @@
                     LayoutMinWidth: =0
                     LayoutMode: =LayoutMode.Auto
                     Visible: =If(CurrentUser.userRoles.Id > 1, true, false)
-                    ZIndex: =1
+                    ZIndex: =2
 
                     Label3_3 As label:
                         Align: =Align.Center
@@ -74,21 +126,13 @@
                         Width: =Parent.Width
                         ZIndex: =2
 
-                Dropdown1 As dropdown:
-                    AlignInContainer: =AlignInContainer.Stretch
-                    ChevronBackground: =RGBA(9, 33, 98, 1)
-                    Height: =65
-                    Items: =Organizations
-                    Visible: =If(CurrentUser.userRoles.Id > 1, false, true)
-                    ZIndex: =2
-
                 Container7 As groupContainer.manualLayoutContainer:
                     FillPortions: =0
                     Height: =140
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     Visible: =If(CurrentUser.userRoles.Id > 1, true, false)
-                    ZIndex: =3
+                    ZIndex: =4
 
                     NewRecordAddIcon1_3 As icon:
                         Height: =42
@@ -162,7 +206,7 @@
                     LayoutMinHeight: =100
                     LayoutMinWidth: =0
                     LayoutMode: =LayoutMode.Auto
-                    ZIndex: =4
+                    ZIndex: =5
 
                     SearchInput1 As text:
                         BorderStyle: =BorderStyle.None
@@ -200,20 +244,38 @@
                     HoverFill: =RGBA(0, 120, 212, 1)
                     LayoutMinWidth: =200
                     PressedFill: =RGBA(0, 120, 212, 1)
-                    ZIndex: =5
+                    ZIndex: =6
 
                 "RecordsGallery1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
                     '#CopilotOverlayLabel': ="Filtered"
                     BorderColor: =RGBA(245, 245, 245, 1)
-                    Default: =CurrentItem
                     DelayItemLoading: =true
                     Fill: =RGBA(250, 250, 250, 1)
                     Items: |+
-                        =If(CurrentUser.userRoles.Id >1,
+                        =/*
+                        If(CurrentUser.userRoles.Id >1,
                             Search(Filter(LR_Uploads,EventOrg = CurrentUserOrg.orgAcronym),SearchInput1.Text, Title,EventNumber),
-                            Search(Filter(LR_Uploads,EventOrg = Dropdown1.Selected.orgAcronym),SearchInput1.Text, Title,EventNumber)
+                            Search(Filter(LR_Uploads,EventOrg = SMapf_OrgSelector_1.Selected.orgAcronym),SearchInput1.Text, Title,EventNumber)
                         )
+                        */
                         
+                        Search(
+                            Filter(
+                                'LR_Uploads',
+                                'EventOrg' = SMapf_OrgSelector_1.Selected.orgAcronym &&
+                                (
+                                    IsBlank(AcadYearSelector_1.Selected.Value) || // Check if Dropdown4 is blank
+                                    If(
+                                        Month(DateValue('EventDate')) = 8 || Month(DateValue('EventDate')) > 8,
+                                        Text(Year(DateValue('EventDate')), "[$-en-US]0") & "-" & Text(Year(DateValue('EventDate')) + 1, "[$-en-US]0"),
+                                        Text(Year(DateValue('EventDate')) - 1, "[$-en-US]0") & "-" & Text(Year(DateValue('EventDate')), "[$-en-US]0")
+                                    ) = AcadYearSelector_1.Selected.Value // Compare derived academic year with selected value
+                                )
+                            ),
+                            SearchInput1_3.Text,
+                            Title,
+                            EventOrg
+                        )
                         
                     Layout: =Layout.Vertical
                     LayoutMinHeight: =287
@@ -224,7 +286,7 @@
                     TemplateFill: =If(Self.IsSelected, RGBA(230, 230, 230, 1), RGBA(0, 0, 0, 0))
                     TemplatePadding: =0
                     TemplateSize: =104
-                    ZIndex: =6
+                    ZIndex: =7
 
                     Title1_1 As label:
                         Color: =RGBA(50, 49, 48, 1)
@@ -256,7 +318,7 @@
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =12
-                        Text: =ThisItem.APF_ID.Id
+                        Text: =ThisItem.EventDate
                         VerticalAlign: =VerticalAlign.Top
                         Width: =Title1_1.Width
                         X: =Title1_1.X
@@ -275,7 +337,7 @@
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =12
-                        Text: =ThisItem.OfficerInCharge
+                        Text: =Concatenate("₱ ", ThisItem.TotalExpenses)
                         VerticalAlign: =VerticalAlign.Top
                         Width: =Title1_1.Width
                         X: =Title1_1.X
@@ -445,7 +507,7 @@
                     AllExpenses As label:
                         Color: =RGBA(255, 255, 255, 1)
                         FontWeight: =FontWeight.Semibold
-                        Text: =Sum(RecordsGallery1.AllItems, TotalExpenses) - Sum(RecordsGallery1.AllItems,Balance)
+                        Text: =Sum(RecordsGallery1.AllItems, TotalExpenses) + Sum(RecordsGallery1.AllItems,Balance)
                         Width: =246
                         X: =316
                         Y: =8
@@ -466,7 +528,7 @@
                         FontWeight: =FontWeight.Semibold
                         Text: |-
                             =If(CurrentUser.userRoles.Id = 1,
-                                LookUp(Organizations,orgAcronym = Dropdown1.Selected.orgAcronym,orgBaseBudget) - Value(AllExpenses.Text),
+                                LookUp(Organizations,orgAcronym = SMapf_OrgSelector_1.Selected.orgAcronym,orgBaseBudget) - Value(AllExpenses.Text),
                                 LookUp(Organizations,orgAcronym = CurrentUserOrg.orgAcronym ,orgBaseBudget) - Value(AllExpenses.Text)
                             )
                         Width: =246

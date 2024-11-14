@@ -3185,10 +3185,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 5,
-                  "charOffset": 118,
+                  "charLength": 358,
+                  "charOffset": 483,
                   "snippet": {
-                    "text": "Title"
+                    "text": "If(\n                Month(DateValue('EventDate')) = 8 || Month(DateValue('EventDate')) > 8,\n                Text(Year(DateValue('EventDate')), \"[$-en-US]0\") & \"-\" & Text(Year(DateValue('EventDate')) + 1, \"[$-en-US]0\"),\n                Text(Year(DateValue('EventDate')) - 1, \"[$-en-US]0\") & \"-\" & Text(Year(DateValue('EventDate')), \"[$-en-US]0\")\n            )"
                   }
                 }
               },
@@ -3201,7 +3201,7 @@
           ],
           "message": {
             "arguments": [
-              "Search"
+              "If"
             ],
             "id": "issue"
           },
@@ -3225,10 +3225,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 5,
-                  "charOffset": 228,
+                  "charLength": 1,
+                  "charOffset": 842,
                   "snippet": {
-                    "text": "Title"
+                    "text": "="
                   }
                 }
               },
@@ -3241,7 +3241,87 @@
           ],
           "message": {
             "arguments": [
-              "Search"
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.RecordsGallery1.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.RecordsGallery1.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 437,
+                  "snippet": {
+                    "text": "||"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "View LR",
+                "type": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.RecordsGallery1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.RecordsGallery1.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.RecordsGallery1.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 369,
+                  "snippet": {
+                    "text": "&&"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "View LR",
+                "type": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.RecordsGallery1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
             ],
             "id": "issue"
           },
@@ -11154,19 +11234,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.Dropdown1.AccessibleLabel"
+                  "fullyQualifiedName": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.Filtering_1.AcadYearSelector_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.Dropdown1.AccessibleLabel",
+                  "fullyQualifiedName": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.Filtering_1.AcadYearSelector_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "View LR",
-                "type": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.Dropdown1"
+                "type": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.Filtering_1.AcadYearSelector_1"
               }
             }
           ],
@@ -12444,6 +12524,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.Filtering_1.AY_AllBtn_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.Filtering_1.AY_AllBtn_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "View LR",
+                "type": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.Filtering_1.AY_AllBtn_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.Filtering_1.SMapf_OrgSelector_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.Filtering_1.SMapf_OrgSelector_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "View LR",
+                "type": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.Filtering_1.SMapf_OrgSelector_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.VarPopUp"
                 }
               ],
@@ -12893,6 +13033,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'View LR'.CurrentItem"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'View LR'.CurrentItem",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "CurrentItem",
+                "module": "View LR",
+                "type": "'View LR'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'View LR'.deleteCancelled"
                 }
               ],
@@ -12917,6 +13087,36 @@
           },
           "ruleId": "app-UnusedVariables",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.RecordsGallery1.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.RecordsGallery1.Items",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "View LR",
+                "type": "'View LR'.ScreenContainer1.BodyContainer1.SidebarContainer1.RecordsGallery1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 14
         }
       ],
       "tool": {
