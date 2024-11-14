@@ -1280,7 +1280,7 @@
                             =Set(isRunning,true);
                             
                             If(CurrentUser.userRoles.Id > 1, 
-                                Set(reportOutput, ExportReport.Run(JSON(Master_Data),orgReport));
+                                Set(reportOutput, ExportReport.Run(JSON(Master_Data),orgReport)),
                                 If(IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), Set(reportOutput, ExportReport.Run(JSON(Master_Data),orgReport));,
                                     Set(reportOutput, ExportReport.Run(JSON(Filter(Master_Data,NameofLeadOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName')),orgReport));
                                 )
