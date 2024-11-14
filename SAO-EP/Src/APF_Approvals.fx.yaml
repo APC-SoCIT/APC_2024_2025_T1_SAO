@@ -343,7 +343,7 @@
         Width: =Parent.Width
         ZIndex: =3
 
-        Container21 As groupContainer.verticalAutoLayoutContainer:
+        DialogueBox As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
@@ -353,7 +353,7 @@
             LayoutMode: =LayoutMode.Auto
             ZIndex: =1
 
-            Icon15 As icon.Cancel:
+            CloseDialogueBox As icon.Cancel:
                 AlignInContainer: =AlignInContainer.End
                 Icon: =Icon.Cancel
                 OnSelect: =Set(openApprovalScreen,false)
