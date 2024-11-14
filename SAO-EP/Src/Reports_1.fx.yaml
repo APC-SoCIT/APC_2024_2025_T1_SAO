@@ -1164,7 +1164,13 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =49
                         Size: =20
-                        Text: =CountRows(Master_Data)
+                        Text: |-
+                            =If(CurrentUser.userRoles.Id > 1, 
+                                CountRows(Master_Data), 
+                                If(IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), CountRows(Master_Data),
+                                CountIf(Master_Data, NameofLeadOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName')
+                                )
+                            )
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
@@ -1176,7 +1182,15 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =49
                         Size: =20
-                        Text: =Sum(Master_Data, ProjectedPrimaryAudience) + Sum(Master_Data, ProjectedSecondaryAudience)
+                        Text: |+
+                            =If(CurrentUser.userRoles.Id > 1, 
+                                Sum(Master_Data, ProjectedPrimaryAudience) + Sum(Master_Data, ProjectedSecondaryAudience), 
+                                If(IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), Sum(Master_Data, ProjectedPrimaryAudience) + Sum(Master_Data, ProjectedSecondaryAudience),
+                                    Sum(Filter(Master_Data, NameofLeadOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), ProjectedPrimaryAudience) + 
+                                    Sum(Filter(Master_Data, NameofLeadOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), ProjectedSecondaryAudience)
+                                )
+                            )
+                            
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
@@ -1188,7 +1202,13 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =49
                         Size: =20
-                        Text: =CountIf(Master_Data,Target_x0020_Date >= Today())
+                        Text: |
+                            =If(CurrentUser.userRoles.Id > 1, 
+                                CountIf(Master_Data,Target_x0020_Date >= Today()), 
+                                If(IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), CountIf(Master_Data,Target_x0020_Date >= Today()),
+                                CountIf(Master_Data, NameofLeadOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName' && Target_x0020_Date >= Today())
+                                )
+                            )
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
@@ -1200,7 +1220,22 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =49
                         Size: =20
-                        Text: =Concatenate(Round(Sum(Master_Data, TotalExpensesValue) / 11000 * 100,2), "%")
+                        Text: |-
+                            =If(
+                                CurrentUser .userRoles.Id > 1,
+                                Concatenate(Round(Sum(Master_Data, TotalExpensesValue) / 11000 * 100, 2), "%"),
+                                If(
+                                    IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
+                                    Concatenate(Round(Sum(Master_Data, TotalExpensesValue) / 11000 * 100, 2), "%"),
+                                    Concatenate(
+                                        Round(
+                                            Sum(Filter(Master_Data, NameofLeadOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), TotalExpensesValue) / 11000 * 100,
+                                            2
+                                        ),
+                                        "%"
+                                    )
+                                )
+                            )
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
@@ -1212,7 +1247,22 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =49
                         Size: =20
-                        Text: =Round(Sum(Master_Data,CostPerParticipant),2)
+                        Text: |-
+                            =If(
+                                CurrentUser .userRoles.Id > 1,
+                                Round(Sum(Master_Data, CostPerParticipant), 2),
+                                If(
+                                    IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
+                                    Round(Sum(Master_Data, CostPerParticipant), 2),
+                                    Round(
+                                        Sum(
+                                            Filter(Master_Data, NameofLeadOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), 
+                                            CostPerParticipant
+                                        ), 
+                                        2
+                                    )
+                                )
+                            )
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =286
