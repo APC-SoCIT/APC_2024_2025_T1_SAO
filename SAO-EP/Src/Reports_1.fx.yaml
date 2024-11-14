@@ -1282,11 +1282,12 @@
                                         Master_Data,
                                         NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName' &&
                                         (
+                                            IsBlank(AcadYearSelector3.SelectedText.Value) || // Check if AcadYearSelector3 is blank
                                             If(
                                                 Month(DateValue('Target_x0020_Date')) = 8 || Month(DateValue('Target_x0020_Date')) > 8,
                                                 Text(Year(DateValue('Target_x0020_Date')), "[$-en-US]0") & "-" & Text(Year(DateValue('Target_x0020_Date')) + 1, "[$-en-US]0"),
                                                 Text(Year(DateValue('Target_x0020_Date')) - 1, "[$-en-US]0") & "-" & Text(Year(DateValue('Target_x0020_Date')), "[$-en-US]0")
-                                            ) = AcadYearSelector3.Selected.Value
+                                            ) = AcadYearSelector3.SelectedText.Value
                                         )
                                     )
                                 )
