@@ -395,7 +395,7 @@
                     LayoutMinWidth: =320
                     PaddingBottom: =0
                     Placeholder: ="Enter Reason"
-                    Visible: =If(DropdownCanvas1.Selected.Value = "For Revision", true, false)
+                    Visible: =If(DropdownCanvas1.Selected.Value = "For Revision" || DropdownCanvas1.Selected.Value = "Rejected", true, false)
                     Width: =320
                     X: =0
                     Y: =0
@@ -403,7 +403,7 @@
 
                 ButtonCanvas8 As Button:
                     DisplayMode: |-
-                        =If(DropdownCanvas1.Selected.Value = "Approved" || DropdownCanvas1.Selected.Value = "Rejected",
+                        =If(DropdownCanvas1.Selected.Value = "Approved",
                             DisplayMode.Edit,
                             If(IsBlank(TextInputCanvas1.Value),
                                 DisplayMode.Disabled, 
@@ -411,8 +411,6 @@
                             )
                         )
                     Height: =32
-                    LayoutMinHeight: =32
-                    LayoutMinWidth: =96
                     OnSelect: |-
                         =ChangeApprovalStatus.Run(CurrentAPF_ID, CurrentUser.userRoles.Id, DropdownCanvas1.Selected.Value, {text_1:TextInputCanvas1.Value})
                     PaddingTop: =
