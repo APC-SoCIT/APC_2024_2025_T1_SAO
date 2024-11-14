@@ -170,7 +170,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24111.9",
-        "modifiedOn": "2024-11-14 17:47:22",
+        "modifiedOn": "2024-11-14 17:23:20",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
@@ -250,12 +250,6 @@
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1719/1.0.1719.3953/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
       "parameterHints": {
-        "0dc58e79-0509-4be2-b2fa-4eab99ff9203": {
-          "value": "shared_sharepointonline"
-        },
-        "359fea05-aa40-4860-b5aa-88b0f7687b4f": {
-          "value": "shared_office365"
-        },
         "workflowDisplayName": {
           "value": "uploadUnsignedAPF"
         },
@@ -267,12 +261,6 @@
         }
       },
       "parameterHintsV2": {
-        "shared_office365": {
-          "value": "359fea05-aa40-4860-b5aa-88b0f7687b4f"
-        },
-        "shared_sharepointonline": {
-          "value": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
-        },
         "workflowDisplayName": {
           "value": "uploadUnsignedAPF"
         },
@@ -650,7 +638,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24111.9",
-        "modifiedOn": "2024-11-14 17:47:22",
+        "modifiedOn": "2024-11-14 17:23:20",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
@@ -719,7 +707,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24111.9",
-        "modifiedOn": "2024-11-14 17:47:22",
+        "modifiedOn": "2024-11-14 17:23:20",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
