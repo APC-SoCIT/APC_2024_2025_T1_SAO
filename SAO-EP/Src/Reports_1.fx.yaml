@@ -296,8 +296,31 @@
                         ZIndex: =5
 
                         PieChart1 As pieChart:
-                            Items: =LocalPD
-                            OnSelect: =
+                            Items: |-
+                                =If(
+                                    IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), 
+                                    LocalPD,
+                                    Filter(
+                                        LocalPD, 
+                                        LR_ID.Id in Filter(LocalLR, EventOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName').ID
+                                    )
+                                )
+                            OnSelect: |-
+                                =Set(ToggleLocalPDViewer, true); // Show the hidden data table
+                                Set(SelectedPDTitle, PieChart1.Selected.Name); // Store the selected title from the pie chart
+                                
+                                // Update the Data Table Items collection based on the selected organization
+                                ClearCollect(
+                                    FilteredDataTable,
+                                    If(
+                                        IsBlank(Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
+                                        LocalPD, // Show all data if the dropdown is empty
+                                        Filter(
+                                            LocalPD,
+                                            LR_ID.Id in Filter(LocalLR, EventOrg = Dropdown2_1.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName').ID
+                                        )
+                                    )    
+                                );
                             X: =40
                             Y: =70
                             ZIndex: =3
@@ -568,89 +591,235 @@
                             Y: =287
                             ZIndex: =1
 
-                        DataTable3 As dataTable.datatable:
+                        Container20 As groupContainer.horizontalAutoLayoutContainer:
+                            Height: =247
+                            LayoutMode: =LayoutMode.Auto
+                            LayoutOverflowX: =LayoutOverflow.Scroll
+                            Width: =Parent.Width
+                            Y: =40
+                            ZIndex: =2
+
+                            LocalPDGallery As gallery.galleryVertical:
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                DelayItemLoading: =true
+                                FillPortions: =0
+                                Height: =244
+                                Items: =FilteredDataTable
+                                Layout: =Layout.Vertical
+                                LayoutMinHeight: =287
+                                LayoutMinWidth: =320
+                                LoadingSpinner: =LoadingSpinner.Data
+                                ShowScrollbar: =false
+                                TemplateFill: =If(ThisItem.Title = SelectedPDTitle, RGBA(100, 100, 150,1), Color.Transparent)
+                                TemplatePadding: =2
+                                TemplateSize: =30
+                                Transition: =Transition.Pop
+                                Width: =Parent.Width
+                                ZIndex: =1
+
+                                Col2 As Text:
+                                    Align: ='TextCanvas.Align'.Center
+                                    BorderColor: =RGBA(255, 255, 255, 1)
+                                    BorderStyle: =BorderStyle.Solid
+                                    BorderThickness: =0.25
+                                    DisplayMode: =DisplayMode.Edit
+                                    Fill: =
+                                    FontColor: =RGBA(255, 255, 255, 1)
+                                    FontStrikethrough: =false
+                                    FontUnderline: =false
+                                    Height: =30
+                                    Text: =ThisItem.ID
+                                    Width: =71
+                                    X: =0
+                                    Y: =0
+                                    ZIndex: =2
+
+                                Col2_1 As Text:
+                                    Align: ='TextCanvas.Align'.Start
+                                    BorderColor: =RGBA(255, 255, 255, 1)
+                                    BorderStyle: =BorderStyle.Solid
+                                    BorderThickness: =0.25
+                                    DisplayMode: =DisplayMode.Edit
+                                    Fill: =
+                                    FontColor: =RGBA(255, 255, 255, 1)
+                                    FontStrikethrough: =false
+                                    FontUnderline: =false
+                                    Height: =30
+                                    Text: =Concatenate("  ",ThisItem.Name)
+                                    Width: =355
+                                    X: =382
+                                    Y: =0
+                                    ZIndex: =3
+
+                                Col2_2 As Text:
+                                    Align: ='TextCanvas.Align'.Center
+                                    BorderColor: =RGBA(255, 255, 255, 1)
+                                    BorderStyle: =BorderStyle.Solid
+                                    BorderThickness: =0.25
+                                    DisplayMode: =DisplayMode.Edit
+                                    Fill: =
+                                    FontColor: =RGBA(255, 255, 255, 1)
+                                    FontStrikethrough: =false
+                                    FontUnderline: =false
+                                    Height: =30
+                                    Text: =ThisItem.PD_Amt
+                                    Width: =71
+                                    X: =311
+                                    Y: =0
+                                    ZIndex: =4
+
+                                Col2_3 As Text:
+                                    Align: ='TextCanvas.Align'.Center
+                                    BorderColor: =RGBA(255, 255, 255, 1)
+                                    BorderStyle: =BorderStyle.Solid
+                                    BorderThickness: =0.25
+                                    DisplayMode: =DisplayMode.Edit
+                                    Fill: =
+                                    FontColor: =RGBA(255, 255, 255, 1)
+                                    FontStrikethrough: =false
+                                    FontUnderline: =false
+                                    Height: =30
+                                    Text: =ThisItem.LR_ID.Value
+                                    Width: =71
+                                    X: =71
+                                    Y: =0
+                                    ZIndex: =5
+
+                                Col2_4 As Text:
+                                    Align: ='TextCanvas.Align'.Start
+                                    BorderColor: =RGBA(255, 255, 255, 1)
+                                    BorderStyle: =BorderStyle.Solid
+                                    BorderThickness: =0.25
+                                    DisplayMode: =DisplayMode.Edit
+                                    Fill: =
+                                    FontColor: =RGBA(255, 255, 255, 1)
+                                    FontStrikethrough: =false
+                                    FontUnderline: =false
+                                    Height: =30
+                                    Text: =Concatenate("  ", ThisItem.PD_Date)
+                                    Width: =169
+                                    X: =142
+                                    Y: =0
+                                    ZIndex: =6
+
+                                Col2_5 As Text:
+                                    Align: ='TextCanvas.Align'.Start
+                                    BorderColor: =RGBA(255, 255, 255, 1)
+                                    BorderStyle: =BorderStyle.Solid
+                                    BorderThickness: =0.25
+                                    DisplayMode: =DisplayMode.Edit
+                                    Fill: =
+                                    FontColor: =RGBA(255, 255, 255, 1)
+                                    FontStrikethrough: =false
+                                    FontUnderline: =false
+                                    Height: =30
+                                    Text: =Concatenate("  ",ThisItem.PD_Price)
+                                    Width: =130
+                                    X: =737
+                                    Y: =0
+                                    ZIndex: =7
+
+                        TextCanvas13 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            BorderColor: =RGBA(255, 255, 255, 1)
                             BorderStyle: =BorderStyle.Solid
-                            Color: =RGBA(255, 255, 255, 1)
+                            BorderThickness: =1
                             DisplayMode: =DisplayMode.Edit
-                            Fill: =RGBA(0, 0, 0, 0)
-                            Height: =287
-                            Items: =LocalPD
-                            SelectedColor: =RGBA(112, 181, 250, 1)
-                            Width: =876
+                            Fill: =RGBA(39, 113, 194, 1)
+                            FontColor: =RGBA(255, 255, 255, 1)
+                            FontUnderline: =false
+                            Height: =32
+                            Text: ="ID"
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =71
                             X: =0
-                            Y: =0
+                            Y: =8
                             ZIndex: =3
 
-                            LR_ID_Column1 As dataTableColumn.textualColumn:
-                                AutoWidth: =false
-                                DisplayMode: =DisplayMode.Edit
-                                FieldDisplayName: ="LR_ID"
-                                FieldName: ="LR_ID"
-                                FieldVariantName: ="textualColumn"
-                                Height: =Parent.Height
-                                LayoutHeight: =Parent.Height
-                                Order: =1
-                                Text: =ThisItem.LR_ID.Value
-                                Width: =100
-                                X: =0
-                                Y: =0
-                                ZIndex: =29
+                        TextCanvas13_1 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            BorderColor: =RGBA(255, 255, 255, 1)
+                            BorderStyle: =BorderStyle.Solid
+                            BorderThickness: =1
+                            DisplayMode: =DisplayMode.Edit
+                            Fill: =RGBA(39, 113, 194, 1)
+                            FontColor: =RGBA(255, 255, 255, 1)
+                            FontUnderline: =false
+                            Height: =32
+                            Text: ="LR ID"
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =71
+                            X: =71
+                            Y: =8
+                            ZIndex: =4
 
-                            PD_Date_Column1 As dataTableColumn.textualColumn:
-                                DisplayMode: =DisplayMode.Edit
-                                FieldDisplayName: ="PD_Date"
-                                FieldName: ="PD_Date"
-                                FieldVariantName: ="textualColumn"
-                                Height: =Parent.Height
-                                LayoutHeight: =Parent.Height
-                                Order: =2
-                                Text: =ThisItem.PD_Date
-                                Width: =100
-                                X: =0
-                                Y: =0
-                                ZIndex: =30
+                        TextCanvas13_2 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            BorderColor: =RGBA(255, 255, 255, 1)
+                            BorderStyle: =BorderStyle.Solid
+                            BorderThickness: =1
+                            DisplayMode: =DisplayMode.Edit
+                            Fill: =RGBA(39, 113, 194, 1)
+                            FontColor: =RGBA(255, 255, 255, 1)
+                            FontUnderline: =false
+                            Height: =32
+                            Text: =" Date"
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =169
+                            X: =142
+                            Y: =8
+                            ZIndex: =5
 
-                            Amt_Column1 As dataTableColumn.textualColumn:
-                                DisplayMode: =DisplayMode.Edit
-                                FieldDisplayName: ="Amt"
-                                FieldName: ="Amt"
-                                FieldVariantName: ="textualColumn"
-                                Height: =Parent.Height
-                                LayoutHeight: =Parent.Height
-                                Order: =3
-                                Text: =ThisItem.PD_Amt
-                                Width: =100
-                                X: =0
-                                Y: =0
-                                ZIndex: =31
+                        TextCanvas13_3 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            BorderColor: =RGBA(255, 255, 255, 1)
+                            BorderStyle: =BorderStyle.Solid
+                            BorderThickness: =1
+                            DisplayMode: =DisplayMode.Edit
+                            Fill: =RGBA(39, 113, 194, 1)
+                            FontColor: =RGBA(255, 255, 255, 1)
+                            FontUnderline: =false
+                            Height: =32
+                            Text: ="Amt"
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =71
+                            X: =311
+                            Y: =8
+                            ZIndex: =6
 
-                            Title_Column1 As dataTableColumn.textualColumn:
-                                DisplayMode: =DisplayMode.Edit
-                                FieldDisplayName: ="Title"
-                                FieldName: ="Title"
-                                FieldVariantName: ="textualColumn"
-                                Height: =Parent.Height
-                                LayoutHeight: =Parent.Height
-                                Order: =4
-                                Text: =ThisItem.Title
-                                Width: =100
-                                X: =0
-                                Y: =0
-                                ZIndex: =32
+                        TextCanvas13_4 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            BorderColor: =RGBA(255, 255, 255, 1)
+                            BorderStyle: =BorderStyle.Solid
+                            BorderThickness: =1
+                            DisplayMode: =DisplayMode.Edit
+                            Fill: =RGBA(39, 113, 194, 1)
+                            FontColor: =RGBA(255, 255, 255, 1)
+                            FontUnderline: =false
+                            Height: =32
+                            Text: ="Price"
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =128
+                            X: =740
+                            Y: =8
+                            ZIndex: =7
 
-                            PD_Price_Column1 As dataTableColumn.textualColumn:
-                                DisplayMode: =DisplayMode.Edit
-                                FieldDisplayName: ="PD_Price"
-                                FieldName: ="PD_Price"
-                                FieldVariantName: ="textualColumn"
-                                Height: =Parent.Height
-                                LayoutHeight: =Parent.Height
-                                Order: =5
-                                Text: =ThisItem.PD_Price
-                                Width: =100
-                                X: =0
-                                Y: =0
-                                ZIndex: =33
+                        TextCanvas13_5 As Text:
+                            Align: ='TextCanvas.Align'.Center
+                            BorderColor: =RGBA(255, 255, 255, 1)
+                            BorderStyle: =BorderStyle.Solid
+                            BorderThickness: =1
+                            DisplayMode: =DisplayMode.Edit
+                            Fill: =RGBA(39, 113, 194, 1)
+                            FontColor: =RGBA(255, 255, 255, 1)
+                            FontUnderline: =false
+                            Height: =32
+                            Text: ="Items"
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =358
+                            X: =382
+                            Y: =8
+                            ZIndex: =8
 
             "'Right Container' As groupContainer.verticalAutoLayoutContainer":
                 DropShadow: =DropShadow.Regular
