@@ -185,6 +185,8 @@
                         ZIndex: =13
 
                     ButtonCanvas5 As Button:
+                        Appearance: ='ButtonCanvas.Appearance'.Primary
+                        BasePaletteColor: =
                         DisplayMode: |-
                             =If(ThisItem.IsApproved,
                                DisplayMode.Disabled,
