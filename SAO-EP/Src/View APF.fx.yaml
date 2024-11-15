@@ -3150,7 +3150,9 @@
             FontWeight: =FontWeight.Normal
             Height: =95
             Icon: ="DocumentAdd"
-            OnSelect: =Set(ConfirmNewAPFDialogue, true);
+            OnSelect: |-
+                =Navigate('New APF Form Screen')
+                //Set(ConfirmNewAPFDialogue, true);
             Text: =
             Visible: =isSelectingUpload
             Width: =102

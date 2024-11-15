@@ -13994,6 +13994,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "App.NewAPF_ID"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.NewAPF_ID",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "NewAPF_ID",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "Reports.OnVisible"
                 }
               ],
