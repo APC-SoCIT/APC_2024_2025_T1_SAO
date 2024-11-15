@@ -1699,7 +1699,7 @@
                 
                 
                 
-                ResetForm(NewAPF_Form);
+                //ResetForm(NewAPF_Form);
             Text: ="Submit"
             Width: =96
             X: =629
