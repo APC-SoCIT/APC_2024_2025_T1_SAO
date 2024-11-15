@@ -1634,7 +1634,10 @@
             Height: =32
             LayoutMinHeight: =32
             LayoutMinWidth: =96
-            OnSelect: =SubmitForm(NewAPF_Form)
+            OnSelect: |-
+                =SubmitForm(NewAPF_Form);
+                Set(NewAPF_ID,NewAPF_Form.LastSubmit);
+                ResetForm(NewAPF_Form);
             Text: ="Submit"
             Width: =96
             X: =629
