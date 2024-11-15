@@ -1213,7 +1213,7 @@
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =193
                         X: =45
-                        Y: =100
+                        Y: =111
                         ZIndex: =2
 
                     TextCanvas6_2 As Text:
@@ -1237,7 +1237,7 @@
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =193
                         X: =45
-                        Y: =149
+                        Y: =160
                         ZIndex: =4
 
                     TextCanvas6_5 As Text:
@@ -1272,11 +1272,12 @@
                         Height: =49
                         Size: =20
                         Text: |-
-                            =If(
+                            =/*
+                            If(
                                 CurrentUser .userRoles.Id > 1, 
                                 CountRows(Master_Data), 
                                 If(
-                                    IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), 
+                                    IsBlank(OrgSelectorReport.SelectedText.orgName), 
                                     If(
                                         IsBlank(AcadYearSelector3.SelectedText.Value), 
                                         CountRows(Master_Data), // Count all if both are blank
@@ -1293,7 +1294,7 @@
                                     ), 
                                     CountIf(
                                         Master_Data,
-                                        NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName' &&
+                                        NameofLeadOrg = OrgSelectorReport.SelectedText.orgName &&
                                         (
                                             IsBlank(AcadYearSelector3.SelectedText.Value) || // Check if AcadYearSelector3 is blank
                                             If(
@@ -1305,10 +1306,51 @@
                                     )
                                 )
                             )
+                            */
+                            
+                            Switch(
+                                true,
+                                CurrentUser .userRoles.Id > 1, 
+                                    CountRows(Master_Data), // Count all if user role is greater than 1
+                                
+                                IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    CountRows(Master_Data), // Count all if both selectors are blank
+                            
+                                IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), 
+                                    CountIf(
+                                        Master_Data,
+                                        Text(
+                                            Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), 
+                                            "[$-en-US]0"
+                                        ) & "-" & Text(
+                                            Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), 
+                                            "[$-en-US]0"
+                                        ) = AcadYearSelector3.SelectedText.Value
+                                    ),
+                            
+                                !IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    CountIf(
+                                        Master_Data,
+                                        NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'
+                                    ),
+                            
+                                !IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && !IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    CountIf(
+                                        Master_Data,
+                                        NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName' &&
+                                        Text(
+                                            Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), 
+                                            "[$-en-US]0"
+                                        ) & "-" & Text(
+                                            Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), 
+                                            "[$-en-US]0"
+                                        ) = AcadYearSelector3.SelectedText.Value
+                                    )
+                            )
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =291
-                        Y: =100
+                        Y: =111
                         ZIndex: =8
 
                     TextCanvas6_8 As Text:
@@ -1316,15 +1358,99 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =49
                         Size: =20
-                        Text: |+
-                            =If(CurrentUser.userRoles.Id > 1, 
+                        Text: |-
+                            =/** 
+                            If(CurrentUser.userRoles.Id > 1, 
                                 Sum(Master_Data, ProjectedPrimaryAudience) + Sum(Master_Data, ProjectedSecondaryAudience), 
-                                If(IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), Sum(Master_Data, ProjectedPrimaryAudience) + Sum(Master_Data, ProjectedSecondaryAudience),
-                                    Sum(Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), ProjectedPrimaryAudience) + 
-                                    Sum(Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), ProjectedSecondaryAudience)
+                                If(IsBlank(OrgSelectorReport.SelectedText.orgName), Sum(Master_Data, ProjectedPrimaryAudience) + Sum(Master_Data, ProjectedSecondaryAudience),
+                                    Sum(Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.orgName), ProjectedPrimaryAudience) + 
+                                    Sum(Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.orgName), ProjectedSecondaryAudience)
                                 )
                             )
+                            **/
                             
+                            Switch(
+                                true,
+                                CurrentUser .userRoles.Id > 1, 
+                                    Sum(Master_Data, ProjectedPrimaryAudience) + Sum(Master_Data, ProjectedSecondaryAudience), // Total for users with higher roles
+                            
+                                IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    Sum(Master_Data, ProjectedPrimaryAudience) + Sum(Master_Data, ProjectedSecondaryAudience), // Total for all records if both selectors are blank
+                            
+                                IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && !IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    Sum(
+                                        Filter(
+                                            Master_Data,
+                                            Text(
+                                                Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), 
+                                                "[$-en-US]0"
+                                            ) & "-" & Text(
+                                                Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), 
+                                                "[$-en-US]0"
+                                            ) = AcadYearSelector3.SelectedText.Value
+                                        ), 
+                                        ProjectedPrimaryAudience
+                                    ) + 
+                                    Sum(
+                                        Filter(
+                                            Master_Data,
+                                            Text(
+                                                Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), 
+                                                "[$-en-US]0"
+                                            ) & "-" & Text(
+                                                Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), 
+                                                "[$-en-US]0"
+                                            ) = AcadYearSelector3.SelectedText.Value
+                                        ), 
+                                        ProjectedSecondaryAudience
+                                    ), // Filter by academic year if OrgSelector is blank
+                            
+                                !IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    Sum(
+                                        Filter(
+                                            Master_Data,
+                                            NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'
+                                        ), 
+                                        ProjectedPrimaryAudience
+                                    ) + 
+                                    Sum(
+                                        Filter(
+                                            Master_Data,
+                                            NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'
+                                        ), 
+                                        ProjectedSecondaryAudience
+                                    ), // Filter by organization if AcadYearSelector is blank
+                            
+                                !IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && !IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    Sum(
+                                        Filter(
+                                            Master_Data,
+                                            NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName' &&
+                                            Text(
+                                                Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), 
+                                                "[$-en-US]0"
+                                            ) & "-" & Text(
+                                                Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), 
+                                                "[$-en-US]0"
+                                            ) = AcadYearSelector3.SelectedText.Value
+                                        ), 
+                                        ProjectedPrimaryAudience
+                                    ) + 
+                                    Sum(
+                                        Filter(
+                                            Master_Data,
+                                            NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName' &&
+                                            Text(
+                                                Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), 
+                                                "[$-en-US]0"
+                                            ) & "-" & Text(
+                                                Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), 
+                                                "[$-en-US]0"
+                                            ) = AcadYearSelector3.SelectedText.Value
+                                        ), 
+                                        ProjectedSecondaryAudience
+                                    ) // Filter by organization and academic year
+                            )
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
                         X: =291
@@ -1336,12 +1462,57 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =49
                         Size: =20
-                        Text: |
-                            =If(CurrentUser.userRoles.Id > 1, 
+                        Text: |-
+                            =/*
+                            If(CurrentUser.userRoles.Id > 1, 
                                 CountIf(Master_Data,Target_x0020_Date >= Today()), 
-                                If(IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), CountIf(Master_Data,Target_x0020_Date >= Today()),
-                                CountIf(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName' && Target_x0020_Date >= Today())
+                                If(IsBlank(OrgSelectorReport.SelectedText.orgName), CountIf(Master_Data,Target_x0020_Date >= Today()),
+                                CountIf(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.orgName && Target_x0020_Date >= Today())
                                 )
+                            )
+                            */
+                            
+                            Switch(
+                                true,
+                                CurrentUser .userRoles.Id > 1, 
+                                    CountIf(Master_Data, Target_x0020_Date >= Today()), // Count all upcoming events for higher roles
+                                
+                                IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    CountIf(Master_Data, Target_x0020_Date >= Today()), // Count all upcoming events if both selectors are blank
+                            
+                                IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && !IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    CountIf(
+                                        Master_Data,
+                                        Target_x0020_Date >= Today() &&
+                                        Text(
+                                            Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), 
+                                            "[$-en-US]0"
+                                        ) & "-" & Text(
+                                            Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), 
+                                            "[$-en-US]0"
+                                        ) = AcadYearSelector3.SelectedText.Value
+                                    ), // Filter by academic year if OrgSelector is blank
+                            
+                                !IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    CountIf(
+                                        Master_Data,
+                                        NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName' &&
+                                        Target_x0020_Date >= Today()
+                                    ), // Filter by organization if AcadYearSelector is blank
+                            
+                                !IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && !IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    CountIf(
+                                        Master_Data,
+                                        NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName' &&
+                                        Target_x0020_Date >= Today() &&
+                                        Text(
+                                            Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), 
+                                            "[$-en-US]0"
+                                        ) & "-" & Text(
+                                            Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), 
+                                            "[$-en-US]0"
+                                        ) = AcadYearSelector3.SelectedText.Value
+                                    ) // Filter by organization and academic year
                             )
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
@@ -1355,20 +1526,89 @@
                         Height: =49
                         Size: =20
                         Text: |-
-                            =If(
+                            =/*
+                            If(
                                 CurrentUser .userRoles.Id > 1,
                                 Concatenate(Round(Sum(Master_Data, TotalExpensesValue) / 11000 * 100, 2), "%"),
                                 If(
-                                    IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
+                                    IsBlank(OrgSelectorReport.SelectedText.orgName),
                                     Concatenate(Round(Sum(Master_Data, TotalExpensesValue) / 11000 * 100, 2), "%"),
                                     Concatenate(
                                         Round(
-                                            Sum(Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), TotalExpensesValue) / 11000 * 100,
+                                            Sum(Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.orgName), TotalExpensesValue) / 11000 * 100,
                                             2
                                         ),
                                         "%"
                                     )
                                 )
+                            )
+                            */
+                            
+                            Switch(
+                                true,
+                                CurrentUser .userRoles.Id > 1, 
+                                    Concatenate(Round(Sum(Master_Data, TotalExpensesValue) / 11000 * 100, 2), "%"), // Total for users with higher roles
+                            
+                                IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    Concatenate(Round(Sum(Master_Data, TotalExpensesValue) / 11000 * 100, 2), "%"), // Total for all records if both selectors are blank
+                            
+                                IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && !IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    Concatenate(
+                                        Round(
+                                            Sum(
+                                                Filter(
+                                                    Master_Data,
+                                                    Text(
+                                                        Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), 
+                                                        "[$-en-US]0"
+                                                    ) & "-" & Text(
+                                                        Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), 
+                                                        "[$-en-US]0"
+                                                    ) = AcadYearSelector3.SelectedText.Value
+                                                ), 
+                                                TotalExpensesValue
+                                            ) / 11000 * 100,
+                                            2
+                                        ),
+                                        "%"
+                                    ), // Filter by academic year if OrgSelector is blank
+                            
+                                !IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    Concatenate(
+                                        Round(
+                                            Sum(
+                                                Filter(
+                                                    Master_Data,
+                                                    NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'
+                                                ), 
+                                                TotalExpensesValue
+                                            ) / 11000 * 100,
+                                            2
+                                        ),
+                                        "%"
+                                    ), // Filter by organization if AcadYearSelector is blank
+                            
+                                !IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && !IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    Concatenate(
+                                        Round(
+                                            Sum(
+                                                Filter(
+                                                    Master_Data,
+                                                    NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName' &&
+                                                    Text(
+                                                        Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), 
+                                                        "[$-en-US]0"
+                                                    ) & "-" & Text(
+                                                        Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), 
+                                                        "[$-en-US]0"
+                                                    ) = AcadYearSelector3.SelectedText.Value
+                                                ), 
+                                                TotalExpensesValue
+                                            ) / 11000 * 100,
+                                            2
+                                        ),
+                                        "%"
+                                    ) // Filter by organization and academic year
                             )
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
@@ -1382,20 +1622,80 @@
                         Height: =49
                         Size: =20
                         Text: |-
-                            =If(
+                            =/**
+                            If(
                                 CurrentUser .userRoles.Id > 1,
                                 Round(Sum(Master_Data, CostPerParticipant), 2),
                                 If(
-                                    IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'),
+                                    IsBlank(OrgSelectorReport.SelectedText.orgName),
                                     Round(Sum(Master_Data, CostPerParticipant), 2),
                                     Round(
                                         Sum(
-                                            Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), 
+                                            Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.orgName), 
                                             CostPerParticipant
                                         ), 
                                         2
                                     )
                                 )
+                            )
+                            **/
+                            
+                            Switch(
+                                true,
+                                CurrentUser  .userRoles.Id > 1, 
+                                    Round(Sum(Master_Data, CostPerParticipant), 2), // Total for users with higher roles
+                            
+                                IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    Round(Sum(Master_Data, CostPerParticipant), 2), // Total for all records if both selectors are blank
+                            
+                                IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && !IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    Round(
+                                        Sum(
+                                            Filter(
+                                                Master_Data,
+                                                Text(
+                                                    Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), 
+                                                    "[$-en-US]0"
+                                                ) & "-" & Text(
+                                                    Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), 
+                                                    "[$-en-US]0"
+                                                ) = AcadYearSelector3.SelectedText.Value
+                                            ), 
+                                            CostPerParticipant
+                                        ), 
+                                        2
+                                    ), // Filter by academic year if OrgSelector is blank
+                            
+                                !IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    Round(
+                                        Sum(
+                                            Filter(
+                                                Master_Data,
+                                                NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'
+                                            ), 
+                                            CostPerParticipant
+                                        ), 
+                                        2
+                                    ), // Filter by organization if AcadYearSelector is blank
+                            
+                                !IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName') && !IsBlank(AcadYearSelector3.SelectedText.Value), 
+                                    Round(
+                                        Sum(
+                                            Filter(
+                                                Master_Data,
+                                                NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName' &&
+                                                Text(
+                                                    Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), 
+                                                    "[$-en-US]0"
+                                                ) & "-" & Text(
+                                                    Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), 
+                                                    "[$-en-US]0"
+                                                ) = AcadYearSelector3.SelectedText.Value
+                                            ), 
+                                            CostPerParticipant
+                                        ), 
+                                        2
+                                    ) // Filter by organization and academic year
                             )
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =98
@@ -1447,8 +1747,8 @@
                         Size: =15
                         Text: =reportOutput.reportlink
                         Width: =381
-                        X: =24
-                        Y: =20
+                        X: =47
+                        Y: =12
                         ZIndex: =1
 
     TSKBR_14 As TSKBR:
