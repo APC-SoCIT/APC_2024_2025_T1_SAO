@@ -1637,6 +1637,9 @@
             OnSelect: |-
                 =SubmitForm(NewAPF_Form);
                 Set(NewAPF_ID,NewAPF_Form.LastSubmit);
+                
+                
+                
                 ResetForm(NewAPF_Form);
             Text: ="Submit"
             Width: =96
