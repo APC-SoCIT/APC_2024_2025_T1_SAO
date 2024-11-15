@@ -53,7 +53,7 @@ HomePage As screen:
                     {
                         MenuText: "Logout",
                         MenuIcon: Icon.Leave,
-                        ScreenToGoTo: LoginPage_old
+                        ScreenToGoTo: LoginPage
                     }
                 )
             ),
@@ -75,7 +75,7 @@ HomePage As screen:
                     {
                         MenuText: "Logout",
                         MenuIcon: Icon.Leave,
-                        ScreenToGoTo: LoginPage_old
+                        ScreenToGoTo: LoginPage
                     }
                 )
             ),
@@ -106,7 +106,7 @@ HomePage As screen:
                     {
                         MenuText: "Logout",
                         MenuIcon: Icon.Leave,
-                        ScreenToGoTo: LoginPage_old
+                        ScreenToGoTo: LoginPage
                     }
                 )
             )
