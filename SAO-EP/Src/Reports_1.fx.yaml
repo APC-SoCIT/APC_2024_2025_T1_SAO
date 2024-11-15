@@ -1057,11 +1057,16 @@
                 ZIndex: =4
 
                 FiltersCont As groupContainer.verticalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Regular
                     FillPortions: =0.25
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
                     ZIndex: =1
 
                     OrgFilterCont As groupContainer.horizontalAutoLayoutContainer:
@@ -1069,6 +1074,7 @@
                         LayoutMinHeight: =50
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        Visible: =If(CurrentUser.userRoles.Id > 1, false, true)
                         ZIndex: =1
 
                         TextCanvas9_1 As Text:
