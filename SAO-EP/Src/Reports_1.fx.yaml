@@ -228,8 +228,208 @@
                         ColumnChart2 As barChart:
                             GridStyle: =GridStyle.All
                             Items: |-
-                                =//EventTypeReports
+                                =// EventTypeReports
                                 
+                                Switch(
+                                    true,
+                                    
+                                    IsBlank(OrgSelectorReport.SelectedText.Value) && IsBlank(AcadYearSelector3.SelectedText.Value),
+                                        Table({
+                                            'Seminar/Webinar Count': CountIf(Master_Data, Seminar_x002f_Webinar_x002f_Symp = true),
+                                            'LeadershipCount': CountIf(Master_Data, LeadershipTraining = true),
+                                            'Community Extension': CountIf(Master_Data, CommunityExt = true),
+                                            'Marketing Count': CountIf(Master_Data, Marketing = true),
+                                            'Religious Count': CountIf(Master_Data, Religious_x002f_Spiritual = true),
+                                            'Acad Competitions Count': CountIf(Master_Data, AcademicCompetition = true),
+                                            'Culture/Arts Count': CountIf(Master_Data, CultureArts = true),
+                                            'Game/Sports Count': CountIf(Master_Data, GamesSports = true),
+                                            'Social Events Count': CountIf(Master_Data, SocialEvents = true)
+                                        }),
+                                    
+                                    IsBlank(OrgSelectorReport.SelectedText.Value) && !IsBlank(AcadYearSelector3.SelectedText.Value),
+                                        Table({
+                                            'Seminar/Webinar Count': CountIf(
+                                                Filter(Master_Data,
+                                                    Text(Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                Seminar_x002f_Webinar_x002f_Symp = true
+                                            ),
+                                            'LeadershipCount': CountIf(
+                                                Filter(Master_Data,
+                                                    Text(Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                LeadershipTraining = true
+                                            ),
+                                            'Community Extension': CountIf(
+                                                Filter(Master_Data,
+                                                    Text(Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                CommunityExt = true
+                                            ),
+                                            'Marketing Count': CountIf(
+                                                Filter(Master_Data,
+                                                    Text(Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                Marketing = true
+                                            ),
+                                            'Religious Count': CountIf(
+                                                Filter(Master_Data,
+                                                    Text(Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                Religious_x002f_Spiritual = true
+                                            ),
+                                            'Acad Competitions Count': CountIf(
+                                                Filter(Master_Data,
+                                                    Text(Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month (DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                AcademicCompetition = true
+                                            ),
+                                            'Culture/Arts Count': CountIf(
+                                                Filter(Master_Data,
+                                                    Text(Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                CultureArts = true
+                                            ),
+                                            'Game/Sports Count': CountIf(
+                                                Filter(Master_Data,
+                                                    Text(Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                GamesSports = true
+                                            ),
+                                            'Social Events Count': CountIf(
+                                                Filter(Master_Data,
+                                                    Text(Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                SocialEvents = true
+                                            )
+                                        }),
+                                    
+                                    !IsBlank(OrgSelectorReport.SelectedText.Value) && IsBlank(AcadYearSelector3.SelectedText.Value),
+                                        Table({
+                                            'Seminar/Webinar Count': CountIf(
+                                                Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.Value),
+                                                Seminar_x002f_Webinar_x002f_Symp = true
+                                            ),
+                                            'LeadershipCount': CountIf(
+                                                Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.Value),
+                                                LeadershipTraining = true
+                                            ),
+                                            'Community Extension': CountIf(
+                                                Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.Value),
+                                                CommunityExt = true
+                                            ),
+                                            'Marketing Count': CountIf(
+                                                Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.Value),
+                                                Marketing = true
+                                            ),
+                                            'Religious Count': CountIf(
+                                                Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.Value),
+                                                Religious_x002f_Spiritual = true
+                                            ),
+                                            'Acad Competitions Count': CountIf(
+                                                Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.Value),
+                                                AcademicCompetition = true
+                                            ),
+                                            'Culture/Arts Count': CountIf(
+                                                Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.Value),
+                                                CultureArts = true
+                                            ),
+                                            'Game/Sports Count': CountIf(
+                                                Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.Value),
+                                                GamesSports = true
+                                            ),
+                                            'Social Events Count': CountIf(
+                                                Filter(Master_Data, NameofLeadOrg = OrgSelectorReport.SelectedText.Value),
+                                                SocialEvents = true
+                                            )
+                                        }),
+                                    
+                                    !IsBlank(OrgSelectorReport.SelectedText.Value) && !IsBlank(AcadYearSelector3.SelectedText.Value),
+                                        Table({
+                                            'Seminar/Webinar Count': CountIf(
+                                                Filter(Master_Data,
+                                                    NameofLeadOrg = OrgSelectorReport.SelectedText.Value &&
+                                                    Text(Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                Seminar_x002f_Webinar_x002f_Symp = true
+                                            ),
+                                            'LeadershipCount': CountIf(
+                                                Filter(Master_Data,
+                                                    NameofLeadOrg = OrgSelectorReport.SelectedText.Value &&
+                                                    Text(Year (DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                LeadershipTraining = true
+                                            ),
+                                            'Community Extension': CountIf(
+                                                Filter(Master_Data,
+                                                    NameofLeadOrg = OrgSelectorReport.SelectedText.Value &&
+                                                    Text(Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                CommunityExt = true
+                                            ),
+                                            'Marketing Count': CountIf(
+                                                Filter(Master_Data,
+                                                    NameofLeadOrg = OrgSelectorReport.SelectedText.Value &&
+                                                    Text(Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                Marketing = true
+                                            ),
+                                            'Religious Count': CountIf(
+                                                Filter(Master_Data,
+                                                    NameofLeadOrg = OrgSelectorReport.SelectedText.Value &&
+                                                    Text(Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                Religious_x002f_Spiritual = true
+                                            ),
+                                            'Acad Competitions Count': CountIf(
+                                                Filter(Master_Data,
+                                                    NameofLeadOrg = OrgSelectorReport.SelectedText.Value &&
+                                                    Text(Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                AcademicCompetition = true
+                                            ),
+                                            'Culture/Arts Count': CountIf(
+                                                Filter(Master_Data,
+                                                    NameofLeadOrg = OrgSelectorReport.SelectedText.Value &&
+                                                    Text(Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                CultureArts = true
+                                            ),
+                                            'Game/Sports Count': CountIf(
+                                                Filter(Master_Data,
+                                                    NameofLeadOrg = OrgSelectorReport.SelectedText.Value &&
+                                                    Text(Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                GamesSports = true
+                                            ),
+                                            'Social Events Count': CountIf(
+                                                Filter(Master_Data,
+                                                    NameofLeadOrg = OrgSelectorReport.SelectedText.Value &&
+                                                    Text(Year(DateValue('Target_x0020_Date')) - If(Month(DateValue('Target_x0020_Date')) <= 8, 1, 0), "[$-en-US]0") & "-" & 
+                                                    Text(Year(DateValue('Target_x0020_Date')) + If(Month(DateValue('Target_x0020_Date')) > 8, 1, 0), "[$-en-US]0") = AcadYearSelector3.SelectedText.Value
+                                                ),
+                                                SocialEvents = true
+                                            )
+                                        })
+                                )
+                                /*
                                 If(OrgSelectorReport.SelectedText.Value = Blank(),   
                                     Table({
                                             'Seminar/Webinar Count': CountIf(Master_Data, Seminar_x002f_Webinar_x002f_Symp = true),
@@ -254,6 +454,7 @@
                                             'Social Events Count': CountIf(Filter(Master_Data,NameofLeadOrg= OrgSelectorReport.SelectedText.Value),SocialEvents = true)
                                         })
                                 )
+                                */
                             NumberOfSeries: =9
                             PaddingLeft: =20
                             PaddingRight: =80
