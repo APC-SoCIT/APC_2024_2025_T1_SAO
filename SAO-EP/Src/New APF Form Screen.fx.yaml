@@ -1706,8 +1706,8 @@
                     )
                 );
                 
-                Set(flowOutput, newAPFApprovalFlow.Run(NewAPF_ID.ID, NewAPF_ID.'Activity Title', CurrentUser.userEmail, advEmail))
-                
+                Set(flowOutput, newAPFApprovalFlow.Run(NewAPF_ID.ID, NewAPF_ID.'Activity Title', CurrentUser.userEmail, advEmail));
+                Set(isSelectingUpload, false);
                 //ResetForm(NewAPF_Form);
             Text: ="Submit"
             Width: =96
