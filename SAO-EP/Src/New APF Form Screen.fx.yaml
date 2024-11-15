@@ -1765,7 +1765,7 @@
             FontColor: =RGBA(255, 255, 255, 1)
             Height: =27
             Size: =18
-            Text: ="New APF"
+            Text: =flowOutput.responsemsg
             Visible: =flowOutput.responsemsg
             Width: =102
             X: =634
