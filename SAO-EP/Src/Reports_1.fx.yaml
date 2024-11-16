@@ -194,7 +194,7 @@
             RadiusBottomRight: =30
             RadiusTopLeft: =30
             RadiusTopRight: =30
-            ZIndex: =2
+            ZIndex: =1
 
             LeftCont As groupContainer.verticalAutoLayoutContainer:
                 Fill: =RGBA(255, 255, 255, 1)
@@ -206,13 +206,14 @@
                 RadiusBottomRight: =30
                 RadiusTopLeft: =30
                 RadiusTopRight: =30
-                ZIndex: =2
+                ZIndex: =1
 
                 ChartsSlider As groupContainer.horizontalAutoLayoutContainer:
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
                     LayoutOverflowX: =LayoutOverflow.Scroll
+                    Visible: =If(openExportFilters = true, false, true)
                     ZIndex: =1
 
                     ChartCont As groupContainer.verticalAutoLayoutContainer:
@@ -553,6 +554,7 @@
                     AlignInContainer: =AlignInContainer.Start
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
+                    Visible: =If(openExportFilters = true, false, true)
                     Width: =Parent.Width
                     X: =165
                     Y: =385
@@ -784,6 +786,7 @@
                         IconStyle: ='ButtonCanvas.IconStyle'.Filled
                         OnSelect: =Set(ToggleLocalPDViewer,true)
                         Text: =
+                        Visible: =If(openExportFilters = true, false, true)
                         Width: =876
                         X: =0
                         Y: =0
@@ -1039,6 +1042,13 @@
                             Y: =8
                             ZIndex: =8
 
+                ExportFilters As groupContainer.manualLayoutContainer:
+                    DropShadow: =DropShadow.Bold
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    Visible: =openExportFilters
+                    ZIndex: =4
+
             "'Right Container' As groupContainer.verticalAutoLayoutContainer":
                 DropShadow: =DropShadow.Regular
                 Fill: =RGBA(255, 255, 255, 1)
@@ -1054,7 +1064,7 @@
                 PaddingLeft: =5
                 PaddingRight: =5
                 PaddingTop: =10
-                ZIndex: =4
+                ZIndex: =3
 
                 FiltersCont As groupContainer.verticalAutoLayoutContainer:
                     DropShadow: =DropShadow.Regular
@@ -1918,16 +1928,18 @@
                         Height: =46
                         Icon: ="ArrowDownload"
                         OnSelect: |-
-                            =Set(isRunning,true);
+                            =Set(openExportFilters, true)
+                            /*Set(isRunning,true);
                             
                             If(CurrentUser.userRoles.Id > 1, 
                                 Set(reportOutput, ExportReport.Run(JSON(Master_Data),orgReport)),
-                                If(IsBlank(OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName'), Set(reportOutput, ExportReport.Run(JSON(Master_Data),orgReport));,
-                                    Set(reportOutput, ExportReport.Run(JSON(Filter(Master_Data,NameofLeadOrg = OrgSelectorReport.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BorgName')),orgReport));
+                                If(IsBlank(OrgSelectorReport.SelectedText.orgName), Set(reportOutput, ExportReport.Run(JSON(Master_Data),orgReport));,
+                                    Set(reportOutput, ExportReport.Run(JSON(Filter(Master_Data,NameofLeadOrg = OrgSelectorReport.SelectedText.orgName)),orgReport));
                                 )
                             );
                             
                             Set(isRunning, false);
+                            */
                         Text: ="Export Report"
                         Visible: =true
                         Width: =204
@@ -1952,7 +1964,7 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =82
                         Size: =15
-                        Text: =reportOutput.reportlink
+                        Text: =//reportOutput.reportlink
                         Width: =381
                         X: =47
                         Y: =12
@@ -2000,14 +2012,14 @@
             Width: =825
             X: =275
             Y: =238
-            ZIndex: =5
+            ZIndex: =6
 
         Image7_4 As image:
             Image: ='Spinner-1.5s-200px'
             Visible: =isRunning
             X: =633
             Y: =442
-            ZIndex: =6
+            ZIndex: =7
 
         Label2_4 As label:
             Align: =Align.Center
@@ -2020,5 +2032,5 @@
             Width: =624
             X: =371
             Y: =267
-            ZIndex: =7
+            ZIndex: =8
 
