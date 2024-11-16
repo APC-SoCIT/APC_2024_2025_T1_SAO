@@ -14655,19 +14655,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Reports_1.ButtonCanvas9.AccessibleLabel"
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ButtonCanvas9.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Reports_1.ButtonCanvas9.AccessibleLabel",
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ButtonCanvas9.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Reports_1",
-                "type": "Reports_1.ButtonCanvas9"
+                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ButtonCanvas9"
               }
             }
           ],
@@ -14685,19 +14685,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Reports_1.ButtonCanvas9_1.AccessibleLabel"
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ButtonCanvas9_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Reports_1.ButtonCanvas9_1.AccessibleLabel",
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ButtonCanvas9_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Reports_1",
-                "type": "Reports_1.ButtonCanvas9_1"
+                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ButtonCanvas9_1"
               }
             }
           ],
@@ -14709,6 +14709,66 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.Icon22.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.Icon22.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Reports_1",
+                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.Icon22"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.Icon22.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.Icon22.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Reports_1",
+                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.Icon22"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 10
         },
         {
           "locations": [
