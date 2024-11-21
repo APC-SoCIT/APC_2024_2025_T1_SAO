@@ -1100,8 +1100,86 @@
                     ButtonCanvas9 As Button:
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
-                        OnSelect: |
-                            =ClearCollect(
+                        OnSelect: |-
+                            =// First, collect the selected organization names into a collection (if not already done)
+                            // Step 1: Initialize a variable to hold the selected organizations
+                            ClearCollect(
+                                SelectedOrganizations,
+                                If(
+                                    CurrentUser.userRoles.Id = 1,
+                                    Filter(
+                                        ChkBoxGal.AllItems,
+                                        ChkBoxOrgNames.Checked // Assuming this is a checkbox in your gallery
+                                    ),
+                                    // If the user role is not 1, set SelectedOrganizations to the current user's organization record
+                                    [ CurrentUserOrg ] // Wrap in a collection format
+                                )
+                            );
+                            
+                            // Step 2: Validation for checkbox selections
+                            If(
+                                !(
+                                    ChkBox_EventID.Checked || 
+                                    ChkBox_ActTitle.Checked || 
+                                    ChkBox_LeadOrg.Checked || 
+                                    ChkBox_EventType.Checked || 
+                                    ChkBox_TDate.Checked || 
+                                    ChkBox_Venue.Checked || 
+                                    ChkBox_PrimAud.Checked || 
+                                    ChkBox_SecAud.Checked || 
+                                    ChkBox_Balance.Checked || 
+                                    ChkBox_CPP.Checked || 
+                                    ChkBox_CashAdv.Checked || 
+                                    ChkBox_TotalExp.Checked
+                                ),
+                                Notify("No information is selected. Please select at least one option.", NotificationType.Error)
+                            );
+                            
+                            
+                            
+                            // Step 3: Validation for selected organizations
+                            If(
+                                CurrentUser.userRoles.Id = 1 && IsEmpty(SelectedOrganizations),
+                                Notify("No organizations selected. Please select at least one organization.", NotificationType.Error),
+                                If(
+                                    IsEmpty(SelectedOrganizations),
+                                    Notify("No organizations selected. Please select at least one organization.", NotificationType.Error),
+                                    // Step 3: Proceed to collect export data if validations pass
+                                    ClearCollect(
+                                        ExportData,
+                                        ForAll(
+                                            Filter(
+                                                Master_Data,
+                                                NameofLeadOrg in ShowColumns(SelectedOrganizations,orgAcronym)
+                                            ),
+                                            {
+                                                // Only create the column if the corresponding checkbox is checked
+                                                APFNum: APFU_ID_Num,
+                                                NameofLeadOrg: If(ChkBoxOrgNames.Checked, NameofLeadOrg, Blank()),
+                                                EventID: If(ChkBox_EventID.Checked, Title, Blank()),
+                                                ActTitle: If(ChkBox_ActTitle.Checked, ActivityTitle, Blank()),
+                                                LeadOrg: If(ChkBox_LeadOrg.Checked, NameofLeadOrg, Blank()),
+                                                EventType: If(ChkBox_EventType.Checked, EventTypes, Blank()),
+                                                TDate: If(ChkBox_TDate.Checked, Target_x0020_Date, Blank()),
+                                                Venue: If(ChkBox_Venue.Checked, Venue_x002f_Platform, Blank()),
+                                                PrimAud: If(ChkBox_PrimAud.Checked, ProjectedPrimaryAudience, Blank()),
+                                                SecAud: If(ChkBox_SecAud.Checked, ProjectedSecondaryAudience, Blank()),
+                                                Balance: If(ChkBox_Balance.Checked, Balance, Blank()),
+                                                CostPerParticipant: If(ChkBox_CPP.Checked, CostPerParticipant, Blank()),
+                                                CashAdv: If(ChkBox_CashAdv.Checked, CashAdvance, Blank()),
+                                                TotalExpenses: If(ChkBox_TotalExp.Checked, TotalExpensesValue, Blank())
+                                            }
+                                        )
+                                    );
+                            
+                                    // Convert the ExportData collection to JSON
+                                    JSON(ExportData);
+                                )
+                            );
+                            
+                            
+                            /*
+                            ClearCollect(
                                 ExportData,
                                 ForAll(
                                     Master_Data,
@@ -1126,10 +1204,11 @@
                             );
                             
                             JSON(ExportData);
+                            */
                         Text: ="Preview Sample"
                         Width: =133
-                        X: =622
-                        Y: =445
+                        X: =640
+                        Y: =455
                         ZIndex: =23
 
                     Icon22 As icon.CancelBadge:
@@ -1141,13 +1220,6 @@
                         X: =789
                         Y: =46
                         ZIndex: =24
-
-                    ExportViewerGal As groupContainer.manualLayoutContainer:
-                        Fill: =RGBA(230, 239, 242, 0.9)
-                        Height: =224
-                        Width: =876
-                        Y: =498
-                        ZIndex: =25
 
                     TextCanvas10_1 As Text:
                         DisplayMode: =DisplayMode.Edit
