@@ -1101,23 +1101,23 @@
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
                         OnSelect: |-
-                            =// First, collect the selected organization names into a collection (if not already done)
-                            // Step 1: Initialize a variable to hold the selected organizations
+                            =// Step 1: Collect selected organizations
                             ClearCollect(
                                 SelectedOrganizations,
                                 If(
-                                    CurrentUser.userRoles.Id = 1,
+                                    CurrentUser .userRoles.Id = 1,
                                     Filter(
                                         ChkBoxGal.AllItems,
                                         ChkBoxOrgNames.Checked // Assuming this is a checkbox in your gallery
                                     ),
                                     // If the user role is not 1, set SelectedOrganizations to the current user's organization record
-                                    [ CurrentUserOrg ] // Wrap in a collection format
+                                    [CurrentUserOrg] // Wrap in a collection format
                                 )
                             );
                             
-                            // Step 2: Validation for checkbox selections
+                            // Step 2: Validation for checkbox selections and selected organizations
                             If(
+                                IsEmpty(SelectedOrganizations) || 
                                 !(
                                     ChkBox_EventID.Checked || 
                                     ChkBox_ActTitle.Checked || 
@@ -1132,79 +1132,168 @@
                                     ChkBox_CashAdv.Checked || 
                                     ChkBox_TotalExp.Checked
                                 ),
-                                Notify("No information is selected. Please select at least one option.", NotificationType.Error)
-                            );
+                                Notify("Please select at least one organization and one column option.", NotificationType.Error),
+                                // Proceed to collect export data if validations pass
+                                ClearCollect(
+                                    ExportData,
+                                    ForAll(
+                                        Filter(
+                                            Master_Data,
+                                            NameofLeadOrg in ShowColumns(SelectedOrganizations, orgAcronym)
+                                        ),
+                                        {
+                                            APFNum: APFU_ID_Num,
+                                            NameofLeadOrg: If(ChkBoxOrgNames.Checked, NameofLeadOrg, Blank()),
+                                            EventID: If(ChkBox_EventID.Checked, Title, Blank()),
+                                            ActTitle: If(ChkBox_ActTitle.Checked, ActivityTitle, Blank()),
+                                            LeadOrg: If(ChkBox_LeadOrg.Checked, NameofLeadOrg, Blank()),
+                                            EventType: If(ChkBox_EventType.Checked, EventTypes, Blank()),
+                                            TDate: If(ChkBox_TDate.Checked, Target_x0020_Date, Blank()),
+                                            Venue: If(ChkBox_Venue.Checked, Venue_x002f_Platform, Blank()),
+                                            PrimAud: If(ChkBox_PrimAud.Checked, ProjectedPrimaryAudience, Blank()),
+                                            SecAud: If(ChkBox_SecAud.Checked, ProjectedSecondaryAudience, Blank()),
+                                            Balance: If(ChkBox_Balance.Checked, Balance, Blank()),
+                                            CostPerParticipant: If(ChkBox_CPP.Checked, CostPerParticipant, Blank()),
+                                            CashAdv: If(ChkBox_CashAdv.Checked, CashAdvance, Blank()),
+                                            TotalExpenses: If(ChkBox_TotalExp.Checked, TotalExpensesValue, Blank())
+                                        }
+                                    )
+                                ))
+                                ;
                             
-                            
-                            
-                            // Step 3: Validation for selected organizations
-                            If(
-                                CurrentUser.userRoles.Id = 1 && IsEmpty(SelectedOrganizations),
-                                Notify("No organizations selected. Please select at least one organization.", NotificationType.Error),
-                                If(
-                                    IsEmpty(SelectedOrganizations),
-                                    Notify("No organizations selected. Please select at least one organization.", NotificationType.Error),
-                                    // Step 3: Proceed to collect export data if validations pass
-                                    ClearCollect(
-                                        ExportData,
-                                        ForAll(
-                                            Filter(
-                                                Master_Data,
-                                                NameofLeadOrg in ShowColumns(SelectedOrganizations,orgAcronym)
-                                            ),
-                                            {
-                                                // Only create the column if the corresponding checkbox is checked
-                                                APFNum: APFU_ID_Num,
-                                                NameofLeadOrg: If(ChkBoxOrgNames.Checked, NameofLeadOrg, Blank()),
-                                                EventID: If(ChkBox_EventID.Checked, Title, Blank()),
-                                                ActTitle: If(ChkBox_ActTitle.Checked, ActivityTitle, Blank()),
-                                                LeadOrg: If(ChkBox_LeadOrg.Checked, NameofLeadOrg, Blank()),
-                                                EventType: If(ChkBox_EventType.Checked, EventTypes, Blank()),
-                                                TDate: If(ChkBox_TDate.Checked, Target_x0020_Date, Blank()),
-                                                Venue: If(ChkBox_Venue.Checked, Venue_x002f_Platform, Blank()),
-                                                PrimAud: If(ChkBox_PrimAud.Checked, ProjectedPrimaryAudience, Blank()),
-                                                SecAud: If(ChkBox_SecAud.Checked, ProjectedSecondaryAudience, Blank()),
-                                                Balance: If(ChkBox_Balance.Checked, Balance, Blank()),
-                                                CostPerParticipant: If(ChkBox_CPP.Checked, CostPerParticipant, Blank()),
-                                                CashAdv: If(ChkBox_CashAdv.Checked, CashAdvance, Blank()),
-                                                TotalExpenses: If(ChkBox_TotalExp.Checked, TotalExpensesValue, Blank())
-                                            }
-                                        )
-                                    );
-                            
-                                    // Convert the ExportData collection to JSON
-                                    JSON(ExportData);
-                                )
-                            );
-                            
-                            
-                            /*
-                            ClearCollect(
-                                ExportData,
-                                ForAll(
-                                    Master_Data,
+                                // Step 3: Count non-blank entries for each column
+                                ClearCollect(
+                                    ColumnCounts,
                                     {
-                                        // Only create the column if the corresponding checkbox is checked
-                                        APFNum: APFU_ID_Num,
-                                        NameofLeadOrg: If(ChkBoxOrgNames.Checked, NameofLeadOrg, Blank()),
-                                        EventID: If(ChkBox_EventID.Checked, Title, Blank()),
-                                        ActTitle: If(ChkBox_ActTitle.Checked, ActivityTitle, Blank()),
-                                        LeadOrg: If(ChkBox_LeadOrg.Checked, NameofLeadOrg, Blank()),
-                                        EventType: If(ChkBox_EventType.Checked, EventTypes, Blank()),
-                                        TDate: If(ChkBox_TDate.Checked, Target_x0020_Date, Blank()),
-                                        Venue: If(ChkBox_Venue.Checked, Venue_x002f_Platform, Blank()),
-                                        PrimAud: If(ChkBox_PrimAud.Checked,ProjectedPrimaryAudience, Blank()),
-                                        SecAud: If(ChkBox_SecAud.Checked, ProjectedSecondaryAudience, Blank()),
-                                        Balance: If(ChkBox_Balance.Checked, Balance, Blank()),
-                                        CostPerParticipant: If(ChkBox_CPP.Checked, CostPerParticipant, Blank()),
-                                        CashAdv: If(ChkBox_CashAdv.Checked, CashAdvance, Blank()),
-                                        TotalExpenses: If(ChkBox_TotalExp.Checked, TotalExpensesValue, Blank())
+                                        ColumnName: "NameofLeadOrg",
+                                        Count: CountIf(ExportData, !IsBlank(NameofLeadOrg))
+                                    },
+                                    {
+                                        ColumnName: "EventID",
+                                        Count: CountIf(ExportData, !IsBlank(EventID))
+                                    },
+                                    {
+                                        ColumnName: "ActTitle",
+                                        Count: CountIf(ExportData, !IsBlank(ActTitle))
+                                    },
+                                    {
+                                        ColumnName: "LeadOrg",
+                                        Count: CountIf(ExportData, !IsBlank(LeadOrg))
+                                    },
+                                    {
+                                        ColumnName: "EventType",
+                                        Count: CountIf(ExportData, !IsBlank(EventType))
+                                    },
+                                    {
+                                        ColumnName: "TDate",
+                                        Count: CountIf(ExportData, !IsBlank(TDate))
+                                    },
+                                    {
+                                        ColumnName: "Venue",
+                                        Count: CountIf(ExportData, !IsBlank(Venue))
+                                    },
+                                    {
+                                        ColumnName: "PrimAud",
+                                        Count: CountIf(ExportData, !IsBlank(PrimAud))
+                                    },
+                                    {
+                                        ColumnName: "SecAud",
+                                        Count: CountIf(ExportData, !IsBlank(SecAud))
+                                    },
+                                    {
+                                        ColumnName: "Balance",
+                                        Count: CountIf(ExportData, !IsBlank(Balance))
+                                    },
+                                    {
+                                        ColumnName: "CostPerParticipant",
+                                        Count: CountIf(ExportData, !IsBlank(CostPerParticipant))
+                                    },
+                                    {
+                                        ColumnName: "CashAdv",
+                                        Count: CountIf(ExportData, !IsBlank(CashAdv))
+                                    },
+                                    {
+                                        ColumnName: "TotalExpenses",
+                                        Count: CountIf(ExportData, !IsBlank(TotalExpenses))
                                     }
-                                )
+                                );
+                            
+                            // Step 4: Initialize FinalData as an empty collection
+                            ClearCollect(FinalData, []);
+                            
+                            // Conditionally add columns based on checkbox states
+                            If(ChkBoxOrgNames.Checked,
+                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'NameofLeadOrg'), 'finalNameOfLeadOrg', NameofLeadOrg))
                             );
                             
-                            JSON(ExportData);
-                            */
+                            If(ChkBox_EventID.Checked,
+                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'EventID'), 'finalEventID', EventID))
+                            );
+                            
+                            If(ChkBox_ActTitle.Checked,
+                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'ActTitle'), 'finalActTitle', ActTitle))
+                            );
+                            
+                            If(ChkBox_LeadOrg.Checked,
+                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'LeadOrg'), 'finalLeadOrg', LeadOrg))
+                            );
+                            
+                            If(ChkBox_EventType.Checked,
+                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'EventType'), 'finalEventType', EventType))
+                            );
+                            
+                            If(ChkBox_TDate.Checked,
+                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'TDate'), 'finalTDate', TDate))
+                            );
+                            
+                            If(ChkBox_Venue.Checked,
+                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'Venue'), 'finalVenue', Venue))
+                            );
+                            
+                            If(ChkBox_PrimAud.Checked,
+                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'PrimAud'), 'finalPrimAud', PrimAud))
+                            );
+                            
+                            If(ChkBox_SecAud.Checked,
+                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'SecAud'), 'finalSecAud', SecAud))
+                            );
+                            
+                            If(ChkBox_Balance.Checked,
+                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'Balance'), 'finalBalance', Balance))
+                            );
+                            
+                            If(ChkBox_CPP.Checked,
+                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'CostPerParticipant'), 'finalCostPerParticipant', CostPerParticipant))
+                            );
+                            
+                            If(ChkBox_CashAdv.Checked,
+                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'CashAdv'), 'finalCashAdv', CashAdv))
+                            );
+                            
+                            If(ChkBox_TotalExp.Checked,
+                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'TotalExpenses'), 'finalTotalExpenses', TotalExpenses))
+                            );
+                            
+                            // Remove any rows in FinalData that are completely blank
+                            ClearCollect(
+                                FinalData,
+                                Filter(
+                                    FinalData,
+                                    !IsBlank('finalNameOfLeadOrg') || 
+                                    !IsBlank('finalEventID') || 
+                                    !IsBlank('finalActTitle') || 
+                                    !IsBlank('finalLeadOrg') || 
+                                    !IsBlank('finalEventType') || 
+                                    !IsBlank('finalTDate') || 
+                                    !IsBlank('finalVenue') || 
+                                    !IsBlank('finalPrimAud') || 
+                                    !IsBlank('finalSecAud') || 
+                                    !IsBlank('finalBalance') || 
+                                    !IsBlank('finalCostPerParticipant') || 
+                                    !IsBlank('finalCashAdv') || 
+                                    !IsBlank('finalTotalExpenses')
+                                )
+                            );
                         Text: ="Preview Sample"
                         Width: =133
                         X: =640
