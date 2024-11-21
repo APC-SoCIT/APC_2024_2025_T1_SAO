@@ -272,6 +272,12 @@
                 DisplayMode: =Parent.DisplayMode
                 EndYear: =Year(Today())+100
                 IsEditable: =true
+                OnChange: |
+                    =If(
+                        Self.SelectedDate < Today(),
+                        Notify("Date cannot be before today");
+                        Reset(Self)
+                    );
                 PaddingBottom: =0
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 StartYear: =1899
