@@ -9437,19 +9437,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ButtonCanvas9_3.AccessibleLabel"
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ChkBox_CoOrg.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ButtonCanvas9_3.AccessibleLabel",
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ChkBox_CoOrg.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Reports_1",
-                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ButtonCanvas9_3"
+                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ChkBox_CoOrg"
               }
             }
           ],
@@ -9497,19 +9497,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ButtonCanvas9_2.AccessibleLabel"
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ChkBox_EventClass.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ButtonCanvas9_2.AccessibleLabel",
+                  "fullyQualifiedName": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ChkBox_EventClass.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Reports_1",
-                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ButtonCanvas9_2"
+                "type": "Reports_1.ScreenContainer4_1.MainContainer3_1.LeftCont.ExportFilters.ChkBox_EventClass"
               }
             }
           ],
