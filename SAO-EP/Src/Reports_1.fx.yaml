@@ -1097,20 +1097,10 @@
                         Y: =108
                         ZIndex: =3
 
-                    ButtonCanvas9_1 As Button:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =32
-                        OnSelect: =
-                        Text: ="Export Table"
-                        Width: =136
-                        X: =689
-                        Y: =442
-                        ZIndex: =22
-
                     ButtonCanvas9 As Button:
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
-                        OnSelect: |-
+                        OnSelect: |
                             =ClearCollect(
                                 ExportData,
                                 ForAll(
@@ -1134,10 +1124,12 @@
                                     }
                                 )
                             );
+                            
+                            JSON(ExportData);
                         Text: ="Preview Sample"
                         Width: =133
-                        X: =532
-                        Y: =442
+                        X: =622
+                        Y: =445
                         ZIndex: =23
 
                     Icon22 As icon.CancelBadge:
