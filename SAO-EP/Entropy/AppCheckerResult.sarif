@@ -3536,6 +3536,166 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 390,
+                  "charOffset": 319,
+                  "snippet": {
+                    "text": "If(\n            Month(DateValue('Target_x0020_Date')) = 8 || Month(DateValue('Target_x0020_Date')) > 8,\n            Text(Year(DateValue('Target_x0020_Date')), \"[$-en-US]0\") & \"-\" & Text(Year(DateValue('Target_x0020_Date')) + 1, \"[$-en-US]0\"),\n            Text(Year(DateValue('Target_x0020_Date')) - 1, \"[$-en-US]0\") & \"-\" & Text(Year(DateValue('Target_x0020_Date')), \"[$-en-US]0\")\n        )"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "APF_Approvals",
+                "type": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "If"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 710,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "APF_Approvals",
+                "type": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 753,
+                  "snippet": {
+                    "text": "||"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "APF_Approvals",
+                "type": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 315,
+                  "snippet": {
+                    "text": "&&"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "APF_Approvals",
+                "type": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.ApprovalsAPFGallery"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "LoginPage.Container17.Container14.'Sign-inButton_1'.OnSelect"
                 }
               ],
@@ -14638,6 +14798,126 @@
                 "member": "AccessibleLabel",
                 "module": "New APF Form Screen",
                 "type": "'New APF Form Screen'.ButtonCanvas4_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.Container23.FiltersContainer.OrgFilterCont_1.OrgSelectorApprovals.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.Container23.FiltersContainer.OrgFilterCont_1.OrgSelectorApprovals.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "APF_Approvals",
+                "type": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.Container23.FiltersContainer.OrgFilterCont_1.OrgSelectorApprovals"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.Container23.FiltersContainer.OrgFilterCont_1.ButtonCanvas2_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.Container23.FiltersContainer.OrgFilterCont_1.ButtonCanvas2_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "APF_Approvals",
+                "type": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.Container23.FiltersContainer.OrgFilterCont_1.ButtonCanvas2_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.Container23.FiltersContainer.AYFilterCont_1.AY_AllBtn_4.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.Container23.FiltersContainer.AYFilterCont_1.AY_AllBtn_4.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "APF_Approvals",
+                "type": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.Container23.FiltersContainer.AYFilterCont_1.AY_AllBtn_4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.Container23.FiltersContainer.AYFilterCont_1.AcadYearSelectorApprovals.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.Container23.FiltersContainer.AYFilterCont_1.AcadYearSelectorApprovals.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "APF_Approvals",
+                "type": "APF_Approvals.ScreenContainer3.MainContainer2.FormContainer1.Container23.FiltersContainer.AYFilterCont_1.AcadYearSelectorApprovals"
               }
             }
           ],
