@@ -1161,139 +1161,20 @@
                                 ))
                                 ;
                             
-                                // Step 3: Count non-blank entries for each column
-                                ClearCollect(
-                                    ColumnCounts,
-                                    {
-                                        ColumnName: "NameofLeadOrg",
-                                        Count: CountIf(ExportData, !IsBlank(NameofLeadOrg))
-                                    },
-                                    {
-                                        ColumnName: "EventID",
-                                        Count: CountIf(ExportData, !IsBlank(EventID))
-                                    },
-                                    {
-                                        ColumnName: "ActTitle",
-                                        Count: CountIf(ExportData, !IsBlank(ActTitle))
-                                    },
-                                    {
-                                        ColumnName: "LeadOrg",
-                                        Count: CountIf(ExportData, !IsBlank(LeadOrg))
-                                    },
-                                    {
-                                        ColumnName: "EventType",
-                                        Count: CountIf(ExportData, !IsBlank(EventType))
-                                    },
-                                    {
-                                        ColumnName: "TDate",
-                                        Count: CountIf(ExportData, !IsBlank(TDate))
-                                    },
-                                    {
-                                        ColumnName: "Venue",
-                                        Count: CountIf(ExportData, !IsBlank(Venue))
-                                    },
-                                    {
-                                        ColumnName: "PrimAud",
-                                        Count: CountIf(ExportData, !IsBlank(PrimAud))
-                                    },
-                                    {
-                                        ColumnName: "SecAud",
-                                        Count: CountIf(ExportData, !IsBlank(SecAud))
-                                    },
-                                    {
-                                        ColumnName: "Balance",
-                                        Count: CountIf(ExportData, !IsBlank(Balance))
-                                    },
-                                    {
-                                        ColumnName: "CostPerParticipant",
-                                        Count: CountIf(ExportData, !IsBlank(CostPerParticipant))
-                                    },
-                                    {
-                                        ColumnName: "CashAdv",
-                                        Count: CountIf(ExportData, !IsBlank(CashAdv))
-                                    },
-                                    {
-                                        ColumnName: "TotalExpenses",
-                                        Count: CountIf(ExportData, !IsBlank(TotalExpenses))
-                                    }
-                                );
+                             
+                             If(
+                                    CurrentUser .userRoles.Id > 1,
+                                    Set(reportOutput, ExportReport.Run(JSON(ExportData), orgReport)), // Use ExportData here
+                                    /*
+                                    If(
+                                        IsBlank(OrgSelectorReport.SelectedText.orgName),
+                                        Set(reportOutput, ExportReport.Run(JSON(ExportData), orgReport)), // Use ExportData here
+                                        Set(reportOutput, ExportReport.Run(JSON(Filter(ExportData, NameofLeadOrg = OrgSelectorReport.SelectedText.orgName)), orgReport)) // Use ExportData here
+                                    )
+                                    */
+                                    Set(reportOutput,ExportReport.Run(JSON(Filter(ExportData, NameofLeadOrg in ShowColumns(SelectedOrganizations, orgAcronym))), orgReport))
                             
-                            // Step 4: Initialize FinalData as an empty collection
-                            ClearCollect(FinalData, []);
-                            
-                            // Conditionally add columns based on checkbox states
-                            If(ChkBoxOrgNames.Checked,
-                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'NameofLeadOrg'), 'finalNameOfLeadOrg', NameofLeadOrg))
-                            );
-                            
-                            If(ChkBox_EventID.Checked,
-                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'EventID'), 'finalEventID', EventID))
-                            );
-                            
-                            If(ChkBox_ActTitle.Checked,
-                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'ActTitle'), 'finalActTitle', ActTitle))
-                            );
-                            
-                            If(ChkBox_LeadOrg.Checked,
-                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'LeadOrg'), 'finalLeadOrg', LeadOrg))
-                            );
-                            
-                            If(ChkBox_EventType.Checked,
-                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'EventType'), 'finalEventType', EventType))
-                            );
-                            
-                            If(ChkBox_TDate.Checked,
-                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'TDate'), 'finalTDate', TDate))
-                            );
-                            
-                            If(ChkBox_Venue.Checked,
-                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'Venue'), 'finalVenue', Venue))
-                            );
-                            
-                            If(ChkBox_PrimAud.Checked,
-                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'PrimAud'), 'finalPrimAud', PrimAud))
-                            );
-                            
-                            If(ChkBox_SecAud.Checked,
-                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'SecAud'), 'finalSecAud', SecAud))
-                            );
-                            
-                            If(ChkBox_Balance.Checked,
-                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'Balance'), 'finalBalance', Balance))
-                            );
-                            
-                            If(ChkBox_CPP.Checked,
-                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'CostPerParticipant'), 'finalCostPerParticipant', CostPerParticipant))
-                            );
-                            
-                            If(ChkBox_CashAdv.Checked,
-                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'CashAdv'), 'finalCashAdv', CashAdv))
-                            );
-                            
-                            If(ChkBox_TotalExp.Checked,
-                                ClearCollect(FinalData, AddColumns(ShowColumns(ExportData, 'TotalExpenses'), 'finalTotalExpenses', TotalExpenses))
-                            );
-                            
-                            // Remove any rows in FinalData that are completely blank
-                            ClearCollect(
-                                FinalData,
-                                Filter(
-                                    FinalData,
-                                    !IsBlank('finalNameOfLeadOrg') || 
-                                    !IsBlank('finalEventID') || 
-                                    !IsBlank('finalActTitle') || 
-                                    !IsBlank('finalLeadOrg') || 
-                                    !IsBlank('finalEventType') || 
-                                    !IsBlank('finalTDate') || 
-                                    !IsBlank('finalVenue') || 
-                                    !IsBlank('finalPrimAud') || 
-                                    !IsBlank('finalSecAud') || 
-                                    !IsBlank('finalBalance') || 
-                                    !IsBlank('finalCostPerParticipant') || 
-                                    !IsBlank('finalCashAdv') || 
-                                    !IsBlank('finalTotalExpenses')
                                 )
-                            );
                         Text: ="Preview Sample"
                         Width: =133
                         X: =640
