@@ -49,10 +49,14 @@
                 RadiusTopRight: =8
                 ZIndex: =5
 
-                Container15 As groupContainer.manualLayoutContainer:
-                    FillPortions: =0.25
+                Container23 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =100
+                    LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =15
                     ZIndex: =1
 
                     TextCanvas7 As Text:
@@ -60,6 +64,8 @@
                         Font: =Font.'Open Sans'
                         FontColor: =RGBA(25, 33, 83, 1)
                         Height: =45
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
                         Size: =30
                         Text: ="APPROVALS"
                         Weight: ='TextCanvas.Weight'.Bold
@@ -67,6 +73,69 @@
                         X: =0
                         Y: =28
                         ZIndex: =1
+
+                Container25 As groupContainer.manualLayoutContainer:
+                    Fill: =RGBA(25, 33, 83, 1)
+                    FillPortions: =0
+                    Height: =45
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Width: =1001
+                    X: =27
+                    Y: =186
+                    ZIndex: =2
+
+                    TextCanvas12 As Text:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(255, 255, 255, 1)
+                        Height: =32
+                        Size: =18
+                        Text: ="ID"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =96
+                        X: =9
+                        Y: =6
+                        ZIndex: =1
+
+                    TextCanvas12_1 As Text:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(255, 255, 255, 1)
+                        Height: =32
+                        Size: =18
+                        Text: ="ACTIVITY TITLE"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =140
+                        X: =52
+                        Y: =9
+                        ZIndex: =2
+
+                    TextCanvas12_2 As Text:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(255, 255, 255, 1)
+                        Height: =32
+                        Size: =18
+                        Text: ="RESPOND"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =90
+                        X: =863
+                        Y: =6
+                        ZIndex: =3
+
+                    TextCanvas12_4 As Text:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(255, 255, 255, 1)
+                        Height: =32
+                        Size: =18
+                        Text: ="APPROVAL STATUS"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =188
+                        X: =534
+                        Y: =9
+                        ZIndex: =5
 
                 "ApprovalsAPFGallery As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
                     DelayItemLoading: =true
@@ -85,7 +154,7 @@
                     TemplatePadding: =0
                     TemplateSize: =100
                     Width: =1000
-                    ZIndex: =2
+                    ZIndex: =3
 
                     NextArrow5 As icon.ChevronRight:
                         AccessibleLabel: =Self.Tooltip
@@ -361,7 +430,7 @@
         LayoutMode: =LayoutMode.Auto
         Visible: =openApprovalScreen
         Width: =Parent.Width
-        ZIndex: =3
+        ZIndex: =4
 
         DialogueBox As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -432,7 +501,8 @@
                     LayoutMinHeight: =32
                     LayoutMinWidth: =96
                     OnSelect: |-
-                        =ChangeApprovalStatus.Run(CurrentAPF_ID, CurrentUser.userRoles.Id, DropdownCanvas1.Selected.Value, {text_1:TextInputCanvas1.Value})
+                        =Set(openApprovalScreen, false);
+                        ChangeApprovalStatus.Run(CurrentAPF_ID, CurrentUser.userRoles.Id, DropdownCanvas1.Selected.Value, {text_1:TextInputCanvas1.Value});
                     PaddingTop: =
                     Text: ="Confirm"
                     Width: =96
@@ -449,64 +519,4 @@
                 X: =0
                 Y: =0
                 ZIndex: =5
-
-    Container25 As groupContainer.manualLayoutContainer:
-        Fill: =RGBA(25, 33, 83, 1)
-        Height: =45
-        RadiusBottomLeft: =10
-        RadiusBottomRight: =10
-        RadiusTopLeft: =10
-        RadiusTopRight: =10
-        Width: =1001
-        X: =27
-        Y: =186
-        ZIndex: =4
-
-        TextCanvas12 As Text:
-            DisplayMode: =DisplayMode.Edit
-            FontColor: =RGBA(255, 255, 255, 1)
-            Height: =32
-            Size: =18
-            Text: ="ID"
-            Weight: ='TextCanvas.Weight'.Semibold
-            Width: =96
-            X: =9
-            Y: =6
-            ZIndex: =1
-
-        TextCanvas12_1 As Text:
-            DisplayMode: =DisplayMode.Edit
-            FontColor: =RGBA(255, 255, 255, 1)
-            Height: =32
-            Size: =18
-            Text: ="ACTIVITY TITLE"
-            Weight: ='TextCanvas.Weight'.Semibold
-            Width: =140
-            X: =52
-            Y: =9
-            ZIndex: =2
-
-        TextCanvas12_2 As Text:
-            DisplayMode: =DisplayMode.Edit
-            FontColor: =RGBA(255, 255, 255, 1)
-            Height: =32
-            Size: =18
-            Text: ="RESPOND"
-            Weight: ='TextCanvas.Weight'.Semibold
-            Width: =90
-            X: =863
-            Y: =6
-            ZIndex: =3
-
-        TextCanvas12_4 As Text:
-            DisplayMode: =DisplayMode.Edit
-            FontColor: =RGBA(255, 255, 255, 1)
-            Height: =32
-            Size: =18
-            Text: ="APPROVAL STATUS"
-            Weight: ='TextCanvas.Weight'.Semibold
-            Width: =188
-            X: =534
-            Y: =9
-            ZIndex: =5
 
