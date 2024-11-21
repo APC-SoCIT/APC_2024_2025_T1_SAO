@@ -895,6 +895,7 @@ CalendarComponent_1 As CanvasComponent:
                 Text: =ThisItem.Title
                 Width: =440
                 X: =27
+                Y: =7
                 ZIndex: =1
 
             lblEventTime_1 As label:

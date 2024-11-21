@@ -1,0 +1,12 @@
+"'Exclude Date/s' As screen":
+
+    HP_TSKBR_3 As TSKBR:
+        NavigationItems: =gblNavItems
+
+    Container15 As groupContainer.manualLayoutContainer:
+        Height: =662
+        Width: =454
+        X: =19
+        Y: =89
+        ZIndex: =2
+

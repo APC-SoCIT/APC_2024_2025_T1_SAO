@@ -5,8 +5,8 @@
     "AllowAccessToGlobals": false,
     "AllowCustomization": true,
     "Description": "",
-    "Name": "Loading Screen_1",
-    "TemplateGuid": "21010b25d70f49e68ff979b2d0bee65f"
+    "Name": "Component2",
+    "TemplateGuid": "6559902399c14091bab6c5852b49d838"
   },
   "ComponentType": "CanvasComponent",
   "CustomGroupControlTemplateName": "",
@@ -19,9 +19,8 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638677880000943765",
-  "Name": "21010b25d70f49e68ff979b2d0bee65f",
+  "LastModifiedTimestamp": "638677954170631866",
+  "Name": "6559902399c14091bab6c5852b49d838",
   "OverridableProperties": {},
-  "TemplateOriginalName": "3a1b6f29a8704cf2afb1757787e91aae",
   "Version": "1.0"
 }
