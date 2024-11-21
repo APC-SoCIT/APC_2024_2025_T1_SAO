@@ -1061,7 +1061,7 @@
                         Y: =120
                         ZIndex: =1
 
-                        CheckboxCanvas3 As Checkbox:
+                        ChkBoxOrgNames As Checkbox:
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
                             Label: =ThisItem.orgAcronym
@@ -1096,189 +1096,133 @@
                         Y: =96
                         ZIndex: =3
 
-                    CheckboxCanvas4 As Checkbox:
+                    ChkBox_EventID As Checkbox:
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
+                        Label: ="Event ID"
                         OnCheck: =false
                         OnUncheck: =false
                         Width: =160
                         X: =249
-                        Y: =194
+                        Y: =150
                         ZIndex: =4
 
-                    CheckboxCanvas4_1 As Checkbox:
+                    ChkBox_ActTitle As Checkbox:
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
+                        Label: ="Activity Title"
                         OnCheck: =false
                         OnUncheck: =false
                         Width: =160
                         X: =249
-                        Y: =226
+                        Y: =188
                         ZIndex: =5
 
-                    CheckboxCanvas4_2 As Checkbox:
+                    ChkBox_LeadOrg As Checkbox:
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
+                        Label: ="Lead Org"
                         OnCheck: =false
                         OnUncheck: =false
                         Width: =160
                         X: =249
-                        Y: =258
+                        Y: =226
                         ZIndex: =6
 
-                    CheckboxCanvas4_3 As Checkbox:
+                    ChkBox_EventClass As Checkbox:
                         DisplayMode: =DisplayMode.Edit
-                        Height: =32
+                        Height: =36
+                        Label: ="Event Classification"
                         OnCheck: =false
                         OnUncheck: =false
-                        Width: =160
+                        Width: =185
                         X: =249
-                        Y: =290
+                        Y: =260
                         ZIndex: =7
 
-                    CheckboxCanvas4_4 As Checkbox:
+                    ChkBox_EventType As Checkbox:
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
+                        Label: ="Event Type"
                         OnCheck: =false
                         OnUncheck: =false
                         Width: =160
                         X: =249
-                        Y: =323
+                        Y: =296
                         ZIndex: =8
 
-                    CheckboxCanvas4_5 As Checkbox:
+                    ChkBox_TDate As Checkbox:
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
+                        Label: ="Target Date"
                         OnCheck: =false
                         OnUncheck: =false
                         Width: =160
                         X: =249
-                        Y: =355
+                        Y: =334
                         ZIndex: =9
 
-                    CheckboxCanvas4_6 As Checkbox:
+                    ChkBox_CoOrg As Checkbox:
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
+                        Label: ="Co-organization "
                         OnCheck: =false
                         OnUncheck: =false
                         Width: =160
-                        X: =409
-                        Y: =194
-                        ZIndex: =10
-
-                    CheckboxCanvas4_7 As Checkbox:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =32
-                        OnCheck: =false
-                        OnUncheck: =false
-                        Width: =160
-                        X: =409
-                        Y: =226
+                        X: =473
+                        Y: =369
                         ZIndex: =11
 
-                    CheckboxCanvas4_8 As Checkbox:
+                    ChkBox_PrimAud As Checkbox:
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
+                        Label: ="Primary Audience"
                         OnCheck: =false
                         OnUncheck: =false
-                        Width: =160
-                        X: =409
-                        Y: =258
+                        Width: =177
+                        X: =473
+                        Y: =148
                         ZIndex: =12
 
-                    CheckboxCanvas4_9 As Checkbox:
+                    ChkBox_TotalExp As Checkbox:
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
+                        Label: ="Total Expenses"
                         OnCheck: =false
                         OnUncheck: =false
-                        Width: =160
-                        X: =409
-                        Y: =290
+                        Width: =177
+                        X: =473
+                        Y: =259
                         ZIndex: =13
 
-                    CheckboxCanvas4_10 As Checkbox:
+                    ChkBox_Balance As Checkbox:
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
+                        Label: |-
+                            ="
+                            Balance"
                         OnCheck: =false
                         OnUncheck: =false
-                        Width: =160
-                        X: =409
-                        Y: =323
+                        Width: =177
+                        X: =473
+                        Y: =294
                         ZIndex: =14
 
-                    CheckboxCanvas4_11 As Checkbox:
+                    ChkBox_CPP As Checkbox:
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
+                        Label: ="Cost per Participant"
                         OnCheck: =false
                         OnUncheck: =false
-                        Width: =160
-                        X: =409
-                        Y: =355
+                        Width: =177
+                        X: =473
+                        Y: =331
                         ZIndex: =15
-
-                    CheckboxCanvas4_12 As Checkbox:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =32
-                        OnCheck: =false
-                        OnUncheck: =false
-                        Width: =160
-                        X: =569
-                        Y: =194
-                        ZIndex: =16
-
-                    CheckboxCanvas4_13 As Checkbox:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =32
-                        OnCheck: =false
-                        OnUncheck: =false
-                        Width: =160
-                        X: =569
-                        Y: =226
-                        ZIndex: =17
-
-                    CheckboxCanvas4_14 As Checkbox:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =32
-                        OnCheck: =false
-                        OnUncheck: =false
-                        Width: =160
-                        X: =569
-                        Y: =258
-                        ZIndex: =18
-
-                    CheckboxCanvas4_15 As Checkbox:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =32
-                        OnCheck: =false
-                        OnUncheck: =false
-                        Width: =160
-                        X: =569
-                        Y: =290
-                        ZIndex: =19
-
-                    CheckboxCanvas4_16 As Checkbox:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =32
-                        OnCheck: =false
-                        OnUncheck: =false
-                        Width: =160
-                        X: =569
-                        Y: =323
-                        ZIndex: =20
-
-                    CheckboxCanvas4_17 As Checkbox:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =32
-                        OnCheck: =false
-                        OnUncheck: =false
-                        Width: =160
-                        X: =569
-                        Y: =355
-                        ZIndex: =21
 
                     ButtonCanvas9_1 As Button:
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
+                        OnSelect: =
                         Text: ="Export Table"
                         Width: =136
                         X: =689
@@ -1288,7 +1232,27 @@
                     ButtonCanvas9 As Button:
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
-                        OnSelect: =ClearCollect(ExportData, Filter (Master_Data,ID))
+                        OnSelect: |-
+                            =ClearCollect(
+                                ExportData,
+                                ForAll(
+                                    Master_Data,
+                                    {
+                                        NameofLeadOrg: If(ChkBoxOrgNames.Checked, NameofLeadOrg, Blank()),
+                                        EventID: If(ChkBox_EventID.Checked, Title, Blank()),
+                                        ActTitle: If(ChkBox_ActTitle.Checked, ActivityTitle, Blank()),
+                                        LeadOrg: If(ChkBox_LeadOrg.Checked, NameofLeadOrg, Blank()),
+                                        EventClass: If(ChkBox_EventClass.Checked,EventTypes, Blank()),
+                                        //EventType: If(ChkBox_EventType.Checked,EventTypes, Blank()),
+                                        TDate: If(ChkBox_TDate.Checked, Target_x0020_Date, Blank()),
+                                        Venue: If(ChkBox_Venue.Checked, Venue_x002f_Platform, Blank()),
+                                        PrimAud: If(ChkBox_PrimAud.Checked, ProjectedPrimaryAudience, Blank()),
+                                        SecAud: If(ChkBox_SecAud.Checked, ProjectedSecondaryAudience, Blank()),
+                                        Balance: If(ChkBox_Balance.Checked, Balance, Blank())
+                                        // Add more columns as needed with similar logic
+                                    }
+                                )
+                            )
                         Text: ="Preview Sample"
                         Width: =133
                         X: =532
@@ -1323,6 +1287,39 @@
                         X: =48
                         Y: =96
                         ZIndex: =26
+
+                    ChkBox_SecAud As Checkbox:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        Label: ="Secondary Audience"
+                        OnCheck: =false
+                        OnUncheck: =false
+                        Width: =177
+                        X: =473
+                        Y: =187
+                        ZIndex: =27
+
+                    ChkBox_CashAdv As Checkbox:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        Label: ="Cash Advanced"
+                        OnCheck: =false
+                        OnUncheck: =false
+                        Width: =177
+                        X: =473
+                        Y: =225
+                        ZIndex: =28
+
+                    ChkBox_Venue As Checkbox:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        Label: ="Venue"
+                        OnCheck: =false
+                        OnUncheck: =false
+                        Width: =160
+                        X: =249
+                        Y: =366
+                        ZIndex: =29
 
             "'Right Container' As groupContainer.verticalAutoLayoutContainer":
                 DropShadow: =DropShadow.Regular
