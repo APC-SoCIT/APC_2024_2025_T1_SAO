@@ -284,5 +284,7 @@
         ZIndex: =3
 
         CalendarComponent_Mini_1 As CalendarComponent_Mini:
+            BlockedDates: =BlockedDates
+            CalendarItems: =CalDeets
             SelectedDateFill: =RGBA(39, 113, 194, 1)
 
