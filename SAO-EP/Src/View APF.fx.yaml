@@ -146,6 +146,7 @@
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
+                Visible: =If(CurrentUser.userRoles.Id = 3, true, false)
                 ZIndex: =2
 
                 NewRecordAddIcon1_2 As icon:

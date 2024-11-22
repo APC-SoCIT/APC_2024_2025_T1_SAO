@@ -24,6 +24,9 @@
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1719/1.0.1719.3953/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
       "parameterHints": {
+        "0dc58e79-0509-4be2-b2fa-4eab99ff9203": {
+          "value": "shared_sharepointonline"
+        },
         "workflowDisplayName": {
           "value": "ExportReport"
         },
@@ -35,6 +38,9 @@
         }
       },
       "parameterHintsV2": {
+        "shared_sharepointonline": {
+          "value": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
+        },
         "workflowDisplayName": {
           "value": "ExportReport"
         },
@@ -216,7 +222,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24111.12",
-        "modifiedOn": "2024-11-21 23:55:32",
+        "modifiedOn": "2024-11-22 00:56:32",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
@@ -710,7 +716,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24111.12",
-        "modifiedOn": "2024-11-21 23:55:32",
+        "modifiedOn": "2024-11-22 00:56:32",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
@@ -779,7 +785,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24111.12",
-        "modifiedOn": "2024-11-21 23:55:32",
+        "modifiedOn": "2024-11-22 00:56:32",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
