@@ -3950,7 +3950,8 @@
         "LayoutOverflowY",
         "LayoutWrap",
         "DropShadow",
-        "ZIndex"
+        "ZIndex",
+        "Visible"
       ],
       "DynamicProperties": [
         {
@@ -4098,6 +4099,11 @@
           "Category": "Design",
           "PropertyName": "Width",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Visible",
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "",
