@@ -1175,7 +1175,7 @@
                                     Set(reportOutput,ExportReport.Run(JSON(Filter(ExportData, NameofLeadOrg in ShowColumns(SelectedOrganizations, orgAcronym))), orgReport))
                             
                                 )
-                        Text: ="Preview Sample"
+                        Text: ="Export Report"
                         Width: =133
                         X: =640
                         Y: =455
@@ -1383,6 +1383,39 @@
                             X: =376
                             Y: =345
                             ZIndex: =29
+
+                    Container24 As groupContainer.manualLayoutContainer:
+                        DropShadow: =DropShadow.Bold
+                        Height: =142
+                        RadiusBottomLeft: =20
+                        RadiusBottomRight: =20
+                        RadiusTopLeft: =20
+                        RadiusTopRight: =20
+                        Width: =729
+                        X: =48
+                        Y: =524
+                        ZIndex: =33
+
+                        ReportLink_1 As Text:
+                            BorderStyle: =BorderStyle.None
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =129
+                            Size: =18
+                            Text: =reportOutput.reportlink
+                            Width: =505
+                            X: =32
+                            Y: =4
+                            ZIndex: =1
+
+                        ButtonCanvas10 As Button:
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =54
+                            OnSelect: =If(IsBlank(ReportLink_1.Text), Notify("Text Box Empty!"), Copy(ReportLink_1.Text) && Notify("Text Copied"))
+                            Text: ="Copy To Clipboard"
+                            Width: =96
+                            X: =596
+                            Y: =42
+                            ZIndex: =2
 
             "'Right Container' As groupContainer.verticalAutoLayoutContainer":
                 DropShadow: =DropShadow.Regular
@@ -2261,7 +2294,7 @@
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =18
                         Height: =46
-                        Icon: ="ArrowDownload"
+                        Icon: =
                         OnSelect: |-
                             =Set(openExportFilters, true)
                             /*Set(isRunning,true);
@@ -2275,7 +2308,7 @@
                             
                             Set(isRunning, false);
                             */
-                        Text: ="Export Report"
+                        Text: ="Generate Report"
                         Visible: =true
                         Width: =204
                         X: =120
