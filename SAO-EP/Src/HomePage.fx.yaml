@@ -235,6 +235,7 @@ HomePage As screen:
         OnSelect: =Navigate('Exclude Date/s')
         Size: =11
         Text: ="Exclude Date/s"
+        Visible: =If(CurrentUser.userRoles.Id =1, true,false)
         Width: =163
         X: =908
         Y: =117

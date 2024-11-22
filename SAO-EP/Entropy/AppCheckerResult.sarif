@@ -3897,6 +3897,46 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.RecordsGallery1_1.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.RecordsGallery1_1.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 6,
+                  "charOffset": 45,
+                  "snippet": {
+                    "text": "Reason"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "Exclude Date/s",
+                "type": "'Exclude Date/s'.Sidebar.RecordsGallery1_1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Search"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "SideNavigation.RootContainer.Gallery3.AccessibleLabel"
                 }
               ],
@@ -15415,19 +15455,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Exclude Date/s'.Container15.Gallery1.AccessibleLabel"
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.NewRecordButtonBarContainer1.NewRecordAddIcon1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Exclude Date/s'.Container15.Gallery1.AccessibleLabel",
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.NewRecordButtonBarContainer1.NewRecordAddIcon1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Exclude Date/s",
-                "type": "'Exclude Date/s'.Container15.Gallery1"
+                "type": "'Exclude Date/s'.Sidebar.NewRecordButtonBarContainer1.NewRecordAddIcon1"
               }
             }
           ],
@@ -15445,19 +15485,79 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Exclude Date/s'.Container15.Gallery1.TabIndex"
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.SearchContainer1_1.SearchInput1_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Exclude Date/s'.Container15.Gallery1.TabIndex",
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.SearchContainer1_1.SearchInput1_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Exclude Date/s",
+                "type": "'Exclude Date/s'.Sidebar.SearchContainer1_1.SearchInput1_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.SubmitFormDateBlock.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.SubmitFormDateBlock.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Exclude Date/s",
+                "type": "'Exclude Date/s'.Sidebar.SubmitFormDateBlock"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.NewRecordButtonBarContainer1.NewRecordAddIcon1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.NewRecordButtonBarContainer1.NewRecordAddIcon1.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Exclude Date/s",
-                "type": "'Exclude Date/s'.Container15.Gallery1"
+                "type": "'Exclude Date/s'.Sidebar.NewRecordButtonBarContainer1.NewRecordAddIcon1"
               }
             }
           ],
@@ -15475,19 +15575,169 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Exclude Date/s'.Container15.SubmitFormDateBlock.AccessibleLabel"
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.RecordsGallery1_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Exclude Date/s'.Container15.SubmitFormDateBlock.AccessibleLabel",
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.RecordsGallery1_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Exclude Date/s",
-                "type": "'Exclude Date/s'.Container15.SubmitFormDateBlock"
+                "type": "'Exclude Date/s'.Sidebar.RecordsGallery1_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.RecordsGallery1_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.RecordsGallery1_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Exclude Date/s",
+                "type": "'Exclude Date/s'.Sidebar.RecordsGallery1_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.RecordsGallery1_1.DeleteIconButton1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.RecordsGallery1_1.DeleteIconButton1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Exclude Date/s",
+                "type": "'Exclude Date/s'.Sidebar.RecordsGallery1_1.DeleteIconButton1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.RecordsGallery1_1.EditIconButton1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.RecordsGallery1_1.EditIconButton1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Exclude Date/s",
+                "type": "'Exclude Date/s'.Sidebar.RecordsGallery1_1.EditIconButton1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.DateBlockerForm.Date_DataCard1_1.DataCardValue3_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.DateBlockerForm.Date_DataCard1_1.DataCardValue3_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Exclude Date/s",
+                "type": "'Exclude Date/s'.Sidebar.DateBlockerForm.Date_DataCard1_1.DataCardValue3_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.DateBlockerForm.Reason_DataCard1_1.DataCardValue2_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.DateBlockerForm.Reason_DataCard1_1.DataCardValue2_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Exclude Date/s",
+                "type": "'Exclude Date/s'.Sidebar.DateBlockerForm.Reason_DataCard1_1.DataCardValue2_1"
               }
             }
           ],
@@ -15978,6 +16228,96 @@
           },
           "ruleId": "app-InefficientDelayLoading",
           "ruleIndex": 16
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Exclude Date/s'.deleteCancelled"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Exclude Date/s'.deleteCancelled",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "deleteCancelled",
+                "module": "Exclude Date/s",
+                "type": "'Exclude Date/s'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 13
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Exclude Date/s'.itemSelected"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Exclude Date/s'.itemSelected",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "itemSelected",
+                "module": "Exclude Date/s",
+                "type": "'Exclude Date/s'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 13
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Exclude Date/s'.selectedRecord"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Exclude Date/s'.selectedRecord",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "selectedRecord",
+                "module": "Exclude Date/s",
+                "type": "'Exclude Date/s'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 13
         },
         {
           "locations": [
