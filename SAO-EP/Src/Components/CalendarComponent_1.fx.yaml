@@ -1,28 +1,47 @@
 CalendarComponent_1 As CanvasComponent:
     AllowSelectionOfWeekends: =true
+    BlockedDates: |-
+        =Table(
+            {
+                Date: "11/10/2024",
+                Reason: "Finals Period"
+            }, 
+            {
+                Date: "11/11/2024",
+                Reason: "Finals Period"
+            },
+            {
+                Date: "11/12/2024",
+                Reason: "Finals Period"
+            },
+            {
+                Date: "11/30/2024",
+                Reason: "Bonifacio Day"
+            }
+        )
     BorderRadius: =0
     CalendarItems: |-
         =Table(
             {
-                Date: "1/3/2024",
+                Date: "11/3/2024",
                 Title: "Meeting",
                 Time: "1:30pm",
                 Venue: "MPH1"
             },
              {
-                Date: "1/13/2024",
+                Date: "11/13/2024",
                 Title: "Power Apps Training",
                 Time: "3:00pm",
                 Venue: "Auditorium"
             },
             {
-                Date: "1/26/2024",
+                Date: "11/26/2024",
                 Title: "Thanksgiving Day",
                 Time: "All Day",
                 Venue: "Room 316"
             },
              {
-                Date: "1/26/2024",
+                Date: "11/26/2024",
                 Title: "Thanksgiving Day",
                 Time: "All Day",
                 Venue: "Room 316"
@@ -875,10 +894,41 @@ CalendarComponent_1 As CanvasComponent:
                 Y: =btnDayValue_1.Y + btnDayValue_1.Height - icnEvent_1.Height
                 ZIndex: =5
 
+            IcnBlocked As icon.Cancel:
+                Height: =22
+                Icon: =Icon.Cancel
+                Visible: |-
+                    =If(
+                        CalendarComponent_1.ShowCalendarEvents = false,
+                        DateAdd(
+                            _firstDayInView,
+                            ThisItem.Value,
+                            TimeUnit.Days
+                        ) = _today,
+                        If(
+                       CountRows(
+                        Filter(
+                            CalendarComponent_1.BlockedDates,
+                            DateValue(Text(Date)) = DateAdd(
+                                _firstDayInView,
+                                ThisItem.Value,
+                                TimeUnit.Days
+                            )
+                        )
+                    ) > 0, true,false)
+                    )
+                Width: =25
+                X: =33
+                Y: =16
+                ZIndex: =6
+
         galCalItems_1 As gallery.variableTemplateHeightGallery:
             '#CopilotOverlayLabel': ="Filtered"
             Height: =154
-            Items: =Filter(CalendarComponent_1.CalendarItems,DateValue(Date) = CalendarComponent_1.StartDate)
+            Items: |-
+                =//Filter(CalendarComponent_1.CalendarItems,DateValue(Date) = CalendarComponent_1.StartDate)
+                
+                ClearCollect(MixedDates,CalendarComponent_1.CalendarItems,CalendarComponent_1.BlockedDates)
             Layout: =Layout.Vertical
             TemplateSize: =50
             Visible: =HideVisibility
