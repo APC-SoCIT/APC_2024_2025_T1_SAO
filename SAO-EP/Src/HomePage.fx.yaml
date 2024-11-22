@@ -127,6 +127,7 @@ HomePage As screen:
         ZIndex: =3
 
         CalendarComponent_3 As CalendarComponent_1:
+            BlockedDates: =BlockedDates
             CalendarItems: =CalDeets
             SelectedDateFill: =RGBA(39, 113, 194, 1)
             Visible: =true

@@ -104,6 +104,9 @@
           },
           "Approvals History": {
             "tableName": "f581a58d-0447-4012-bc98-2d02e401fd34"
+          },
+          "BlockedDates": {
+            "tableName": "d66f5b5c-556d-408d-a6d7-f701e4bd3780"
           }
         }
       }
@@ -118,7 +121,8 @@
       "Logistical Needs",
       "LR_HBTOItems",
       "LR_Uploads",
-      "Approvals History"
+      "Approvals History",
+      "BlockedDates"
     ],
     "dependencies": {},
     "dependents": [
@@ -222,7 +226,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24111.12",
-        "modifiedOn": "2024-11-22 14:30:22",
+        "modifiedOn": "2024-11-22 15:14:45",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
@@ -716,7 +720,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24111.12",
-        "modifiedOn": "2024-11-22 14:30:22",
+        "modifiedOn": "2024-11-22 15:14:45",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
@@ -785,7 +789,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24111.12",
-        "modifiedOn": "2024-11-22 14:30:22",
+        "modifiedOn": "2024-11-22 15:14:45",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
