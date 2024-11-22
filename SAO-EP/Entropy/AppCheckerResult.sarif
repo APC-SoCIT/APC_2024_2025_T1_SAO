@@ -15455,36 +15455,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.NewRecordButtonBarContainer1.NewRecordAddIcon1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.NewRecordButtonBarContainer1.NewRecordAddIcon1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Exclude Date/s",
-                "type": "'Exclude Date/s'.Sidebar.NewRecordButtonBarContainer1.NewRecordAddIcon1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'Exclude Date/s'.Sidebar.SearchContainer1_1.SearchInput1_1.AccessibleLabel"
                 }
               ],
@@ -15539,36 +15509,6 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.NewRecordButtonBarContainer1.NewRecordAddIcon1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Exclude Date/s'.Sidebar.NewRecordButtonBarContainer1.NewRecordAddIcon1.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "Exclude Date/s",
-                "type": "'Exclude Date/s'.Sidebar.NewRecordButtonBarContainer1.NewRecordAddIcon1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 10
         },
         {
           "locations": [
