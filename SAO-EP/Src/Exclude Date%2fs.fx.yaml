@@ -279,11 +279,3 @@
         CalendarComponent_Mini_1 As CalendarComponent_Mini:
             SelectedDateFill: =RGBA(39, 113, 194, 1)
 
-    TextCanvas14 As Text:
-        DisplayMode: =DisplayMode.Edit
-        Height: =32
-        Width: =96
-        X: =40
-        Y: =40
-        ZIndex: =4
-
