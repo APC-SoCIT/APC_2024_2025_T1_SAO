@@ -1056,6 +1056,7 @@
                         Layout: =Layout.Vertical
                         LoadingSpinner: =LoadingSpinner.Data
                         TemplateSize: =31
+                        Visible: =If(CurrentUser.userRoles.Id = 1, true, false)
                         Width: =214
                         X: =34
                         Y: =132
@@ -1197,6 +1198,7 @@
                         Size: =20
                         Text: |-
                             ="Organization:"
+                        Visible: =If(CurrentUser.userRoles.Id = 1, true, false)
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =148
                         X: =48
@@ -1226,6 +1228,7 @@
                             =// OnSelect property of the Select All button
                             UpdateContext({ SelectAllOrgChecked: !SelectAllOrgChecked });
                         Text: ="Select All"
+                        Visible: =If(CurrentUser.userRoles.Id = 1, true, false)
                         Width: =86
                         X: =196
                         Y: =123
@@ -1412,6 +1415,7 @@
                             Height: =54
                             OnSelect: =If(IsBlank(ReportLink_1.Text), Notify("Text Box Empty!"), Copy(ReportLink_1.Text) && Notify("Text Copied"))
                             Text: ="Copy To Clipboard"
+                            Visible: =If(IsBlank(ReportLink_1.Text),false,true)
                             Width: =96
                             X: =596
                             Y: =42

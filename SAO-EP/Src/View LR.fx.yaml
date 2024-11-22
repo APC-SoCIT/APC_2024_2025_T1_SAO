@@ -133,7 +133,7 @@
                     Height: =140
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
-                    Visible: =If(CurrentUser.userRoles.Id > 1, true, false)
+                    Visible: =If(CurrentUser.userRoles.Id =3, true, false)
                     ZIndex: =4
 
                     NewRecordAddIcon1_3 As icon:
