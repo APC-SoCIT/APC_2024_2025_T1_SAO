@@ -613,11 +613,14 @@ CalendarComponent_1 As CanvasComponent:
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =0
                 Color: |-
-                    =If(DateAdd(_firstDayInView,ThisItem.Value,TimeUnit.Days)=_selectedStart || DateAdd(_firstDayInView,ThisItem.Value,TimeUnit.Days)=_selectedEnd,
-                            CalendarComponent_1.SelectedDateColor,
-                        DateAdd(_firstDayInView,ThisItem.Value,TimeUnit.Days)=_today || Month(DateAdd(_firstDayInView,ThisItem.Value,TimeUnit.Days))=Month(_firstDayOfMonth),
-                            Color.Black,
-                        ColorFade(Color.Black,60%))
+                    =If(
+                        DateAdd(_firstDayInView,ThisItem.Value,TimeUnit.Days)=_selectedStart ||
+                        DateAdd(_firstDayInView,ThisItem.Value,TimeUnit.Days)=_selectedEnd,
+                        
+                        CalendarComponent_1.SelectedDateColor,DateAdd(_firstDayInView,ThisItem.Value,TimeUnit.Days)=_today ||
+                        Month(DateAdd(_firstDayInView,ThisItem.Value,TimeUnit.Days))=Month(_firstDayOfMonth), 
+                        
+                        Color.Black,ColorFade(Color.Black,60%))
                 DisabledBorderColor: =ColorFade(btnDayBack_1.BorderColor, 70%)
                 DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
                 DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
@@ -678,15 +681,37 @@ CalendarComponent_1 As CanvasComponent:
                 Color: |-
                     =If(
                         /* transparent before initialized */
-                        IsBlank(_today), 
-                            RGBA(0,0,0,1),
+                        IsBlank(_today),
+                        RGBA(
+                            0,
+                            0,
+                            0,
+                            1
+                        ),
                         /* range enabled and date is start or end */
-                        DateAdd(_firstDayInView,ThisItem.Value,TimeUnit.Days)=_selectedStart ||
-                        (CalendarComponent_1.SelectRange && (DateAdd(_firstDayInView,ThisItem.Value,TimeUnit.Days) > _selectedStart && DateAdd(_firstDayInView,ThisItem.Value,TimeUnit.Days) <= _selectedEnd)),
-                           CalendarComponent_1.SelectedDateColor,
+                        DateAdd(
+                            _firstDayInView,
+                            ThisItem.Value,
+                            TimeUnit.Days
+                        ) = _selectedStart || (CalendarComponent_1.SelectRange && (DateAdd(
+                            _firstDayInView,
+                            ThisItem.Value,
+                            TimeUnit.Days
+                        ) > _selectedStart && DateAdd(
+                            _firstDayInView,
+                            ThisItem.Value,
+                            TimeUnit.Days
+                        ) <= _selectedEnd)),
+                        CalendarComponent_1.SelectedDateColor,
                         /* color of dates that share the same month*/
-                        Month(DateAdd(_firstDayInView,ThisItem.Value,TimeUnit.Days)) = Month(_firstDayOfMonth),
-                            CalendarComponent_1.Color,
+                        Month(
+                            DateAdd(
+                                _firstDayInView,
+                                ThisItem.Value,
+                                TimeUnit.Days
+                            )
+                        ) = Month(_firstDayOfMonth),
+                        CalendarComponent_1.Color,
                         /* default text color */
                         Color.Gray
                     )
@@ -846,6 +871,38 @@ CalendarComponent_1 As CanvasComponent:
                 X: =(Parent.TemplateWidth - btnDayValue_1.Width) / 2
                 ZIndex: =4
 
+            IcnBlocked As icon.Cancel:
+                AutoDisableOnSelect: =false
+                DisabledColor: =Color.Red
+                DisplayMode: =DisplayMode.Disabled
+                Height: =30
+                Icon: =Icon.Blocked
+                OnSelect: =
+                Visible: |-
+                    =If(
+                        CalendarComponent_1.ShowCalendarEvents = false,
+                        DateAdd(
+                            _firstDayInView,
+                            ThisItem.Value,
+                            TimeUnit.Days
+                        ) = _today,
+                        If(
+                       CountRows(
+                        Filter(
+                            CalendarComponent_1.BlockedDates,
+                            DateValue(Text(Date)) = DateAdd(
+                                _firstDayInView,
+                                ThisItem.Value,
+                                TimeUnit.Days
+                            )
+                        )
+                    ) > 0, true,false)
+                    )
+                Width: =30
+                X: =30
+                Y: =10
+                ZIndex: =5
+
             icnEvent_1 As circle:
                 BorderColor: =RGBA(130, 144, 156, 1)
                 BorderStyle: =BorderStyle.None
@@ -892,34 +949,6 @@ CalendarComponent_1 As CanvasComponent:
                 Width: =5
                 X: =(btnDayValue_1.Width - icnEvent_1.Width) / 2
                 Y: =btnDayValue_1.Y + btnDayValue_1.Height - icnEvent_1.Height
-                ZIndex: =5
-
-            IcnBlocked As icon.Cancel:
-                Height: =22
-                Icon: =Icon.Cancel
-                Visible: |-
-                    =If(
-                        CalendarComponent_1.ShowCalendarEvents = false,
-                        DateAdd(
-                            _firstDayInView,
-                            ThisItem.Value,
-                            TimeUnit.Days
-                        ) = _today,
-                        If(
-                       CountRows(
-                        Filter(
-                            CalendarComponent_1.BlockedDates,
-                            DateValue(Text(Date)) = DateAdd(
-                                _firstDayInView,
-                                ThisItem.Value,
-                                TimeUnit.Days
-                            )
-                        )
-                    ) > 0, true,false)
-                    )
-                Width: =25
-                X: =33
-                Y: =16
                 ZIndex: =6
 
         galCalItems_1 As gallery.variableTemplateHeightGallery:
