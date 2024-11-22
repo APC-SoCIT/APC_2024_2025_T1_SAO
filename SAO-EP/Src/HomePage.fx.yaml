@@ -183,6 +183,16 @@ HomePage As screen:
                 Y: =52
                 ZIndex: =4
 
+        BtnViewLoE_3 As button:
+            Fill: =RGBA(24, 32, 82, 1)
+            Height: =62
+            OnSelect: =Navigate(APF_Approvals)
+            Text: ="View Approvals"
+            Width: =398
+            X: =95
+            Y: =373
+            ZIndex: =6
+
     HP_HeaderContainer As groupContainer.horizontalAutoLayoutContainer:
         DropShadow: =DropShadow.Light
         Fill: =RGBA(255, 255, 255, 1)
