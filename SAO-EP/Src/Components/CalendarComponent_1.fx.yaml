@@ -206,12 +206,12 @@ CalendarComponent_1 As CanvasComponent:
         Y: =446
         ZIndex: =12
 
-    "'Right Panel' As group":
+    Group9 As group:
         Height: =5
         Width: =5
         X: =40
         Y: =40
-        ZIndex: =12
+        ZIndex: =14
 
         galWeekdays_2 As gallery.galleryHorizontal:
             '#CopilotOverlayLabel': ="Filtered"
@@ -925,10 +925,9 @@ CalendarComponent_1 As CanvasComponent:
         galCalItems_1 As gallery.variableTemplateHeightGallery:
             '#CopilotOverlayLabel': ="Filtered"
             Height: =154
-            Items: |-
-                =//Filter(CalendarComponent_1.CalendarItems,DateValue(Date) = CalendarComponent_1.StartDate)
+            Items: |+
+                =Filter(CalendarComponent_1.CalendarItems,DateValue(Date) = CalendarComponent_1.StartDate)
                 
-                ClearCollect(MixedDates,CalendarComponent_1.CalendarItems,CalendarComponent_1.BlockedDates)
             Layout: =Layout.Vertical
             TemplateSize: =50
             Visible: =HideVisibility
@@ -973,4 +972,37 @@ CalendarComponent_1 As CanvasComponent:
                 X: =27
                 Y: =35
                 ZIndex: =4
+
+        galCalItems_3 As gallery.variableTemplateHeightGallery:
+            '#CopilotOverlayLabel': ="Filtered"
+            Height: =154
+            Items: |+
+                =Filter(CalendarComponent_1.BlockedDates,DateValue(Date) = CalendarComponent_1.StartDate)
+                
+            Layout: =Layout.Vertical
+            TemplateSize: =50
+            Visible: =If(HideVisibility && IcnBlocked.Visible = true, true, false)
+            Width: =636
+            X: =619
+            Y: =486
+            ZIndex: =13
+
+            lblEventName_3 As label:
+                Height: =35
+                LineHeight: =1
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: =ThisItem.Reason
+                Width: =440
+                X: =27
+                Y: =7
+                ZIndex: =1
+
+            Rectangle1_6 As rectangle:
+                Fill: =RGBA(128, 128, 128, 1)
+                Height: =50
+                OnSelect: =Select(Parent)
+                Width: =11
+                X: =5
+                ZIndex: =3
 
