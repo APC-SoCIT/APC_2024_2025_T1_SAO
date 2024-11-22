@@ -13,7 +13,7 @@
         RadiusBottomRight: =10
         RadiusTopLeft: =10
         RadiusTopRight: =10
-        Width: =627
+        Width: =517
         X: =35
         Y: =83
         ZIndex: =2
@@ -38,10 +38,11 @@
             DataSource: =BlockedDates
             DefaultMode: =FormMode.New
             FillPortions: =0.25
-            LayoutMinHeight: =175
-            LayoutMinWidth: =400
+            LayoutMinHeight: =180
+            LayoutMinWidth: =Parent.Width
             NumberOfColumns: =1
             UseFluentV9Cards: =true
+            Width: =Parent.Width
             ZIndex: =2
 
             Reason_DataCard1 As typedDataCard.fluentV9TextualEditCard:
@@ -56,6 +57,7 @@
                 Required: =true
                 Update: =DataCardValue36.Value
                 Width: =627
+                WidthFit: =true
                 X: =0
                 Y: =0
                 ZIndex: =3
@@ -117,6 +119,7 @@
                 Required: =false
                 Update: =DataCardValue37.SelectedDate
                 Width: =627
+                WidthFit: =true
                 X: =0
                 Y: =1
                 ZIndex: =3
@@ -171,10 +174,12 @@
         SubmitFormDateBlock As Button:
             AlignInContainer: =AlignInContainer.Center
             DisplayMode: =DisplayMode.Edit
+            FillPortions: =0.06
             Height: =32
-            LayoutMinHeight: =32
+            LayoutMinHeight: =20
             LayoutMinWidth: =96
             OnSelect: =SubmitForm(DateBlockerForm)
+            PaddingTop: =
             Text: ="Submit"
             Width: =96
             X: =0
@@ -183,7 +188,7 @@
 
         "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver5.0'":
             DelayItemLoading: =true
-            FillPortions: =0.35
+            FillPortions: =0.54
             Items: =BlockedDates
             Layout: =Layout.Vertical
             LoadingSpinner: =LoadingSpinner.Data
@@ -265,15 +270,17 @@
     Container15_1 As groupContainer.verticalAutoLayoutContainer:
         DropShadow: =DropShadow.Semilight
         Height: =640
+        LayoutAlignItems: =LayoutAlignItems.Center
         LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.Center
         LayoutMode: =LayoutMode.Auto
         RadiusBottomLeft: =10
         RadiusBottomRight: =10
         RadiusTopLeft: =10
         RadiusTopRight: =10
-        Width: =627
-        X: =696
-        Y: =83
+        Width: =700
+        X: =615
+        Y: =70
         ZIndex: =3
 
         CalendarComponent_Mini_1 As CalendarComponent_Mini:
