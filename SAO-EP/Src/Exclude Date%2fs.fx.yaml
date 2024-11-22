@@ -18,6 +18,22 @@
         Y: =83
         ZIndex: =2
 
+        TextCanvas15 As Text:
+            Align: ='TextCanvas.Align'.Center
+            AutoHeight: =false
+            DisplayMode: =DisplayMode.Edit
+            FillPortions: =0.25
+            Height: =32
+            LayoutMinHeight: =32
+            LayoutMinWidth: =96
+            Size: =25
+            Text: ="Add Dates to Block"
+            Weight: ='TextCanvas.Weight'.Bold
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+
     Container15_1 As groupContainer.verticalAutoLayoutContainer:
         DropShadow: =DropShadow.Semilight
         Height: =640
@@ -33,4 +49,12 @@
         ZIndex: =3
 
         CalendarComponent_Mini_1 As CalendarComponent_Mini:
+
+    TextCanvas14 As Text:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Width: =96
+        X: =40
+        Y: =40
+        ZIndex: =4
 
