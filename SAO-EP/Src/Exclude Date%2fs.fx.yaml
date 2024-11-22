@@ -19,6 +19,149 @@
             Y: =16
             ZIndex: =1
 
+        Form1 As form.PowerApps_CoreControls_Form:
+            DataSource: =BlockedDates
+            Height: =230
+            NumberOfColumns: =1
+            SnapToColumns: =false
+            UseFluentV9Cards: =true
+            Width: =527
+            Y: =80
+            ZIndex: =2
+
+            Reason_DataCard1 As typedDataCard.fluentV9TextualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Reason"
+                Default: =ThisItem.Reason
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@BlockedDates],DataSourceInfo.DisplayName,'Reason')
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@BlockedDates], DataSourceInfo.MaxLength, 'Reason')
+                Required: =true
+                Update: =DataCardValue36.Value
+                Width: =175
+                X: =0
+                Y: =0
+                ZIndex: =3
+
+                DataCardKey53 As Text:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =22
+                    Text: =Parent.DisplayName
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =Parent.Width - 48
+                    Wrap: =false
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue36 As 'Text input'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =32
+                    Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                    Required: =Parent.Required
+                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey53.Y + DataCardKey53.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage53 As Text:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue36.Y + DataCardValue36.Height
+                    ZIndex: =3
+
+                StarVisible23 As Text:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey53.Y
+                    ZIndex: =4
+
+            Date_DataCard1 As typedDataCard.fluentV9DateEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Date"
+                Default: =ThisItem.Date
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@BlockedDates],DataSourceInfo.DisplayName,'Date')
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue37.SelectedDate
+                Width: =175
+                X: =1
+                Y: =0
+                ZIndex: =3
+
+                DataCardKey54 As Text:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =22
+                    Text: =Parent.DisplayName
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =Parent.Width - 48
+                    Wrap: =false
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue37 As 'Date picker'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    EndDate: =Date(Year(Today())+100, 12, 31)
+                    Height: =32
+                    Required: =Parent.Required
+                    SelectedDate: =Parent.Default
+                    StartDate: =Date(1900, 1, 1)
+                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey54.Y + DataCardKey54.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage54 As Text:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue37.Y + DataCardValue37.Height
+                    ZIndex: =3
+
+                StarVisible24 As Text:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey54.Y
+                    ZIndex: =4
+
+        ButtonCanvas11 As Button:
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            OnSelect: =SubmitForm(Form1);
+            Width: =96
+            X: =396
+            Y: =112
+            ZIndex: =3
+
     "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
         DelayItemLoading: =true
         Height: =406
@@ -28,8 +171,8 @@
         TemplatePadding: =0
         TemplateSize: =104
         Width: =774
-        X: =571
-        Y: =345
+        X: =577
+        Y: =212
         ZIndex: =3
 
         Image10 As image:

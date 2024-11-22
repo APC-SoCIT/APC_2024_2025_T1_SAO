@@ -15055,6 +15055,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Exclude Date/s'.Container15.ButtonCanvas11.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Exclude Date/s'.Container15.ButtonCanvas11.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Exclude Date/s",
+                "type": "'Exclude Date/s'.Container15.ButtonCanvas11"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.DelayTimer"
                 }
               ],
