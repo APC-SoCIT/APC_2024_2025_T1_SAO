@@ -365,7 +365,7 @@
                                 Default: ="0"
                                 FillPortions: =0.55
                                 Height: =46
-                                Items: =Distinct(CalDeets, AcadYear)
+                                Items: =Sort(Distinct(CalDeets, AcadYear), Value, SortOrder.Ascending)
                                 LayoutMinWidth: =80
                                 OnChange: |-
                                     =/*ClearCollect(
