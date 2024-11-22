@@ -22,7 +22,7 @@
             Align: ='TextCanvas.Align'.Center
             AutoHeight: =false
             DisplayMode: =DisplayMode.Edit
-            FillPortions: =0.25
+            FillPortions: =0.15
             Height: =32
             LayoutMinHeight: =32
             LayoutMinWidth: =96
@@ -33,6 +33,234 @@
             X: =0
             Y: =0
             ZIndex: =1
+
+        DateBlockerForm As form.PowerApps_CoreControls_Form:
+            DataSource: =BlockedDates
+            DefaultMode: =FormMode.New
+            FillPortions: =0.25
+            LayoutMinHeight: =175
+            LayoutMinWidth: =400
+            NumberOfColumns: =1
+            UseFluentV9Cards: =true
+            ZIndex: =2
+
+            Reason_DataCard1 As typedDataCard.fluentV9TextualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Reason"
+                Default: =ThisItem.Reason
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@BlockedDates],DataSourceInfo.DisplayName,'Reason')
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@BlockedDates], DataSourceInfo.MaxLength, 'Reason')
+                Required: =true
+                Update: =DataCardValue36.Value
+                Width: =627
+                X: =0
+                Y: =0
+                ZIndex: =3
+
+                DataCardKey53 As Text:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =22
+                    Text: =Parent.DisplayName
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =Parent.Width - 48
+                    Wrap: =false
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue36 As 'Text input'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =32
+                    Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                    Required: =Parent.Required
+                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey53.Y + DataCardKey53.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage53 As Text:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue36.Y + DataCardValue36.Height
+                    ZIndex: =3
+
+                StarVisible23 As Text:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey53.Y
+                    ZIndex: =4
+
+            Date_DataCard1 As typedDataCard.fluentV9DateEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Date"
+                Default: =ThisItem.Date
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@BlockedDates],DataSourceInfo.DisplayName,'Date')
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue37.SelectedDate
+                Width: =627
+                X: =0
+                Y: =1
+                ZIndex: =3
+
+                DataCardKey54 As Text:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =22
+                    Text: =Parent.DisplayName
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =Parent.Width - 48
+                    Wrap: =false
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue37 As 'Date picker'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    EndDate: =Date(Year(Today())+100, 12, 31)
+                    Height: =32
+                    Required: =Parent.Required
+                    SelectedDate: =Parent.Default
+                    StartDate: =Date(1900, 1, 1)
+                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey54.Y + DataCardKey54.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage54 As Text:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue37.Y + DataCardValue37.Height
+                    ZIndex: =3
+
+                StarVisible24 As Text:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey54.Y
+                    ZIndex: =4
+
+        SubmitFormDateBlock As Button:
+            AlignInContainer: =AlignInContainer.Center
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            LayoutMinHeight: =32
+            LayoutMinWidth: =96
+            OnSelect: =SubmitForm(DateBlockerForm)
+            Text: ="Submit"
+            Width: =96
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver5.0'":
+            DelayItemLoading: =true
+            FillPortions: =0.35
+            Items: =BlockedDates
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            OnSelect: =
+            TemplatePadding: =0
+            TemplateSize: =90
+            Width: =Parent.Width
+            ZIndex: =4
+
+            Title5 As label:
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.Reason
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - 86
+                X: =40
+                Y: =23
+                ZIndex: =1
+
+            Subtitle3 As label:
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.Date
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Title5.Width
+                X: =40
+                Y: =49
+                ZIndex: =2
+
+            NextArrow3 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                Color: =RGBA(166, 166, 166, 1)
+                Height: =50
+                Icon: =Icon.Edit
+                OnSelect: =Select(Parent)
+                PaddingBottom: =16
+                PaddingLeft: =16
+                PaddingRight: =16
+                PaddingTop: =16
+                Tooltip: ="View item details"
+                Width: =50
+                X: =Parent.TemplateWidth - Self.Width - 12
+                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                ZIndex: =3
+
+            Separator3 As rectangle:
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =8
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - Self.Height
+                ZIndex: =4
+
+            Rectangle11 As rectangle:
+                Height: =Parent.TemplateHeight - Separator3.Height
+                OnSelect: =Select(Parent)
+                Visible: =ThisItem.IsSelected
+                Width: =4
+                X: =24
+                Y: =4
+                ZIndex: =5
+
+        Icon23 As icon.HorizontalLine:
+            Height: =0.5
+            Icon: =Icon.HorizontalLine
+            Width: =Parent.Width
+            ZIndex: =5
 
     Container15_1 As groupContainer.verticalAutoLayoutContainer:
         DropShadow: =DropShadow.Semilight
@@ -49,6 +277,7 @@
         ZIndex: =3
 
         CalendarComponent_Mini_1 As CalendarComponent_Mini:
+            SelectedDateFill: =RGBA(39, 113, 194, 1)
 
     TextCanvas14 As Text:
         DisplayMode: =DisplayMode.Edit
