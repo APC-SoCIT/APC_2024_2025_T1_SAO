@@ -2048,7 +2048,7 @@
           "Category": "Data",
           "NameMap": "{\"Date\":\"Date\",\"Time\":\"Time\",\"Title\":\"Title\",\"Venue\":\"Venue\"}",
           "PropertyName": "CalendarItems",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "System"
         },
         {
           "Category": "Data",
@@ -2119,7 +2119,7 @@
           "Category": "Data",
           "NameMap": "{\"Date\":\"Date\",\"Reason\":\"Reason\"}",
           "PropertyName": "BlockedDates",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "System"
         },
         {
           "Category": "Design",
