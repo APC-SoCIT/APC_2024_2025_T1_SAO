@@ -848,7 +848,7 @@
                     LayoutMinWidth: =96
                     OnSelect: |-
                         =Set(openApprovalScreen, false);
-                        ChangeApprovalStatus.Run(CurrentAPF_ID, CurrentUser.userRoles.Id, DropdownCanvas1.Selected.Value, {text_1:TextInputCanvas1.Value});
+                        ChangeApprovalStatus.Run(CurrentAPF_ID, CurrentUser.userRoles.Id, DropdownCanvas1.Selected.Value, CurrentAPFOrgAdviser.userEmail, {text_1:TextInputCanvas1.Value});
                     PaddingTop: =
                     Text: ="Confirm"
                     Width: =96

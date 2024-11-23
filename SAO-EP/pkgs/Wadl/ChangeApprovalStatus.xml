@@ -6,11 +6,13 @@
       <number name="ManualTriggerInput_number_1_def" />
       <string name="ManualTriggerInput_text_def" />
       <string name="ManualTriggerInput_text_1_def" />
+      <string name="ManualTriggerInput_email_def" />
       <object name="ManualTriggerInput">
         <property name="number" type="number" />
         <property name="number_1" type="number" />
         <property name="text" type="string" />
         <property name="text_1" type="string" />
+        <property name="email" type="string" />
       </object>
     </jsonTypes>
   </grammars>
@@ -25,7 +27,7 @@
           </param>
           <representation mediaType="application/json">
             <param style="plain" name="number" path="/number" type="xs:double" required="true">
-              <doc title="APF ID" />
+              <doc title="Item ID" />
             </param>
             <param style="plain" name="number_1" path="/number_1" type="xs:double" required="true">
               <doc title="User Role" />
@@ -35,6 +37,9 @@
             </param>
             <param style="plain" name="text_1" path="/text_1" type="xs:string">
               <doc title="Reason" />
+            </param>
+            <param style="plain" name="email" path="/email" type="xs:string" required="true">
+              <doc title="Adviser Email" />
             </param>
           </representation>
         </request>
