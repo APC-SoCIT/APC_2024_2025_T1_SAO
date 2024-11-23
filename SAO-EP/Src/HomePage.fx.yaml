@@ -3,6 +3,7 @@ HomePage As screen:
     OnVisible: |-
         =Set(CurrentUserOrg, LookUp(Organizations, ID = CurrentUser.userOrg.Id));
         Set(VarPopUp, true);
+        Set(CurrentSAOHead, LookUp(Users, userRoles[@Value] = Text(1)));
         
         ClearCollect(
             CalDeets,
