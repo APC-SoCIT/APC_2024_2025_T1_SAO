@@ -7,12 +7,14 @@
       <string name="ManualTriggerInput_text_def" />
       <string name="ManualTriggerInput_text_1_def" />
       <string name="ManualTriggerInput_email_def" />
+      <string name="ManualTriggerInput_email_1_def" />
       <object name="ManualTriggerInput">
         <property name="number" type="number" />
         <property name="number_1" type="number" />
         <property name="text" type="string" />
         <property name="text_1" type="string" />
         <property name="email" type="string" />
+        <property name="email_1" type="string" />
       </object>
     </jsonTypes>
   </grammars>
@@ -40,6 +42,9 @@
             </param>
             <param style="plain" name="email" path="/email" type="xs:string" required="true">
               <doc title="Adviser Email" />
+            </param>
+            <param style="plain" name="email_1" path="/email_1" type="xs:string" required="true">
+              <doc title="SAO Head Email" />
             </param>
           </representation>
         </request>

@@ -15,7 +15,7 @@
     "dependents": [
       "971587d0-e8b0-4158-aad4-2b74d955c1ac",
       "b9d11604-091e-4fd8-803c-a1412d6f7cb4",
-      "0b3421ca-07e3-4aaf-a15d-4eaf0016ec57"
+      "3d57bd39-cb42-442f-8e89-97efc1841305"
     ],
     "id": "018da2c9-2eb6-4756-bef2-a05c181511cb"
   },
@@ -83,45 +83,6 @@
     "dependents": [],
     "id": "04e67acf-c1df-420e-adc4-8914df40c033"
   },
-  "0b3421ca-07e3-4aaf-a15d-4eaf0016ec57": {
-    "connectionRef": {
-      "displayName": "Logic flows",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1719/1.0.1719.3953/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "workflowDisplayName": {
-          "value": "Change Approval Status"
-        },
-        "workflowEntityId": {
-          "value": "6cf738ce-1196-ef11-8a69-000d3a8166af"
-        },
-        "workflowName": {
-          "value": "9bcb647d-fafe-411d-9f78-c268a726cf7a"
-        }
-      },
-      "parameterHintsV2": {
-        "workflowDisplayName": {
-          "value": "Change Approval Status"
-        },
-        "workflowEntityId": {
-          "value": "6cf738ce-1196-ef11-8a69-000d3a8166af"
-        },
-        "workflowName": {
-          "value": "9bcb647d-fafe-411d-9f78-c268a726cf7a"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "ChangeApprovalStatus"
-    ],
-    "dependencies": {
-      "shared_office365": "018da2c9-2eb6-4756-bef2-a05c181511cb",
-      "shared_sharepointonline": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
-    },
-    "dependents": [],
-    "id": "0b3421ca-07e3-4aaf-a15d-4eaf0016ec57"
-  },
   "0dc58e79-0509-4be2-b2fa-4eab99ff9203": {
     "appActions": [
       "providers/PowerPlatform.Governance/Operations/Read",
@@ -169,7 +130,7 @@
       "649168f5-ba2f-4b32-8e95-9d13005f1dbd",
       "22c20e0e-a993-4ba3-b293-3dd12315506b",
       "02d71dc0-816c-43ea-9885-54eec35bb0db",
-      "0b3421ca-07e3-4aaf-a15d-4eaf0016ec57"
+      "3d57bd39-cb42-442f-8e89-97efc1841305"
     ],
     "id": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
   },
@@ -266,7 +227,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24111.12",
-        "modifiedOn": "2024-11-23 08:26:00",
+        "modifiedOn": "2024-11-23 08:37:23",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
@@ -284,6 +245,45 @@
       "76956eda-8a49-4051-8d3f-f2387fab0805"
     ],
     "id": "36b1891d-29b4-4b2e-932c-9a9e65152597"
+  },
+  "3d57bd39-cb42-442f-8e89-97efc1841305": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1719/1.0.1719.3953/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowDisplayName": {
+          "value": "Change Approval Status"
+        },
+        "workflowEntityId": {
+          "value": "6cf738ce-1196-ef11-8a69-000d3a8166af"
+        },
+        "workflowName": {
+          "value": "9bcb647d-fafe-411d-9f78-c268a726cf7a"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowDisplayName": {
+          "value": "Change Approval Status"
+        },
+        "workflowEntityId": {
+          "value": "6cf738ce-1196-ef11-8a69-000d3a8166af"
+        },
+        "workflowName": {
+          "value": "9bcb647d-fafe-411d-9f78-c268a726cf7a"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "ChangeApprovalStatus"
+    ],
+    "dependencies": {
+      "shared_office365": "018da2c9-2eb6-4756-bef2-a05c181511cb",
+      "shared_sharepointonline": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
+    },
+    "dependents": [],
+    "id": "3d57bd39-cb42-442f-8e89-97efc1841305"
   },
   "49977c6f-7d3c-44fb-9745-2d9b37b638c9": {
     "connectionRef": {
@@ -760,7 +760,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24111.12",
-        "modifiedOn": "2024-11-23 08:26:01",
+        "modifiedOn": "2024-11-23 08:37:23",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
@@ -789,7 +789,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24111.12",
-        "modifiedOn": "2024-11-23 08:26:01",
+        "modifiedOn": "2024-11-23 08:37:23",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
