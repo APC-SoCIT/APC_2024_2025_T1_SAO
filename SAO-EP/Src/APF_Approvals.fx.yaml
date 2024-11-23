@@ -608,9 +608,11 @@
                                DisplayMode.Disabled,
                                DisplayMode.Edit)
                         Height: =24
-                        OnSelect: |-
+                        OnSelect: |
                             =Set(CurrentAPF_ID, ThisItem.ID);
-                            Set(openApprovalScreen, true)
+                            Set(CurrentAPFOrg, ThisItem.'Name of Lead Org');
+                            Set(CurrentAPFOrgAdviser, LookUp('Users', 'userOrg: orgAcronym'[@Value] = ThisItem.'Name of Lead Org'));
+                            Set(openApprovalScreen, true);
                         Text: ="Review"
                         Visible: =If(CurrentUser.userRoles.Id<3,true,false)
                         Width: =66
