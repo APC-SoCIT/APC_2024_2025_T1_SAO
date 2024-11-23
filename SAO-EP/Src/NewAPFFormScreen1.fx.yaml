@@ -68,7 +68,7 @@ NewAPFFormScreen1 As screen:
             NavigationItems: =gblNavItems
 
     MainBodyCont As groupContainer.manualLayoutContainer:
-        Fill: =RGBA(0, 0, 0, 0.08)
+        Fill: =RGBA(255, 255, 255, 1)
         Height: =598
         Width: =1364
         X: =2
@@ -77,19 +77,20 @@ NewAPFFormScreen1 As screen:
 
         Container27 As groupContainer.verticalAutoLayoutContainer:
             DropShadow: =DropShadow.Light
+            Fill: =RGBA(0, 0, 0, 0.08)
             Height: =598
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
-            Width: =493
+            Width: =578
             ZIndex: =2
 
             NewAPF_Form_1 As form:
                 DataSource: ='APF Uploads'
                 DefaultMode: =FormMode.New
-                Fill: =RGBA(255, 255, 255, 1)
                 Height: =200
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
+                NumberOfColumns: =1
                 Width: =487
                 ZIndex: =1
 
@@ -103,9 +104,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =true
                     Update: =DataCardValue34_1.Value
-                    Width: =486
+                    Width: =578
                     X: =0
-                    Y: =10
+                    Y: =30
                     ZIndex: =1
 
                     DataCardKey51_1 As label:
@@ -163,7 +164,7 @@ NewAPFFormScreen1 As screen:
                     MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'Title')
                     Required: =true
                     Update: =DataCardValue2_4.Text
-                    Width: =486
+                    Width: =578
                     X: =0
                     Y: =0
                     ZIndex: =6
@@ -221,9 +222,9 @@ NewAPFFormScreen1 As screen:
                     MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'ActivityTitle')
                     Required: =true
                     Update: =DataCardValue3_4.Text
-                    Width: =486
-                    X: =1
-                    Y: =0
+                    Width: =578
+                    X: =0
+                    Y: =1
                     ZIndex: =10
 
                     DataCardKey18_1 As label:
@@ -279,9 +280,9 @@ NewAPFFormScreen1 As screen:
                     MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'NameofLeadOrg')
                     Required: =true
                     Update: =DataCardValue4_1.Text
-                    Width: =486
-                    X: =2
-                    Y: =0
+                    Width: =578
+                    X: =0
+                    Y: =2
                     ZIndex: =14
 
                     DataCardKey23_1 As label:
@@ -336,9 +337,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =true
                     Update: =DataCardValue5_1.SelectedDate
-                    Width: =486
+                    Width: =578
                     X: =0
-                    Y: =1
+                    Y: =3
                     ZIndex: =18
 
                     DateErrorMessage_1 As Text:
@@ -410,9 +411,9 @@ NewAPFFormScreen1 As screen:
                     MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'TimeofActivity')
                     Required: =true
                     Update: =DataCardValue6_1.Text
-                    Width: =486
-                    X: =1
-                    Y: =1
+                    Width: =578
+                    X: =0
+                    Y: =4
                     ZIndex: =23
 
                     DataCardKey25_1 As label:
@@ -468,9 +469,9 @@ NewAPFFormScreen1 As screen:
                     MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'LeadOrganizer')
                     Required: =true
                     Update: =DataCardValue7_1.Text
-                    Width: =486
-                    X: =2
-                    Y: =1
+                    Width: =578
+                    X: =0
+                    Y: =5
                     ZIndex: =27
 
                     DataCardKey26_4 As label:
@@ -526,9 +527,9 @@ NewAPFFormScreen1 As screen:
                     MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'NameofCo_x002d_Org')
                     Required: =false
                     Update: =DataCardValue8_1.Text
-                    Width: =486
+                    Width: =578
                     X: =0
-                    Y: =2
+                    Y: =6
                     ZIndex: =31
 
                     DataCardKey27_4 As label:
@@ -584,9 +585,9 @@ NewAPFFormScreen1 As screen:
                     MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'ActivityDescription')
                     Required: =true
                     Update: =DataCardValue9_1.Text
-                    Width: =486
-                    X: =1
-                    Y: =2
+                    Width: =578
+                    X: =0
+                    Y: =7
                     ZIndex: =35
 
                     DataCardKey28_1 As label:
@@ -642,9 +643,9 @@ NewAPFFormScreen1 As screen:
                     MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'Objectives')
                     Required: =true
                     Update: =DataCardValue10_1.Text
-                    Width: =486
-                    X: =2
-                    Y: =2
+                    Width: =578
+                    X: =0
+                    Y: =8
                     ZIndex: =39
 
                     DataCardKey29_1 As label:
@@ -700,9 +701,9 @@ NewAPFFormScreen1 As screen:
                     MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'PrimaryAudience')
                     Required: =true
                     Update: =DataCardValue11_1.Text
-                    Width: =486
+                    Width: =578
                     X: =0
-                    Y: =3
+                    Y: =9
                     ZIndex: =43
 
                     DataCardKey30_1 As label:
@@ -757,9 +758,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =Value(DataCardValue12_1.Text)
-                    Width: =486
-                    X: =1
-                    Y: =3
+                    Width: =578
+                    X: =0
+                    Y: =10
                     ZIndex: =47
 
                     DataCardKey31_1 As label:
@@ -815,9 +816,9 @@ NewAPFFormScreen1 As screen:
                     MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'SecondaryAudience')
                     Required: =false
                     Update: =DataCardValue13_1.Text
-                    Width: =486
-                    X: =2
-                    Y: =3
+                    Width: =578
+                    X: =0
+                    Y: =11
                     ZIndex: =51
 
                     DataCardKey32_1 As label:
@@ -872,9 +873,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =Value(DataCardValue14_1.Text)
-                    Width: =486
+                    Width: =578
                     X: =0
-                    Y: =4
+                    Y: =12
                     ZIndex: =55
 
                     DataCardKey33_2 As label:
@@ -929,9 +930,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue15_1.Value
-                    Width: =486
-                    X: =1
-                    Y: =4
+                    Width: =578
+                    X: =0
+                    Y: =13
                     ZIndex: =59
 
                     DataCardKey34_1 As label:
@@ -978,9 +979,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue16_1.Value
-                    Width: =486
-                    X: =2
-                    Y: =4
+                    Width: =578
+                    X: =0
+                    Y: =14
                     ZIndex: =63
 
                     DataCardKey35_1 As label:
@@ -1027,9 +1028,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue17_1.Value
-                    Width: =486
+                    Width: =578
                     X: =0
-                    Y: =5
+                    Y: =15
                     ZIndex: =67
 
                     DataCardKey36_1 As label:
@@ -1076,9 +1077,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue18_1.Value
-                    Width: =486
-                    X: =1
-                    Y: =5
+                    Width: =578
+                    X: =0
+                    Y: =16
                     ZIndex: =71
 
                     DataCardKey37_1 As label:
@@ -1125,9 +1126,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue21_1.Value
-                    Width: =486
-                    X: =2
-                    Y: =5
+                    Width: =578
+                    X: =0
+                    Y: =17
                     ZIndex: =75
 
                     DataCardKey38_1 As label:
@@ -1174,9 +1175,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue22_1.Value
-                    Width: =486
+                    Width: =578
                     X: =0
-                    Y: =6
+                    Y: =18
                     ZIndex: =79
 
                     DataCardKey39_1 As label:
@@ -1223,9 +1224,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue23_1.Value
-                    Width: =486
-                    X: =1
-                    Y: =6
+                    Width: =578
+                    X: =0
+                    Y: =19
                     ZIndex: =83
 
                     DataCardKey40_1 As label:
@@ -1272,9 +1273,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue24_1.Value
-                    Width: =486
-                    X: =2
-                    Y: =6
+                    Width: =578
+                    X: =0
+                    Y: =20
                     ZIndex: =87
 
                     DataCardKey41_1 As label:
@@ -1321,9 +1322,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue25_1.Value
-                    Width: =486
+                    Width: =578
                     X: =0
-                    Y: =7
+                    Y: =21
                     ZIndex: =91
 
                     DataCardKey42_1 As label:
@@ -1333,6 +1334,7 @@ NewAPFFormScreen1 As screen:
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =60
+                        Y: =10
                         ZIndex: =92
 
                     DataCardValue25_1 As toggleSwitch:
@@ -1369,9 +1371,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue26_1.Value
-                    Width: =486
-                    X: =1
-                    Y: =7
+                    Width: =578
+                    X: =0
+                    Y: =22
                     ZIndex: =95
 
                     DataCardKey43_1 As label:
@@ -1418,9 +1420,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue27_1.Value
-                    Width: =486
-                    X: =2
-                    Y: =7
+                    Width: =578
+                    X: =0
+                    Y: =23
                     ZIndex: =99
 
                     DataCardKey44_1 As label:
@@ -1467,9 +1469,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue28_1.Value
-                    Width: =486
+                    Width: =578
                     X: =0
-                    Y: =8
+                    Y: =24
                     ZIndex: =103
 
                     DataCardKey45_1 As label:
@@ -1516,9 +1518,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue29_1.Value
-                    Width: =486
-                    X: =1
-                    Y: =8
+                    Width: =578
+                    X: =0
+                    Y: =25
                     ZIndex: =107
 
                     DataCardKey46_1 As label:
@@ -1565,9 +1567,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue30_1.Value
-                    Width: =486
-                    X: =2
-                    Y: =8
+                    Width: =578
+                    X: =0
+                    Y: =26
                     ZIndex: =111
 
                     DataCardKey47_1 As label:
@@ -1614,9 +1616,9 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue31_1.Value
-                    Width: =486
+                    Width: =578
                     X: =0
-                    Y: =9
+                    Y: =27
                     ZIndex: =115
 
                     DataCardKey48_1 As label:
@@ -1664,9 +1666,9 @@ NewAPFFormScreen1 As screen:
                     MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'Venue_x002f_Platform')
                     Required: =true
                     Update: =DataCardValue32_1.Text
-                    Width: =486
-                    X: =1
-                    Y: =9
+                    Width: =578
+                    X: =0
+                    Y: =28
                     ZIndex: =119
 
                     DataCardKey49_1 As label:
@@ -1722,9 +1724,9 @@ NewAPFFormScreen1 As screen:
                     MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'Link')
                     Required: =false
                     Update: =DataCardValue33_1.Text
-                    Width: =486
-                    X: =2
-                    Y: =9
+                    Width: =578
+                    X: =0
+                    Y: =29
                     ZIndex: =123
 
                     DataCardKey50_1 As label:
@@ -1772,7 +1774,7 @@ NewAPFFormScreen1 As screen:
         CalendarComponent_Mini_2 As CalendarComponent_Mini:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =598
-            X: =724
+            X: =666
             ZIndex: =3
 
     Runner As groupContainer.horizontalAutoLayoutContainer:
