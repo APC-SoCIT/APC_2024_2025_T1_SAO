@@ -1,11 +1,13 @@
 "'New APF Form Screen' As screen":
+    OnVisible: =Set(isSelectingUpload,false);
 
     NewAPF_Form As form:
         DataSource: ='APF Uploads'
         DefaultMode: =FormMode.New
-        Height: =Parent.Height-50
+        Height: =644
         Width: =Parent.Width
         X: =2
+        Y: =58
         ZIndex: =1
 
         IsApproved_DataCard1 As typedDataCard.toggleEditCard:
@@ -78,7 +80,7 @@
             MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'Title')
             Required: =true
             Update: =DataCardValue2.Text
-            Width: =454
+            Width: =455
             X: =0
             Y: =0
             ZIndex: =2
@@ -136,7 +138,7 @@
             MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'ActivityTitle')
             Required: =true
             Update: =DataCardValue3.Text
-            Width: =454
+            Width: =455
             X: =1
             Y: =0
             ZIndex: =2
@@ -194,7 +196,7 @@
             MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'NameofLeadOrg')
             Required: =true
             Update: =DataCardValue4.Text
-            Width: =454
+            Width: =455
             X: =2
             Y: =0
             ZIndex: =2
@@ -251,7 +253,7 @@
             Height: =50
             Required: =true
             Update: =DataCardValue5.SelectedDate
-            Width: =454
+            Width: =455
             X: =0
             Y: =1
             ZIndex: =2
@@ -325,7 +327,7 @@
             MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'TimeofActivity')
             Required: =true
             Update: =DataCardValue6.Text
-            Width: =454
+            Width: =455
             X: =1
             Y: =1
             ZIndex: =2
@@ -383,7 +385,7 @@
             MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'LeadOrganizer')
             Required: =true
             Update: =DataCardValue7.Text
-            Width: =454
+            Width: =455
             X: =2
             Y: =1
             ZIndex: =2
@@ -441,7 +443,7 @@
             MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'NameofCo_x002d_Org')
             Required: =false
             Update: =DataCardValue8.Text
-            Width: =454
+            Width: =455
             X: =0
             Y: =2
             ZIndex: =2
@@ -499,7 +501,7 @@
             MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'ActivityDescription')
             Required: =true
             Update: =DataCardValue9.Text
-            Width: =454
+            Width: =455
             X: =1
             Y: =2
             ZIndex: =2
@@ -557,7 +559,7 @@
             MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'Objectives')
             Required: =true
             Update: =DataCardValue10.Text
-            Width: =454
+            Width: =455
             X: =2
             Y: =2
             ZIndex: =2
@@ -615,7 +617,7 @@
             MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'PrimaryAudience')
             Required: =true
             Update: =DataCardValue11.Text
-            Width: =454
+            Width: =455
             X: =0
             Y: =3
             ZIndex: =2
@@ -672,7 +674,7 @@
             Height: =50
             Required: =false
             Update: =Value(DataCardValue12.Text)
-            Width: =454
+            Width: =455
             X: =1
             Y: =3
             ZIndex: =2
@@ -730,7 +732,7 @@
             MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'SecondaryAudience')
             Required: =false
             Update: =DataCardValue13.Text
-            Width: =454
+            Width: =455
             X: =2
             Y: =3
             ZIndex: =2
@@ -787,7 +789,7 @@
             Height: =50
             Required: =false
             Update: =Value(DataCardValue14.Text)
-            Width: =454
+            Width: =455
             X: =0
             Y: =4
             ZIndex: =2
@@ -844,7 +846,7 @@
             Height: =50
             Required: =false
             Update: =DataCardValue15.Value
-            Width: =454
+            Width: =455
             X: =1
             Y: =4
             ZIndex: =2
@@ -893,7 +895,7 @@
             Height: =50
             Required: =false
             Update: =DataCardValue16.Value
-            Width: =454
+            Width: =455
             X: =2
             Y: =4
             ZIndex: =2
@@ -942,7 +944,7 @@
             Height: =50
             Required: =false
             Update: =DataCardValue17.Value
-            Width: =454
+            Width: =455
             X: =0
             Y: =5
             ZIndex: =2
@@ -991,7 +993,7 @@
             Height: =50
             Required: =false
             Update: =DataCardValue18.Value
-            Width: =454
+            Width: =455
             X: =1
             Y: =5
             ZIndex: =2
@@ -1040,7 +1042,7 @@
             Height: =50
             Required: =false
             Update: =DataCardValue21.Value
-            Width: =454
+            Width: =455
             X: =2
             Y: =5
             ZIndex: =2
@@ -1089,7 +1091,7 @@
             Height: =50
             Required: =false
             Update: =DataCardValue22.Value
-            Width: =454
+            Width: =455
             X: =0
             Y: =6
             ZIndex: =2
@@ -1138,7 +1140,7 @@
             Height: =50
             Required: =false
             Update: =DataCardValue23.Value
-            Width: =454
+            Width: =455
             X: =1
             Y: =6
             ZIndex: =2
@@ -1187,7 +1189,7 @@
             Height: =50
             Required: =false
             Update: =DataCardValue24.Value
-            Width: =454
+            Width: =455
             X: =2
             Y: =6
             ZIndex: =2
@@ -1236,7 +1238,7 @@
             Height: =50
             Required: =false
             Update: =DataCardValue25.Value
-            Width: =454
+            Width: =455
             X: =0
             Y: =7
             ZIndex: =2
@@ -1285,7 +1287,7 @@
             Height: =50
             Required: =false
             Update: =DataCardValue26.Value
-            Width: =454
+            Width: =455
             X: =1
             Y: =7
             ZIndex: =2
@@ -1334,7 +1336,7 @@
             Height: =50
             Required: =false
             Update: =DataCardValue27.Value
-            Width: =454
+            Width: =455
             X: =2
             Y: =7
             ZIndex: =2
@@ -1383,7 +1385,7 @@
             Height: =50
             Required: =false
             Update: =DataCardValue28.Value
-            Width: =454
+            Width: =455
             X: =0
             Y: =8
             ZIndex: =2
@@ -1432,7 +1434,7 @@
             Height: =50
             Required: =false
             Update: =DataCardValue29.Value
-            Width: =454
+            Width: =455
             X: =1
             Y: =8
             ZIndex: =2
@@ -1481,7 +1483,7 @@
             Height: =50
             Required: =false
             Update: =DataCardValue30.Value
-            Width: =454
+            Width: =455
             X: =2
             Y: =8
             ZIndex: =2
@@ -1530,7 +1532,7 @@
             Height: =50
             Required: =false
             Update: =DataCardValue31.Value
-            Width: =454
+            Width: =455
             X: =0
             Y: =9
             ZIndex: =2
@@ -1580,7 +1582,7 @@
             MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'Venue_x002f_Platform')
             Required: =true
             Update: =DataCardValue32.Text
-            Width: =454
+            Width: =455
             X: =1
             Y: =9
             ZIndex: =2
@@ -1638,7 +1640,7 @@
             MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'Link')
             Required: =false
             Update: =DataCardValue33.Text
-            Width: =454
+            Width: =455
             X: =2
             Y: =9
             ZIndex: =2
@@ -1740,6 +1742,23 @@
         X: =2
         Y: =718
         ZIndex: =4
+
+    VE_HeaderContainer_1 As groupContainer.horizontalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =58
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =1366
+        ZIndex: =13
+
+        TSKBR_17 As TSKBR:
+            LayoutMinHeight: =640
+            LayoutMinWidth: =640
+            NavigationItems: =gblNavItems
 
     SelectUpload_1 As group:
         Height: =5

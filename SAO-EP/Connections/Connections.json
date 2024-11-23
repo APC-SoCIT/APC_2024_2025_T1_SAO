@@ -227,7 +227,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24111.12",
-        "modifiedOn": "2024-11-23 08:37:23",
+        "modifiedOn": "2024-11-23 15:14:13",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
@@ -252,6 +252,12 @@
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1719/1.0.1719.3953/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
       "parameterHints": {
+        "018da2c9-2eb6-4756-bef2-a05c181511cb": {
+          "value": "shared_office365"
+        },
+        "0dc58e79-0509-4be2-b2fa-4eab99ff9203": {
+          "value": "shared_sharepointonline"
+        },
         "workflowDisplayName": {
           "value": "Change Approval Status"
         },
@@ -263,6 +269,12 @@
         }
       },
       "parameterHintsV2": {
+        "shared_office365": {
+          "value": "018da2c9-2eb6-4756-bef2-a05c181511cb"
+        },
+        "shared_sharepointonline": {
+          "value": "0dc58e79-0509-4be2-b2fa-4eab99ff9203"
+        },
         "workflowDisplayName": {
           "value": "Change Approval Status"
         },
@@ -760,7 +772,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24111.12",
-        "modifiedOn": "2024-11-23 08:37:23",
+        "modifiedOn": "2024-11-23 15:14:13",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
@@ -789,7 +801,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.24111.12",
-        "modifiedOn": "2024-11-23 08:37:23",
+        "modifiedOn": "2024-11-23 15:14:13",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
