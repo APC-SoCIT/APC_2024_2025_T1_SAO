@@ -19,10 +19,14 @@ NewAPFFormScreen1 As screen:
             OnSelect: |-
                 =SubmitForm(NewAPF_Form_1);
                 Set(isSelectingUpload, true);
+                If(DatePickerCanvas3.SelectedDate in ShowColumns(BlockedDates,Date),
+                    Set(FormIsValid, false),
+                    Set(FormIsValid,true)
+                ;
                 
-                If(DatePickerCanvas3.SelectedDate < Today(),Set(FormIsValid,false), Set(FormIsValid,true));
                 
-                If(FormIsValid, 
+                If(FormIsValid = false, 
+                    Notify("Invalid form input, please double check the date"),
                     Set(NewAPF_ID,NewAPF_Form_1.LastSubmit);
                     Set(
                         advEmail,
@@ -33,12 +37,10 @@ NewAPFFormScreen1 As screen:
                         )
                     );
                 
-                    Set(flowOutput, newAPFApprovalFlow.Run(NewAPF_ID.ID, NewAPF_ID.'Activity Title', CurrentUser.userEmail, advEmail)),
-                    Notify("Invalid input. Please check your details")
+                    Set(flowOutput, newAPFApprovalFlow.Run(NewAPF_ID.ID, NewAPF_ID.'Activity Title', CurrentUser.userEmail, advEmail));
                 
-                )
                 
-                Set(isSelectingUpload, false);
+                    Set(isSelectingUpload, false);
                 //ResetForm(NewAPF_Form);
             Text: ="Submit"
             Width: =96

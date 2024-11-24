@@ -3546,47 +3546,9 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 3,
-                  "charOffset": 564,
+                  "charOffset": 673,
                   "snippet": {
-                    "text": "Set"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "NewAPFFormScreen1",
-                "type": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrOperatorExpected",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 1,
-                  "charOffset": 585,
-                  "snippet": {
-                    "text": ","
+                    "text": ""
                   }
                 }
               },
@@ -3599,7 +3561,7 @@
           ],
           "message": {
             "arguments": [
-              "Comma",
+              "Eof",
               "ParenClose"
             ],
             "id": "issue"
@@ -3624,10 +3586,9 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 1,
-                  "charOffset": 585,
+                  "charOffset": 673,
                   "snippet": {
-                    "text": ","
+                    "text": ""
                   }
                 }
               },
@@ -3639,13 +3600,17 @@
             }
           ],
           "message": {
+            "arguments": [
+              "Eof",
+              "ParenClose"
+            ],
             "id": "issue"
           },
           "properties": {
             "level": "High"
           },
-          "ruleId": "app-ErrBadToken",
-          "ruleIndex": 1
+          "ruleId": "app-ErrExpectedFound-Ex-Fnd",
+          "ruleIndex": 2
         },
         {
           "locations": [
@@ -3662,7 +3627,7 @@
                 },
                 "region": {
                   "charLength": 3,
-                  "charOffset": 309,
+                  "charOffset": 415,
                   "snippet": {
                     "text": ".Id"
                   }
@@ -3702,7 +3667,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 300,
+                  "charOffset": 406,
                   "snippet": {
                     "text": "="
                   }
@@ -3726,43 +3691,6 @@
           },
           "ruleId": "app-SuggestRemoteExecutionHint",
           "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 3,
-                  "charOffset": 564,
-                  "snippet": {
-                    "text": "Set"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "NewAPFFormScreen1",
-                "type": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrOperatorExpected",
-          "ruleIndex": 0
         },
         {
           "locations": [
