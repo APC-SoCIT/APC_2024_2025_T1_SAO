@@ -300,6 +300,7 @@ NewAPFFormScreen1 As screen:
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
+                        HintText: =""
                         MaxLength: =Parent.MaxLength
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
@@ -336,7 +337,7 @@ NewAPFFormScreen1 As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =true
-                    Update: =DataCardValue5_1.SelectedDate
+                    Update: =DatePickerCanvas3.SelectedDate
                     Width: =578
                     X: =0
                     Y: =3
@@ -363,28 +364,6 @@ NewAPFFormScreen1 As screen:
                         Y: =10
                         ZIndex: =20
 
-                    DataCardValue5_1 As datepicker:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        DefaultDate: =Parent.Default
-                        DisplayMode: =Parent.DisplayMode
-                        EndYear: =Year(Today())+100
-                        IsEditable: =true
-                        OnChange: |
-                            =If(
-                                Self.SelectedDate < Today(),
-                                Set(DateErrorMessageVisible, true);
-                                Reset(Self),
-                                Set(DateErrorMessageVisible, false)
-                            );
-                        PaddingBottom: =0
-                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                        StartYear: =1899
-                        Tooltip: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey24_1.Y + DataCardKey24_1.Height + 5
-                        ZIndex: =21
-
                     ErrorMessage24_1 As label:
                         AutoHeight: =true
                         Height: =10
@@ -397,8 +376,25 @@ NewAPFFormScreen1 As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue5_1.Y + DataCardValue5_1.Height
+                        Y: =DatePickerCanvas3.Y + DatePickerCanvas3.Height
                         ZIndex: =22
+
+                    "DatePickerCanvas3 As 'Date picker'":
+                        Appearance: ='DatePickerCanvas.Appearance'.FilledLighter
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =40
+                        OnChange: |-
+                            =If(
+                                Self.SelectedDate < Today(),
+                                Set(DateErrorMessageVisible, true);
+                                Reset(Self),
+                                Set(DateErrorMessageVisible, false)
+                            );
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey24_1.Y + DataCardKey24_1.Height + 5
+                        ZIndex: =23
 
                 "'Time of Activity_DataCard1_1' As typedDataCard.textualEditCard":
                     BorderStyle: =BorderStyle.Solid
