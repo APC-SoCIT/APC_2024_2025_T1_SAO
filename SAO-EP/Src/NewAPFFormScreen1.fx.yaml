@@ -19,6 +19,9 @@ NewAPFFormScreen1 As screen:
             OnSelect: |-
                 =SubmitForm(NewAPF_Form_1);
                 Set(isSelectingUpload, true);
+                
+                If(DatePickerCanvas3.SelectedDate < Today(),Set(FormIsValid,false));
+                
                 Set(NewAPF_ID,NewAPF_Form_1.LastSubmit);
                 Set(
                     advEmail,
@@ -43,7 +46,9 @@ NewAPFFormScreen1 As screen:
             Height: =32
             LayoutMinHeight: =32
             LayoutMinWidth: =96
-            OnSelect: =ResetForm(NewAPF_Form_1)
+            OnSelect: |-
+                =ResetForm(NewAPF_Form_1);
+                Set(FormIsValid,false)
             Text: ="Reset"
             Width: =96
             X: =0
@@ -106,7 +111,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue34_1.Value
                     Width: =578
                     X: =0
-                    Y: =30
+                    Y: =0
                     ZIndex: =1
 
                     DataCardKey51_1 As label:
@@ -166,7 +171,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue2_4.Text
                     Width: =578
                     X: =0
-                    Y: =0
+                    Y: =1
                     ZIndex: =6
 
                     DataCardKey14_1 As label:
@@ -224,7 +229,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue3_4.Text
                     Width: =578
                     X: =0
-                    Y: =1
+                    Y: =2
                     ZIndex: =10
 
                     DataCardKey18_1 As label:
@@ -282,7 +287,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue4_1.Text
                     Width: =578
                     X: =0
-                    Y: =2
+                    Y: =3
                     ZIndex: =14
 
                     DataCardKey23_1 As label:
@@ -335,12 +340,12 @@ NewAPFFormScreen1 As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'Target_x0020_Date')
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =98
                     Required: =true
                     Update: =DatePickerCanvas3.SelectedDate
                     Width: =578
                     X: =0
-                    Y: =3
+                    Y: =4
                     ZIndex: =18
 
                     DateErrorMessage_1 As Text:
@@ -408,10 +413,11 @@ NewAPFFormScreen1 As screen:
                     Height: =50
                     MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'TimeofActivity')
                     Required: =true
-                    Update: =DataCardValue6_1.Text
+                    Update: |-
+                        =Concatenate(HourValue1.SelectedText.Value,":",MinuteValue1.SelectedText.Value)
                     Width: =578
                     X: =0
-                    Y: =4
+                    Y: =5
                     ZIndex: =23
 
                     DataCardKey25_1 As label:
@@ -423,23 +429,6 @@ NewAPFFormScreen1 As screen:
                         X: =30
                         Y: =10
                         ZIndex: =24
-
-                    DataCardValue6_1 As text:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
-                        DelayOutput: =true
-                        DisplayMode: =Parent.DisplayMode
-                        MaxLength: =Parent.MaxLength
-                        PaddingLeft: =5
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
-                        Tooltip: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey25_1.Y + DataCardKey25_1.Height + 5
-                        ZIndex: =25
 
                     ErrorMessage25_1 As label:
                         AutoHeight: =true
@@ -453,8 +442,57 @@ NewAPFFormScreen1 As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue6_1.Y + DataCardValue6_1.Height
+                        Y: =HourValue1.Y + HourValue1.Height
                         ZIndex: =26
+
+                    HourValue1 As dropdown:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Text(Hour(Parent.Default),"00")
+                        DisplayMode: =Parent.DisplayMode
+                        FontWeight: =FontWeight.Lighter
+                        Height: =DatePickerCanvas3.Height
+                        Items: =["07","08","09","10","11","12","13","14","15","16","17","18","19"]
+                        PaddingBottom: =5
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        Tooltip: =Parent.DisplayName
+                        Width: =DatePickerCanvas3.Width / 2 - 5
+                        X: =DatePickerCanvas3.X
+                        Y: =DataCardKey25_1.Y + DataCardKey25_1.Height + 10
+                        ZIndex: =27
+
+                    Separator2 As label:
+                        Align: =Align.Center
+                        FontWeight: =FontWeight.Bold
+                        Height: =HourValue1.Height
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: |-
+                            =":"
+                        Width: =10
+                        Wrap: =false
+                        X: =HourValue1.X + HourValue1.Width
+                        Y: =HourValue1.Y
+                        ZIndex: =28
+
+                    MinuteValue1 As dropdown:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Text(Minute(Parent.Default),"00")
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =HourValue1.Height
+                        Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
+                        PaddingBottom: =5
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        Tooltip: =Parent.DisplayName
+                        Width: =HourValue1.Width
+                        X: =HourValue1.X + HourValue1.Width + Separator2.Width
+                        Y: =HourValue1.Y
+                        ZIndex: =29
 
                 "'Lead Organizer_DataCard1_1' As typedDataCard.textualEditCard":
                     BorderStyle: =BorderStyle.Solid
@@ -469,7 +507,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue7_1.Text
                     Width: =578
                     X: =0
-                    Y: =5
+                    Y: =6
                     ZIndex: =27
 
                     DataCardKey26_4 As label:
@@ -527,7 +565,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue8_1.Text
                     Width: =578
                     X: =0
-                    Y: =6
+                    Y: =7
                     ZIndex: =31
 
                     DataCardKey27_4 As label:
@@ -585,7 +623,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue9_1.Text
                     Width: =578
                     X: =0
-                    Y: =7
+                    Y: =8
                     ZIndex: =35
 
                     DataCardKey28_1 As label:
@@ -643,7 +681,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue10_1.Text
                     Width: =578
                     X: =0
-                    Y: =8
+                    Y: =9
                     ZIndex: =39
 
                     DataCardKey29_1 As label:
@@ -701,7 +739,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue11_1.Text
                     Width: =578
                     X: =0
-                    Y: =9
+                    Y: =10
                     ZIndex: =43
 
                     DataCardKey30_1 As label:
@@ -758,7 +796,7 @@ NewAPFFormScreen1 As screen:
                     Update: =Value(DataCardValue12_1.Text)
                     Width: =578
                     X: =0
-                    Y: =10
+                    Y: =11
                     ZIndex: =47
 
                     DataCardKey31_1 As label:
@@ -816,7 +854,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue13_1.Text
                     Width: =578
                     X: =0
-                    Y: =11
+                    Y: =12
                     ZIndex: =51
 
                     DataCardKey32_1 As label:
@@ -873,7 +911,7 @@ NewAPFFormScreen1 As screen:
                     Update: =Value(DataCardValue14_1.Text)
                     Width: =578
                     X: =0
-                    Y: =12
+                    Y: =13
                     ZIndex: =55
 
                     DataCardKey33_2 As label:
@@ -930,7 +968,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue15_1.Value
                     Width: =578
                     X: =0
-                    Y: =13
+                    Y: =15
                     ZIndex: =59
 
                     DataCardKey34_1 As label:
@@ -979,7 +1017,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue16_1.Value
                     Width: =578
                     X: =0
-                    Y: =14
+                    Y: =16
                     ZIndex: =63
 
                     DataCardKey35_1 As label:
@@ -1028,7 +1066,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue17_1.Value
                     Width: =578
                     X: =0
-                    Y: =15
+                    Y: =17
                     ZIndex: =67
 
                     DataCardKey36_1 As label:
@@ -1077,7 +1115,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue18_1.Value
                     Width: =578
                     X: =0
-                    Y: =16
+                    Y: =18
                     ZIndex: =71
 
                     DataCardKey37_1 As label:
@@ -1126,7 +1164,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue21_1.Value
                     Width: =578
                     X: =0
-                    Y: =17
+                    Y: =19
                     ZIndex: =75
 
                     DataCardKey38_1 As label:
@@ -1175,7 +1213,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue22_1.Value
                     Width: =578
                     X: =0
-                    Y: =18
+                    Y: =20
                     ZIndex: =79
 
                     DataCardKey39_1 As label:
@@ -1224,7 +1262,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue23_1.Value
                     Width: =578
                     X: =0
-                    Y: =19
+                    Y: =21
                     ZIndex: =83
 
                     DataCardKey40_1 As label:
@@ -1273,7 +1311,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue24_1.Value
                     Width: =578
                     X: =0
-                    Y: =20
+                    Y: =22
                     ZIndex: =87
 
                     DataCardKey41_1 As label:
@@ -1322,7 +1360,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue25_1.Value
                     Width: =578
                     X: =0
-                    Y: =21
+                    Y: =23
                     ZIndex: =91
 
                     DataCardKey42_1 As label:
@@ -1371,7 +1409,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue26_1.Value
                     Width: =578
                     X: =0
-                    Y: =22
+                    Y: =24
                     ZIndex: =95
 
                     DataCardKey43_1 As label:
@@ -1420,7 +1458,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue27_1.Value
                     Width: =578
                     X: =0
-                    Y: =23
+                    Y: =25
                     ZIndex: =99
 
                     DataCardKey44_1 As label:
@@ -1469,7 +1507,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue28_1.Value
                     Width: =578
                     X: =0
-                    Y: =24
+                    Y: =26
                     ZIndex: =103
 
                     DataCardKey45_1 As label:
@@ -1518,7 +1556,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue29_1.Value
                     Width: =578
                     X: =0
-                    Y: =25
+                    Y: =27
                     ZIndex: =107
 
                     DataCardKey46_1 As label:
@@ -1567,7 +1605,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue30_1.Value
                     Width: =578
                     X: =0
-                    Y: =26
+                    Y: =28
                     ZIndex: =111
 
                     DataCardKey47_1 As label:
@@ -1616,7 +1654,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue31_1.Value
                     Width: =578
                     X: =0
-                    Y: =27
+                    Y: =29
                     ZIndex: =115
 
                     DataCardKey48_1 As label:
@@ -1666,7 +1704,7 @@ NewAPFFormScreen1 As screen:
                     Update: =DataCardValue32_1.Text
                     Width: =578
                     X: =0
-                    Y: =28
+                    Y: =14
                     ZIndex: =119
 
                     DataCardKey49_1 As label:
@@ -1710,64 +1748,6 @@ NewAPFFormScreen1 As screen:
                         X: =30
                         Y: =DataCardValue32_1.Y + DataCardValue32_1.Height
                         ZIndex: =122
-
-                Link_DataCard1_1 As typedDataCard.textualEditCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="Link"
-                    Default: =ThisItem.Link
-                    DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'Link')
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'Link')
-                    Required: =false
-                    Update: =DataCardValue33_1.Text
-                    Width: =578
-                    X: =0
-                    Y: =29
-                    ZIndex: =123
-
-                    DataCardKey50_1 As label:
-                        AutoHeight: =true
-                        Height: =34
-                        Text: =If(Parent.Required, "* ") & Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =124
-
-                    DataCardValue33_1 As text:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
-                        DelayOutput: =true
-                        DisplayMode: =Parent.DisplayMode
-                        MaxLength: =Parent.MaxLength
-                        PaddingLeft: =5
-                        RadiusBottomLeft: =10
-                        RadiusBottomRight: =10
-                        RadiusTopLeft: =10
-                        RadiusTopRight: =10
-                        Tooltip: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey50_1.Y + DataCardKey50_1.Height + 5
-                        ZIndex: =125
-
-                    ErrorMessage50_1 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardValue33_1.Y + DataCardValue33_1.Height
-                        ZIndex: =126
 
         CalendarComponent_Mini_2 As CalendarComponent_Mini:
             Fill: =RGBA(255, 255, 255, 1)
