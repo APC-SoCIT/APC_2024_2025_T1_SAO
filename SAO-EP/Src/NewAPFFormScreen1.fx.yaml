@@ -19,7 +19,8 @@ NewAPFFormScreen1 As screen:
             OnSelect: |-
                 =SubmitForm(NewAPF_Form_1);
                 Set(isSelectingUpload, true);
-                If(DatePickerCanvas3.SelectedDate in ShowColumns(BlockedDates,Date),
+                
+                //If(DatePickerCanvas3.SelectedDate in ShowColumns(BlockedDates,Date),
                     Set(FormIsValid, false),
                     Set(FormIsValid,true)
                 ;
