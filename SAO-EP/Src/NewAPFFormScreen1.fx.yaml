@@ -181,7 +181,7 @@ NewAPFFormScreen1 As screen:
 
                     DataCardValue2_4 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
+                        Default: =LookUp(Sort('APF Uploads',ID,SortOrder.Descending),'Name of Lead Org' = CurrentUserOrg.orgAcronym, 'Title')
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         MaxLength: =Parent.MaxLength
@@ -297,9 +297,9 @@ NewAPFFormScreen1 As screen:
 
                     DataCardValue4_1 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
+                        Default: =CurrentUserOrg.orgAcronym
                         DelayOutput: =true
-                        DisplayMode: =Parent.DisplayMode
+                        DisplayMode: =DisplayMode.Disabled
                         HintText: =""
                         MaxLength: =Parent.MaxLength
                         PaddingLeft: =5
@@ -391,6 +391,8 @@ NewAPFFormScreen1 As screen:
                                 Reset(Self),
                                 Set(DateErrorMessageVisible, false)
                             );
+                        SelectedDate: =Today()
+                        StartDate: =Year(Today())
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey24_1.Y + DataCardKey24_1.Height + 5
