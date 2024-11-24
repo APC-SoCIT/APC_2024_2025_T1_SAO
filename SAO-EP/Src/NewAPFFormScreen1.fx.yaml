@@ -2,6 +2,7 @@ NewAPFFormScreen1 As screen:
     OnVisible: =Set(isSelectingUpload,false);
 
     Container21_1 As groupContainer.horizontalAutoLayoutContainer:
+        DropShadow: =DropShadow.Regular
         Height: =50
         LayoutAlignItems: =LayoutAlignItems.Center
         LayoutGap: =20
