@@ -142,8 +142,8 @@ ViewUnSignedAPF As screen:
             Required: =false
             Update: =DataCardValue11.Checked
             Width: =455
-            X: =1
-            Y: =5
+            X: =0
+            Y: =6
             ZIndex: =1
 
             DataCardKey30 As Text:
@@ -204,7 +204,7 @@ ViewUnSignedAPF As screen:
             Update: =DataCardValue12.Checked
             Width: =455
             X: =2
-            Y: =5
+            Y: =6
             ZIndex: =1
 
             DataCardKey31 As Text:
@@ -265,7 +265,7 @@ ViewUnSignedAPF As screen:
             Update: =DataCardValue13.Checked
             Width: =455
             X: =0
-            Y: =6
+            Y: =7
             ZIndex: =1
 
             DataCardKey32 As Text:
@@ -386,8 +386,8 @@ ViewUnSignedAPF As screen:
             Required: =false
             Update: =DataCardValue15.Checked
             Width: =455
-            X: =2
-            Y: =6
+            X: =1
+            Y: =7
             ZIndex: =1
 
             DataCardKey34 As Text:
@@ -509,8 +509,8 @@ ViewUnSignedAPF As screen:
             Required: =false
             Update: =DataCardValue17.Checked
             Width: =455
-            X: =0
-            Y: =7
+            X: =1
+            Y: =5
             ZIndex: =1
 
             DataCardKey36 As Text:
@@ -570,7 +570,7 @@ ViewUnSignedAPF As screen:
             Required: =false
             Update: =DataCardValue18.Checked
             Width: =455
-            X: =1
+            X: =2
             Y: =7
             ZIndex: =1
 
@@ -631,8 +631,8 @@ ViewUnSignedAPF As screen:
             Required: =false
             Update: =DataCardValue21.Checked
             Width: =455
-            X: =2
-            Y: =7
+            X: =0
+            Y: =8
             ZIndex: =1
 
             DataCardKey38 As Text:
@@ -742,43 +742,6 @@ ViewUnSignedAPF As screen:
                 X: =0
                 Y: =DataCardKey50.Y
                 ZIndex: =4
-
-        IsFolder_DataCard1 As typedDataCard.fluentV9ToggleViewCard:
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="{IsFolder}"
-            Default: =ThisItem.IsFolder
-            DisplayMode: =DisplayMode.View
-            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'{IsFolder}')
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =70
-            Required: =false
-            Width: =455
-            X: =0
-            Y: =8
-            ZIndex: =1
-
-            DataCardKey40 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =22
-                Text: =Parent.DisplayName
-                Weight: ='TextCanvas.Weight'.Semibold
-                Width: =Parent.Width - 48
-                Wrap: =false
-                X: =24
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue23 As Toggle:
-                Checked: =Parent.Default
-                DisplayMode: =DisplayMode.View
-                Height: =32
-                Label: =""
-                OnCheck: =false
-                OnUncheck: =false
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey40.Y + DataCardKey40.Height + 4
-                ZIndex: =2
 
         "'Leadership Training_DataCard1' As typedDataCard.fluentV9ToggleEditCard":
             BorderStyle: =BorderStyle.Solid
@@ -913,8 +876,8 @@ ViewUnSignedAPF As screen:
             Required: =false
             Update: =DataCardValue26.Checked
             Width: =455
-            X: =0
-            Y: =9
+            X: =2
+            Y: =5
             ZIndex: =1
 
             DataCardKey43 As Text:
@@ -974,7 +937,7 @@ ViewUnSignedAPF As screen:
             Required: =false
             Update: =DataCardValue27.Checked
             Width: =455
-            X: =1
+            X: =0
             Y: =9
             ZIndex: =1
 
@@ -1035,7 +998,7 @@ ViewUnSignedAPF As screen:
             Required: =false
             Update: =DataCardValue28.Checked
             Width: =455
-            X: =2
+            X: =1
             Y: =9
             ZIndex: =1
 
@@ -1157,8 +1120,8 @@ ViewUnSignedAPF As screen:
             Required: =false
             Update: =DataCardValue30.Checked
             Width: =455
-            X: =1
-            Y: =10
+            X: =2
+            Y: =9
             ZIndex: =1
 
             DataCardKey47 As Text:
@@ -1839,6 +1802,7 @@ ViewUnSignedAPF As screen:
             Icon: ="ArrowLeft"
             LayoutMinHeight: =32
             LayoutMinWidth: =96
+            OnSelect: =Navigate(APF_Approvals)
             Text: ="Back"
             Width: =96
             X: =0
@@ -1851,6 +1815,7 @@ ViewUnSignedAPF As screen:
             Icon: ="Document"
             LayoutMinHeight: =32
             LayoutMinWidth: =96
+            OnSelect: =Set(openApprovalScreen, true);
             Text: ="Review"
             Width: =96
             X: =0
@@ -1872,6 +1837,7 @@ ViewUnSignedAPF As screen:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
+            Height: =300
             LayoutAlignItems: =LayoutAlignItems.End
             LayoutDirection: =LayoutDirection.Vertical
             LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
@@ -1904,18 +1870,19 @@ ViewUnSignedAPF As screen:
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =10
-                LayoutJustifyContent: =LayoutJustifyContent.End
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 PaddingBottom: =15
+                PaddingTop: =15
                 ZIndex: =4
 
                 "TextInputCanvas1 As 'Text input'":
                     DisplayMode: =DisplayMode.Edit
-                    Height: =32
+                    Height: =100
                     LayoutMinHeight: =32
                     LayoutMinWidth: =320
+                    Mode: ='TextInputCanvas.Mode'.Multiline
                     PaddingBottom: =0
                     Placeholder: ="Enter Reason"
                     Visible: =If(DropdownCanvas1.Selected.Value = "For Revision" || DropdownCanvas1.Selected.Value = "Rejected", true, false)
@@ -1945,14 +1912,4 @@ ViewUnSignedAPF As screen:
                     X: =0
                     Y: =0
                     ZIndex: =2
-
-            TextCanvas8 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =32
-                LayoutMinHeight: =32
-                LayoutMinWidth: =96
-                Width: =96
-                X: =0
-                Y: =0
-                ZIndex: =5
 
