@@ -20,28 +20,20 @@ NewAPFFormScreen1 As screen:
                 =SubmitForm(NewAPF_Form_1);
                 Set(isSelectingUpload, true);
                 
-                //If(DatePickerCanvas3.SelectedDate in ShowColumns(BlockedDates,Date),
-                    Set(FormIsValid, false),
-                    Set(FormIsValid,true)
-                ;
+                Set(NewAPF_ID,NewAPF_Form_1.LastSubmit);
+                Set(
+                    advEmail,
+                    LookUp(
+                        Filter(Users, CurrentUserOrg.ID = userOrg.Id),
+                        userRoles.Id = 2,
+                        userEmail
+                    )
+                );
+                
+                Set(flowOutput, newAPFApprovalFlow.Run(NewAPF_ID.ID, NewAPF_ID.'Activity Title', CurrentUser.userEmail, advEmail));
                 
                 
-                If(FormIsValid = false, 
-                    Notify("Invalid form input, please double check the date"),
-                    Set(NewAPF_ID,NewAPF_Form_1.LastSubmit);
-                    Set(
-                        advEmail,
-                        LookUp(
-                            Filter(Users, CurrentUserOrg.ID = userOrg.Id),
-                            userRoles.Id = 2,
-                            userEmail
-                        )
-                    );
-                
-                    Set(flowOutput, newAPFApprovalFlow.Run(NewAPF_ID.ID, NewAPF_ID.'Activity Title', CurrentUser.userEmail, advEmail));
-                
-                
-                    Set(isSelectingUpload, false);
+                Set(isSelectingUpload, false);
                 //ResetForm(NewAPF_Form);
             Text: ="Submit"
             Width: =96
@@ -54,9 +46,8 @@ NewAPFFormScreen1 As screen:
             Height: =32
             LayoutMinHeight: =32
             LayoutMinWidth: =96
-            OnSelect: |-
+            OnSelect: |
                 =ResetForm(NewAPF_Form_1);
-                Set(FormIsValid,false)
             Text: ="Reset"
             Width: =96
             X: =0
@@ -404,12 +395,29 @@ NewAPFFormScreen1 As screen:
                                 Reset(Self),
                                 Set(DateErrorMessageVisible, false)
                             );
+                            If(
+                                Self.SelectedDate in ShowColumns(BlockedDates,Date),
+                                Set(DateBlockedMsg, true);
+                                Reset(Self),
+                                Set(DateBlockedMsg,false)
+                            )
                         SelectedDate: =Today()
                         StartDate: =Year(Today())
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey24_1.Y + DataCardKey24_1.Height + 5
                         ZIndex: =23
+
+                    DateBlocked As Text:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =Color.Red
+                        Height: =27
+                        Text: ="Date has been blocked. Please choose another date"
+                        Visible: =DateBlockedMsg
+                        Width: =362
+                        X: =170
+                        Y: =13
+                        ZIndex: =24
 
                 "'Time of Activity_DataCard1_1' As typedDataCard.textualEditCard":
                     BorderStyle: =BorderStyle.Solid
@@ -1758,8 +1766,11 @@ NewAPFFormScreen1 As screen:
                         ZIndex: =122
 
         CalendarComponent_Mini_2 As CalendarComponent_Mini:
+            BlockedDates: =BlockedDates
+            CalendarItems: =CalDeets
             Fill: =RGBA(255, 255, 255, 1)
             Height: =598
+            SelectedDateFill: =RGBA(39, 113, 194, 1)
             X: =666
             ZIndex: =3
 
