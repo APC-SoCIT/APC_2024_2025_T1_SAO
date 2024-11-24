@@ -181,7 +181,7 @@ NewAPFFormScreen1 As screen:
 
                     DataCardValue2_4 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =LookUp(Sort('APF Uploads',ID,SortOrder.Descending),'Name of Lead Org' = CurrentUserOrg.orgAcronym, 'Title')
+                        Default: =LookUp(Sort('APF Uploads', ID ,SortOrder.Descending),'Name of Lead Org' = CurrentUserOrg.orgAcronym, 'Title')
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         MaxLength: =Parent.MaxLength

@@ -3152,7 +3152,7 @@
             Height: =95
             Icon: ="DocumentAdd"
             OnSelect: |-
-                =Navigate('New APF Form Screen')
+                =Navigate('NewAPFFormScreen1')
                 //Set(ConfirmNewAPFDialogue, true);
             Text: =
             Visible: =isSelectingUpload
