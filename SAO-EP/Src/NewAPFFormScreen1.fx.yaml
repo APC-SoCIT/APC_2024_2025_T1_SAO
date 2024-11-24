@@ -20,19 +20,24 @@ NewAPFFormScreen1 As screen:
                 =SubmitForm(NewAPF_Form_1);
                 Set(isSelectingUpload, true);
                 
-                If(DatePickerCanvas3.SelectedDate < Today(),Set(FormIsValid,false));
+                If(DatePickerCanvas3.SelectedDate < Today(),Set(FormIsValid,false), Set(FormIsValid,true));
                 
-                Set(NewAPF_ID,NewAPF_Form_1.LastSubmit);
-                Set(
-                    advEmail,
-                    LookUp(
-                        Filter(Users, CurrentUserOrg.ID = userOrg.Id),
-                        userRoles.Id = 2,
-                        userEmail
-                    )
-                );
+                If(FormIsValid, 
+                    Set(NewAPF_ID,NewAPF_Form_1.LastSubmit);
+                    Set(
+                        advEmail,
+                        LookUp(
+                            Filter(Users, CurrentUserOrg.ID = userOrg.Id),
+                            userRoles.Id = 2,
+                            userEmail
+                        )
+                    );
                 
-                Set(flowOutput, newAPFApprovalFlow.Run(NewAPF_ID.ID, NewAPF_ID.'Activity Title', CurrentUser.userEmail, advEmail));
+                    Set(flowOutput, newAPFApprovalFlow.Run(NewAPF_ID.ID, NewAPF_ID.'Activity Title', CurrentUser.userEmail, advEmail)),
+                    Notify("Invalid input. Please check your details")
+                
+                )
+                
                 Set(isSelectingUpload, false);
                 //ResetForm(NewAPF_Form);
             Text: ="Submit"

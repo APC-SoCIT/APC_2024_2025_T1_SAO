@@ -3547,7 +3547,122 @@
                 },
                 "region": {
                   "charLength": 3,
-                  "charOffset": 249,
+                  "charOffset": 564,
+                  "snippet": {
+                    "text": "Set"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "NewAPFFormScreen1",
+                "type": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrOperatorExpected",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 585,
+                  "snippet": {
+                    "text": ","
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "NewAPFFormScreen1",
+                "type": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Comma",
+              "ParenClose"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrExpectedFound-Ex-Fnd",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 585,
+                  "snippet": {
+                    "text": ","
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "NewAPFFormScreen1",
+                "type": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrBadToken",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 3,
+                  "charOffset": 309,
                   "snippet": {
                     "text": ".Id"
                   }
@@ -3587,7 +3702,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 240,
+                  "charOffset": 300,
                   "snippet": {
                     "text": "="
                   }
@@ -3611,6 +3726,43 @@
           },
           "ruleId": "app-SuggestRemoteExecutionHint",
           "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 3,
+                  "charOffset": 564,
+                  "snippet": {
+                    "text": "Set"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "NewAPFFormScreen1",
+                "type": "NewAPFFormScreen1.Container21_1.SubmitNewAPF_Form_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrOperatorExpected",
+          "ruleIndex": 0
         },
         {
           "locations": [
