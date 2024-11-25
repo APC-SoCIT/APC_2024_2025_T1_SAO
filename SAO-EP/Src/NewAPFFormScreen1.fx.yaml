@@ -122,6 +122,9 @@ NewAPFFormScreen1 As screen:
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
                 NumberOfColumns: =1
+                OnSuccess: |-
+                    =ResetForm(NewAPF_Form_1); 
+                    Navigate(APF_Approvals)
                 Width: =487
                 ZIndex: =1
 
