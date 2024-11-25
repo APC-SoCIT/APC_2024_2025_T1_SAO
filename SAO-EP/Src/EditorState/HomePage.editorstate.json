@@ -626,7 +626,7 @@
       "MetaDataIDKey": "",
       "Name": "BtnViewLoE_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2712,7 +2712,7 @@
       "MetaDataIDKey": "",
       "Name": "Toggle1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

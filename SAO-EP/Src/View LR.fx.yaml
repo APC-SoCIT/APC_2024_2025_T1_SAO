@@ -2297,199 +2297,6 @@
                                 Y: =240
                                 ZIndex: =3
 
-                        HiddenPanell As group:
-                            Height: =5
-                            Width: =5
-                            X: =40
-                            Y: =40
-                            ZIndex: =12
-
-                            Background_1 As rectangle:
-                                DisplayMode: |
-                                    =DisplayMode.Edit
-                                Fill: =RGBA(32, 24, 82, 1)
-                                Height: =507
-                                Visible: =dispViewItemsBought
-                                Width: =636
-                                X: =263
-                                ZIndex: =4
-
-                            Back_1 As icon.ChevronRight:
-                                BorderColor: =RGBA(0, 0, 0, 1)
-                                Color: =RGBA(255, 255, 255, 1)
-                                Icon: =Icon.ChevronRight
-                                OnSelect: |-
-                                    =Set(dispViewItemsBought, false);
-                                    Set(ShowModifyLRPanel,false)
-                                Visible: =dispViewItemsBought
-                                Width: =66
-                                X: =810
-                                Y: =231
-                                ZIndex: =5
-
-                            "ItemsBought As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver5.0'":
-                                '#CopilotOverlayLabel': ="Filtered"
-                                DelayItemLoading: =true
-                                Height: =428
-                                Items: |-
-                                    =If(ItemsType="PD",
-                                        Filter(LR_PDItems, RecordsGallery1.Selected.ID = LR_ID.Id),
-                                        Filter(LR_HBTOItems, RecordsGallery1.Selected.ID = LR_ID.Id)
-                                    )
-                                Layout: =Layout.Vertical
-                                LoadingSpinner: =LoadingSpinner.Data
-                                TemplatePadding: =0
-                                TemplateSize: =147
-                                Visible: =dispViewItemsBought
-                                Width: =478
-                                X: =294
-                                Y: =79
-                                ZIndex: =6
-
-                                Title8_1 As label:
-                                    BorderColor: =RGBA(0, 0, 0, 1)
-                                    Color: =RGBA(255, 255, 255, 1)
-                                    DisabledColor: =RGBA(186, 186, 186, 1)
-                                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                                    Height: =Self.Size * 1.8
-                                    OnSelect: =Select(Parent)
-                                    PaddingBottom: =0
-                                    PaddingLeft: =0
-                                    PaddingRight: =0
-                                    PaddingTop: =0
-                                    Size: =14
-                                    Text: =ThisItem.Title
-                                    VerticalAlign: =VerticalAlign.Top
-                                    Width: =Parent.TemplateWidth - 86
-                                    X: =14
-                                    Y: =19
-                                    ZIndex: =1
-
-                                Subtitle8_2 As label:
-                                    BorderColor: =RGBA(0, 0, 0, 1)
-                                    Color: =RGBA(255, 255, 255, 1)
-                                    DisabledColor: =RGBA(186, 186, 186, 1)
-                                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                                    Height: =Self.Size * 1.8
-                                    OnSelect: =Select(Parent)
-                                    PaddingBottom: =0
-                                    PaddingLeft: =0
-                                    PaddingRight: =0
-                                    PaddingTop: =0
-                                    Text: =ThisItem.PD_Date
-                                    VerticalAlign: =VerticalAlign.Top
-                                    Width: =Title8_1.Width
-                                    X: =Title8_1.X
-                                    Y: =44
-                                    ZIndex: =2
-
-                                Separator8_1 As rectangle:
-                                    BorderColor: =RGBA(0, 0, 255, 1)
-                                    Fill: =RGBA(255, 255, 255, 1)
-                                    Height: =8
-                                    OnSelect: =Select(Parent)
-                                    Width: =Parent.TemplateWidth
-                                    Y: =Parent.TemplateHeight - Self.Height
-                                    ZIndex: =4
-
-                                Rectangle15_1 As rectangle:
-                                    Height: =Parent.TemplateHeight - Separator8_1.Height
-                                    OnSelect: =Select(Parent)
-                                    Visible: =ThisItem.IsSelected
-                                    Width: =4
-                                    Y: =8
-                                    ZIndex: =5
-
-                                Subtitle8_3 As label:
-                                    BorderColor: =RGBA(0, 0, 0, 1)
-                                    Color: =RGBA(255, 255, 255, 1)
-                                    DisabledColor: =RGBA(186, 186, 186, 1)
-                                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                                    Height: =Self.Size * 1.8
-                                    OnSelect: =Select(Parent)
-                                    PaddingBottom: =0
-                                    PaddingLeft: =0
-                                    PaddingRight: =0
-                                    PaddingTop: =0
-                                    Text: |-
-                                        =Concatenate("Amount: ", ThisItem.Amt)
-                                    VerticalAlign: =VerticalAlign.Top
-                                    Width: =Title8_1.Width
-                                    X: =14
-                                    Y: =69
-                                    ZIndex: =6
-
-                                Icon9_1 As icon.Edit:
-                                    Color: =RGBA(255, 255, 255, 1)
-                                    Height: =20
-                                    Icon: =Icon.Edit
-                                    OnSelect: |
-                                        =Set(ShowModifyLRPanel, true);
-                                        Set(FormAction,"editItem");
-                                    Width: =20
-                                    X: =355
-                                    Y: =49
-                                    ZIndex: =7
-
-                                Icon7_1 As icon.Trash:
-                                    Color: =RGBA(255, 255, 255, 1)
-                                    Height: =20
-                                    Icon: =Icon.Trash
-                                    OnSelect: |-
-                                        =If(ItemsType = "PD",
-                                            Remove(LR_PDItems, ItemsBought.Selected),
-                                            Remove(LR_HBTOItems, ItemsBought.Selected)
-                                        )
-                                    Width: =20
-                                    X: =379
-                                    Y: =49
-                                    ZIndex: =8
-
-                                Subtitle8_4 As label:
-                                    BorderColor: =RGBA(0, 0, 0, 1)
-                                    Color: =RGBA(255, 255, 255, 1)
-                                    DisabledColor: =RGBA(186, 186, 186, 1)
-                                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                                    Height: =Self.Size * 1.8
-                                    OnSelect: =Select(Parent)
-                                    PaddingBottom: =0
-                                    PaddingLeft: =0
-                                    PaddingRight: =0
-                                    PaddingTop: =0
-                                    Text: |-
-                                        =Concatenate("Cost: ", ThisItem.PD_Price)
-                                    VerticalAlign: =VerticalAlign.Top
-                                    Width: =Title8_1.Width
-                                    X: =14
-                                    Y: =94
-                                    ZIndex: =9
-
-                            Label9_1 As label:
-                                Color: =RGBA(255, 255, 255, 1)
-                                FontWeight: =FontWeight.Bold
-                                Height: =63
-                                Size: =20
-                                Text: ="Items Bought"
-                                Visible: =dispViewItemsBought
-                                Width: =258
-                                X: =294
-                                Y: =16
-                                ZIndex: =7
-
-                            Icon12_1 As icon.Add:
-                                Color: =RGBA(255, 255, 255, 1)
-                                Height: =30
-                                Icon: =Icon.Add
-                                OnSelect: |+
-                                    =Set(LRIDContainer, {Id: RecordsGallery1.Selected.ID, Value: Text(RecordsGallery1.Selected.ID)});
-                                    Set(FormAction,"addItem");
-                                    Set(ShowModifyLRPanel, true);
-                                    
-                                Width: =30
-                                X: =497
-                                Y: =32
-                                ZIndex: =8
-
                         ModifyLRPanels As group:
                             Height: =5
                             Width: =5
@@ -2895,6 +2702,199 @@
                                 X: =737
                                 Y: =30
                                 ZIndex: =11
+
+                        HiddenPanell As group:
+                            Height: =5
+                            Width: =5
+                            X: =40
+                            Y: =40
+                            ZIndex: =12
+
+                            Background_1 As rectangle:
+                                DisplayMode: |
+                                    =DisplayMode.Edit
+                                Fill: =RGBA(32, 24, 82, 1)
+                                Height: =507
+                                Visible: =dispViewItemsBought
+                                Width: =636
+                                X: =263
+                                ZIndex: =4
+
+                            Back_1 As icon.ChevronRight:
+                                BorderColor: =RGBA(0, 0, 0, 1)
+                                Color: =RGBA(255, 255, 255, 1)
+                                Icon: =Icon.ChevronRight
+                                OnSelect: |-
+                                    =Set(dispViewItemsBought, false);
+                                    Set(ShowModifyLRPanel,false)
+                                Visible: =dispViewItemsBought
+                                Width: =66
+                                X: =810
+                                Y: =231
+                                ZIndex: =5
+
+                            "ItemsBought As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver5.0'":
+                                '#CopilotOverlayLabel': ="Filtered"
+                                DelayItemLoading: =true
+                                Height: =428
+                                Items: |-
+                                    =If(ItemsType="PD",
+                                        Filter(LR_PDItems, RecordsGallery1.Selected.ID = LR_ID.Id),
+                                        Filter(LR_HBTOItems, RecordsGallery1.Selected.ID = LR_ID.Id)
+                                    )
+                                Layout: =Layout.Vertical
+                                LoadingSpinner: =LoadingSpinner.Data
+                                TemplatePadding: =0
+                                TemplateSize: =147
+                                Visible: =dispViewItemsBought
+                                Width: =478
+                                X: =294
+                                Y: =79
+                                ZIndex: =6
+
+                                Title8_1 As label:
+                                    BorderColor: =RGBA(0, 0, 0, 1)
+                                    Color: =RGBA(255, 255, 255, 1)
+                                    DisabledColor: =RGBA(186, 186, 186, 1)
+                                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                                    Height: =Self.Size * 1.8
+                                    OnSelect: =Select(Parent)
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =14
+                                    Text: =ThisItem.Title
+                                    VerticalAlign: =VerticalAlign.Top
+                                    Width: =Parent.TemplateWidth - 86
+                                    X: =14
+                                    Y: =19
+                                    ZIndex: =1
+
+                                Subtitle8_2 As label:
+                                    BorderColor: =RGBA(0, 0, 0, 1)
+                                    Color: =RGBA(255, 255, 255, 1)
+                                    DisabledColor: =RGBA(186, 186, 186, 1)
+                                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                                    Height: =Self.Size * 1.8
+                                    OnSelect: =Select(Parent)
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Text: =ThisItem.PD_Date
+                                    VerticalAlign: =VerticalAlign.Top
+                                    Width: =Title8_1.Width
+                                    X: =Title8_1.X
+                                    Y: =44
+                                    ZIndex: =2
+
+                                Separator8_1 As rectangle:
+                                    BorderColor: =RGBA(0, 0, 255, 1)
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    Height: =8
+                                    OnSelect: =Select(Parent)
+                                    Width: =Parent.TemplateWidth
+                                    Y: =Parent.TemplateHeight - Self.Height
+                                    ZIndex: =4
+
+                                Rectangle15_1 As rectangle:
+                                    Height: =Parent.TemplateHeight - Separator8_1.Height
+                                    OnSelect: =Select(Parent)
+                                    Visible: =ThisItem.IsSelected
+                                    Width: =4
+                                    Y: =8
+                                    ZIndex: =5
+
+                                Subtitle8_3 As label:
+                                    BorderColor: =RGBA(0, 0, 0, 1)
+                                    Color: =RGBA(255, 255, 255, 1)
+                                    DisabledColor: =RGBA(186, 186, 186, 1)
+                                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                                    Height: =Self.Size * 1.8
+                                    OnSelect: =Select(Parent)
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Text: |-
+                                        =Concatenate("Amount: ", ThisItem.Amt)
+                                    VerticalAlign: =VerticalAlign.Top
+                                    Width: =Title8_1.Width
+                                    X: =14
+                                    Y: =69
+                                    ZIndex: =6
+
+                                Icon9_1 As icon.Edit:
+                                    Color: =RGBA(255, 255, 255, 1)
+                                    Height: =20
+                                    Icon: =Icon.Edit
+                                    OnSelect: |
+                                        =Set(ShowModifyLRPanel, true);
+                                        Set(FormAction,"editItem");
+                                    Width: =20
+                                    X: =355
+                                    Y: =49
+                                    ZIndex: =7
+
+                                Icon7_1 As icon.Trash:
+                                    Color: =RGBA(255, 255, 255, 1)
+                                    Height: =20
+                                    Icon: =Icon.Trash
+                                    OnSelect: |-
+                                        =If(ItemsType = "PD",
+                                            Remove(LR_PDItems, ItemsBought.Selected),
+                                            Remove(LR_HBTOItems, ItemsBought.Selected)
+                                        )
+                                    Width: =20
+                                    X: =379
+                                    Y: =49
+                                    ZIndex: =8
+
+                                Subtitle8_4 As label:
+                                    BorderColor: =RGBA(0, 0, 0, 1)
+                                    Color: =RGBA(255, 255, 255, 1)
+                                    DisabledColor: =RGBA(186, 186, 186, 1)
+                                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                                    Height: =Self.Size * 1.8
+                                    OnSelect: =Select(Parent)
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Text: |-
+                                        =Concatenate("Cost: ", ThisItem.PD_Price)
+                                    VerticalAlign: =VerticalAlign.Top
+                                    Width: =Title8_1.Width
+                                    X: =14
+                                    Y: =94
+                                    ZIndex: =9
+
+                            Label9_1 As label:
+                                Color: =RGBA(255, 255, 255, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =63
+                                Size: =20
+                                Text: ="Items Bought"
+                                Visible: =dispViewItemsBought
+                                Width: =258
+                                X: =294
+                                Y: =16
+                                ZIndex: =7
+
+                            Icon12_1 As icon.Add:
+                                Color: =RGBA(255, 255, 255, 1)
+                                Height: =30
+                                Icon: =Icon.Add
+                                OnSelect: |+
+                                    =Set(LRIDContainer, {Id: RecordsGallery1.Selected.ID, Value: Text(RecordsGallery1.Selected.ID)});
+                                    Set(FormAction,"addItem");
+                                    Set(ShowModifyLRPanel, true);
+                                    
+                                Width: =30
+                                X: =497
+                                Y: =32
+                                ZIndex: =8
 
     SetDelay_1 As timer:
         Duration: =6000

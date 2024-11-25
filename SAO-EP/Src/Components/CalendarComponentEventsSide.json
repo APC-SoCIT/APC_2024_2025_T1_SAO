@@ -45,7 +45,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "CalendarComponentEventsSide",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 24,
+        "PublishOrderIndex": 1488,
         "Rules": [
           {
             "Category": "Design",
@@ -195,7 +195,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "CalendarComponentEventsSide",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 25,
+        "PublishOrderIndex": 1489,
         "Rules": [
           {
             "Category": "Design",
@@ -413,7 +413,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "CalendarComponentEventsSide",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 26,
+        "PublishOrderIndex": 1490,
         "Rules": [
           {
             "Category": "Data",
@@ -798,7 +798,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "CalendarComponentEventsSide",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 27,
+        "PublishOrderIndex": 1491,
         "Rules": [
           {
             "Category": "Data",
@@ -1149,7 +1149,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "CalendarComponentEventsSide",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 28,
+        "PublishOrderIndex": 1492,
         "Rules": [
           {
             "Category": "Data",
@@ -1446,7 +1446,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "CalendarComponentEventsSide",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 29,
+        "PublishOrderIndex": 1493,
         "Rules": [
           {
             "Category": "Data",
@@ -1662,7 +1662,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "galCalItems_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 34,
+            "PublishOrderIndex": 1495,
             "Rules": [
               {
                 "Category": "Design",
@@ -1751,7 +1751,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "galCalItems_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 35,
+            "PublishOrderIndex": 1496,
             "Rules": [
               {
                 "Category": "Data",
@@ -1976,7 +1976,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "galCalItems_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 36,
+            "PublishOrderIndex": 1497,
             "Rules": [
               {
                 "Category": "Data",
@@ -2327,7 +2327,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "galCalItems_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 37,
+            "PublishOrderIndex": 1498,
             "Rules": [
               {
                 "Category": "Data",
@@ -2673,7 +2673,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "galCalItems_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 38,
+            "PublishOrderIndex": 1499,
             "Rules": [
               {
                 "Category": "Data",
@@ -3022,7 +3022,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "CalendarComponentEventsSide",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 30,
+        "PublishOrderIndex": 1494,
         "Rules": [
           {
             "Category": "Data",
@@ -3257,7 +3257,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "galWeekdays_3",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 39,
+            "PublishOrderIndex": 1501,
             "Rules": [
               {
                 "Category": "Data",
@@ -3376,7 +3376,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "galWeekdays_3",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 40,
+            "PublishOrderIndex": 1502,
             "Rules": [
               {
                 "Category": "Data",
@@ -3744,7 +3744,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "CalendarComponentEventsSide",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 31,
+        "PublishOrderIndex": 1500,
         "Rules": [
           {
             "Category": "Data",
@@ -4010,7 +4010,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "galCalendar_3",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 41,
+            "PublishOrderIndex": 1504,
             "Rules": [
               {
                 "Category": "Data",
@@ -4111,7 +4111,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "galCalendar_3",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 42,
+            "PublishOrderIndex": 1505,
             "Rules": [
               {
                 "Category": "Data",
@@ -4384,7 +4384,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "galCalendar_3",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 43,
+            "PublishOrderIndex": 1506,
             "Rules": [
               {
                 "Category": "Data",
@@ -4835,7 +4835,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "galCalendar_3",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 44,
+            "PublishOrderIndex": 1507,
             "Rules": [
               {
                 "Category": "Data",
@@ -5185,7 +5185,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "galCalendar_3",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 45,
+            "PublishOrderIndex": 1508,
             "Rules": [
               {
                 "Category": "Data",
@@ -5377,7 +5377,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "galCalendar_3",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 46,
+            "PublishOrderIndex": 1509,
             "Rules": [
               {
                 "Category": "Data",
@@ -5616,7 +5616,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "CalendarComponentEventsSide",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 32,
+        "PublishOrderIndex": 1503,
         "Rules": [
           {
             "Category": "Data",
@@ -5934,7 +5934,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "CalendarComponentEventsSide",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 33,
+        "PublishOrderIndex": 1510,
         "Rules": [
           {
             "Category": "Data",

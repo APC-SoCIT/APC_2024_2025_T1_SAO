@@ -112,7 +112,7 @@
       "MetaDataIDKey": "",
       "Name": "AddNewDateBlock",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 8,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -572,7 +572,7 @@
       "MetaDataIDKey": "",
       "Name": "CalendarCont",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1846,7 +1846,7 @@
       "MetaDataIDKey": "%FieldName.ID%",
       "Name": "DataCardKey2_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2121,7 +2121,7 @@
       "MetaDataIDKey": "%FieldName.ID%",
       "Name": "DataCardKey3_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2427,7 +2427,7 @@
       "MetaDataIDKey": "%FieldValue.ID%",
       "Name": "DataCardValue2_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2765,7 +2765,7 @@
       "MetaDataIDKey": "%FieldValue.ID%",
       "Name": "DataCardValue3_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3272,7 +3272,7 @@
       "MetaDataIDKey": "",
       "Name": "DateBlockerForm",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3414,7 +3414,7 @@
       "MetaDataIDKey": "",
       "Name": "DeleteConfirmDialogContainer1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3600,7 +3600,7 @@
       "MetaDataIDKey": "",
       "Name": "DeleteIconButton1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3809,7 +3809,7 @@
       "MetaDataIDKey": "",
       "Name": "EditIconButton1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4036,7 +4036,7 @@
       "MetaDataIDKey": "%ErrorMessage.ID%",
       "Name": "ErrorMessage2_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4318,7 +4318,7 @@
       "MetaDataIDKey": "%ErrorMessage.ID%",
       "Name": "ErrorMessage3_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5017,7 +5017,7 @@
       "MetaDataIDKey": "",
       "Name": "HP_TSKBR_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5373,7 +5373,7 @@
       "MetaDataIDKey": "",
       "Name": "RecordsGallery1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5578,7 +5578,7 @@
       "MetaDataIDKey": "",
       "Name": "RecordsListSeparator1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5756,7 +5756,7 @@
       "MetaDataIDKey": "",
       "Name": "Rectangle13",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5934,7 +5934,7 @@
       "MetaDataIDKey": "",
       "Name": "Rectangle13_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 9,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6119,7 +6119,7 @@
       "MetaDataIDKey": "",
       "Name": "Rectangle13_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6485,7 +6485,7 @@
       "MetaDataIDKey": "",
       "Name": "SearchContainer1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6685,7 +6685,7 @@
       "MetaDataIDKey": "%SearchIcon.ID%",
       "Name": "SearchIcon1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6935,7 +6935,7 @@
       "MetaDataIDKey": "%SearchInput.ID%",
       "Name": "SearchInput1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7124,7 +7124,7 @@
       "MetaDataIDKey": "%TemplateBrowseGallerySeparator1.ID%",
       "Name": "Separator5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7335,7 +7335,7 @@
       "MetaDataIDKey": "",
       "Name": "Sidebar",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7547,7 +7547,7 @@
       "MetaDataIDKey": "%FieldRequired.ID%",
       "Name": "StarVisible2_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7829,7 +7829,7 @@
       "MetaDataIDKey": "%FieldRequired.ID%",
       "Name": "StarVisible3_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8161,7 +8161,7 @@
       "MetaDataIDKey": "",
       "Name": "SubmitFormDateBlock",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8769,7 +8769,7 @@
       "MetaDataIDKey": "%TemplateBrowseGalleryTitle.ID%",
       "Name": "Title7",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

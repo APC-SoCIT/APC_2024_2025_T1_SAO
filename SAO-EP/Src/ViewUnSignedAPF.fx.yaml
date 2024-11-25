@@ -9,6 +9,130 @@ ViewUnSignedAPF As screen:
         Width: =Parent.Width
         ZIndex: =1
 
+        "'Name of Lead Org_DataCard1' As typedDataCard.fluentV9TextualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="NameofLeadOrg"
+            Default: =ThisItem.'Name of Lead Org'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'NameofLeadOrg')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'NameofLeadOrg')
+            Required: =false
+            Update: =DataCardValue32.Value
+            Width: =455
+            X: =2
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey49 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            "DataCardValue32 As 'Text input'":
+                AccessibleLabel: =Parent.DisplayName
+                DisplayMode: =Parent.DisplayMode
+                Height: =32
+                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                Required: =Parent.Required
+                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                Value: =Parent.Default
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey49.Y + DataCardKey49.Height + 4
+                ZIndex: =2
+
+            ErrorMessage46 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue32.Y + DataCardValue32.Height
+                ZIndex: =3
+
+            StarVisible46 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey49.Y
+                ZIndex: =4
+
+        "'Name of Co-Org_DataCard1' As typedDataCard.fluentV9TextualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="NameofCo_x002d_Org"
+            Default: =ThisItem.'Name of Co-Org'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'NameofCo_x002d_Org')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'NameofCo_x002d_Org')
+            Required: =false
+            Update: =DataCardValue33.Value
+            Width: =455
+            X: =1
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey50 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            "DataCardValue33 As 'Text input'":
+                AccessibleLabel: =Parent.DisplayName
+                DisplayMode: =Parent.DisplayMode
+                Height: =32
+                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                Required: =Parent.Required
+                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                Value: =Parent.Default
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey50.Y + DataCardKey50.Height + 4
+                ZIndex: =2
+
+            ErrorMessage47 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue33.Y + DataCardValue33.Height
+                ZIndex: =3
+
+            StarVisible47 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey50.Y
+                ZIndex: =4
+
         "'Activity Description_DataCard2' As typedDataCard.fluentV9TextualMultiLineEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="ActivityDescription"
@@ -131,6 +255,372 @@ ViewUnSignedAPF As screen:
                 Y: =DataCardKey26.Y
                 ZIndex: =4
 
+        "'Time of Activity_DataCard2' As typedDataCard.fluentV9TextualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="TimeofActivity"
+            Default: =ThisItem.'Time of Activity'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'TimeofActivity')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'TimeofActivity')
+            Required: =false
+            Update: =DataCardValue39.Value
+            Width: =455
+            X: =2
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey56 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            "DataCardValue39 As 'Text input'":
+                AccessibleLabel: =Parent.DisplayName
+                DisplayMode: =Parent.DisplayMode
+                Height: =32
+                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                Required: =Parent.Required
+                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                Value: =Parent.Default
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey56.Y + DataCardKey56.Height + 4
+                ZIndex: =2
+
+            ErrorMessage52 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue39.Y + DataCardValue39.Height
+                ZIndex: =3
+
+            StarVisible52 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey56.Y
+                ZIndex: =4
+
+        "'Projected Primary Audience_DataCard1' As typedDataCard.fluentV9NumberEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="ProjectedPrimaryAudience"
+            Default: =ThisItem.'Projected Primary Audience'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'ProjectedPrimaryAudience')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =Value(DataCardValue34.Value)
+            Width: =455
+            X: =1
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey51 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            "DataCardValue34 As 'Text input'":
+                AccessibleLabel: =Parent.DisplayName
+                DisplayMode: =Parent.DisplayMode
+                Height: =32
+                Required: =Parent.Required
+                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                Value: =Parent.Default
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey51.Y + DataCardKey51.Height + 4
+                ZIndex: =2
+
+            ErrorMessage48 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue34.Y + DataCardValue34.Height
+                ZIndex: =3
+
+            StarVisible48 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey51.Y
+                ZIndex: =4
+
+        "'Secondary Audience_DataCard1' As typedDataCard.fluentV9TextualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="SecondaryAudience"
+            Default: =ThisItem.'Secondary Audience'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'SecondaryAudience')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'SecondaryAudience')
+            Required: =false
+            Update: =DataCardValue36.Value
+            Width: =455
+            X: =2
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey53 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            "DataCardValue36 As 'Text input'":
+                AccessibleLabel: =Parent.DisplayName
+                DisplayMode: =Parent.DisplayMode
+                Height: =32
+                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                Required: =Parent.Required
+                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                Value: =Parent.Default
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey53.Y + DataCardKey53.Height + 4
+                ZIndex: =2
+
+            ErrorMessage50 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue36.Y + DataCardValue36.Height
+                ZIndex: =3
+
+            StarVisible50 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey53.Y
+                ZIndex: =4
+
+        "'Projected Secondary Audience_DataCard1' As typedDataCard.fluentV9NumberEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="ProjectedSecondaryAudience"
+            Default: =ThisItem.'Projected Secondary Audience'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'ProjectedSecondaryAudience')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =Value(DataCardValue35.Value)
+            Width: =455
+            X: =0
+            Y: =5
+            ZIndex: =1
+
+            DataCardKey52 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            "DataCardValue35 As 'Text input'":
+                AccessibleLabel: =Parent.DisplayName
+                DisplayMode: =Parent.DisplayMode
+                Height: =32
+                Required: =Parent.Required
+                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                Value: =Parent.Default
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey52.Y + DataCardKey52.Height + 4
+                ZIndex: =2
+
+            ErrorMessage49 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue35.Y + DataCardValue35.Height
+                ZIndex: =3
+
+            StarVisible49 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey52.Y
+                ZIndex: =4
+
+        "'In Campus_DataCard1' As typedDataCard.fluentV9ToggleEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="InCampus"
+            Default: =ThisItem.'In Campus'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'InCampus')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =DataCardValue17.Checked
+            Width: =455
+            X: =1
+            Y: =5
+            ZIndex: =1
+
+            DataCardKey36 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue17 As Toggle:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                Checked: =Parent.Default
+                DisplayMode: =Parent.DisplayMode
+                Height: =32
+                Label: =""
+                OnCheck: =false
+                OnUncheck: =false
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey36.Y + DataCardKey36.Height + 4
+                ZIndex: =2
+
+            ErrorMessage35 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue17.Y + DataCardValue17.Height
+                ZIndex: =3
+
+            StarVisible35 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey36.Y
+                ZIndex: =4
+
+        "'Off Campus_DataCard1' As typedDataCard.fluentV9ToggleEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="OffCampus"
+            Default: =ThisItem.'Off Campus'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'OffCampus')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =DataCardValue26.Checked
+            Width: =455
+            X: =2
+            Y: =5
+            ZIndex: =1
+
+            DataCardKey43 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue26 As Toggle:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                Checked: =Parent.Default
+                DisplayMode: =Parent.DisplayMode
+                Height: =32
+                Label: =""
+                OnCheck: =false
+                OnUncheck: =false
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey43.Y + DataCardKey43.Height + 4
+                ZIndex: =2
+
+            ErrorMessage41 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue26.Y + DataCardValue26.Height
+                ZIndex: =3
+
+            StarVisible41 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey43.Y
+                ZIndex: =4
+
         "'Academic Competition_DataCard1' As typedDataCard.fluentV9ToggleEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="AcademicCompetition"
@@ -190,6 +680,67 @@ ViewUnSignedAPF As screen:
                 Width: =30
                 X: =0
                 Y: =DataCardKey30.Y
+                ZIndex: =4
+
+        "'External Co-org_DataCard1' As typedDataCard.fluentV9ToggleEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="ExternalCo_x002d_org"
+            Default: =ThisItem.'External Co-org'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'ExternalCo_x002d_org')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =DataCardValue14.Checked
+            Width: =455
+            X: =1
+            Y: =6
+            ZIndex: =1
+
+            DataCardKey33 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue14 As Toggle:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                Checked: =Parent.Default
+                DisplayMode: =Parent.DisplayMode
+                Height: =32
+                Label: =""
+                OnCheck: =false
+                OnUncheck: =false
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey33.Y + DataCardKey33.Height + 4
+                ZIndex: =2
+
+            ErrorMessage33 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue14.Y + DataCardValue14.Height
+                ZIndex: =3
+
+            StarVisible33 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey33.Y
                 ZIndex: =4
 
         "'Community Ext_DataCard1' As typedDataCard.fluentV9ToggleEditCard":
@@ -314,67 +865,6 @@ ViewUnSignedAPF As screen:
                 Y: =DataCardKey32.Y
                 ZIndex: =4
 
-        "'External Co-org_DataCard1' As typedDataCard.fluentV9ToggleEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="ExternalCo_x002d_org"
-            Default: =ThisItem.'External Co-org'
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'ExternalCo_x002d_org')
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =70
-            Required: =false
-            Update: =DataCardValue14.Checked
-            Width: =455
-            X: =1
-            Y: =6
-            ZIndex: =1
-
-            DataCardKey33 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =22
-                Text: =Parent.DisplayName
-                Weight: ='TextCanvas.Weight'.Semibold
-                Width: =Parent.Width - 48
-                Wrap: =false
-                X: =24
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue14 As Toggle:
-                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
-                Checked: =Parent.Default
-                DisplayMode: =Parent.DisplayMode
-                Height: =32
-                Label: =""
-                OnCheck: =false
-                OnUncheck: =false
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey33.Y + DataCardKey33.Height + 4
-                ZIndex: =2
-
-            ErrorMessage33 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: =Parent.Error
-                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                Width: =Parent.Width - 48
-                Wrap: =true
-                X: =24
-                Y: =DataCardValue14.Y + DataCardValue14.Height
-                ZIndex: =3
-
-            StarVisible33 As Text:
-                Align: ='TextCanvas.Align'.Center
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                X: =0
-                Y: =DataCardKey33.Y
-                ZIndex: =4
-
         "'Games & Sports_DataCard1' As typedDataCard.fluentV9ToggleEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="GamesSports"
@@ -434,129 +924,6 @@ ViewUnSignedAPF As screen:
                 Width: =30
                 X: =0
                 Y: =DataCardKey34.Y
-                ZIndex: =4
-
-        "'Name of Lead Org_DataCard1' As typedDataCard.fluentV9TextualEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="NameofLeadOrg"
-            Default: =ThisItem.'Name of Lead Org'
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'NameofLeadOrg')
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =70
-            MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'NameofLeadOrg')
-            Required: =false
-            Update: =DataCardValue32.Value
-            Width: =455
-            X: =2
-            Y: =0
-            ZIndex: =1
-
-            DataCardKey49 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =22
-                Text: =Parent.DisplayName
-                Weight: ='TextCanvas.Weight'.Semibold
-                Width: =Parent.Width - 48
-                Wrap: =false
-                X: =24
-                Y: =10
-                ZIndex: =1
-
-            "DataCardValue32 As 'Text input'":
-                AccessibleLabel: =Parent.DisplayName
-                DisplayMode: =Parent.DisplayMode
-                Height: =32
-                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
-                Required: =Parent.Required
-                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                Value: =Parent.Default
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey49.Y + DataCardKey49.Height + 4
-                ZIndex: =2
-
-            ErrorMessage46 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: =Parent.Error
-                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                Width: =Parent.Width - 48
-                Wrap: =true
-                X: =24
-                Y: =DataCardValue32.Y + DataCardValue32.Height
-                ZIndex: =3
-
-            StarVisible46 As Text:
-                Align: ='TextCanvas.Align'.Center
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                X: =0
-                Y: =DataCardKey49.Y
-                ZIndex: =4
-
-        "'In Campus_DataCard1' As typedDataCard.fluentV9ToggleEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="InCampus"
-            Default: =ThisItem.'In Campus'
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'InCampus')
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =70
-            Required: =false
-            Update: =DataCardValue17.Checked
-            Width: =455
-            X: =1
-            Y: =5
-            ZIndex: =1
-
-            DataCardKey36 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =22
-                Text: =Parent.DisplayName
-                Weight: ='TextCanvas.Weight'.Semibold
-                Width: =Parent.Width - 48
-                Wrap: =false
-                X: =24
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue17 As Toggle:
-                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
-                Checked: =Parent.Default
-                DisplayMode: =Parent.DisplayMode
-                Height: =32
-                Label: =""
-                OnCheck: =false
-                OnUncheck: =false
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey36.Y + DataCardKey36.Height + 4
-                ZIndex: =2
-
-            ErrorMessage35 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: =Parent.Error
-                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                Width: =Parent.Width - 48
-                Wrap: =true
-                X: =24
-                Y: =DataCardValue17.Y + DataCardValue17.Height
-                ZIndex: =3
-
-            StarVisible35 As Text:
-                Align: ='TextCanvas.Align'.Center
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                X: =0
-                Y: =DataCardKey36.Y
                 ZIndex: =4
 
         "'Industry Linkages_DataCard1' As typedDataCard.fluentV9ToggleEditCard":
@@ -681,68 +1048,6 @@ ViewUnSignedAPF As screen:
                 Y: =DataCardKey38.Y
                 ZIndex: =4
 
-        "'Name of Co-Org_DataCard1' As typedDataCard.fluentV9TextualEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="NameofCo_x002d_Org"
-            Default: =ThisItem.'Name of Co-Org'
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'NameofCo_x002d_Org')
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =70
-            MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'NameofCo_x002d_Org')
-            Required: =false
-            Update: =DataCardValue33.Value
-            Width: =455
-            X: =1
-            Y: =1
-            ZIndex: =1
-
-            DataCardKey50 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =22
-                Text: =Parent.DisplayName
-                Weight: ='TextCanvas.Weight'.Semibold
-                Width: =Parent.Width - 48
-                Wrap: =false
-                X: =24
-                Y: =10
-                ZIndex: =1
-
-            "DataCardValue33 As 'Text input'":
-                AccessibleLabel: =Parent.DisplayName
-                DisplayMode: =Parent.DisplayMode
-                Height: =32
-                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
-                Required: =Parent.Required
-                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                Value: =Parent.Default
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey50.Y + DataCardKey50.Height + 4
-                ZIndex: =2
-
-            ErrorMessage47 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: =Parent.Error
-                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                Width: =Parent.Width - 48
-                Wrap: =true
-                X: =24
-                Y: =DataCardValue33.Y + DataCardValue33.Height
-                ZIndex: =3
-
-            StarVisible47 As Text:
-                Align: ='TextCanvas.Align'.Center
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                X: =0
-                Y: =DataCardKey50.Y
-                ZIndex: =4
-
         "'Leadership Training_DataCard1' As typedDataCard.fluentV9ToggleEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="LeadershipTraining"
@@ -863,67 +1168,6 @@ ViewUnSignedAPF As screen:
                 Width: =30
                 X: =0
                 Y: =DataCardKey42.Y
-                ZIndex: =4
-
-        "'Off Campus_DataCard1' As typedDataCard.fluentV9ToggleEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="OffCampus"
-            Default: =ThisItem.'Off Campus'
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'OffCampus')
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =70
-            Required: =false
-            Update: =DataCardValue26.Checked
-            Width: =455
-            X: =2
-            Y: =5
-            ZIndex: =1
-
-            DataCardKey43 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =22
-                Text: =Parent.DisplayName
-                Weight: ='TextCanvas.Weight'.Semibold
-                Width: =Parent.Width - 48
-                Wrap: =false
-                X: =24
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue26 As Toggle:
-                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
-                Checked: =Parent.Default
-                DisplayMode: =Parent.DisplayMode
-                Height: =32
-                Label: =""
-                OnCheck: =false
-                OnUncheck: =false
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey43.Y + DataCardKey43.Height + 4
-                ZIndex: =2
-
-            ErrorMessage41 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: =Parent.Error
-                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                Width: =Parent.Width - 48
-                Wrap: =true
-                X: =24
-                Y: =DataCardValue26.Y + DataCardValue26.Height
-                ZIndex: =3
-
-            StarVisible41 As Text:
-                Align: ='TextCanvas.Align'.Center
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                X: =0
-                Y: =DataCardKey43.Y
                 ZIndex: =4
 
         "'Religious/Spiritual_DataCard1' As typedDataCard.fluentV9ToggleEditCard":
@@ -1048,67 +1292,6 @@ ViewUnSignedAPF As screen:
                 Y: =DataCardKey45.Y
                 ZIndex: =4
 
-        "'Social Events_DataCard1' As typedDataCard.fluentV9ToggleEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="SocialEvents"
-            Default: =ThisItem.'Social Events'
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'SocialEvents')
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =70
-            Required: =false
-            Update: =DataCardValue29.Checked
-            Width: =455
-            X: =0
-            Y: =10
-            ZIndex: =1
-
-            DataCardKey46 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =22
-                Text: =Parent.DisplayName
-                Weight: ='TextCanvas.Weight'.Semibold
-                Width: =Parent.Width - 48
-                Wrap: =false
-                X: =24
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue29 As Toggle:
-                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
-                Checked: =Parent.Default
-                DisplayMode: =Parent.DisplayMode
-                Height: =32
-                Label: =""
-                OnCheck: =false
-                OnUncheck: =false
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey46.Y + DataCardKey46.Height + 4
-                ZIndex: =2
-
-            ErrorMessage44 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: =Parent.Error
-                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                Width: =Parent.Width - 48
-                Wrap: =true
-                X: =24
-                Y: =DataCardValue29.Y + DataCardValue29.Height
-                ZIndex: =3
-
-            StarVisible44 As Text:
-                Align: ='TextCanvas.Align'.Center
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                X: =0
-                Y: =DataCardKey46.Y
-                ZIndex: =4
-
         "'Workshop/Tech Training_DataCard1' As typedDataCard.fluentV9ToggleEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="Workshop_x002f_TechTraining"
@@ -1170,82 +1353,22 @@ ViewUnSignedAPF As screen:
                 Y: =DataCardKey47.Y
                 ZIndex: =4
 
-        "'Projected Primary Audience_DataCard1' As typedDataCard.fluentV9NumberEditCard":
+        "'Social Events_DataCard1' As typedDataCard.fluentV9ToggleEditCard":
             BorderStyle: =BorderStyle.Solid
-            DataField: ="ProjectedPrimaryAudience"
-            Default: =ThisItem.'Projected Primary Audience'
+            DataField: ="SocialEvents"
+            Default: =ThisItem.'Social Events'
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'ProjectedPrimaryAudience')
+            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'SocialEvents')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =70
             Required: =false
-            Update: =Value(DataCardValue34.Value)
-            Width: =455
-            X: =1
-            Y: =4
-            ZIndex: =1
-
-            DataCardKey51 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =22
-                Text: =Parent.DisplayName
-                Weight: ='TextCanvas.Weight'.Semibold
-                Width: =Parent.Width - 48
-                Wrap: =false
-                X: =24
-                Y: =10
-                ZIndex: =1
-
-            "DataCardValue34 As 'Text input'":
-                AccessibleLabel: =Parent.DisplayName
-                DisplayMode: =Parent.DisplayMode
-                Height: =32
-                Required: =Parent.Required
-                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                Value: =Parent.Default
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey51.Y + DataCardKey51.Height + 4
-                ZIndex: =2
-
-            ErrorMessage48 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: =Parent.Error
-                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                Width: =Parent.Width - 48
-                Wrap: =true
-                X: =24
-                Y: =DataCardValue34.Y + DataCardValue34.Height
-                ZIndex: =3
-
-            StarVisible48 As Text:
-                Align: ='TextCanvas.Align'.Center
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                X: =0
-                Y: =DataCardKey51.Y
-                ZIndex: =4
-
-        "'Projected Secondary Audience_DataCard1' As typedDataCard.fluentV9NumberEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="ProjectedSecondaryAudience"
-            Default: =ThisItem.'Projected Secondary Audience'
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'ProjectedSecondaryAudience')
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =70
-            Required: =false
-            Update: =Value(DataCardValue35.Value)
+            Update: =DataCardValue29.Checked
             Width: =455
             X: =0
-            Y: =5
+            Y: =10
             ZIndex: =1
 
-            DataCardKey52 As Text:
+            DataCardKey46 As Text:
                 DisplayMode: =DisplayMode.Edit
                 Height: =22
                 Text: =Parent.DisplayName
@@ -1256,19 +1379,20 @@ ViewUnSignedAPF As screen:
                 Y: =10
                 ZIndex: =1
 
-            "DataCardValue35 As 'Text input'":
-                AccessibleLabel: =Parent.DisplayName
+            DataCardValue29 As Toggle:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                Checked: =Parent.Default
                 DisplayMode: =Parent.DisplayMode
                 Height: =32
-                Required: =Parent.Required
-                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                Value: =Parent.Default
+                Label: =""
+                OnCheck: =false
+                OnUncheck: =false
                 Width: =Parent.Width - 48
                 X: =24
-                Y: =DataCardKey52.Y + DataCardKey52.Height + 4
+                Y: =DataCardKey46.Y + DataCardKey46.Height + 4
                 ZIndex: =2
 
-            ErrorMessage49 As Text:
+            ErrorMessage44 As Text:
                 DisplayMode: =DisplayMode.Edit
                 Height: =30
                 Text: =Parent.Error
@@ -1276,10 +1400,10 @@ ViewUnSignedAPF As screen:
                 Width: =Parent.Width - 48
                 Wrap: =true
                 X: =24
-                Y: =DataCardValue35.Y + DataCardValue35.Height
+                Y: =DataCardValue29.Y + DataCardValue29.Height
                 ZIndex: =3
 
-            StarVisible49 As Text:
+            StarVisible44 As Text:
                 Align: ='TextCanvas.Align'.Center
                 DisplayMode: =DisplayMode.Edit
                 Height: =30
@@ -1287,131 +1411,7 @@ ViewUnSignedAPF As screen:
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                 Width: =30
                 X: =0
-                Y: =DataCardKey52.Y
-                ZIndex: =4
-
-        "'Secondary Audience_DataCard1' As typedDataCard.fluentV9TextualEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="SecondaryAudience"
-            Default: =ThisItem.'Secondary Audience'
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'SecondaryAudience')
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =70
-            MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'SecondaryAudience')
-            Required: =false
-            Update: =DataCardValue36.Value
-            Width: =455
-            X: =2
-            Y: =4
-            ZIndex: =1
-
-            DataCardKey53 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =22
-                Text: =Parent.DisplayName
-                Weight: ='TextCanvas.Weight'.Semibold
-                Width: =Parent.Width - 48
-                Wrap: =false
-                X: =24
-                Y: =10
-                ZIndex: =1
-
-            "DataCardValue36 As 'Text input'":
-                AccessibleLabel: =Parent.DisplayName
-                DisplayMode: =Parent.DisplayMode
-                Height: =32
-                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
-                Required: =Parent.Required
-                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                Value: =Parent.Default
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey53.Y + DataCardKey53.Height + 4
-                ZIndex: =2
-
-            ErrorMessage50 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: =Parent.Error
-                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                Width: =Parent.Width - 48
-                Wrap: =true
-                X: =24
-                Y: =DataCardValue36.Y + DataCardValue36.Height
-                ZIndex: =3
-
-            StarVisible50 As Text:
-                Align: ='TextCanvas.Align'.Center
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                X: =0
-                Y: =DataCardKey53.Y
-                ZIndex: =4
-
-        "'Time of Activity_DataCard2' As typedDataCard.fluentV9TextualEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="TimeofActivity"
-            Default: =ThisItem.'Time of Activity'
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'TimeofActivity')
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =70
-            MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'TimeofActivity')
-            Required: =false
-            Update: =DataCardValue39.Value
-            Width: =455
-            X: =2
-            Y: =3
-            ZIndex: =1
-
-            DataCardKey56 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =22
-                Text: =Parent.DisplayName
-                Weight: ='TextCanvas.Weight'.Semibold
-                Width: =Parent.Width - 48
-                Wrap: =false
-                X: =24
-                Y: =10
-                ZIndex: =1
-
-            "DataCardValue39 As 'Text input'":
-                AccessibleLabel: =Parent.DisplayName
-                DisplayMode: =Parent.DisplayMode
-                Height: =32
-                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
-                Required: =Parent.Required
-                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                Value: =Parent.Default
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey56.Y + DataCardKey56.Height + 4
-                ZIndex: =2
-
-            ErrorMessage52 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: =Parent.Error
-                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                Width: =Parent.Width - 48
-                Wrap: =true
-                X: =24
-                Y: =DataCardValue39.Y + DataCardValue39.Height
-                ZIndex: =3
-
-            StarVisible52 As Text:
-                Align: ='TextCanvas.Align'.Center
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                X: =0
-                Y: =DataCardKey56.Y
+                Y: =DataCardKey46.Y
                 ZIndex: =4
 
         Title_DataCard3 As typedDataCard.fluentV9TextualEditCard:
@@ -1538,68 +1538,6 @@ ViewUnSignedAPF As screen:
                 Y: =DataCardKey18.Y
                 ZIndex: =4
 
-        "'Target Date_DataCard1' As typedDataCard.fluentV9DateEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="Target_x0020_Date"
-            Default: =ThisItem.'Target Date'
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'Target_x0020_Date')
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =7
-            Required: =false
-            Update: =DataCardValue4.SelectedDate
-            Width: =455
-            X: =2
-            Y: =2
-            ZIndex: =2
-
-            DataCardKey23 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =22
-                Text: =Parent.DisplayName
-                Weight: ='TextCanvas.Weight'.Semibold
-                Width: =Parent.Width - 48
-                Wrap: =false
-                X: =24
-                Y: =10
-                ZIndex: =1
-
-            "DataCardValue4 As 'Date picker'":
-                AccessibleLabel: =Parent.DisplayName
-                DisplayMode: =Parent.DisplayMode
-                EndDate: =Date(Year(Today())+100, 12, 31)
-                Height: =32
-                Required: =Parent.Required
-                SelectedDate: =Parent.Default
-                StartDate: =Date(1900, 1, 1)
-                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey23.Y + DataCardKey23.Height + 4
-                ZIndex: =2
-
-            ErrorMessage23 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: =Parent.Error
-                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                Width: =Parent.Width - 48
-                Wrap: =true
-                X: =24
-                Y: =DataCardValue4.Y + DataCardValue4.Height
-                ZIndex: =3
-
-            StarVisible23 As Text:
-                Align: ='TextCanvas.Align'.Center
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                X: =0
-                Y: =DataCardKey23.Y
-                ZIndex: =4
-
         "'Lead Organizer_DataCard1' As typedDataCard.fluentV9TextualEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="LeadOrganizer"
@@ -1662,68 +1600,6 @@ ViewUnSignedAPF As screen:
                 Y: =DataCardKey24.Y
                 ZIndex: =4
 
-        "'Primary Audience_DataCard1' As typedDataCard.fluentV9TextualEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="PrimaryAudience"
-            Default: =ThisItem.'Primary Audience'
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'PrimaryAudience')
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =70
-            MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'PrimaryAudience')
-            Required: =false
-            Update: =DataCardValue8.Value
-            Width: =455
-            X: =0
-            Y: =4
-            ZIndex: =2
-
-            DataCardKey27 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =22
-                Text: =Parent.DisplayName
-                Weight: ='TextCanvas.Weight'.Semibold
-                Width: =Parent.Width - 48
-                Wrap: =false
-                X: =24
-                Y: =10
-                ZIndex: =1
-
-            "DataCardValue8 As 'Text input'":
-                AccessibleLabel: =Parent.DisplayName
-                DisplayMode: =Parent.DisplayMode
-                Height: =32
-                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
-                Required: =Parent.Required
-                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                Value: =Parent.Default
-                Width: =Parent.Width - 48
-                X: =24
-                Y: =DataCardKey27.Y + DataCardKey27.Height + 4
-                ZIndex: =2
-
-            ErrorMessage27 As Text:
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: =Parent.Error
-                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                Width: =Parent.Width - 48
-                Wrap: =true
-                X: =24
-                Y: =DataCardValue8.Y + DataCardValue8.Height
-                ZIndex: =3
-
-            StarVisible27 As Text:
-                Align: ='TextCanvas.Align'.Center
-                DisplayMode: =DisplayMode.Edit
-                Height: =30
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                X: =0
-                Y: =DataCardKey27.Y
-                ZIndex: =4
-
         "'Venue/Platform_DataCard2' As typedDataCard.fluentV9TextualEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="Venue_x002f_Platform"
@@ -1784,6 +1660,130 @@ ViewUnSignedAPF As screen:
                 Width: =30
                 X: =0
                 Y: =DataCardKey28.Y
+                ZIndex: =4
+
+        "'Target Date_DataCard1' As typedDataCard.fluentV9DateEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Target_x0020_Date"
+            Default: =ThisItem.'Target Date'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'Target_x0020_Date')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =7
+            Required: =false
+            Update: =DataCardValue4.SelectedDate
+            Width: =455
+            X: =2
+            Y: =2
+            ZIndex: =2
+
+            DataCardKey23 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            "DataCardValue4 As 'Date picker'":
+                AccessibleLabel: =Parent.DisplayName
+                DisplayMode: =Parent.DisplayMode
+                EndDate: =Date(Year(Today())+100, 12, 31)
+                Height: =32
+                Required: =Parent.Required
+                SelectedDate: =Parent.Default
+                StartDate: =Date(1900, 1, 1)
+                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey23.Y + DataCardKey23.Height + 4
+                ZIndex: =2
+
+            ErrorMessage23 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue4.Y + DataCardValue4.Height
+                ZIndex: =3
+
+            StarVisible23 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey23.Y
+                ZIndex: =4
+
+        "'Primary Audience_DataCard1' As typedDataCard.fluentV9TextualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="PrimaryAudience"
+            Default: =ThisItem.'Primary Audience'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'APF Uploads'],DataSourceInfo.DisplayName,'PrimaryAudience')
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            MaxLength: =DataSourceInfo([@'APF Uploads'], DataSourceInfo.MaxLength, 'PrimaryAudience')
+            Required: =false
+            Update: =DataCardValue8.Value
+            Width: =455
+            X: =0
+            Y: =4
+            ZIndex: =2
+
+            DataCardKey27 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =22
+                Text: =Parent.DisplayName
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =Parent.Width - 48
+                Wrap: =false
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            "DataCardValue8 As 'Text input'":
+                AccessibleLabel: =Parent.DisplayName
+                DisplayMode: =Parent.DisplayMode
+                Height: =32
+                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                Required: =Parent.Required
+                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                Value: =Parent.Default
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey27.Y + DataCardKey27.Height + 4
+                ZIndex: =2
+
+            ErrorMessage27 As Text:
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue8.Y + DataCardValue8.Height
+                ZIndex: =3
+
+            StarVisible27 As Text:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey27.Y
                 ZIndex: =4
 
     ButtonContainer As groupContainer.horizontalAutoLayoutContainer:

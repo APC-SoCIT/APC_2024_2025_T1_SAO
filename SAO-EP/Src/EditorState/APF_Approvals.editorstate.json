@@ -1420,7 +1420,7 @@
       "MetaDataIDKey": "%ReviewersGallery.ID%",
       "Name": "ApprovalsHistoryGallery",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1805,7 +1805,7 @@
       "MetaDataIDKey": "",
       "Name": "AYFilterCont_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2003,7 +2003,7 @@
       "MetaDataIDKey": "",
       "Name": "ButtonCanvas2_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3696,7 +3696,7 @@
       "MetaDataIDKey": "%TemplateBrowseGalleryNextIcon.ID%",
       "Name": "NextArrow5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3952,7 +3952,7 @@
       "MetaDataIDKey": "",
       "Name": "OrgFilterCont_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4221,7 +4221,7 @@
       "MetaDataIDKey": "",
       "Name": "OrgSelectorApprovals",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5635,7 +5635,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas11",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5842,7 +5842,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas12_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5959,7 +5959,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas12_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6162,7 +6162,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6279,7 +6279,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas4",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6386,7 +6386,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

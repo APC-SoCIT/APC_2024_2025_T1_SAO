@@ -71,7 +71,7 @@
       "MetaDataIDKey": "",
       "Name": "Academic Competition_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 21,
+      "ParentIndex": 22,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -960,7 +960,7 @@
       "MetaDataIDKey": "",
       "Name": "Community Ext_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 25,
+      "ParentIndex": 26,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1106,7 +1106,7 @@
       "MetaDataIDKey": "",
       "Name": "Container21_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1429,7 +1429,7 @@
       "MetaDataIDKey": "",
       "Name": "Culture & Arts_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 22,
+      "ParentIndex": 23,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2394,7 +2394,7 @@
       "MetaDataIDKey": "%FieldName.ID%",
       "Name": "DataCardKey24_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2669,7 +2669,7 @@
       "MetaDataIDKey": "%FieldName.ID%",
       "Name": "DataCardKey25_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 8,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9544,7 +9544,7 @@
       "MetaDataIDKey": "%FieldName.ID%",
       "Name": "DataCardKey51_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -15590,7 +15590,7 @@
       "MetaDataIDKey": "%FieldValue.ID%",
       "Name": "DataCardValue34_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -17305,7 +17305,7 @@
       "MetaDataIDKey": "",
       "Name": "DatePickerCanvas3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -25629,7 +25629,7 @@
       "MetaDataIDKey": "%ErrorMessage.ID%",
       "Name": "ErrorMessage51_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -25912,7 +25912,7 @@
       "MetaDataIDKey": "",
       "Name": "External Co-org_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 17,
+      "ParentIndex": 18,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -26060,7 +26060,7 @@
       "MetaDataIDKey": "",
       "Name": "Games & Sports_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 23,
+      "ParentIndex": 24,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -26265,7 +26265,7 @@
       "MetaDataIDKey": "",
       "Name": "HourValue1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -26616,7 +26616,7 @@
       "MetaDataIDKey": "",
       "Name": "HourValue1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -26910,7 +26910,7 @@
       "MetaDataIDKey": "",
       "Name": "In Campus_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 14,
+      "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -27058,7 +27058,7 @@
       "MetaDataIDKey": "",
       "Name": "Industry Linkages_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 28,
+      "ParentIndex": 29,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -27206,7 +27206,7 @@
       "MetaDataIDKey": "",
       "Name": "Internal Co-Org_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 16,
+      "ParentIndex": 17,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -27967,7 +27967,7 @@
       "MetaDataIDKey": "",
       "Name": "Leadership Training_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 20,
+      "ParentIndex": 21,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -28084,7 +28084,7 @@
       "MetaDataIDKey": "",
       "Name": "MainBodyCont",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -28252,7 +28252,7 @@
       "MetaDataIDKey": "",
       "Name": "Marketing_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 27,
+      "ParentIndex": 28,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -28422,7 +28422,7 @@
       "MetaDataIDKey": "",
       "Name": "MinuteValue1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -28738,7 +28738,7 @@
       "MetaDataIDKey": "",
       "Name": "MinuteValue1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -30035,7 +30035,7 @@
       "MetaDataIDKey": "",
       "Name": "Off Campus_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 15,
+      "ParentIndex": 16,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -30614,7 +30614,7 @@
       "MetaDataIDKey": "",
       "Name": "Rectangle6_13",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -30904,7 +30904,7 @@
       "MetaDataIDKey": "",
       "Name": "Religious/Spiritual_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 24,
+      "ParentIndex": 25,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -31144,7 +31144,7 @@
       "MetaDataIDKey": "",
       "Name": "Runner",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -31530,7 +31530,7 @@
       "MetaDataIDKey": "",
       "Name": "Seminar/Webinar/Symposium/Forum_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 19,
+      "ParentIndex": 20,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -31669,7 +31669,7 @@
       "MetaDataIDKey": "",
       "Name": "Separator2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -31938,7 +31938,7 @@
       "MetaDataIDKey": "",
       "Name": "Separator2_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -32216,7 +32216,7 @@
       "MetaDataIDKey": "",
       "Name": "Social Events_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 26,
+      "ParentIndex": 27,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -32363,7 +32363,7 @@
       "MetaDataIDKey": "%FieldRequired.ID%",
       "Name": "StarVisible17_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -33202,7 +33202,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas17",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -33299,7 +33299,7 @@
       "MetaDataIDKey": "",
       "Name": "TextCanvas17_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -34055,7 +34055,7 @@
       "MetaDataIDKey": "",
       "Name": "VE_HeaderContainer_2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 8,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -34256,7 +34256,7 @@
       "MetaDataIDKey": "",
       "Name": "Venue/Platform_DataCard2_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 29,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -34409,7 +34409,7 @@
       "MetaDataIDKey": "",
       "Name": "Workshop/Tech Training_DataCard1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 18,
+      "ParentIndex": 19,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
