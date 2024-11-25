@@ -16,17 +16,14 @@ NewAPFFormScreen1 As screen:
                 'Title'
             )
         );
-        
         Set(
             EventNumber,
-            Value(
-                Right(
-                    Match(
-                        EventTitle,
-                        "\d+"
-                    ).FullMatch,
-                    1
-                )
+            Right(
+                Match(
+                    EventTitle,
+                    "\d+"
+                ).FullMatch,
+                2
             )
         );
 
@@ -215,9 +212,16 @@ NewAPFFormScreen1 As screen:
 
                     DataCardValue2_4 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: |+
-                            =Concatenate(First(Split(EventTitle, EventNumber)).Value, EventNumber+1)
-                            
+                        Default: |-
+                            =Concatenate(
+                                First(
+                                    Split(
+                                        EventTitle,
+                                        Value(EventNumber)
+                                    )
+                                ).Value,
+                                EventNumber + 1
+                            )
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         MaxLength: =Parent.MaxLength
