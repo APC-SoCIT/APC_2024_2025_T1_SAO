@@ -1,5 +1,34 @@
 NewAPFFormScreen1 As screen:
-    OnVisible: =Set(isSelectingUpload,false);
+    OnVisible: |
+        =Set(
+            isSelectingUpload,
+            false
+        );
+        Set(
+            EventTitle,
+            LookUp(
+                Sort(
+                    'APF Uploads',
+                    ID,
+                    SortOrder.Descending
+                ),
+                'Name of Lead Org' = CurrentUserOrg.orgAcronym,
+                'Title'
+            )
+        );
+        
+        Set(
+            EventNumber,
+            Value(
+                Right(
+                    Match(
+                        EventTitle,
+                        "\d+"
+                    ).FullMatch,
+                    1
+                )
+            )
+        );
 
     Container21_1 As groupContainer.horizontalAutoLayoutContainer:
         DropShadow: =DropShadow.Regular
@@ -186,7 +215,9 @@ NewAPFFormScreen1 As screen:
 
                     DataCardValue2_4 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =LookUp(Sort('APF Uploads', ID ,SortOrder.Descending),'Name of Lead Org' = CurrentUserOrg.orgAcronym, 'Title')
+                        Default: |+
+                            =Concatenate(First(Split(EventTitle, EventNumber)).Value, EventNumber+1)
+                            
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         MaxLength: =Parent.MaxLength
