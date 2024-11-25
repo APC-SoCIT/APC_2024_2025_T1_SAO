@@ -203,7 +203,7 @@ NewAPFFormScreen1 As screen:
                     DataCardKey14_1 As label:
                         AutoHeight: =true
                         Height: =34
-                        Text: =If(Parent.Required, "* ") & Parent.DisplayName
+                        Text: =If(Parent.Required, "* ") & "Event Number"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
