@@ -122,6 +122,7 @@ NewAPFFormScreen1 As screen:
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
                 NumberOfColumns: =1
+                OnFailure: =Notify(NewAPF_Form_1.Error, NotificationType.Error)
                 OnSuccess: |-
                     =ResetForm(NewAPF_Form_1); 
                     Navigate(APF_Approvals)
