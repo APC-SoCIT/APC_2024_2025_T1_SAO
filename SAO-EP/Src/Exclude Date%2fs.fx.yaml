@@ -1,5 +1,5 @@
 "'Exclude Date/s' As screen":
-    OnVisible: =Set(AddNewDateBlocker, false)
+    OnVisible: =Set(AddNewDateBlocker, false);
 
     HP_TSKBR_3 As TSKBR:
         NavigationItems: =gblNavItems
@@ -46,7 +46,7 @@
             DataSource: =[@BlockedDates]
             DefaultMode: =If(newMode, FormMode.New, editMode, FormMode.Edit, FormMode.View)
             Item: =RecordsGallery1_1.Selected
-            LayoutMinHeight: =210
+            LayoutMinHeight: =230
             LayoutMinWidth: =400
             NumberOfColumns: =1
             OnFailure: =Notify("Cannot save. Please check if there are errors in the form.", NotificationType.Error)
@@ -173,7 +173,7 @@
                 DisplayMode: =Parent.DisplayMode
                 DisplayName: =DataSourceInfo([@BlockedDates],DataSourceInfo.DisplayName,'Date')
                 Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
+                Height: =100
                 Required: =false
                 Update: =DataCardValue3_1.SelectedDate
                 Width: =497
@@ -216,11 +216,25 @@
                     HoverDateFill: =RGBA(184, 187, 184, 1)
                     IconBackground: =RGBA(0, 120, 212, 1)
                     IsEditable: =true
+                    OnChange: |
+                        =If(
+                            DataCardValue3_1.SelectedDate < Today(),
+                            Set(DateErrorMessageVisible,true);
+                            Reset(DataCardValue3_1),
+                            Set(DateErrorMessageVisible,false);
+                        );
+                        
+                        If(
+                            DataCardValue3_1.SelectedDate in ShowColumns(BlockedDates, Date),
+                            Set(DateBlockedMsg,true);
+                            Reset(DataCardValue3_1),
+                            Set(DateBlockedMsg,false);
+                        );
                     PaddingBottom: =0
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     SelectedDateFill: =RGBA(0, 120, 212, 1)
                     Size: =13
-                    StartYear: =1899
+                    StartYear: =2000
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
@@ -243,8 +257,8 @@
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =13
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Text: =Text("Invalid Date, please pick a date on or before today")
+                    Visible: =If(DateErrorMessageVisible && DateBlockerForm.Mode =1, true, false)
                     Width: =Parent.Width - 60
                     X: =30
                     Y: =DataCardValue3_1.Y + DataCardValue3_1.Height
@@ -270,6 +284,29 @@
                     Y: =DataCardKey3_1.Y
                     ZIndex: =4
 
+                ErrorMessage3_4 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(168, 0, 0, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =Text("Date blocked, please select another Date.")
+                    Visible: =If(DateBlockedMsg && DateBlockerForm.Mode =1, true, false)
+                    Width: =Parent.Width - 60
+                    X: =40
+                    Y: =DataCardValue3_1.Y + DataCardValue3_1.Height
+                    ZIndex: =5
+
         AddNewDateBlock As Button:
             AlignInContainer: =AlignInContainer.Center
             DisplayMode: =If(AddNewDateBlocker, DisplayMode.Disabled, DisplayMode.Edit)
@@ -279,7 +316,7 @@
             LayoutMinWidth: =96
             OnSelect: |-
                 =Set(AddNewDateBlocker, true);
-                UpdateContext({DateBlockerForm: newMode});
+                UpdateContext({newMode: true});
             PaddingTop: =
             Text: ="Add New"
             Visible: =true
@@ -302,7 +339,11 @@
             Height: =32
             LayoutMinHeight: =30
             LayoutMinWidth: =96
-            OnSelect: =SubmitForm(DateBlockerForm)
+            OnSelect: |
+                =Set(AddNewDateBlocker, false);
+                SubmitForm(DateBlockerForm);
+                UpdateContext({editMode: false, newMode: false});
+                ResetForm(DateBlockerForm)
             PaddingBottom: =
             PaddingTop: =
             Text: ="Submit"
@@ -467,7 +508,8 @@
                 HoverFill: =RGBA(0, 0, 0, 0)
                 Icon: =Icon.Edit
                 OnSelect: |-
-                    =UpdateContext({ editMode: true, selectedRecord: RecordsGallery1_1.Selected })
+                    =UpdateContext({ editMode: true, selectedRecord: RecordsGallery1_1.Selected });
+                    Set(AddNewDateBlocker,true);
                 PaddingBottom: =12
                 PaddingLeft: =12
                 PaddingRight: =12
@@ -531,4 +573,93 @@
             BlockedDates: =BlockedDates
             CalendarItems: =CalDeets
             SelectedDateFill: =RGBA(39, 113, 194, 1)
+            ZIndex: =2
+
+    DeleteConfirmDialogContainer1_1 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(214, 221, 224, 1)
+        Height: =640
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =If(deleteMode, true, false)
+        Width: =700
+        X: =615
+        Y: =94
+        ZIndex: =4
+
+        ConfirmDeletionLabel1_1 As label:
+            Align: =Align.Center
+            AlignInContainer: =AlignInContainer.Stretch
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(50, 49, 48, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(161, 159, 157, 1)
+            FillPortions: =1
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Size: =20
+            Text: ="Are you sure you want to delete this record?"
+            VerticalAlign: =VerticalAlign.Bottom
+            ZIndex: =26
+
+        ConfirmDeleteButtonBarContainer1_1 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            LayoutGap: =15
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutWrap: =true
+            ZIndex: =27
+
+            CancelDeleteButton1_1 As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(161, 159, 157, 1)
+                DisabledFill: =RGBA(242, 242, 241, 0)
+                Fill: =RGBA(0, 120, 212, 1)
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverFill: =RGBA(16, 110, 190, 1)
+                OnSelect: |-
+                    =UpdateContext({ deleteMode: false, deleteCancelled: true })
+                PressedBorderColor: =RGBA(0, 69, 120, 1)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(16, 110, 190, 1)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Text: ="Cancel"
+                ZIndex: =28
+
+            ConfirmDeleteButton1_1 As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(161, 159, 157, 1)
+                DisabledFill: =RGBA(242, 242, 241, 0)
+                Fill: =RGBA(0, 120, 212, 1)
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverFill: =RGBA(16, 110, 190, 1)
+                OnSelect: |-
+                    =Remove([@BlockedDates], selectedRecord); If(IsEmpty(Errors([@BlockedDates], selectedRecord)), UpdateContext( { CurrentItem: First([@BlockedDates]), itemSelected: false, editMode: false, newMode: false, deleteMode: false }));
+                PressedBorderColor: =RGBA(0, 69, 120, 1)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(16, 110, 190, 1)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Text: ="Delete"
+                ZIndex: =29
 
