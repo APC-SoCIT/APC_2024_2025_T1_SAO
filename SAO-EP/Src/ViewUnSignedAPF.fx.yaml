@@ -1903,9 +1903,10 @@ ViewUnSignedAPF As screen:
                     Height: =32
                     LayoutMinHeight: =32
                     LayoutMinWidth: =96
-                    OnSelect: |
+                    OnSelect: |-
                         =Set(openApprovalScreen, false);
                         ChangeApprovalStatus.Run(CurrentAPF_ID, CurrentUser.userRoles.Id, DropdownCanvas1.Selected.Value, CurrentAPFOrgAdviser.userEmail, CurrentSAOHead.userEmail, {text_1:TextInputCanvas1.Value});
+                        Navigate(APF_Approvals);
                     PaddingTop: =
                     Text: ="Confirm"
                     Width: =96
