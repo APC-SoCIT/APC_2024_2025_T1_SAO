@@ -213,14 +213,26 @@ NewAPFFormScreen1 As screen:
                     DataCardValue2_4 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: |-
-                            =Concatenate(
-                                First(
-                                    Split(
-                                        EventTitle,
-                                        Value(EventNumber)
-                                    )
-                                ).Value,
-                                EventNumber + 1
+                            =If(
+                                Value(EventNumber) < 9,
+                                Concatenate(
+                                    First(
+                                        Split(
+                                            EventTitle,
+                                            Value(EventNumber)
+                                        )
+                                    ).Value,
+                                    EventNumber + 1
+                                ),
+                                Concatenate(
+                                    First(
+                                        Split(
+                                            EventTitle,
+                                            EventNumber
+                                        )
+                                    ).Value,
+                                    EventNumber + 1
+                                )
                             )
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
