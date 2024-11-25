@@ -1,4 +1,5 @@
 "'Exclude Date/s' As screen":
+    OnVisible: =Set(AddNewDateBlocker, false)
 
     HP_TSKBR_3 As TSKBR:
         NavigationItems: =gblNavItems
@@ -269,6 +270,31 @@
                     Y: =DataCardKey3_1.Y
                     ZIndex: =4
 
+        AddNewDateBlock As Button:
+            AlignInContainer: =AlignInContainer.Center
+            DisplayMode: =If(AddNewDateBlocker, DisplayMode.Disabled, DisplayMode.Edit)
+            FillPortions: =0.06
+            Height: =32
+            LayoutMinHeight: =30
+            LayoutMinWidth: =96
+            OnSelect: |-
+                =Set(AddNewDateBlocker, true);
+                UpdateContext({DateBlockerForm: newMode});
+            PaddingTop: =
+            Text: ="Add New"
+            Visible: =true
+            Width: =96
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        Rectangle13_1 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =10
+            Width: =Parent.Width
+            ZIndex: =4
+
         SubmitFormDateBlock As Button:
             AlignInContainer: =AlignInContainer.Center
             DisplayMode: =DisplayMode.Edit
@@ -277,19 +303,21 @@
             LayoutMinHeight: =30
             LayoutMinWidth: =96
             OnSelect: =SubmitForm(DateBlockerForm)
+            PaddingBottom: =
             PaddingTop: =
             Text: ="Submit"
+            Visible: =AddNewDateBlocker
             Width: =96
             X: =0
             Y: =0
-            ZIndex: =4
+            ZIndex: =5
 
         Rectangle13 As rectangle:
             BorderColor: =RGBA(0, 0, 0, 0)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =30
             Width: =Parent.Width
-            ZIndex: =5
+            ZIndex: =6
 
         SearchContainer1_1 As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
@@ -305,7 +333,7 @@
             PaddingLeft: =10
             Width: |
                 =Parent.Width-20
-            ZIndex: =6
+            ZIndex: =7
 
             SearchInput1_1 As text:
                 BorderStyle: =BorderStyle.None

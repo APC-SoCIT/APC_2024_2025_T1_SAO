@@ -1880,6 +1880,8 @@ ViewUnSignedAPF As screen:
                 "TextInputCanvas1 As 'Text input'":
                     DisplayMode: =DisplayMode.Edit
                     Height: =100
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
                     Mode: ='TextInputCanvas.Mode'.Multiline
                     PaddingBottom: =0
                     Placeholder: ="Enter Reason"
